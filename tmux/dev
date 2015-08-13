@@ -1,0 +1,17 @@
+respawn-window -k
+rename-window "hote"
+
+selectp -t 0
+splitw -h -p 50
+ 
+selectp -t 1
+splitw -v -p 40
+splitw -v -p 15
+selectp -t 0
+splitw -v -p 20
+selectp -t 0
+
+send-keys -R -t 0 'screenfetch' enter
+send-keys -R -t 2 'clear;htop' enter
+send-keys -R -t 3 'clear;monitor' enter
+send-keys -R -t 4 'clear;watch -n2 -t cv' enter
