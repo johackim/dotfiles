@@ -95,7 +95,7 @@ bindsym $mod+eacute workspace 2
 bindsym $mod+quotedbl workspace 3
 bindsym $mod+apostrophe workspace 4
 bindsym $mod+parenleft workspace 5
-#bindsym $mod+minus workspace 6
+bindsym $mod+minus workspace 6
 bindsym $mod+egrave workspace 7
 bindsym $mod+underscore workspace 8
 bindsym $mod+ccedilla workspace 9
@@ -107,7 +107,7 @@ bindsym $mod+Shift+eacute move container to workspace 2
 bindsym $mod+Shift+quotedbl move container to workspace 3
 bindsym $mod+Shift+apostrophe move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
-#bindsym $mod+Shift+minus move container to workspace 6
+bindsym $mod+Shift+minus move container to workspace 6
 bindsym $mod+Shift+egrave move container to workspace 7
 bindsym $mod+Shift+underscore move container to workspace 8
 bindsym $mod+Shift+ccedilla move container to workspace 9
