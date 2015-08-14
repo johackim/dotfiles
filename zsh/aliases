@@ -1,0 +1,130 @@
+alias ll='ls -lFh'
+alias la='ls -A'
+alias l='ls -CF'
+alias cleaner='sudo apt-get autoremove -y && sudo apt-get autoclean -y && sudo apt-get update -y && sudo apt-get upgrade -y;'
+alias shutdown='sudo shutdown -h now'
+alias poogle='ping google.com'
+alias ifconfig-ext='curl ipinfo.io'
+alias getcomposer='curl -sS https://getcomposer.org/installer | php'
+alias th='thunar .'
+alias xclip='xclip -sel clip'
+alias random='mktemp -u | cut -d'.' -f2'
+alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | sed -r "s/\s{2,}//g" | head -n 50'
+alias calc='gcalccmd'
+alias sopcast-player='sopcast-player > /dev/null 2>&1 &'
+alias wifi='sudo iwlist wlan0 scan|grep -i ssid'
+alias scanip='sudo nmap 192.168.1.0/24 -n -sP -PE -T5|grep report'
+alias pourquoi_jai_plus_de_place='sudo apt-get install ncdu && ncdu'
+alias beep='notify-send "Terminal" "Traitement terminé" -i xfce-terminal'
+alias watch-network='sudo watch -n 1 -t lsof -P -i -n'
+function monitor(){ watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$3, \$9}'|column -t";  }
+alias relan='sudo ifdown wlan0;sudo ifup wlan0'
+alias t='tmux -2 attach || tmux -2'
+
+# Git
+alias gitlog='/usr/bin/git log --graph --branches --remotes --tags --format=format:'\''%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'\'''\''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)'\'' --abbrev-commit'
+alias gitfat='git rev-list --all --objects|sed -n $(git rev-list --objects --all|cut -f1 -d" "|git cat-file --batch-check|grep blob|sort -n -k 3|tail -n40|while read hash type size; do echo -n "-e s/$hash/$size/p "; done)|sort -n -k1;'
+alias gitresume='git ls-files --modified|xargs subl'
+function gi() { curl "https://www.gitignore.io/api/$@"; }
+alias git='LANG=en_US.UTF-8 git'
+
+# Docker
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+alias debian="docker run -d --name debian -it debian:latest bash > /dev/null 2>&1; docker exec -it debian bash"
+alias sandbox="docker run -d --name sandbox -it sandbox:latest bash > /dev/null 2>&1; docker exec -it sandbox bash"
+
+# Youtube-dl 
+function streamer() {
+    youtube-dl -o - "$1" | vlc - 
+}
+function streamer-proxy() {
+    youtube-dl --proxy 'http://127.0.0.1:8080' -o - "$1" | vlc -
+}
+alias delegate="dg9_9_13 -P8080 SERVER=http SOCKS=127.0.0.1:7171 ADMIN='local@localhost.com'"
+alias youtube-proxy="youtube-dl --proxy 'http://127.0.0.1:8080' $1"
+function ydl(){
+    delegate -P8080 SERVER=http SOCKS=127.0.0.1:7171 ADMIN="local@localhost.com"
+}
+
+# Vagrant
+ubuntu(){
+    cd "VirtualBox VMs/Vagrant/ubuntu"
+    if [ "$1" == 'halt' ]; then 
+        vagrant halt 
+    else 
+        vagrant up
+        vagrant ssh
+        # cd -
+        # sshpass -p vagrant ssh -X vagrant@127.0.0.1 -p 2200
+    fi
+}
+
+extract(){
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar xjf $1     ;;
+        *.tar.gz)    tar xzf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xf $1      ;;
+        *.tbz2)      tar xjf $1     ;;
+        *.tgz)       tar xzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)     echo "'$1' cannot be extracted via extract()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+find_extension(){
+    find . -type f | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
+}
+
+addport(){
+    if [ -n "$1" ] && [ -n "$2" ]; then
+        if [ "$(echo $2 | grep "^[ [:digit:] ]*$")" ]; then
+            
+            if [ -z "$3" ]; then
+                case $1 in
+                    OUTPUT | INPUT) sudo iptables -A $1 -p tcp --dport $2 -j ACCEPT ;;
+                    *) echo "Erreur - Premier parametre : OUTPUT|INPUT" ;;
+                esac
+            else
+                case $3 in
+                    ACCEPT | DROP) sudo iptables -A $1 -p tcp --dport $2 -j $3 ;;
+                    *) echo "Erreur - Troisieme parametre : ACCEPT|DROP" ;;
+                esac
+            fi                
+        else
+            echo "Erreur - Deuxieme parametre : [0-9]+"
+        fi
+    else
+        echo "Erreur - Il manque des parametres"
+    fi
+}
+
+transfer() {
+    # write to output to tmpfile because of progress bar
+    tmpfile=$( mktemp -t transferXXX )
+    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+    cat $tmpfile;
+    rm -f $tmpfile;
+}
+alias transfer=transfer
+
+function downloadAllDocument(){ wget -H -r -l 1 -nd -A "$2" "$1"; }
+function dlmp3(){ wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off "$1"; }
+function detach() { sudo umount "/dev/$11"; udisks --detach "/dev/$1"; }
+function debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
+
+# The Fuck
+eval "$(thefuck-alias)"
+eval "$(thefuck-alias FUCK)"
+
+# Debug color directory
+eval $(dircolors -b ~/.dircolors)
+
