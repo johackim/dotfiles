@@ -107,15 +107,6 @@ addport(){
     fi
 }
 
-transfer() {
-    # write to output to tmpfile because of progress bar
-    tmpfile=$( mktemp -t transferXXX )
-    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
-    cat $tmpfile;
-    rm -f $tmpfile;
-}
-alias transfer=transfer
-
 function downloadAllDocument(){ wget -H -r -l 1 -nd -A "$2" "$1"; }
 function dlmp3(){ wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off "$1"; }
 function detach() { sudo umount "/dev/$11"; udisks --detach "/dev/$1"; }
