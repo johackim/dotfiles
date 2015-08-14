@@ -58,7 +58,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/zsh/aliases
+source $HOME/.dotfiles/.aliases
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
