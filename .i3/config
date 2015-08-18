@@ -149,7 +149,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status --config ~/.i3/i3status.conf
+        status_command ~/.i3/i3status.sh
             colors {
                 background #000000
                     statusline #ffffff
@@ -162,22 +162,21 @@ bar {
             }
 }
 
-# Tests
+# Edit
 
 client.focused          #4c7899 #00AAAA #ffffff #55FFFF
 client.focused_inactive #333333 #5f676a #ffffff #484e50
 client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
-#client.placeholder      #000000 #0c0c0c #ffffff #000000
 
 exec gnome-settings-daemon
-# exec xfce4-clipman
 exec xfce4-power-manager
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 exec xset -b
 exec synclient TapButton1=1
 exec nm-applet
 exec numlockx on
+exec mpd
 
 hide_edge_borders both
 
@@ -187,13 +186,9 @@ bindsym Control+mod1+l exec "i3lock -t -e -i ~/Images/europe-gray.png"
 bindsym XF86AudioRaiseVolume exec "amixer set Master -q 5%+"
 bindsym XF86AudioLowerVolume exec "amixer set Master -q 5%-"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
-#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-#bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5% #decrease sound volume
-#bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
-bindsym $mod+Control+Up exec "bash ~/bin/rhythmbox-notify"
-bindsym $mod+Control+Down exec "rhythmbox-client --play-pause"
-bindsym $mod+Control+Right exec "rhythmbox-client --next"
-bindsym $mod+Control+Left exec "rhythmbox-client --previous"
+bindsym $mod+Control+Down exec "ncmpcpp toggle"
+bindsym $mod+Control+Right exec "ncmpcpp next"
+bindsym $mod+Control+Left exec "ncmpcpp prev"
 
 # Minimize windows
 bindsym Control+Shift+Down move scratchpad 
