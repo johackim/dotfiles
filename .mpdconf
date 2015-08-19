@@ -1,3 +1,4 @@
+music_directory                 "/media/nocrypt/Musiques"
 playlist_directory              "~/.mpd/playlists"
 db_file                         "~/.mpd/mpd.db"
 log_file                        "~/.mpd/mpd.log"
