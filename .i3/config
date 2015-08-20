@@ -90,9 +90,9 @@ bindsym $mod+q focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+ampersand workspace 1: main
-bindsym $mod+eacute workspace 2: web
-bindsym $mod+quotedbl workspace 3: media
+bindsym $mod+ampersand workspace 1
+bindsym $mod+eacute workspace 2
+bindsym $mod+quotedbl workspace 3
 bindsym $mod+apostrophe workspace 4
 bindsym $mod+parenleft workspace 5
 bindsym $mod+minus workspace 6
@@ -102,9 +102,9 @@ bindsym $mod+ccedilla workspace 9
 bindsym $mod+agrave workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+ampersand move container to workspace 1: main
-bindsym $mod+Shift+eacute move container to workspace 2: web
-bindsym $mod+Shift+quotedbl move container to workspace 3: media
+bindsym $mod+Shift+ampersand move container to workspace 1
+bindsym $mod+Shift+eacute move container to workspace 2
+bindsym $mod+Shift+quotedbl move container to workspace 3
 bindsym $mod+Shift+apostrophe move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+minus move container to workspace 6
@@ -202,11 +202,12 @@ bindsym Control+Shift+Up scratchpad show
 # Floating
 for_window [window_role="pop-up"] floating enable
 for_window [class="Thunar" instance="file_progress"] floating enable
+for_window [class="Thunar"] floating enable
 for_window [class="Chromium"] floating disable
 
 # Assign softwares
-assign [class="Iceweasel|Firefox"] 2: web
-assign [class="Vlc"] 3: media
+assign [class="Iceweasel|Firefox"] 2
+#assign [class="Vlc"] 3
 
 # Screenshot
 bindsym 0xff61 exec scrot  ~/Images/Screens/screenshot_%Y_%m_%d_%H_%M_%S.png
