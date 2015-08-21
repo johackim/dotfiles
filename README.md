@@ -7,7 +7,7 @@ Install
 Change colors
 ---
 
-`find -type f -exec sed -i -e 's/00AAAA/F3CC16/g' {} \;`
+`find -type f -exec sed -i -e 's/00AAAA/F3CC16/g' {} \;`   
 `find -type f -exec sed -i -e 's/cyan/yellow/g' {} \;`
 
 License
