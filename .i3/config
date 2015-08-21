@@ -27,7 +27,8 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvtc --perl-lib ~/.urxvt/perl
 
 # kill focused window
 bindsym $mod+Shift+a kill
@@ -172,6 +173,7 @@ client.urgent           #2f343a #900000 #ffffff #900000
 exec gnome-settings-daemon
 exec xfce4-power-manager
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
+exec urxvtd -o -f -q
 exec xset -b
 exec synclient TapButton1=1
 exec nm-applet
