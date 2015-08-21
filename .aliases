@@ -1,3 +1,5 @@
+# Aliases
+
 alias ll='ls -lFh'
 alias la='ls -A'
 alias l='ls -CF'
@@ -7,7 +9,7 @@ alias poogle='ping google.com'
 alias ifconfig-ext='curl ipinfo.io'
 alias getcomposer='curl -sS https://getcomposer.org/installer | php'
 alias th='thunar .'
-alias xclip='xclip -sel clip'
+#alias xclip='xclip -sel clip'
 alias random='mktemp -u | cut -d'.' -f2'
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | sed -r "s/\s{2,}//g" | head -n 50'
 alias calc='gcalccmd'

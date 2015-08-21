@@ -1,2 +1,3 @@
 tmux/resurrect/
 bin/node_modules/
+.urxvt/urxvtd-debian
