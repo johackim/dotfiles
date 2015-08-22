@@ -115,10 +115,3 @@ function dlmp3(){ wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off "$1"; }
 function detach() { sudo umount "/dev/$11"; udisks --detach "/dev/$1"; }
 function debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
 
-# The Fuck
-eval "$(thefuck-alias)"
-eval "$(thefuck-alias FUCK)"
-
-# Debug color directory
-eval $(dircolors -b ~/.dircolors)
-
