@@ -184,7 +184,7 @@ exec numlockx on
 hide_edge_borders both
 
 # Lock screen
-bindsym Control+mod1+l exec "i3lock -t -e -i ~/Images/europe-gray.png"
+bindsym Control+mod1+l exec "i3lock -t -e -u -i ~/Images/wallpaper.png"
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec "amixer set Master -q 5%+"
