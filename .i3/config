@@ -176,7 +176,7 @@ exec --no-startup-id urxvtd -o -f -q
 exec --no-startup-id xset -b
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id nm-applet
-exec --no-startup-id dunst --config ~/.dunstrc
+#exec --no-startup-id dunst --config ~/.dunstrc
 #exec --no-startup-id numlockx on
 
 # Hide borders
