@@ -171,14 +171,12 @@ client.urgent           #2f343a #900000 #ffffff #900000
 
 # Startup
 exec --no-startup-id setxkbmap fr
-exec gnome-settings-daemon
-exec xfce4-power-manager
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
-exec urxvtd -o -f -q
-exec xset -b
-exec synclient TapButton1=1
-exec nm-applet
-exec numlockx on
+exec --no-startup-id urxvtd -o -f -q
+exec --no-startup-id xset -b
+exec --no-startup-id synclient TapButton1=1
+exec --no-startup-id nm-applet
+#exec --no-startup-id numlockx on
 
 # Hide borders
 hide_edge_borders both
@@ -211,8 +209,7 @@ for_window [class="Chromium"] floating disable
 
 # Assign softwares
 assign [class="Iceweasel|Firefox"] 2
-#assign [class="Vlc"] 3
 
 # Screenshot
-bindsym 0xff61 exec scrot  ~/Images/Screens/screenshot_%Y_%m_%d_%H_%M_%S.png
+bindsym 0xff61 exec scrot ~/Images/Screens/screenshot_%Y_%m_%d_%H_%M_%S.png
 
