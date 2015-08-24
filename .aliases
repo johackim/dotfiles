@@ -22,7 +22,7 @@ alias watch-network='sudo watch -n 1 -t lsof -P -i -n'
 function monitor(){ watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$3, \$9}'|column -t";  }
 alias relan='sudo ifdown wlan0;sudo ifup wlan0'
 #alias t='tmux -2 attach || tmux -2'
-alias t='tmux'
+alias t='tmux attach || tmux'
 
 # Git
 alias gitlog='/usr/bin/git log --graph --branches --remotes --tags --format=format:'\''%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'\'''\''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)'\'' --abbrev-commit'
