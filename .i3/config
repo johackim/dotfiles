@@ -34,7 +34,7 @@ bindsym $mod+Return exec urxvtc --perl-lib ~/.urxvt/perl
 bindsym $mod+Shift+a kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb '#222222' -nf '#FFFFFF' -sb '#00AAAA' -sf '#222222'
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#222222' -nf '#FFFFFF' -sb '#00AAAA' -sf '#222222'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -184,7 +184,7 @@ exec numlockx on
 hide_edge_borders both
 
 # Lock screen
-bindsym Control+mod1+l exec "i3lock -t -e -u -i ~/Images/wallpaper.png"
+bindsym Control+mod1+l exec --no-startup-id "i3lock -t -e -u -i ~/Images/wallpaper.png"
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec "amixer set Master -q 5%+"
