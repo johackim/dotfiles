@@ -15,7 +15,7 @@ notify-program notify-send
 # Colors
 color listnormal          default default 
 color listfocus           black white
-color listfocus_unread    default cyan bold
+color listfocus_unread    black white bold
 color info                default cyan bold
 
 # Keybinding
