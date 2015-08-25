@@ -170,6 +170,7 @@ client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Startup
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id setxkbmap fr
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 exec --no-startup-id urxvtd -o -f -q
@@ -197,6 +198,10 @@ bindsym $mod+Control+Left exec mpc prev
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioStop exec mpc stop
 
+# Brightness controls
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 # Minimize windows
 bindsym Control+Shift+Down move scratchpad 
 bindsym Control+Shift+Up scratchpad show
@@ -207,6 +212,7 @@ for_window [class="Thunar" instance="file_progress"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Mousepad"] floating enable
 for_window [class="Chromium"] floating disable
+for_window [class="Iceweasel|Firefox" instance="Places"] floating enable
 for_window [class="Wine"] floating disable
 
 # Assign softwares

@@ -110,7 +110,7 @@ addport(){
     fi
 }
 
-function downloadAllDocument(){ wget -H -r -l 1 -nd -A "$2" "$1"; }
+function downloadAllDocument(){ wget --no-check-certificate -H -r -l 1 -nd -A "$2" "$1"; }
 function dlmp3(){ wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off "$1"; }
 function detach() { sudo umount "/dev/$11"; udisks --detach "/dev/$1"; }
 function debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
