@@ -13,7 +13,8 @@ notify-format "newsbeuter: %n unread articles within %f unread feeds"
 notify-program notify-send
 
 # Colors
-color listfocus           default cyan
+color listnormal          default default 
+color listfocus           white cyan bold
 color listfocus_unread    default cyan bold
 color info                default cyan bold
 
