@@ -1,3 +1,4 @@
 tmux/resurrect/
 bin/node_modules/
+.config/systemd/user/default.target.wants/
 .urxvt/urxvtd-debian
