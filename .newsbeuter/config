@@ -1,0 +1,28 @@
+# General
+auto-reload yes
+refresh-on-startup yes
+confirm-exit yes
+reload-time 120
+browser firefox
+player vlc
+article-sort-order date-asc
+
+# Notification
+notify-always yes
+notify-format "newsbeuter: %n unread articles within %f unread feeds"
+notify-program notify-send
+
+# Colors
+color listfocus           default cyan
+color listfocus_unread    default cyan bold
+color info                default cyan bold
+
+# Keybinding
+bind-key k up
+bind-key j down
+bind-key q quit
+bind-key d mark-feed-read
+bind-key D mark-all-feeds-read
+unbind-key l
+bind-key l open
+
