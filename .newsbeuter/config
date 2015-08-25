@@ -2,7 +2,7 @@
 auto-reload yes
 refresh-on-startup yes
 confirm-exit yes
-reload-time 120
+reload-time 30
 browser firefox
 player vlc
 article-sort-order date-asc
@@ -22,8 +22,6 @@ color info                default cyan bold
 bind-key k up
 bind-key j down
 bind-key q quit
-bind-key d mark-feed-read
-bind-key D mark-all-feeds-read
 unbind-key l
 bind-key l open
-
+bind-key m toggle-show-read-feeds
