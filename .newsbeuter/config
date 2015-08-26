@@ -6,6 +6,7 @@ reload-time 30
 browser firefox
 player vlc
 article-sort-order date-asc
+error-log "~/.newsbeuter/error.log"
 
 # Notification
 notify-always yes
@@ -25,3 +26,7 @@ bind-key q quit
 unbind-key l
 bind-key l open
 bind-key m toggle-show-read-feeds
+
+# Filters
+ignore-article "http://www.feedcombine.com/rss/6230/ebooks.xml" "title !~ \"linux\" and content !~ \"linux\""
+
