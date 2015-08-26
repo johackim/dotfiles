@@ -187,16 +187,16 @@ hide_edge_borders both
 bindsym Control+mod1+l exec --no-startup-id "i3lock -t -e -u -i ~/Images/wallpaper.png"
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec "amixer set Master -q 5%+"
-bindsym XF86AudioLowerVolume exec "amixer set Master -q 5%-"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
-bindsym $mod+Control+Down exec mpc toggle
-bindsym XF86AudioPlay exec mpc toggle
-bindsym $mod+Control+Right exec mpc next
-bindsym XF86AudioNext exec mpc next
-bindsym $mod+Control+Left exec mpc prev
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioStop exec mpc stop
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master -q 5%+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master -q 5%-"
+bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master,0 toggle"
+bindsym $mod+Control+Down exec --no-startup-id mpc toggle
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym $mod+Control+Right exec --no-startup-id mpc next
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym $mod+Control+Left exec --no-startup-id mpc prev
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioStop exec --no-startup-id mpc stop
 
 # Brightness controls
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
