@@ -213,6 +213,7 @@ for_window [class="Thunar"] floating enable
 for_window [class="Mousepad"] floating enable
 for_window [class="Chromium"] floating disable
 for_window [class="Iceweasel|Firefox" instance="Places"] floating enable
+for_window [class="Icedove" instance="Msgcompose"] floating enable
 for_window [class="Wine"] floating disable
 
 # Assign softwares
