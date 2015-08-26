@@ -2,7 +2,7 @@
 mpd_music_dir = "/media/nocrypt/Musiques/"
 playlist_display_mode = "columns"
 song_list_format = "%l | {%a - %t}|{%f} $R %b"
-startup_screen = "5"
+#startup_screen = "5"
 progressbar_look = "─╼─"
 header_visibility = "no"
 colors_enabled = "yes"
