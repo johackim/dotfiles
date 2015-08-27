@@ -218,6 +218,7 @@ for_window [class="Wine"] floating disable
 
 # Assign softwares
 assign [class="Iceweasel|Firefox"] 2
+assign [class="Vlc"] 3
 
 # Screenshot
 bindsym 0xff61 exec scrot ~/Images/Screens/screenshot_%Y_%m_%d_%H_%M_%S.png
