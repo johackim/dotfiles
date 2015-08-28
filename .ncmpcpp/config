@@ -1,10 +1,33 @@
 #ncmpcpp
 mpd_music_dir = "/media/nocrypt/Musiques/"
-playlist_display_mode = "columns"
+locked_screen_width_part = "50"
+ask_for_locked_screen_width_part = "no"
+default_space_mode = "select"
+space_add_mode = "add_remove"
+#mpd_crossfade_time = "5"
+
+# Playlist
 song_list_format = "%l | {%a - %t}|{%f} $R %b"
-#startup_screen = "5"
-progressbar_look = "─╼─"
+song_columns_list_format = "(3f)[default]{nEr} (30)[cyan]{t|f} (25)[green]{a} (25)[default]{bE} (20)[default]{gE}"
+now_playing_prefix = "$b"
+now_playing_suffix = "$/b"
+playlist_display_mode = "columns" (classic/columns)
+autocenter_mode = "yes"
+centered_cursor = "yes"
+
+# Bars
+display_bitrate = "yes"
+progressbar_look = "─╼╌"
+titles_visibility = "no"
 header_visibility = "no"
+#song_status_format = "$8%t $1• $2%a $1•{ $5%b $1• }$7%y$1"
+
+# Browser
+#browser_playlist_prefix = "$2plist »$9 "
+#browser_display_mode = "columns" (classic/columns)
+
+# Colors
+discard_colors_if_item_is_selected = "yes"
 colors_enabled = "yes"
 empty_tag_color = "cyan"
 header_window_color = "white"
@@ -17,7 +40,12 @@ color2 = "cyan"
 main_window_highlight_color = "white"
 progressbar_color = "white"
 statusbar_color = "cyan"
-alternative_ui_separator_color = "black"
 active_column_color = "cyan"
 window_border_color = "white"
 active_window_border = "cyan"
+
+# Others
+#song_window_title_format = "MPD: {%a > }{%t}{ [%b{ Disc %d}]}|{%f}"
+#search_engine_display_mode = "columns" (classic/columns)
+#follow_now_playing_lyrics = "yes"
+
