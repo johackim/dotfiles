@@ -19,7 +19,7 @@ alias scanip='sudo nmap 192.168.1.0/24 -n -sP -PE -T5|grep report'
 alias pourquoi_jai_plus_de_place='sudo apt-get install ncdu && ncdu'
 alias beep='notify-send "Terminal" "Traitement terminé" -i xfce-terminal'
 alias watch-network='sudo watch -n 1 -t lsof -P -i -n'
-function monitor(){ watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$3, \$9}'|column -t";  }
+function monitor(){ watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
 alias relan='sudo ifdown wlan0;sudo ifup wlan0'
 #alias t='tmux -2 attach || tmux -2'
 alias t='tmux attach || tmux'
@@ -113,6 +113,6 @@ addport(){
 
 function downloadAllDocument(){ wget --no-check-certificate -H -r -l 1 -nd -A "$2" "$1"; }
 function dlmp3(){ wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off "$1"; }
-function detach() { sudo umount "/dev/$11"; udisks --detach "/dev/$1"; }
+function detach() { sudo umount "/dev/"$1"1"; udisks --detach "/dev/$1"; } 
 function debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
 
