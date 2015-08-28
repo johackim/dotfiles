@@ -1,6 +1,27 @@
+# Mpd config 
+
 music_directory                 "/media/nocrypt/Musiques"
 playlist_directory              "~/.mpd/playlists"
 db_file                         "~/.mpd/mpd.db"
 log_file                        "~/.mpd/mpd.log"
 pid_file                        "~/.mpd/mpd.pid"
 log_level                       "default"
+
+audio_output {
+    type		"httpd"
+    name		"My HTTP Stream"
+    port		"8000"
+    format		"44100:16:2"
+    always_on   "yes"
+    bitrate		"128"			    # do not define if quality is defined
+    encoder		"lame"		        # optional, vorbis or lame
+    max_clients "0"                 # optional 0=no limit
+    #bind_to_address "0.0.0.0"      # optional, IPv4 or IPv6
+    #quality     "5.0"
+}
+
+audio_output {
+    type "alsa"
+    name "My ALSA Device"
+}
+
