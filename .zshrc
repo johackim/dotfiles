@@ -50,7 +50,7 @@ ZSH_THEME="cyan"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow docker docker-compose node npm nmap grunt httpie vagrant symfony symfony2 rsync pip bower taskwarrior debian archlinux)
+plugins=(git git-flow docker docker-compose node npm nmap grunt httpie vagrant symfony symfony2 rsync pip bower taskwarrior)
 
 # User configuration
 
