@@ -42,8 +42,8 @@ URxvt*colorIT: #00FFFF
 
 URxvt.scrollBar: false
 
-!URxvt.font: xft:Monospace:size=9:pixelsize=10
 URxvt*font: xft:Inconsolata:size=9, xft:Inconsolata for Powerline
+URxvt.cursorBlink: true
 
 URxvt*.transparent: true
 URxvt*.shading: 20
@@ -52,7 +52,7 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.perl-lib: .urxvt/perl
-URxvt.perl-ext-common: default,matcher,clipboard,url-picker
+URxvt.perl-ext-common: default,matcher,clipboard,url-picker,font-size
 
 URxvt.keysym.C-Right: \033[1;5C
 URxvt.keysym.C-Left: \033[1;5D
@@ -63,4 +63,7 @@ URxvt.keysym.C-f: perl:url-picker
 
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
 
