@@ -215,6 +215,7 @@ for_window [class="Chromium"] floating disable
 for_window [class="Iceweasel|Firefox" instance="Places"] floating enable
 for_window [class="Icedove" instance="Msgcompose"] floating enable
 for_window [class="Wine"] floating disable
+for_window [class="Evince"] floating enable
 
 # Assign softwares
 assign [class="Iceweasel|Firefox"] 2
