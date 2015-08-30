@@ -4,6 +4,7 @@ locked_screen_width_part = "50"
 ask_for_locked_screen_width_part = "no"
 default_space_mode = "select"
 space_add_mode = "add_remove"
+default_place_to_search_in "database"
 #mpd_crossfade_time = "5"
 
 # Playlist
