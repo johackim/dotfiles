@@ -170,15 +170,14 @@ client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Startup
-#exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id setxkbmap fr
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 exec --no-startup-id urxvtd -o -f -q
 exec --no-startup-id xset -b
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id nm-applet
-#exec --no-startup-id dunst --config ~/.dunstrc
-#exec --no-startup-id numlockx on
+exec --no-startup-id numlockx on
 
 # Hide borders
 hide_edge_borders both
