@@ -52,7 +52,7 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.perl-lib: .urxvt/perl
-URxvt.perl-ext-common: default,matcher,clipboard,url-picker,font-size
+URxvt.perl-ext-common: default,matcher,clipboard,url-picker,font-size,notify
 
 URxvt.keysym.C-Right: \033[1;5C
 URxvt.keysym.C-Left: \033[1;5D
@@ -66,4 +66,6 @@ URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
+
+URxvt.urgentOnBell: true
 
