@@ -85,3 +85,4 @@ source $HOME/.dotfiles/.aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+eval `dircolors ~/.dir_colors`
