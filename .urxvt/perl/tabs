@@ -1,0 +1,563 @@
+#! perl
+
+=head1 NAME
+tabs - Enhanced tabbed interface for urxvt
+
+=head1 Contact Me
+  Yoran Brault (yoran.brault@arnumeral.fr)
+
+=head1 DESCRIPTION
+
+This transforms the terminal into a tabbar with additional terminals, that
+is, it implements what is commonly referred to as "tabbed terminal".
+
+This implementation is an improved version of original "tabbed" plugin.
+=item * more color control
+=item * provide user action (add tab, rename tab, etc.) instead of hard coding keys.
+=item * ability to manualy rename a tab
+=item * ability to remotely rename a tab user with echo -ne "\033]0;tab name\007"
+=item * ability to remotely add a tab with echo -ne "\033]777;tab-new;-e;zsh\007"
+=item * tab name broadcasted to main terminal title
+=item * tab BELL broadcasted to main terminal
+=item * color indicator of urgency (BELL) for each tab
+
+=head1 CHANGELOG
+
+=head2 Version 1.0
+=item * deep modification of original "tabbed" plugin. Use of some "tabbed_new"
+=item * renaming ideas)
+
+=head2 Version 1.1
+=item * Fix key events lost when host is focused instead of tabs.
+=item * Fix lost sequences (home, menu, etc.) when host is focused instead of tabs.
+
+=head2 Version 1.1
+=item * Code refactoring,
+=item * tab proxy stuff moved to tab class,
+=item * broadcasting of BELL to main terminal.
+
+=head2 Version 1.4
+=item * Enhanced tab renaming using OSC sequence,
+=item * Add an OSC sequence to add a new tab,
+=item * broadcasting of tab title to main terminal.
+
+=head2 Version 1.5
+=item * Enhanced performances
+
+=head2 Version 1.6
+=item * Fix. Custom keysyms was not working when the term has focus but mouse point was not on it.
+=item * Fix. fix. user command wasn't working when mouse cursor was outside the term window AND the window has focus.
+
+=cut
+
+# Main terminal methods {{{1
+# ---------------------------------------------------
+
+# refresh tab bar
+# ---------------------------------------------------
+sub refresh {
+  my ($self) = @_;
+
+  my $nbColumns = $self->ncol;
+  my $nbRows = $self->nrow;
+
+  my $text = ' ' x $nbColumns;
+  my $attributes = [($self->{tabBarColors}) x $nbColumns];
+
+  my @newOffsets;
+  my $tabOffset = 1;
+  my $tabIndex = 1;
+
+  for my $tab (@{$self->{tabs}}) {
+    my $isCurrentTab = $tab == $self->{currentTab};
+    my $isRenamingTab = $self->{tabKeyGrabberMode} == 1 && $isCurrentTab;
+
+    # Tab label
+    my $tabLabel = $tabIndex.':';
+    if ($isRenamingTab) {
+      $tabLabel .= '>'.$tab->{tabRenameLabel}.'<';
+    } else {
+      my $tabName = $tab->{tabUserName} || $tab->{name};
+
+      # Update main terminal title using current tab name
+      if ($isCurrentTab) {
+       $self->cmd_parse("\033]0;$tabName\007");
+      }
+      $tabLabel .= $tabName;
+    }
+    my $tabLabelLen = length($tabLabel);
+
+
+    # Insert tab label in tab bar
+    substr $text, $tabOffset, $tabLabelLen, $tabLabel;
+
+    # Tab label colorization
+    if ($isRenamingTab) {
+      @$attributes[$tabOffset .. $tabOffset + $tabLabelLen - 1] = ($self->{tabColors}) x $tabLabelLen;
+      @$attributes[$tabOffset + $tab->{tabRenamePosition} + 3] = $self->{tabRenameColors};
+    } elsif ($tab == $self->{currentTab}) {
+      @$attributes[$tabOffset .. $tabOffset + $tabLabelLen - 1] = ($self->{tabCurrentColors}) x $tabLabelLen;
+    } elsif ($tab->{urgent} && $tab != $self->{currentTab}) {
+      @$attributes[$tabOffset .. $tabOffset + $tabLabelLen - 1] = ($self->{tabUrgentColors}) x $tabLabelLen;
+    } elsif ($tab->{activity} && $tab != $self->{currentTab}) {
+      @$attributes[$tabOffset .. $tabOffset + $tabLabelLen - 1] = ($self->{tabActivityColors}) x $tabLabelLen;
+    } else {
+      @$attributes[$tabOffset .. $tabOffset + $tabLabelLen - 1] = ($self->{tabColors}) x $tabLabelLen;
+    }
+
+    # Add tab offset to the list
+    push @newOffsets, [ $tabOffset, $tabOffset + $tabLabelLen, sub { $_[0]->setCurrentTab($tab) } ];
+    $tabOffset += $tabLabelLen;
+
+    # Insert divider
+    my $nbTabs = $#{$self->{tabs}}+1;
+    if ($nbTabs!=$tabIndex) {
+      my $dividerLen = length($self->{tabDivider});
+      substr $text, $tabOffset, $dividerLen, $self->{tabDivider};
+      @$attributes[$tabOffset .. $tabOffset + $dividerLen - 1] = ($self->{tabDividerColors}) x $dividerLen;
+      $tabOffset += $dividerLen;
+    }
+    $tabIndex++;
+  }
+
+  # Publish new offsets
+  $self->{tabOffsets} = \@newOffsets;
+
+  # Render tabs
+  if ($self->{tabPosition}==0) {
+    $self->ROW_t(0, $text, 0, 0, $nbColumns);
+    $self->ROW_r(0, $attributes, 0, 0, $nbColumns);
+  } else {
+    $self->ROW_t($nbRows-1, $text, 0, 0, $nbColumns);
+    $self->ROW_r($nbRows-1, $attributes, 0, 0, $nbColumns);
+  }
+  $self->want_refresh;
+}
+
+# Add a new tab
+# ---------------------------------------------------
+sub addNewTab {
+  my ($self, @argv) = @_;
+
+  # Add a new initialization proc for all further terms.
+  push @urxvt::TERM_INIT, sub {
+    my ($term) = @_;
+
+    $term->{parent} = $self;
+
+    for (0 .. urxvt::NUM_RESOURCES - 1) {
+      my $value = $self->{resource}[$_];
+      $term->resource("+$_" => $value) if defined $value;
+    }
+    $term->resource(perl_ext_2 => $term->resource("perl_ext_2") . ",-tabs");
+  };
+
+  # set class for next terms (tabs)
+  push @urxvt::TERM_EXT, urxvt::ext::tabs::tab::;
+  my $term = new urxvt::term $self->env, $urxvt::RXVTNAME, -embed => $self->parent, @argv,;
+}
+
+# Host terminal reconfiguration
+sub reconfigure {
+  my ($term) = @_;
+
+  my $tab = $term->{currentTab};
+
+  if ($term->{tabPosition} == 0) {
+    $tab->XMoveResizeWindow($tab->parent, 0, $term->{tabheight} + 1, $term->width, $term->height - $term->{tabheight});
+    $tab->XMoveResizeWindow($tab->parent, 0, $term->{tabheight},     $term->width, $term->height - $term->{tabheight});
+  } else {
+    my $height = ($term->nrow-1)*$term->fheight;
+    $tab->XMoveResizeWindow($tab->parent, 0, 1, $term->width, $height);
+    $tab->XMoveResizeWindow($tab->parent, 0, 0,  $term->width, $height);
+  }
+}
+
+# Copy properties from host terminal to client tabs
+# ---------------------------------------------------
+sub copyWindowProperties {
+  my ($term) = @_;
+  my $tab = $term->{currentTab};
+  my $wm_normal_hints = $term->XInternAtom("WM_NORMAL_HINTS");
+  my $current = delete $term->{current_properties};
+
+  for my $atom ($tab->XListProperties($tab->parent)) {
+    my ($type, $format, $items) = $term->XGetWindowProperty($tab->parent, $atom);
+
+    if ($atom == $wm_normal_hints) {
+      my (@hints) = unpack "l!*", $items;
+      $hints[$_] += $term->{tabheight} for (4, 6, 16);
+      $items = pack "l!*", @hints;
+    }
+
+    my $currentTab = delete $current->{$atom};
+    $term->XChangeProperty($term->parent, $atom, $type, $format, $items)
+    if $currentTab->[0] != $type or $currentTab->[1] != $format or $currentTab->[2] ne $items;
+    $term->{current_properties}{$atom} = [$type, $format, $items];
+  }
+
+  $term->XDeleteProperty($term->parent, $_) for keys %$current;
+}
+
+# Set the new current tab
+# ---------------------------------------------------
+sub setCurrentTab {
+  my ($term, $tab) = @_;
+
+  if (my $currentTab = $term->{currentTab}) {
+    $currentTab->{activity} = 0;
+    $currentTab->{urgent} = 0;
+    $currentTab->XUnmapWindow($currentTab->parent) if $currentTab->mapped;
+    $currentTab->focus_out;
+  }
+
+  $term->{currentTab} = $tab;
+  $term->reconfigure;
+  $term->copyWindowProperties;
+  $tab->focus_out;
+  $tab->focus_in; # if ($term->focus);
+  $tab->XMapWindow($tab->parent);
+  $tab->{activity} = 0;
+  $tab->{urgent} = 0;
+  $term->refresh;
+}
+
+# Main terminal hooks {{{1
+# ---------------------------------------------------
+#
+sub on_resize_all_windows {
+  my ($term, $new_width, $new_height) = @_;
+
+  1
+}
+
+sub on_focus_in {
+  my ($term) = @_;
+
+  $term->{currentTab}->focus_in;
+
+  ()
+}
+
+sub on_focus_out {
+  my ($term) = @_;
+
+  $term->{currentTab}->focus_out;
+
+  ()
+}
+
+sub on_key_press {
+  my ($term, $event) = @_;
+
+  $term->{currentTab}->key_press ($event->{state}, $event->{keycode}, $event->{time});
+
+  1 # ask urxvt to ignore this event
+}
+
+sub on_key_release {
+  my ($term, $event) = @_;
+
+  $term->{currentTab}->key_release ($event->{state}, $event->{keycode}, $event->{time});
+
+  1 # ask urxvt to ignore this event
+}
+
+sub on_tt_write {
+  my ($term, $data) = @_;
+
+  $term->{currentTab}->tt_write($data);
+
+  1
+}
+
+sub on_user_command {
+  my($term, $command) = @_;
+
+  $term->{currentTab}->on_user_command($command);
+
+  1
+}
+
+sub on_button_press {
+
+
+  1 # ask urxvt to ignore this event
+}
+
+sub on_button_release {
+  my ($term, $event) = @_;
+
+  for my $button (@{ $term->{tabOffsets} }) {
+    $button->[2]->($term, $event) if $event->{col} >= $button->[0] && $event->{col} < $button->[1];
+  }
+
+  1 # ask urxvt to ignore this event
+}
+
+sub on_motion_notify {
+
+
+  1 # ask urxvt to ignore this event
+}
+
+sub on_configure_notify {
+  my ($term, $event) = @_;
+
+  $term->reconfigure;
+  $term->refresh;
+
+  ()
+}
+
+sub on_wm_delete_window {
+  my ($term) = @_;
+
+  $_->destroy for @{ $term->{tabs} };
+
+  1
+}
+
+sub on_init {
+  my ($term) = @_;
+
+  $term->{resource} = [map $term->resource("+$_"), 0 .. urxvt::NUM_RESOURCES - 1];
+
+  $term->resource(int_bwidth => 0);
+  $term->resource(name => "URxvt.tabs");
+  $term->resource(pty_fd => -1);
+
+  $term->option($urxvt::OPTION{scrollBar}, 0);
+
+  my $tabPosition           = $term->x_resource("tab-position");
+  my $tabForeground         = $term->x_resource("tab-fg");
+  my $tabBackground         = $term->x_resource("tab-bg");
+  my $tabBarForeground      = $term->x_resource("tab-bar-fg");
+  my $tabBarBackground      = $term->x_resource("tab-bar-bg");
+  my $tabCurrentForeground  = $term->x_resource("tab-current-fg");
+  my $tabCurrentBackground  = $term->x_resource("tab-current-bg");
+  my $tabActivityForeground = $term->x_resource("tab-activity-fg");
+  my $tabActivityBackground = $term->x_resource("tab-activity-bg");
+  my $tabUrgentForeground   = $term->x_resource("tab-urgent-fg");
+  my $tabUrgentBackground   = $term->x_resource("tab-urgent-bg");
+  my $tabRenameColor        = $term->x_resource("tab-rename-color");
+  my $tabDivider            = $term->x_resource("tab-divider");
+  my $tabDividerColor       = $term->x_resource("tab-divider-color");
+
+  defined $tabPosition            or  $tabPosition           = 0;
+  defined $tabDivider             or  $tabDivider            = ' │ ';
+  defined $tabBarForeground       or  $tabBarForeground      = 0;
+  defined $tabBarBackground       or  $tabBarBackground      = 0;
+  defined $tabForeground          or  $tabForeground         = 7;
+  defined $tabBackground          or  $tabBackground         = 0;
+  defined $tabCurrentForeground   or  $tabCurrentForeground  = 0;
+  defined $tabCurrentBackground   or  $tabCurrentBackground  = 4;
+  defined $tabActivityForeground  or  $tabActivityForeground = 0;
+  defined $tabActivityBackground  or  $tabActivityBackground = 3;
+  defined $tabUrgentForeground    or  $tabUrgentForeground   = 0;
+  defined $tabUrgentBackground    or  $tabUrgentBackground   = 1;
+  defined $tabRenameColor         or  $tabRenameColor        = 1;
+  defined $tabDividerColor        or  $tabDividerColor       = 1;
+
+  $term->{tabPosition}       = $tabPosition;
+  $term->{tabBarColors}      = urxvt::SET_COLOR(urxvt::DEFAULT_RSTYLE, $tabBarForeground + 2, $tabBarBackground + 2);
+  $term->{tabCurrentColors}  = urxvt::SET_COLOR(urxvt::DEFAULT_RSTYLE, $tabCurrentForeground + 2, $tabCurrentBackground + 2);
+  $term->{tabActivityColors} = urxvt::SET_COLOR(urxvt::DEFAULT_RSTYLE, $tabActivityForeground + 2, $tabActivityBackground + 2);
+  $term->{tabUrgentColors}   = urxvt::SET_COLOR(urxvt::DEFAULT_RSTYLE, $tabUrgentForeground + 2, $tabUrgentBackground + 2);
+  $term->{tabColors}         = urxvt::SET_COLOR(urxvt::DEFAULT_RSTYLE, $tabForeground + 2, $tabBackground + 2);
+  $term->{tabRenameColors}   = urxvt::SET_COLOR(urxvt::DEFAULT_RSTYLE, 2, $tabRenameColor + 2);
+  $tabDivider                =~ s/%20/ /g;
+  $term->{tabDivider}        = $tabDivider;
+  $term->{tabDividerColors}  = urxvt::SET_COLOR(urxvt::DEFAULT_RSTYLE, $tabDividerColor + 2, $tabBarBackground + 2);
+
+  ()
+}
+
+sub on_start {
+  my ($term) = @_;
+
+  $term->{tabheight} = $term->int_bwidth + $term->fheight + $term->lineSpace;
+
+  # hiding cursor for host terminal
+  $term->cmd_parse("\033[?25l");
+
+  my @argv = $term->argv;
+  do { shift @argv; } while @argv && $argv[0] ne "-e";
+  $term->addNewTab(@argv);
+
+  ()
+}
+
+# Tab hooks {{{1
+# ---------------------------------------------------
+
+package urxvt::ext::tabs::tab;
+
+sub on_property_notify {
+  my ($tab, $event) = @_;
+  my $parent = $tab->{term}{parent};
+  $parent->copyWindowProperties if $event->{window} == $tab->parent;
+  ()
+}
+
+sub on_start {
+  my ($tab) = @_;
+  my $parent = $tab->{term}{parent};
+  $tab->XChangeInput($tab->parent, urxvt::PropertyChangeMask);
+  push @{ $parent->{tabs} }, $tab;
+  $tab->{name} ||= 'tab '.scalar @{ $parent->{tabs} };
+  $tab->{tabUserName} = undef;
+  $tab->{tabKeyGrabberMode} = 0;
+  $parent->setCurrentTab($tab);
+  ()
+}
+
+sub on_destroy {
+  my ($tab) = @_;
+  my $parent = $tab->{term}{parent};
+  $parent->{tabs} = [ grep $_ != $tab, @{ $parent->{tabs} } ];
+  if (@{ $parent->{tabs} }) {
+    if ($parent->{currentTab} == $tab) {
+      delete $parent->{currentTab};
+      $parent->setCurrentTab($parent->{tabs}[-1]);
+    } else {
+      $parent->refresh;
+    }
+  } else {
+    $parent->{destroy} = urxvt::iw->new->start->cb(sub { $parent->destroy });
+  }
+  ()
+}
+
+sub on_key_release{
+  my ($tab, $event, $keysum, $str) = @_;
+
+  ()
+}
+
+sub on_key_press {
+  my ($tab, $event, $keysum, $str) = @_;
+
+  my $parent = $tab->{term}{parent};
+  return () if ($parent->{tabKeyGrabberMode} == 0);
+  if ($parent->{tabKeyGrabberMode} == 2 && $keysum>=49 && $keysum<=57) { #mode "jump"
+    $keysum -= 49;
+    $parent->setCurrentTab($parent->{tabs}[$keysum % @{$parent->{tabs}}]);
+    $parent->{tabKeyGrabberMode} = 0;
+  } elsif ($keysum == 0xff1b) {                          # Annulation (Escape)
+    undef $parent->{tabKeyGrabberMode};
+    undef $tab->{tabRenameLabel};
+    undef $tab->{tabRenamePosition};
+    $parent->refresh;
+  } elsif ($keysum == 0xff0d || $keysum == 0xff8d) { # Validation (Entrée)
+    $tab->{tabUserName} = $tab->{tabRenameLabel} || undef;
+    undef $parent->{tabKeyGrabberMode};
+    undef $tab->{tabRenameLabel};
+    undef $tab->{tabRenamePosition};
+    $parent->refresh;
+  } elsif ($keysum == 0xff50 && $tab->{tabRenamePosition} > 0) {  # Home
+    $tab->{tabRenamePosition} = 0;
+    $parent->refresh;
+  } elsif ($keysum == 0xff57 && $tab->{tabRenamePosition} < length($tab->{tabRenameLabel})) {  # End
+    $tab->{tabRenamePosition} = length($tab->{tabRenameLabel});
+    $parent->refresh;
+  } elsif ($keysum == 0xffff && $tab->{tabRenamePosition} < length($tab->{tabRenameLabel})) { # Delete
+    my $name = '';
+    $name   .= substr($tab->{tabRenameLabel}, 0,                       $tab->{tabRenamePosition})          if $tab->{tabRenamePosition} > 0;
+    $name   .= substr($tab->{tabRenameLabel}, $tab->{tabRenamePosition} + 1, length($tab->{tabRenameLabel})) if $tab->{tabRenamePosition} < length($tab->{tabRenameLabel}) - 1;
+    $tab->{tabRenameLabel} = $name;
+    $parent->refresh;
+  } elsif ($keysum == 0xff08 && $tab->{tabRenamePosition} > 0) { # Backspace
+    my $name = '';
+    $name   .= substr($tab->{tabRenameLabel}, 0,                   $tab->{tabRenamePosition} - 1)      if $tab->{tabRenamePosition} > 1;
+    $name   .= substr($tab->{tabRenameLabel}, $tab->{tabRenamePosition}, length($tab->{tabRenameLabel})) if $tab->{tabRenamePosition} < length($tab->{tabRenameLabel});
+    $tab->{tabRenameLabel} = $name;
+    $tab->{tabRenamePosition}--;
+    $parent->refresh;
+  } elsif ($str =~ /^[\x20-\x7f]$/) {  # une lettre
+    my $name = '';
+    $name   .= substr($tab->{tabRenameLabel}, 0,                   $tab->{tabRenamePosition})          if $tab->{tabRenamePosition} > 0;
+    $name   .= $str;
+    $name   .= substr($tab->{tabRenameLabel}, $tab->{tabRenamePosition}, length($tab->{tabRenameLabel})) if $tab->{tabRenamePosition} < length($tab->{tabRenameLabel});
+    $tab->{tabRenameLabel} = $name;
+    $tab->{tabRenamePosition}++;
+    $parent->refresh;
+  }
+
+  1
+}
+sub on_add_lines {
+  if (!$_[0]->focus && $_[0]->{activity}==0) {
+    $_[0]->{activity} = 1;
+    $_[0]{term}{parent}->refresh();
+  }
+  0
+}
+
+sub on_osc_seq {
+  my ($tab, $seq, $cmd, $resp) = @_;
+  my $parent = $tab->{term}->{parent};
+
+  # Changement du nom de l'onglet
+  if ($seq < 3) {
+    $tab->{name}=$cmd;
+    $parent->refresh;
+  } elsif ($seq == 777) {
+    if ($cmd =~ m/tab-new;(.*)/gi) {
+      my @argv = split(/;/,$1);
+      $parent->addNewTab(@argv);
+    }
+  }
+
+  ()
+}
+
+sub on_user_command {
+  my($tab, $command) = @_;
+
+  my $parent = $tab->{term}{parent};
+  if ($command eq "tab-new") {
+    $parent->addNewTab();
+  } elsif ($command eq 'tab-next' || $command eq 'tab-previous') {
+    my ($index) = grep $parent->{tabs}[$_] == $tab, 0 .. $#{ $parent->{tabs} };
+    --$index if $command eq 'tab-previous';
+    ++$index if $command eq 'tab-next';
+    $parent->setCurrentTab($parent->{tabs}[$index % @{ $parent->{tabs}}]);
+  } elsif ($command eq 'tab-move-left' || $command eq 'tab-move-right') {
+    my ($idx1) = grep $parent->{tabs}[$_] == $tab, 0 .. $#{ $parent->{tabs} };
+    if (($command eq 'tab-move-left' && $idx1 > 0) || ($command eq 'tab-move-right' && $idx1 < $#{ $parent->{tabs} })) {
+      my $idx2  = ($idx1 + ($command eq 'tab-move-left' ? -1 : +1));
+      ($parent->{tabs}[$idx1], $parent->{tabs}[$idx2]) = ($parent->{tabs}[$idx2], $parent->{tabs}[$idx1]);
+      $parent->setCurrentTab($parent->{tabs}[$idx2]);
+    }
+  } elsif ($command eq 'tab-rename') {
+    $parent->{tabKeyGrabberMode} = 1;
+    $tab->{tabRenameLabel} = $tab->{tabUserName} || '';
+    $tab->{tabRenamePosition} = length($tab->{tabRenameLabel});
+    $parent->refresh;
+  } elsif ($command eq 'tab-jump') {
+    $parent->{tabKeyGrabberMode} = 2;
+  } elsif ($command eq 'tab-kill') {
+    my $tabCount=@{$parent->{tabs}};
+    if ($tabCount>1) {
+      my ($index) = grep $parent->{tabs}[$_] == $tab, 0 .. $#{ $parent->{tabs} };
+      $index++;
+      $parent->setCurrentTab($parent->{tabs}[$index % $tabCount]);
+      $tab->destroy;
+    }
+  }
+}
+
+sub on_bell {
+  my ($tab) = @_;
+  my $parent = $tab->{term}{parent};
+  if (!$_[0]->focus && $_[0]->{urgent}==0) {
+    $_[0]->{urgent} = 1;
+    $_[0]{term}{parent}->refresh();
+  }
+  $parent->cmd_parse("\007");
+  ()
+}
+
+
+# vim:spelllang=en
