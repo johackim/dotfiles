@@ -52,14 +52,13 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.perl-lib: .urxvt/perl
-URxvt.perl-ext-common: default,matcher,clipboard,url-picker,font-size,notify
+URxvt.perl-ext-common: default,matcher,clipboard,url-picker,font-size,notify,tabbed
 
 URxvt.keysym.C-Right: \033[1;5C
 URxvt.keysym.C-Left: \033[1;5D
 URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 URxvt.keysym.C-f: perl:url-picker
-!URxvt.keysym.C-S-T: perl:tabbedex:new_tab
 
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
@@ -68,4 +67,10 @@ URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
 
 URxvt.urgentOnBell: true
+
+! Plugin Tabbed
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 6
+URxvt.tabbed.tab-bg: 0
 
