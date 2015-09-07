@@ -1,0 +1,78 @@
+# Colors
+color normal      default      default
+color attachment  cyan         default
+color bold        brightwhite  default
+color underline   default      cyan
+color error       brightwhite  default
+color indicator   black        white
+color message     brightcyan   default
+color status      brightwhite  cyan
+
+color quoted      cyan         default
+color quoted1     brightcyan   default
+color quoted2     cyan         default
+color quoted3     brightcyan   default
+color quoted4     cyan         default
+color quoted5     brightcyan   default
+
+color signature   brightblack  default
+color tilde       brightcyan   default
+color tree        cyan         default
+color markers     brightblack  default
+
+color body        brightcyan   default  "[^ <]*:\/\/[^ >]*" # for URLs
+color body        brightcyan   default  "[A-Za-z0-9_\.\-]+@[A-Za-z0-9_\.\-]*[A-Za-z0-9_\.\-]+" # For email adresses
+
+color hdrdefault  cyan         default
+color header      brightcyan   default  "^from: *"
+color header      brightcyan   default  "^subject: *"
+color header      brightcyan   default  "^x-mailing-list: *"
+#color header      brightcyan   default  "^date: *"
+#color header      cyan         default  "^to: *"
+#color header      cyan         default  "^delivecyan-to: *"
+#color header      cyan         default  "^cc: *"
+#color header      cyan         default  "^bcc: *"
+#color header      brightcyan   default  "^reply-to: *"
+#color header      brightcyan   default  "^mail-followup-to: *"
+#color header      brightcyan   default  "^old-return-path: *"
+#color header      cyan         default  "^x-mailer: *"
+#color header      cyan         default  "^user-agent: *"
+#color header      cyan         default  "^x-operating-system: *"
+#color header      cyan         default  "^in-reply-to: *"
+
+color index       brightcyan   default "~N"   # New
+color index       brightwhite  default "~O"   # Unread
+color index       blue         default "~g"   # gpg signed
+color index       brightblue   default "~G"   # gpg encrypted
+color index       brightwhite  default "~F"   # Flagged
+color index       brightwhite  default "~T"   # Tagged
+color index       brightwhite  default "~f MAILER-DAEMON@*"
+color index       brightwhite  default "~f Mailer-Daemon@*"
+color index       brightblack  default "~D"   # Deleted
+
+# Before color
+# 
+#color attachment cyan default            # attachments
+#color body brightred default "(ftp|http)://[^ ]+"       # point out URLs
+#color body brightcyan default [-a-z_0-9.]+@[-a-z_0-9.]+ # e-mail addresses
+#color bold brightcyan default               # boldface text
+#color error brightwhite red                 # error messages
+#color hdrdefault cyan default            # default color of message header
+#color header brightcyan default ^(From): # From and Subject header
+#color header brightwhite default ^(Subject): # From and Subject header
+#color header brightwhite default ^(Date): # Date header
+#color header white default ^(In-Reply-To):
+#color indicator brightcyan default                   # indicator bar
+#color markers brightcyan default            # wrapped line markers (+)
+#color message brightblack green             # status messages
+#color normal default default                # default
+#color quoted yellow default                 # quoted text, 1st quote level
+#color quoted1 green default                 # quoted text, 2nd quote level
+#color quoted2 brightcyan default            # quoted text, 3rd quote level
+#color quoted3 cyan default                  # quoted text, 4th quoet level
+#color search black yellow                   # matched search patterns in pager
+#color signature red default                 # the signature (after sigdashes)
+#color status default cyan                   # status lines
+#color tilde brightcyan default              # ``~'' used to pad blank lines
+#color tree green default                    # thread tree in the index menu
+#color underline brightgreen default         # underlined text
