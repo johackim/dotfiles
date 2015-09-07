@@ -1,0 +1,3 @@
+set folder    = ~/Mail/viacesi
+set spoolfile = +INBOX
+mailboxes     = +INBOX

@@ -1,0 +1,11 @@
+respawn-window -k
+rename-window "second"
+
+selectp -t 0
+splitw -v -p 50
+selectp -t 0
+splitw -h -p 50
+
+send-keys -R -t 0 'ncmpcpp' enter
+send-keys -R -t 1 'newsbeuter' enter
+send-keys -R -t 2 'mutt' enter
