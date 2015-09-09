@@ -52,7 +52,7 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.perl-lib: .urxvt/perl
-URxvt.perl-ext-common: default,matcher,clipboard,url-picker,font-size,notify,tabbed
+URxvt.perl-ext-common: default,matcher,clipboard,url-picker,font-size,notify
 
 URxvt.keysym.C-Right: \033[1;5C
 URxvt.keysym.C-Left: \033[1;5D
@@ -69,8 +69,8 @@ URxvt.keysym.C-Down:   perl:font-size:decrease
 URxvt.urgentOnBell: true
 
 ! Plugin Tabbed
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 6
-URxvt.tabbed.tab-bg: 0
+!URxvt.tabbed.tabbar-fg: 2
+!URxvt.tabbed.tabbar-bg: 0
+!URxvt.tabbed.tab-fg: 6
+!URxvt.tabbed.tab-bg: 0
 
