@@ -1,0 +1,15 @@
+# ~/.tmuxinator/main.yml
+
+name: main
+root: ~/
+
+windows:
+  - main:
+      layout: 918c,145x38,0,0{72x38,0,0[72x30,0,0,0,72x7,0,31,4],72x38,73,0[72x22,73,0,1,72x12,73,23,2,72x2,73,36,3]}
+      panes:
+        - clear;screenfetch -c 14
+        - clear
+        - htop
+        - monitor
+        - watch -t -n1 progress -q
+
