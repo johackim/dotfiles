@@ -37,6 +37,9 @@ alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias debian="docker run -d --name debian -it debian:latest bash > /dev/null 2>&1; docker exec -it debian bash"
 alias sandbox="docker run -d --name sandbox -it sandbox:latest bash > /dev/null 2>&1; docker exec -it sandbox bash"
 
+# Radios
+alias skyrock="mplayer http://mp4lg2.tdf-cdn.com/3665/sky_122353.mp3"
+
 # Youtube-dl 
 function streamer() {
     youtube-dl -o - "$1" | vlc - 
