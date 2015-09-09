@@ -169,7 +169,7 @@ client.focused_inactive #333333 #5f676a #ffffff #484e50
 client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
-# Startup
+# Daemons
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id setxkbmap fr
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
@@ -178,6 +178,12 @@ exec --no-startup-id xset -b
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id nm-applet
 exec --no-startup-id numlockx on
+
+# Startup
+exec --no-startup-id i3-msg 'workspace 4; exec libreboard'
+exec --no-startup-id i3-msg 'workspace 3; exec iceweasel'
+exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e mux second'
+exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e mux main'
 
 # Hide borders
 hide_edge_borders both
@@ -211,7 +217,7 @@ for_window [class="Thunar" instance="file_progress"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Mousepad"] floating enable
 for_window [class="Chromium"] floating disable
-for_window [class="Chromium" instance="libreboard__boards"] focus
+#for_window [class="Chromium" instance="libreboard__boards"] focus
 for_window [class="Iceweasel|Firefox" instance="Places"] floating enable
 for_window [class="Icedove" instance="Msgcompose"] floating enable
 for_window [class="Wine"] floating disable
@@ -219,9 +225,9 @@ for_window [class="Evince"] floating enable
 for_window [class="^Vlc$"] focus
 
 # Assign softwares
-assign [class="Iceweasel|Firefox"] 2
+assign [class="Iceweasel|Firefox"] 3
 assign [class="Chromium" instance="libreboard__boards"] 4
-assign [class="Vlc"] 3
+assign [class="Vlc"] 5
 
 # Screenshot
 bindsym 0xff61 exec scrot ~/Images/Screens/screenshot_%Y_%m_%d_%H_%M_%S.png
