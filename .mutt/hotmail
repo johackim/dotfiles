@@ -1,3 +1,0 @@
-set folder    = ~/Mail/hotmail
-set spoolfile = +Inbox
-mailboxes     = +Inbox
