@@ -85,5 +85,7 @@ source $HOME/.dotfiles/.aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export GOPATH=$HOME/bin/gocode
+export PATH=$PATH:$GOPATH/bin
 export EDITOR="vim"
 eval `dircolors ~/.dir_colors`
