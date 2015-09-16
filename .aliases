@@ -24,6 +24,7 @@ alias relan='sudo ifdown wlan0;sudo ifup wlan0'
 #alias t='tmux -2 attach || tmux -2'
 alias t='tmux attach || tmux'
 alias ipinfo='curl ipinfo.io'
+alias diskinfo="sudo lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT,STATE,GROUP,UUID,MODEL,VENDOR"
 
 # Git
 alias gitlog='/usr/bin/git log --graph --branches --remotes --tags --format=format:'\''%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'\'''\''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)'\'' --abbrev-commit'
