@@ -88,4 +88,6 @@ source $HOME/.dotfiles/.aliases
 export GOPATH=$HOME/bin/gocode
 export PATH=$PATH:$GOPATH/bin
 export EDITOR="vim"
+export WINEARCH=win32
+export WINEPREFIX=~/.wine # Wine prefix to use
 eval `dircolors ~/.dir_colors`
