@@ -3,21 +3,22 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 if [ `xrandr | grep -c ' connected '` -ge 2 ]; then
-    if [ `xrandr | grep VGA-0 | grep -c ' connected '` -eq 1 -a `xrandr | grep HDMI-0 | grep -c ' connected '` -eq 1 ]; then
+    if [ `xrandr | grep VGA-1 | grep -c ' connected '` -eq 1 -a `xrandr | grep HDMI-1 | grep -c ' connected '` -eq 1 ]; then
         echo "HDMI & VGA"
-        xrandr --output DP-0 --off
-        xrandr --output VGA-0 --auto --primary --output HDMI-0 --auto --right-of VGA-0
-    elif [ `xrandr | grep VGA-0 | grep -c ' connected '` -eq 1 ]; then
+        xrandr --output eDP-1 --off
+        xrandr --output VGA-1 --auto --primary --output HDMI-1 --auto --right-of VGA-1
+    elif [ `xrandr | grep VGA-1 | grep -c ' connected '` -eq 1 ]; then
         echo "VGA"
-        xrandr --output HDMI-0 --off
-        xrandr --output DP-0 --auto --primary --output VGA-0 --auto --right-of DP-0
-    elif [ `xrandr | grep HDMI-0 | grep -c ' connected '` -eq 1 ]; then
+        xrandr --output HDMI-1 --off
+        xrandr --output eDP-1 --auto --primary --output VGA-1 --auto --right-of eDP-1
+    elif [ `xrandr | grep HDMI-1 | grep -c ' connected '` -eq 1 ]; then
         echo "HDMI"
-        xrandr --output VGA-0 --off
-        xrandr --output DP-0 --auto --primary --output HDMI-0 --auto --right-of DP-0 --output VGA-0 --off
+        xrandr --output VGA-1 --off
+        xrandr --output eDP-1 --auto --primary --output HDMI-1 --auto --right-of eDP-1 --output VGA-1 --off
     fi
 else
-    xrandr --output DP-0 --auto --primary --output VGA-0 --off --output HDMI-0 --off
+    test
+    xrandr --output eDP-1 --auto --primary --output VGA-1 --off --output HDMI-1 --off
 fi
 
 feh --bg-center Images/wallpaper.png

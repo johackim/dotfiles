@@ -85,8 +85,8 @@ source $HOME/.dotfiles/.aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export GOPATH=$HOME/bin/gocode
-export PATH=$PATH:$GOPATH/bin
+#export GOPATH=$HOME/bin/gocode
+#export PATH=$PATH:$GOPATH/bin
 export EDITOR="vim"
 export WINEARCH=win32
 export WINEPREFIX=~/.wine # Wine prefix to use
