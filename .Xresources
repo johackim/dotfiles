@@ -42,7 +42,7 @@ URxvt*colorIT: #00FFFF
 
 URxvt.scrollBar: false
 
-URxvt*font: xft:Inconsolata:size=9, xft:Inconsolata for Powerline
+URxvt*font: xft:Inconsolata:size=10, xft:Inconsolata for Powerline
 URxvt.cursorBlink: true
 
 URxvt*.transparent: true

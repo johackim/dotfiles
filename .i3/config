@@ -172,16 +172,17 @@ client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Daemons
-exec --no-startup-id setxkbmap fr
+# exec --no-startup-id setxkbmap fr
 exec --no-startup-id urxvtd -o -f -q
+exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id nm-applet
-#exec --no-startup-id numlockx on
+exec --no-startup-id numlockx on
 
 # Startup
 #exec --no-startup-id i3-msg 'workspace 4; exec libreboard'
-exec --no-startup-id i3-msg 'workspace 3; exec iceweasel'
+#exec --no-startup-id i3-msg 'workspace 3; exec iceweasel'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e mux second'
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e mux main'
 
@@ -219,7 +220,7 @@ for_window [class="Mousepad"] floating enable
 for_window [class="Chromium"] floating disable
 for_window [class="Iceweasel|Firefox" instance="Places"] floating enable
 for_window [class="Icedove" instance="Msgcompose"] floating enable
-for_window [class="Wine"] floating enable
+for_window [class="Wine"] floating disable
 for_window [class="Evince"] floating enable
 for_window [class="^Vlc$"] focus
 
