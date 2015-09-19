@@ -58,7 +58,10 @@ URxvt.keysym.C-Right: \033[1;5C
 URxvt.keysym.C-Left: \033[1;5D
 URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
+
 URxvt.keysym.C-f: perl:url-picker
+URxvt.url-picker.launcher: firefox
+URxvt.keysym.C-0xff0d: perl:url-picker
 
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
