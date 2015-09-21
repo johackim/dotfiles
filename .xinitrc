@@ -17,7 +17,6 @@ if [ `xrandr | grep -c ' connected '` -ge 2 ]; then
         xrandr --output eDP-1 --auto --primary --output HDMI-1 --auto --right-of eDP-1 --output VGA-1 --off
     fi
 else
-    test
     xrandr --output eDP-1 --auto --primary --output VGA-1 --off --output HDMI-1 --off
 fi
 
