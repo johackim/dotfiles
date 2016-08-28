@@ -5,7 +5,7 @@ hostname := "arch"
 username := "jcherqui"
 current_dir:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-install: install-essentials install-nvidia-driver install-pacman-packages install-yaourt-packages install-dotbot install-virtualbox install-wine enable-services
+install: install-essentials install-nvidia-driver install-pacman-packages install-yaourt-packages install-dotbot install-virtualbox install-wine install-pip-packages install-npm-packages enable-services
 
 init:
 	echo ${hostname} > /etc/hostname
@@ -165,6 +165,11 @@ install-pacman-packages:
 		apg \
 		cool-retro-term \
 		picard \
+		veracrypt \
+		downgrade \
+		obfsproxy \
+		netdata \
+		python2-powerline \
 		mednafen
 	fi
 
@@ -173,17 +178,14 @@ install-yaourt-packages:
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
-		python2-powerline \
 		kpcli \
 		mcrypt \
-		mutt-sidebar \
+		mutt-sidebar-hg \
 		wego-git \
-		obfsproxy \
 		namebench \
 		tmuxinator \
 		light \
 		ttf-ms-fonts \
-		downgrade \
 		popcorntime-community pirate-get megatools pirateflix \
 		jp2a \
 		chkrootkit \
@@ -197,7 +199,6 @@ install-yaourt-packages:
 		toxic-git \
 		simple-mtpfs \
 		android-studio \
-		veracrypt \
 		utox \
 		s \
 		bleachbit-cli \
@@ -209,15 +210,14 @@ install-yaourt-packages:
 		nodejs-tldr \
 		wpscan \
 		atom-editor \
-		netdata \
-		theharvester \
+		theharvester-git \
 		securefs \
 		aur/slack-desktop \
 		snapcraft \
 		screenkey \
 		devd \
 		etcher \
-		bitchx \
+		bitchx-git \
 		vlsub-git \
 		thunar-thumbnailers \
 		nvm \

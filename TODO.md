@@ -1,2 +1,5 @@
 - [x] Make install
+- [x] dunst size
+- [x] Light shortcut
 - [ ] Add screenshot
+- [ ] i3bar size
