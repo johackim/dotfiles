@@ -3,6 +3,7 @@
 
 hostname := "arch"
 username := "jcherqui"
+current_dir:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 install: install-essentials install-nvidia-driver install-pacman-packages install-yaourt-packages install-dotbot install-virtualbox install-wine enable-services
 
@@ -21,15 +22,18 @@ install-dotbot:
 		pacman -Qq | grep -qw python || sudo pacman -Sy python
 		pacman -Qq | grep -qw cmake || sudo pacman -Sy cmake
 		git submodule update --init --recursive dotbot
-		~/.dotfiles/dotbot/bin/dotbot -d ~/.dotfiles -c install.conf.yaml
+		${current_dir}/dotbot/bin/dotbot -d ${current_dir} -c install.conf.yaml
 		git submodule update --init --recursive
-		sh ~/.vim/bundle/YouCompleteMe/install.sh
+		@ read -r -p "You want compile YouCompleteMe ? [y/N] " REPLY;
+		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
+			sh ~/.vim/bundle/YouCompleteMe/install.sh
+		fi
 	fi
 
 install-essentials:
 	@ read -r -p "You want install essentials packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		cat pacman.conf | sudo tee -a /etc/pacman.conf
+		sudo cp pacman.conf /etc/pacman.conf
 		sudo pacman --needed -Syu \
 		xf86-input-libinput \
 		networkmanager network-manager-applet networkmanager-openvpn openvpn gnome-keyring \
@@ -75,7 +79,6 @@ install-pacman-packages:
 		firefox chromium \
 		vlc mplayer mpv \
 		fdupes \
-		iptables \
 		fail2ban \
 		ntp \
 		gnome-calculator \
@@ -130,7 +133,7 @@ install-pacman-packages:
 		mousepad leafpad \
 		kaffeine \
 		rfkill \
-		vim sublime-text codeblocks eclipse monodevelop \
+		vim sublime-text codeblocks monodevelop \
 		lshw \
 		mysql-workbench \
 		orage \
@@ -249,14 +252,19 @@ install-wine:
 		winetricks d3dx9
 	fi
 
+install-firewall:
+	sudo pacman -S --needed iptables
+	sudo sed -i -e 's/#Port 22/Port 2222/g' /etc/ssh/sshd_config
+	sudo bash ~/bin/firewall && sudo iptables-save | sudo tee /etc/iptables/iptables.rules
+	sudo systemctl enable iptables 
+
 enable-services:
 	@ read -r -p "You want enable services ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		sudo systemctl enable acpid ntpd iptables docker
+		sudo systemctl enable acpid ntpd docker
 		mkdir -p ~/.mpd/playlists && touch ~/.mpd/{mpd.log,mpd.db,mpd.error,state} && systemctl --user enable mpd
 	  	echo 'ip_conntrack_ftp' | sudo tee /etc/modules-load.d/ftp.conf
 		echo "kernel.sysrq = 1" | sudo tee /etc/sysctl.d/99-sysctl.conf
-	  	bash ~/bin/firewall && sudo iptables-save | sudo tee /etc/iptables/iptables.rules
 	fi
 
 enable-zsh:
