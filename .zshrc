@@ -93,7 +93,7 @@ export WINEARCH=win32
 export WINEPREFIX=~/.wine # Wine prefix to use
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 eval `dircolors ~/.dir_colors`
-source /usr/share/nvm/init-nvm.sh
+[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
 autoload bashcompinit
 bashcompinit

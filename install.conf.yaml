@@ -15,6 +15,10 @@
     ~/.config/htop/htoprc:
         create: true
         path: .config/htop/htoprc
+    ~/.config/xfce4/xfce4-notes.gtkrc:
+        create: true
+        path: .config/xfce4/xfce4-notes.gtkrc
+    ~/.config/xfce4/xfce4-notes.rc: .config/xfce4/xfce4-notes.rc
     ~/.config/systemd: .config/systemd/
     ~/.dir_colors: .dir_colors
     ~/.fonts: .fonts/

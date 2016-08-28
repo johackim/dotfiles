@@ -35,7 +35,7 @@ install-essentials:
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		sudo cp pacman.conf /etc/pacman.conf
 		sudo pacman --needed -Syu \
-		xf86-input-libinput \
+		xf86-input-libinput xf86-input-synaptics \
 		networkmanager network-manager-applet networkmanager-openvpn openvpn gnome-keyring \
 		xorg-server xorg-xinit xorg-server-utils xorg-xrandr xorg-xkill arandr \
 		alsa-utils alsa-lib lib32-alsa-lib \
