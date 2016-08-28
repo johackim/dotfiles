@@ -94,7 +94,6 @@ install-pacman-packages:
 		i3 \
 		dmenu \
 		progress \
-		nodejs npm \
 		numlockx \
 		tig \
 		newsbeuter \
@@ -234,7 +233,11 @@ install-pip-packages:
 install-npm-packages:
 	@ read -r -p "You want install npm packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		sudo npm -g install instant-markdown-d peerflix torrentflix cloudconvert-cli rdcli psi grunt-cli bower gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli fast-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint
+		[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
+		nvm install --lts
+		nvm use --lts
+		sudo npm -g install instant-markdown-d peerflix cloudconvert-cli rdcli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint
+		sudo npm install -g fast-cli torrentflix bower
 	fi
 
 install-virtualbox:
