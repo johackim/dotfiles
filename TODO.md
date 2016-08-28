@@ -1,2 +1,3 @@
 - [ ] Add screenshot
 - [ ] Make install
+- [ ] Add sed command for pacman.conf

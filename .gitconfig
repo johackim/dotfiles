@@ -5,5 +5,3 @@
 [alias]
     s = status -sb
     l = log --graph --oneline
-[url "git@github.com:"]
-	insteadOf = https://github.com/

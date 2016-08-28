@@ -59,14 +59,3 @@
         path: .weechat/irc.conf
     ~/.zshrc: .zshrc
 
-- shell:
-  -
-    command: [git submodule update --init --recursive, Installing submodules]
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command: read -r -p "You want compile YouCompleteMe ? [y/N] " REPLY; [[ $REPLY =~ ^[Yy]$ ]] && sh ~/.vim/bundle/YouCompleteMe/install.sh || echo
-    stdin: true
-    stdout: true
-    stderr: true
