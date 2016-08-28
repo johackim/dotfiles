@@ -1,0 +1,2 @@
+- [ ] Add screenshot
+- [ ] Make install

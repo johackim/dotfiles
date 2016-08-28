@@ -16,3 +16,9 @@
 [submodule ".tmux/plugins/tmux-copycat"]
 	path = .tmux/plugins/tmux-copycat
 	url = https://git::@github.com/tmux-plugins/tmux-copycat
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/jcherqui/oh-my-zsh

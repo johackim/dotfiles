@@ -94,7 +94,8 @@
     # 
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    #follow = mouse
+    follow = keyboard
     
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
@@ -104,7 +105,7 @@
     history_length = 20
     
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
     
     # The height of a single line.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -142,10 +143,10 @@
     browser = /usr/bin/firefox -new-tab
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Faenza/apps/16
 
 [frame]
     width = 3

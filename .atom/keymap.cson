@@ -1,0 +1,9 @@
+'.platform-linux':
+    'ctrl-q': 'unset!'
+    'ctrl-shift-W': 'unset!'
+    'ctrl-shift-/': 'editor:toggle-line-comments' # doesn't work
+    'ctrl-alt-w': 'tabs:close-other-tabs'
+    'ctrl-tab ^ctrl': 'unset!'
+    'ctrl-tab': 'pane:show-next-item'
+    'ctrl-shift-tab ^ctrl': 'unset!'
+    'ctrl-shift-tab': 'pane:show-previous-item'

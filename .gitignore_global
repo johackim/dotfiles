@@ -48,3 +48,5 @@ Thumbs.db
 # VIM #
 #######
 *.swp
+
+*.bak

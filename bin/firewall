@@ -1,0 +1,48 @@
+#!/bin/sh
+
+DAEMON=/sbin/iptables
+NAME=firewall
+DESC="iptables based firewall"
+
+test -x $DAEMON || exit 0
+
+# Accès root
+if [ `whoami` != "root" ]; then
+  echo "$0: Permission non accordée"
+  exit 1;
+fi 
+
+# Vidage
+iptables -F # Vider les tables actuelles
+iptables -F -t mangle
+iptables -F -t nat
+iptables -X # Vider les règles personnelles
+iptables -X -t mangle
+iptables -X -t nat
+echo - Vidage : [OK]
+
+# Interdire toute connexion entrante
+iptables -P INPUT DROP
+echo - Interdire toute connexion entrante : [OK]
+
+# Autoriser toute connexions sortantes
+iptables -P OUTPUT ACCEPT
+echo - Autoriser toute connexion sortante : [OK]
+
+# Ne pas casser les connexions etablies
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+echo - Ne pas casser les connexions établies : [OK]
+
+# Autoriser loopback
+iptables -A INPUT -i lo -j ACCEPT
+echo - Autoriser loopback : [OK]
+
+# ICMP (Ping)
+iptables -A INPUT -p icmp -j ACCEPT
+echo - Autoriser ping : [OK]
+
+# SSH
+iptables -A INPUT -p tcp --dport 2222 -j ACCEPT
+echo - Autoriser SSH : [OK]
+
+exit 0

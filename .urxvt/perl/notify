@@ -4,6 +4,6 @@ sub on_osc_seq_perl {
   my ($term, $osc, $resp) = @_;
   if ($osc =~ /^notify;(\S+);(.*)$/) {
     system("notify-send '$1' '$2'");
-    system("aplay ~/.sounds/ChatIncoming.wav");
+    system("aplay ~/.sounds/ChatIncoming.wav")
   }
 }

@@ -5,9 +5,10 @@ root: ~/
 
 windows:
   - editor:
-      layout: b363,273x73,0,0[273x36,0,0{136x36,0,0,9,136x36,137,0,11},273x36,0,37,10]
+      layout: 8749,273x68,0,0[273x33,0,0{136x33,0,0,5,136x33,137,0,6},273x34,0,34{146x34,0,34,7,126x34,147,34,16}]
       panes:
         - ncmpcpp
         - newsbeuter
-        - mutt
+        - export DISPLAY=""; mutt
+        - weechat
 

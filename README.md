@@ -1,14 +1,13 @@
+Dotfiles
+===
+
+My archlinux dotfiles with zsh, vim, tmux, i3, rxvt, newsbeuter, ncmpcppn, dunst, weechat
+
 Install
 ---
 
 `git clone https://github.com/jcherqui/dotfiles ~/.dotfiles`   
-`git submodule update --init --recursive`
-
-Change colors
----
-
-`find -type f -exec sed -i -e 's/00AAAA/F3CC16/g' {} \;`   
-`find -type f -exec sed -i -e 's/cyan/yellow/g' {} \;`
+`make install`
 
 License
 ---

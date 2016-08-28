@@ -327,17 +327,17 @@ EXEC 1;30  # Unix
 ### Misc
 
 # Binary document formats and multimedia source
-.doc 31
-.docx 31
-.rtf 31
-.dot 31
-.dotx 31
-.xls 31
-.xlsx 31
-.ppt 31
-.pptx 31
-.fla 31
-.psd 31
+.doc 33
+.docx 33
+.rtf 33
+.dot 33
+.dotx 33
+.xls 33
+.xlsx 33
+.ppt 33
+.pptx 33
+.fla 33
+.psd 33
 
 # Archives, compressed
 .7z   37

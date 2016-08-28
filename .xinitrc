@@ -20,4 +20,6 @@ else
     xrandr --output eDP-1 --auto --primary --output VGA-1 --off --output HDMI-1 --off
 fi
 
-feh --bg-center Images/wallpaper.png
+feh --bg-fill Images/wallpaper.png
+
+exec i3

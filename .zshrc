@@ -51,15 +51,15 @@ ZSH_THEME="cyan"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git git-flow docker docker-compose node npm nmap grunt httpie vagrant symfony symfony2 rsync pip bower taskwarrior)
-plugins=(git git-flow docker vagrant nmap pip)
+plugins=(git git-flow docker docker-compose vagrant nmap pip archlinux npm gulp)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:/usr/local/games/
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/.aliases
+source $HOME/.aliases
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -86,9 +86,20 @@ source $HOME/.dotfiles/.aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#export GOPATH=$HOME/bin/gocode
-#export PATH=$PATH:$GOPATH/bin
+export GOPATH="$HOME/dev/gocode/"
+export PATH=$PATH:$GOPATH/bin
 export EDITOR="vim"
 export WINEARCH=win32
 export WINEPREFIX=~/.wine # Wine prefix to use
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 eval `dircolors ~/.dir_colors`
+source /usr/share/nvm/init-nvm.sh
+
+autoload bashcompinit
+bashcompinit
+source ~/.oh-my-zsh/gh_complete.sh
+
+# added by travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+stty -ixon
+
