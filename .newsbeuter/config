@@ -3,16 +3,13 @@ auto-reload yes
 refresh-on-startup yes
 confirm-exit yes
 reload-time 30
-browser firefox
+browser chromium
 player vlc
 article-sort-order date-asc
 error-log "~/.newsbeuter/error.log"
+save-path "~/Notes/Bookmarks"
 goto-next-feed no
-
-# Notification
-notify-always yes
-notify-format "newsbeuter: %n unread articles within %f unread feeds"
-notify-program notify-send
+show-read-feeds no
 
 # Colors
 color listnormal          default default 
@@ -29,6 +26,10 @@ bind-key l open
 bind-key m toggle-show-read-feeds
 
 # Filters
-ignore-article "http://www.feedcombine.com/rss/6230/ebooks.xml" "title !~ \"linux\" and content !~ \"linux\""
 ignore-article "http://feeds.feedburner.com/SpiritOfMetalWebzine/fr?format=xml" "title !~ \"chronique\""
+
+# Notification
+# notify-always yes
+# notify-format "newsbeuter: %n unread articles within %f unread feeds"
+# notify-program notify-send
 

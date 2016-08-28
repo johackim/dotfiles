@@ -1,0 +1,72 @@
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.aliases: .aliases
+    ~/bin: bin/
+    ~/Images/wallpaper.png:
+        create: true
+        path: Images/wallpaper.png
+    ~/.config/dunst/dunstrc:
+        create: true
+        path: .config/dunst/dunstrc
+    ~/.config/gtk-3.0/settings.ini:
+        create: true
+        path: .config/gtk-3.0/settings.ini
+    ~/.config/htop/htoprc:
+        create: true
+        path: .config/htop/htoprc
+    ~/.config/systemd: .config/systemd/
+    ~/.dir_colors: .dir_colors
+    ~/.fonts: .fonts/
+    ~/.gitignore_global: .gitignore_global
+    ~/.gitconfig: .gitconfig
+    ~/.gtkrc-2.0: .gtkrc-2.0
+    ~/.i3: .i3/
+    ~/.irssi: .irssi/
+    ~/.mozilla/firefox/chrome/userContent.css:
+        create: true
+        path: .mozilla/firefox/chrome/userContent.css
+    ~/.mpdconf: .mpdconf
+    ~/.ncmpcpp/config:
+        create: true
+        path: .ncmpcpp/config
+    ~/.newsbeuter/urls:
+        create: true
+        path: .newsbeuter/urls
+    ~/.newsbeuter/config:
+        create: true
+        path: .newsbeuter/config
+    ~/.oh-my-zsh: .oh-my-zsh/
+    ~/.config/orage/oragerc:
+        create: true
+        path: .config/orage/oragerc
+    ~/.themes/Darkyan:
+        create: true
+        path: .themes/Darkyan/
+    ~/.tmux: .tmux/
+    ~/.tmux.conf: .tmux.conf
+    ~/.tmuxinator: .tmuxinator
+    ~/.urxvt: .urxvt/
+    ~/.vim: .vim/
+    ~/.xinitrc: .xinitrc
+    ~/.Xresources: .Xresources
+    ~/.vimrc: .vim/vimrc
+    ~/.weechat/weechat.conf:
+        create: true
+        path: .weechat/weechat.conf
+    ~/.weechat/irc.conf:
+        create: true
+        path: .weechat/irc.conf
+    ~/.zshrc: .zshrc
+
+- shell:
+  -
+    command: [git submodule update --init --recursive, Installing submodules]
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command: read -r -p "You want compile YouCompleteMe ? [y/N] " REPLY; [[ $REPLY =~ ^[Yy]$ ]] && sh ~/.vim/bundle/YouCompleteMe/install.sh || echo
+    stdin: true
+    stdout: true
+    stderr: true

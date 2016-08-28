@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+# Alexa Rank
+#   Retrieves the Alexa rank for domain(s)
+#   2011-09-19 # bcoles@gmail.com
+##
+
+verbose = true
+version = "0.1"
+
+# Usage
+if ARGV.size == 0
+	puts "[*] Alexa Rank v" + version
+	puts "[*] Usage: #{$0} example.com"
+	exit 1
+end
+
+
+# Load gems
+%w|net/http rexml/document|.each do |gem|
+	begin
+		require gem
+	rescue LoadError
+		puts "[-] " + gem + " is require"
+		exit 1
+	end
+end
+
+
+# Get page rank from Alexa
+def get_alexa_rank(url)
+	r={}
+	if url =~ /^(https?:\/\/)?([a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5})/i
+		begin
+			domain = "#{$2}"
+			xml = Net::HTTP.get_response(URI.parse("http://data.alexa.com/data?cli=10&url="+domain)).body
+			rank = REXML::Document.new(xml).elements['ALEXA/SD/POPULARITY'].attributes['TEXT'].gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,")
+			r = { :domain=>domain, :rank=>rank }
+		rescue
+		end
+	end
+	r
+end
+
+
+# Display page rank(s) for domain(s)
+ARGV.each do|domain|
+	puts "[*] Fetching page rank for " + domain if verbose
+	r = get_alexa_rank(domain)
+	if r.empty?
+		puts "[-] "+domain+" is not ranked with Alexa" if verbose
+	else
+		puts "[+] "+r[:domain]+" is ranked "+r[:rank] if verbose
+		puts r[:domain] +" " + r[:rank] if !verbose
+	end
+end
+

@@ -1,0 +1,31 @@
+"*":
+  core:
+    closeEmptyWindows: false
+    disabledPackages: [
+      "spell-check"
+      "linter-csslint"
+    ]
+    themes: [
+      "atom-dark-ui"
+      "fake-theme"
+    ]
+  editor:
+    fontSize: 16
+    invisibles: {}
+    preferredLineLength: 500
+    tabLength: 4
+  emmet: {}
+  "exception-reporting":
+    userId: "cbd0999a-543e-50e6-be01-00af597841c0"
+  "git-blame":
+    columnWidth: 300
+  linter:
+    errorPanelHeight: 139
+    lintOnFly: false
+  "linter-eslint": {}
+  "toggle-quotes": {}
+  welcome:
+    showOnStartup: false
+".dockerfile.source":
+  editor:
+    preferredLineLength: 500

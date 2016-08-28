@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#wine "C:\Program Files\Microsoft Office\Office12\EXCEL.EXE"
+playonlinux --run "Microsoft Excel 2010" $1

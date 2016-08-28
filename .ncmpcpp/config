@@ -1,10 +1,11 @@
 #ncmpcpp
-mpd_music_dir = "/media/nocrypt/Musiques/"
+mpd_music_dir = "~/Music"
 locked_screen_width_part = "50"
 ask_for_locked_screen_width_part = "no"
-default_space_mode = "select"
+# default_space_mode = "select"
 space_add_mode = "add_remove"
 default_place_to_search_in "database"
+playlist_disable_highlight_delay = 0
 #mpd_crossfade_time = "5"
 
 # Playlist
@@ -51,3 +52,5 @@ active_window_border = "cyan"
 #search_engine_display_mode = "columns" (classic/columns)
 #follow_now_playing_lyrics = "yes"
 
+# Sort
+#media_library_sort_by_mtime = "yes"
