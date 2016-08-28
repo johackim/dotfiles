@@ -79,3 +79,4 @@ URxvt.urgentOnBell: true
 !URxvt.tabbed.tab-fg: 6
 !URxvt.tabbed.tab-bg: 0
 
+Xft.dpi: 192 # xrdb -query | grep dpi
