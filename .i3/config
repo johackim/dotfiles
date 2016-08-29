@@ -189,7 +189,8 @@ exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e mux main'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e mux second'
 
 # Assign
-assign [class="Iceweasel|Firefox|Chromium" instance="Navigator"] 3
+assign [class="Iceweasel|Firefox" instance="Navigator"] 3
+assign [class="chromium"] 3
 assign [class="Vlc|mpv"] 5
 assign [class="Atom"] 6
 

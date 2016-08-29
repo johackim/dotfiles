@@ -1,5 +1,7 @@
 - [x] Make install
 - [x] dunst size
 - [x] Light shortcut
+- [ ] Browser addons
 - [ ] Add screenshot
-- [ ] i3bar size
+- [ ] Chroma keyboard color
+- [ ] Press shutdown button

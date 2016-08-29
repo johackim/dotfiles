@@ -94,6 +94,7 @@ export WINEPREFIX=~/.wine # Wine prefix to use
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 eval `dircolors ~/.dir_colors`
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
+[ -f ~/.private_aliases ] && source ~/.private_aliases
 
 autoload bashcompinit
 bashcompinit
