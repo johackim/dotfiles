@@ -7,7 +7,7 @@ current_dir:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 install: install-essentials install-nvidia-driver install-pacman-packages install-yaourt-packages install-dotbot install-virtualbox install-wine install-pip-packages install-npm-packages enable-services
 
-init:
+install-base:
 	echo ${hostname} > /etc/hostname
 	echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 	echo 'LANGUAGE=en_US' >> /etc/locale.conf
