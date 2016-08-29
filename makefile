@@ -102,7 +102,6 @@ install-pacman-packages:
 		the_silver_searcher \
 		python-pip python-virtualenv \
 		ncmpcpp \
-		mpd mpc \
 		screenfetch \
 		scummvm dosemu dosbox \
 		ncdu \
@@ -193,7 +192,6 @@ install-yaourt-packages:
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
-		mutt-sidebar-hg \
 		wego-git \
 		namebench \
 		popcorntime-community pirate-get megatools pirateflix \
@@ -245,8 +243,8 @@ install-npm-packages:
 install-virtualbox:
 	@ read -r -p "You want install virtualbox ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		yaourt --noconfirm -Sy virtualbox virtualbox-ext-oracle virtualbox-host-dkms virtualbox-host-modules vagrant
 		echo 'vboxdrv\nvboxnetadp\nvboxnetflt\nvboxpci' | sudo tee /etc/modules-load.d/virtualbox.conf
+		yaourt --noconfirm -Sy virtualbox virtualbox-ext-oracle virtualbox-host-dkms virtualbox-host-modules vagrant
 		sudo /usr/bin/rcvboxdrv setup
 	fi
 
@@ -263,14 +261,28 @@ install-firewall:
 	sudo bash ~/bin/firewall && sudo iptables-save | sudo tee /etc/iptables/iptables.rules
 	sudo systemctl enable iptables 
 
+install-mutt:
+	# [Passwords management]([https://wiki.archlinux.org/index.php/mutt#Passwords_management)
+	yaourt --noconfirm -Sy mutt-patched
+	systemctl --user enable offlineimap
+
+install-mpd:
+	sudo pacman -S mpd mpc
+	mkdir -p ~/.mpd/playlists && touch ~/.mpd/{mpd.log,mpd.db,mpd.error,state}
+	systemctl --user enable mpd
+
 enable-services:
 	@ read -r -p "You want enable services ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		sudo systemctl enable acpid ntpd docker
-		mkdir -p ~/.mpd/playlists && touch ~/.mpd/{mpd.log,mpd.db,mpd.error,state} && systemctl --user enable mpd
-	  	echo 'ip_conntrack_ftp' | sudo tee /etc/modules-load.d/ftp.conf
-		echo "kernel.sysrq = 1" | sudo tee /etc/sysctl.d/99-sysctl.conf
+		systemctl --user enable syncthing
 	fi
+
+enable-ftp:
+	echo 'ip_conntrack_ftp' | sudo tee /etc/modules-load.d/ftp.conf
+
+enable-magic-keys:
+	echo "kernel.sysrq = 1" | sudo tee /etc/sysctl.d/99-sysctl.conf
 
 enable-zsh:
 	@ [[ ! $SHELL = "/bin/zsh" ]] && chsh -s /bin/zsh
