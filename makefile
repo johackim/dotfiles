@@ -176,15 +176,26 @@ install-yaourt-packages:
 	@ read -r -p "You want install yaourt packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		yaourt --noconfirm -Sy \
-		tor-browser-en \
 		kpcli \
 		mcrypt \
-		mutt-sidebar-hg \
-		wego-git \
-		namebench \
 		tmuxinator \
 		light \
 		ttf-ms-fonts \
+		zeal-git \
+		simple-mtpfs \
+		utox \
+		atom-editor \
+		etcher \
+		vlsub-git \
+		thunar-thumbnailers \
+		nvm \
+		nodejs-tldr
+
+		yaourt --noconfirm -Sy \
+		tor-browser-en \
+		mutt-sidebar-hg \
+		wego-git \
+		namebench \
 		popcorntime-community pirate-get megatools pirateflix \
 		jp2a \
 		chkrootkit \
@@ -193,12 +204,9 @@ install-yaourt-packages:
 		g4l \
 		sopcast-player \
 		fritzing \
-		zeal-git \
 		minecraft \
 		toxic-git \
-		simple-mtpfs \
 		android-studio \
-		utox \
 		s \
 		bleachbit-cli \
 		np1-mps \
@@ -206,20 +214,14 @@ install-yaourt-packages:
 		zeronet \
 		git-extras \
 		balsamiqmockups \
-		nodejs-tldr \
 		wpscan \
-		atom-editor \
 		theharvester-git \
 		securefs \
 		aur/slack-desktop \
 		snapcraft \
 		screenkey \
 		devd \
-		etcher \
 		bitchx-git \
-		vlsub-git \
-		thunar-thumbnailers \
-		nvm \
 		molotov \
 		ruby-travis
 	fi
