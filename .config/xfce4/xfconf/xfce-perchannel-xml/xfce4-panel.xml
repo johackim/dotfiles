@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="plugins" type="empty">
+    <property name="notes" type="empty">
+      <property name="global" type="empty">
+        <property name="tabs-position" type="int" value="4"/>
+        <property name="background-color" type="string" value="#F2F1EF"/>
+        <property name="font-description" type="string" value="Sans 9"/>
+      </property>
+    </property>
+  </property>
+</channel>

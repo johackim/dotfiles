@@ -15,10 +15,10 @@
     ~/.config/htop/htoprc:
         create: true
         path: .config/htop/htoprc
-    ~/.config/xfce4/xfce4-notes.gtkrc:
+    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml:
         create: true
-        path: .config/xfce4/xfce4-notes.gtkrc
-    ~/.config/xfce4/xfce4-notes.rc: .config/xfce4/xfce4-notes.rc
+        path: .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+    ~/.config/xfce4/xfce4-notes.gtkrc: .config/xfce4/xfce4-notes.gtkrc
     ~/.config/systemd: .config/systemd/
     ~/.dir_colors: .dir_colors
     ~/.fonts: .fonts/
