@@ -63,3 +63,5 @@
         path: .weechat/irc.conf
     ~/.zshrc: .zshrc
 
+- shell:
+    - mkdir -p ~/Images/Screens
