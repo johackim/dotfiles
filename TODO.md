@@ -2,8 +2,9 @@
 - [x] dunst size
 - [x] Light shortcut
 - [x] TTY font size
+- [x] Chroma keyboard color (fn key startup)
 - [ ] Accents, caracteres speciaux terminal (copy files, mutt)
-- [ ] Chroma keyboard color (fn key startup)
+- [ ] QT Font size
 - [ ] Wifi stable
 - [ ] Add screenshot
 - [ ] Browser Addons
@@ -12,3 +13,5 @@
 - [ ] Extensions application start
 - [ ] Mutt, display first message
 - [ ] Add clean command
+- [ ] FTP Rule iptable
+- [ ] Close laptop

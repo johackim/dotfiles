@@ -196,7 +196,7 @@ install-yaourt-packages:
 		tor-browser-en \
 		wego-git \
 		namebench \
-		popcorntime-community pirate-get megatools pirateflix \
+		popcorntime-bin pirate-get megatools pirateflix \
 		jp2a \
 		chkrootkit \
 		wiki-git \
