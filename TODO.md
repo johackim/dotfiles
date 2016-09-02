@@ -1,7 +1,14 @@
 - [x] Make install
 - [x] dunst size
 - [x] Light shortcut
-- [ ] Browser addons
+- [x] TTY font size
+- [ ] Accents, caracteres speciaux terminal (copy files, mutt)
+- [ ] Chroma keyboard color (fn key startup)
+- [ ] Wifi stable
 - [ ] Add screenshot
-- [ ] Chroma keyboard color
-- [ ] Press shutdown button
+- [ ] Browser Addons
+- [ ] Wine Applications
+- [ ] Middle click keyboard
+- [ ] Extensions application start
+- [ ] Mutt, display first message
+- [ ] Add clean command
