@@ -9,11 +9,10 @@ install: install-essentials install-nvidia-driver install-pacman-packages instal
 
 install-base:
 	echo ${hostname} > /etc/hostname
-	echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
-	echo 'LANGUAGE=en_US' >> /etc/locale.conf
-	echo 'LC_ALL=C' >> /etc/locale.conf
+	echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 	ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 	hwclock --systohc --utc
+	cp vconsole.conf /etc/
 	useradd -m -g users -G wheel -s /bin/zsh ${username}
 
 install-dotbot:
@@ -50,7 +49,7 @@ install-nvidia-driver:
 	@ read -r -p "You want install nvidia driver ? (WARNING: configuration's Razer Blade) [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		sudo pacman -S intel-dri xf86-video-intel bumblebee lib32-nvidia-utils lib32-intel-dri primus lib32-primus nvidia nvidia-utils lib32-nvidia-utils
-		echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/nvidia.conf
+		echo 'blacklist nouveau' | sudo tee /etc/modprobe.d/nvidia.conf
 		echo 'options nouveau modeset=0' | sudo tee -a /etc/modprobe.d/nvidia.conf
 		sudo cp nvidia.conf /etc/X11/xorg.conf.d/20-nvidia.conf
 	fi
@@ -168,7 +167,9 @@ install-pacman-packages:
 		obfsproxy \
 		netdata \
 		python2-powerline \
-		mednafen
+		mednafen \
+		bchunk \
+		simple-scan
 	fi
 
 install-yaourt-packages:
@@ -227,8 +228,12 @@ install-yaourt-packages:
 install-pip-packages:
 	@ read -r -p "You want install pip packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		sudo pip install instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome pgcli socli
+		sudo pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli
 	fi
+
+install-pgcli:
+	sudo pacman -S postgresql-libs
+	sudo pip install --upgrade pgcli
 
 install-npm-packages:
 	@ read -r -p "You want install npm packages ? [y/N] " REPLY;
@@ -241,17 +246,18 @@ install-npm-packages:
 	fi
 
 install-virtualbox:
+	@ set -e
 	@ read -r -p "You want install virtualbox ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		echo 'vboxdrv\nvboxnetadp\nvboxnetflt\nvboxpci' | sudo tee /etc/modules-load.d/virtualbox.conf
-		yaourt --noconfirm -Sy virtualbox virtualbox-ext-oracle virtualbox-host-dkms virtualbox-host-modules vagrant
+		yaourt --noconfirm -Sy virtualbox virtualbox-ext-oracle virtualbox-host-dkms vagrant
+		echo -e 'vboxdrv\nvboxnetadp\nvboxnetflt\nvboxpci' | sudo tee /etc/modules-load.d/virtualbox.conf
 		sudo /usr/bin/rcvboxdrv setup
 	fi
 
 install-wine:
 	@ read -r -p "You want install wine ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		pacman -S wine winetricks wine-mono wine_gecko lib32-libxslt lib32-libxml2 playonlinux samba
+		sudo pacman -S wine winetricks wine-mono wine_gecko lib32-libxslt lib32-libxml2 playonlinux samba zenity
 		winetricks d3dx9
 	fi
 
@@ -270,6 +276,9 @@ install-mpd:
 	sudo pacman -S mpd mpc
 	mkdir -p ~/.mpd/playlists && touch ~/.mpd/{mpd.log,mpd.db,mpd.error,state}
 	systemctl --user enable mpd
+
+install-razer-packages:
+	yaourt -S --noconfirm openrazer-drivers-dkms razer_blade_14_2016_acpi_dsdt-git
 
 enable-services:
 	@ read -r -p "You want enable services ? [y/N] " REPLY;
