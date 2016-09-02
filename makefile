@@ -10,9 +10,10 @@ install: install-essentials install-nvidia-driver install-pacman-packages instal
 install-base:
 	echo ${hostname} > /etc/hostname
 	echo 'LANG=en_US.UTF-8' > /etc/locale.conf
+	echo 'FONT=latarcyrheb-sun32' > /etc/vconsole.conf
+	echo 'KEYMAP=us' >> /etc/vconsole.conf
 	ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 	hwclock --systohc --utc
-	cp vconsole.conf /etc/
 	useradd -m -g users -G wheel -s /bin/zsh ${username}
 
 install-dotbot:
