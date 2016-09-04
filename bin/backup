@@ -19,6 +19,7 @@ home()
         -e $HOME/.local/share/Zeal/ \
         -e $HOME/.pulse/ \
         -e $HOME/.Wine/ \
+        -e $HOME/.wine/ \
         -e $HOME/.macromedia/ \
         -e $HOME/.xsession-errors \
         -e $HOME/Downloads/ \
