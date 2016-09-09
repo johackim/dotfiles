@@ -170,6 +170,7 @@ install-pacman-packages:
 		python2-powerline \
 		mednafen \
 		bchunk \
+		keepassx \
 		simple-scan
 	fi
 
@@ -190,6 +191,7 @@ install-yaourt-packages:
 		vlsub-git \
 		thunar-thumbnailers \
 		nvm \
+		git-extras \
 		nodejs-tldr
 
 		yaourt --noconfirm -Sy \
@@ -205,14 +207,12 @@ install-yaourt-packages:
 		sopcast-player \
 		fritzing \
 		minecraft \
-		toxic-git \
 		android-studio \
 		s \
 		bleachbit-cli \
 		np1-mps \
 		packettracer \
 		zeronet \
-		git-extras \
 		balsamiqmockups \
 		wpscan \
 		theharvester-git \
@@ -280,6 +280,9 @@ install-mpd:
 
 install-razer-packages:
 	yaourt -S --noconfirm openrazer-drivers-dkms razer_blade_14_2016_acpi_dsdt-git
+
+install-atom-packages:
+	apm install --packages-file .atom/packages.list
 
 enable-services:
 	@ read -r -p "You want enable services ? [y/N] " REPLY;
