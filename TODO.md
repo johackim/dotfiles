@@ -15,3 +15,5 @@
 - [ ] Add clean command
 - [ ] FTP Rule iptable
 - [ ] Close laptop
+- [ ] Font size console
+- [ ] stop yaourt install
