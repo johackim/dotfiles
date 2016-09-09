@@ -5,7 +5,7 @@ hostname := "arch"
 username := "jcherqui"
 current_dir:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-install: install-essentials install-nvidia-driver install-pacman-packages install-yaourt-packages install-dotbot install-virtualbox install-wine install-pip-packages install-npm-packages enable-services
+install: install-dotbot install-nvidia-driver install-essentials install-pacman-packages install-yaourt-packages install-virtualbox install-wine install-pip-packages install-npm-packages enable-services
 
 install-base:
 	echo ${hostname} > /etc/hostname
