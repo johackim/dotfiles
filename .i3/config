@@ -186,8 +186,8 @@ exec --no-startup-id mpc clear && mpc load all && mpc random on
 # exec --no-startup-id synclient TapButton1=1
 
 # Startup
-exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e mux main'
-exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e mux second'
+exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e tmuxinator main'
+exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e tmuxinator second'
 
 # Assign
 assign [class="Iceweasel|Firefox" instance="Navigator"] 3

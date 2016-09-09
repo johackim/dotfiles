@@ -157,7 +157,7 @@ install-pacman-packages:
 		perl-file-mimeinfo \
 		syncthing \
 		asciinema \
-		borg \
+		borg python-llfuse \
 		srm \
 		hardinfo \
 		apg \
