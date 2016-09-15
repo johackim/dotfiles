@@ -299,3 +299,6 @@ enable-magic-keys:
 
 enable-zsh:
 	@ [[ ! $SHELL = "/bin/zsh" ]] && chsh -s /bin/zsh
+
+disable-sleep:
+	@ echo 'HandleLidSwitch=ignore' | sudo tee -a /etc/systemd/logind.conf
