@@ -173,24 +173,27 @@ client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Daemons
-# exec --no-startup-id setxkbmap fr
 exec --no-startup-id urxvtd -o -f -q
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id numlockx on
-exec --no-startup-id orage
 exec --no-startup-id xfce4-notes
 exec --no-startup-id mpc clear && mpc load all && mpc random on
+exec --no-startup-id setxkbmap us,us_intl '' compose:rwin grp:rctrl_rshift_toggle
+# exec --no-startup-id setxkbmap fr
+# exec --no-startup-id orage
 # exec --no-startup-id synclient TapButton1=1
 
 # Startup
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e tmuxinator main'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e tmuxinator second'
+exec --no-startup-id i3-msg 'workspace 4; exec urxvt -e libreboard'
 
 # Assign
 assign [class="Iceweasel|Firefox" instance="Navigator"] 3
+assign [instance="libreboard__boards"] 4
 assign [class="chromium"] 3
 assign [class="Vlc|mpv"] 5
 assign [class="Atom"] 6
@@ -218,6 +221,7 @@ for_window [class="utox"] floating enable
 for_window [class="recordMyDesktop"] floating enable
 for_window [class="Wine"] floating enable
 for_window [instance="Photoshop.exe"] floating disable
+for_window [instance="libreboard__boards"] floating disable
 
 # Focus
 for_window [class="^Vlc|mpv$"] focus
