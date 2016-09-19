@@ -43,9 +43,6 @@
         create: true
         path: .newsbeuter/config
     ~/.oh-my-zsh: .oh-my-zsh/
-    ~/.config/orage/oragerc:
-        create: true
-        path: .config/orage/oragerc
     ~/.themes/Darkyan:
         create: true
         path: .themes/Darkyan/

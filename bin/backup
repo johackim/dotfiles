@@ -3,7 +3,7 @@
 home()
 {
     source="$HOME"
-    target="/media/usb/Backups/"
+    target="/media/backups/"
     date=$(date +'%d-%m-%y-%H-%M')
 
     echo -e "Sauvegarde partition home..."
@@ -11,6 +11,7 @@ home()
     borg create --stats --progress --compression lz4 $target::$date \
         -e $HOME/.PlayOnLinux/ \
         -e $HOME/.thumbnails/ \
+        -e $HOME/.atom/ \
         -e $HOME/.cache/ \
         -e $HOME/.node-gyp/ \
         -e $HOME/.npm/ \
