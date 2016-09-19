@@ -17,3 +17,4 @@
 - [ ] Close laptop
 - [ ] Font size console
 - [ ] stop yaourt install
+- [ ] Add notes + web server
