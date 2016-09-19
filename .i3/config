@@ -182,14 +182,14 @@ exec --no-startup-id numlockx on
 exec --no-startup-id xfce4-notes
 exec --no-startup-id mpc clear && mpc load all && mpc random on
 exec --no-startup-id setxkbmap us,us_intl '' compose:rwin grp:rctrl_rshift_toggle
+exec --no-startup-id orage
 # exec --no-startup-id setxkbmap fr
-# exec --no-startup-id orage
 # exec --no-startup-id synclient TapButton1=1
 
 # Startup
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e tmuxinator main'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e tmuxinator second'
-exec --no-startup-id i3-msg 'workspace 4; exec urxvt -e libreboard'
+exec --no-startup-id i3-msg 'workspace 4; exec libreboard'
 
 # Assign
 assign [class="Iceweasel|Firefox" instance="Navigator"] 3
