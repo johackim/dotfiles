@@ -242,7 +242,7 @@ install-npm-packages:
 		[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 		nvm install --lts
 		nvm use --lts
-		sudo npm -g install instant-markdown-d peerflix cloudconvert-cli rdcli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint
+		sudo npm -g install instant-markdown-d peerflix cloudconvert-cli rdcli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator
 		sudo npm install -g fast-cli torrentflix bower
 	fi
 
