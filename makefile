@@ -171,6 +171,7 @@ install-pacman-packages:
 		mednafen \
 		bchunk \
 		keepassx \
+		figlet \
 		simple-scan
 	fi
 
@@ -192,6 +193,7 @@ install-yaourt-packages:
 		thunar-thumbnailers \
 		nvm \
 		git-extras \
+		yogo \
 		nodejs-tldr
 
 		yaourt --noconfirm -Sy \
