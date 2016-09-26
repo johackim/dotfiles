@@ -3,3 +3,4 @@
 notes/private/
 .config/systemd/user/default.target.wants/
 .urxvt/urxvtd-debian
+.stfolder

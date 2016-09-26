@@ -26,6 +26,7 @@ http://marmelab.com/atom.xml dev best
 https://vincent.composieux.fr/blog/feed.rss dev
 http://jolicode.com/feed.atom dev
 http://www.commitstrip.com/en/feed/ dev
+http://www.rssmix.com/u/8207217/rss.xml dev
 
 # Videos
 http://rssmix.com/u/8196328/rss.xml videos # France Inter
@@ -78,3 +79,5 @@ https://queryfeed.net/tw?q=from%3AKimDotcom twitter
 https://queryfeed.net/tw?q=from%3Aaperowebnancy twitter
 https://queryfeed.net/tw?q=from%3Afrancoisz twitter
 
+# Facebook
+http://fetchrss.com/rss/564c95c98a93f864117616bd15121507542.xml facebook
