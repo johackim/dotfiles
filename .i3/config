@@ -179,10 +179,10 @@ exec --no-startup-id xset s off
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id numlockx on
-exec --no-startup-id xfce4-notes
 exec --no-startup-id mpc clear && mpc load all && mpc random on
 exec --no-startup-id setxkbmap us,us_intl '' compose:rwin grp:rctrl_rshift_toggle
 exec --no-startup-id orage
+# exec --no-startup-id xfce4-notes
 # exec --no-startup-id setxkbmap fr
 # exec --no-startup-id synclient TapButton1=1
 
