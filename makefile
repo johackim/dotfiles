@@ -108,7 +108,7 @@ install-pacman-packages:
 		thefuck cmatrix cowsay \
 		clamav rkhunter \
 		xclip \
-		aria2 plowshare \
+		aria2 \
 		offlineimap \
 		w3m \
 		scrot xfce4-screenshooter \
@@ -200,7 +200,6 @@ install-yaourt-packages:
 		tor-browser-en \
 		wego-git \
 		namebench \
-		popcorntime-bin pirate-get megatools pirateflix \
 		jp2a \
 		chkrootkit \
 		wiki-git \
@@ -212,7 +211,6 @@ install-yaourt-packages:
 		android-studio \
 		s \
 		bleachbit-cli \
-		np1-mps \
 		packettracer \
 		zeronet \
 		balsamiqmockups \
@@ -244,8 +242,8 @@ install-npm-packages:
 		[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 		nvm install --lts
 		nvm use --lts
-		sudo npm -g install instant-markdown-d peerflix cloudconvert-cli rdcli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator
-		sudo npm install -g fast-cli torrentflix bower
+		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator
+		sudo npm install -g fast-cli bower
 	fi
 
 install-virtualbox:
@@ -286,6 +284,11 @@ install-razer-packages:
 install-atom-packages:
 	apm install --packages-file .atom/packages.list
 
+install warez-tools:
+	sudo pacman -S plowshare
+	yaourt -S --noconfirm popcorntime-bin pirate-get megatools pirateflix np1-mps
+	sudo npm install -g torrentflix rdcli peerflix
+
 enable-services:
 	@ read -r -p "You want enable services ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
@@ -304,3 +307,6 @@ enable-zsh:
 
 disable-sleep:
 	@ echo 'HandleLidSwitch=ignore' | sudo tee -a /etc/systemd/logind.conf
+
+backup:
+	backup home
