@@ -10,7 +10,7 @@
       "fake-theme"
     ]
   editor:
-    fontSize: 16
+    fontSize: 15
     invisibles: {}
     preferredLineLength: 500
     tabLength: 4
