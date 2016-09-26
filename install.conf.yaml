@@ -20,7 +20,6 @@
     ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml:
         create: true
         path: .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-    ~/.config/xfce4/xfce4-notes.gtkrc: .config/xfce4/xfce4-notes.gtkrc
     ~/.config/systemd: .config/systemd/
     ~/.dir_colors: .dir_colors
     ~/.fonts: .fonts/
@@ -42,6 +41,9 @@
     ~/.newsbeuter/config:
         create: true
         path: .newsbeuter/config
+    ~/Notes:
+        create: true
+        path: Notes
     ~/.oh-my-zsh: .oh-my-zsh/
     ~/.themes/Darkyan:
         create: true
