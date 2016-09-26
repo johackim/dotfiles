@@ -1,6 +1,5 @@
 !Images/Screens/.gitkeep
-!Notes/private/.gitkeep
-Notes/private/
+Notes/
 .config/systemd/user/default.target.wants/
 .urxvt/urxvtd-debian
 .stfolder
