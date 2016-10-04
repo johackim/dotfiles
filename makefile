@@ -172,6 +172,8 @@ install-pacman-packages:
 		bchunk \
 		keepassx \
 		figlet \
+		keeweb \
+		pwgen \
 		simple-scan
 	fi
 
@@ -194,6 +196,7 @@ install-yaourt-packages:
 		nvm \
 		git-extras \
 		yogo \
+		arch-audit \
 		nodejs-tldr
 
 		yaourt --noconfirm -Sy \
