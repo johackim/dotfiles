@@ -3,7 +3,8 @@
 - [x] Light shortcut
 - [x] TTY font size
 - [x] Chroma keyboard color (fn key startup)
-- [ ] Accents, caracteres speciaux terminal (copy files, mutt)
+- [x] Accents, caracteres speciaux terminal (copy files, mutt)
+- [x] Font size console
 - [ ] QT Font size
 - [ ] Wifi stable
 - [ ] Add screenshot
@@ -15,6 +16,5 @@
 - [ ] Add clean command
 - [ ] FTP Rule iptable
 - [ ] Close laptop
-- [ ] Font size console
 - [ ] stop yaourt install
 - [ ] Add notes + web server
