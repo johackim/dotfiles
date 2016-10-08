@@ -85,7 +85,6 @@ install-pacman-packages:
 		dunst \
 		libnotify \
 		faenza-icon-theme \
-		flashplugin \
 		speedtest-cli \
 		gtk3 \
 		gtk-engines \
@@ -197,6 +196,9 @@ install-yaourt-packages:
 		git-extras \
 		yogo \
 		arch-audit \
+		lantern \
+		flashplugin-beta \
+		turtl \
 		nodejs-tldr
 
 		yaourt --noconfirm -Sy \
@@ -253,7 +255,7 @@ install-virtualbox:
 	@ set -e
 	@ read -r -p "You want install virtualbox ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		yaourt --noconfirm -Sy virtualbox virtualbox-ext-oracle virtualbox-host-dkms vagrant
+		yaourt --noconfirm -Sy virtualbox virtualbox-ext-oracle virtualbox-host-modules-arch vagrant
 		echo -e 'vboxdrv\nvboxnetadp\nvboxnetflt\nvboxpci' | sudo tee /etc/modules-load.d/virtualbox.conf
 		sudo /usr/bin/rcvboxdrv setup
 	fi
