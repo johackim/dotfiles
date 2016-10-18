@@ -173,6 +173,7 @@ install-pacman-packages:
 		figlet \
 		keeweb \
 		pwgen \
+		rdesktop \
 		simple-scan
 	fi
 
@@ -248,7 +249,7 @@ install-npm-packages:
 		nvm install --lts
 		nvm use --lts
 		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator
-		sudo npm install -g fast-cli bower
+		sudo npm install -g fast-cli bower yarn
 	fi
 
 install-virtualbox:
@@ -302,16 +303,19 @@ enable-services:
 	fi
 
 enable-ftp:
-	echo 'ip_conntrack_ftp' | sudo tee /etc/modules-load.d/ftp.conf
+	@ echo 'ip_conntrack_ftp' | sudo tee /etc/modules-load.d/ftp.conf
 
 enable-magic-keys:
-	echo "kernel.sysrq = 1" | sudo tee /etc/sysctl.d/99-sysctl.conf
+	@ echo "kernel.sysrq = 1" | sudo tee /etc/sysctl.d/99-sysctl.conf
 
 enable-zsh:
 	@ [[ ! $SHELL = "/bin/zsh" ]] && chsh -s /bin/zsh
 
 disable-sleep:
 	@ echo 'HandleLidSwitch=ignore' | sudo tee -a /etc/systemd/logind.conf
+
+qt-dpi:
+	@ echo 'export QT_SCALE_FACTOR=2' | sudo tee /etc/profile.d/qt-hidpi.sh
 
 backup:
 	backup home
