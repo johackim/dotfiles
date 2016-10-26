@@ -32,7 +32,7 @@ http://www.rssmix.com/u/8207217/rss.xml dev
 
 # Videos
 http://rssmix.com/u/8196328/rss.xml videos # France Inter
-http://rssmix.com/u/8207563/rss.xml videos
+http://rssmix.com/u/8210007/rss.xml videos
 
 # Books
 http://boutique.ed-diamond.com/modules/feeder/rss.php books best
@@ -44,6 +44,7 @@ http://feeds.feedburner.com/SpiritOfMetalWebzine/fr?format=xml music
 http://feeds.feedburner.com/metalfrance-all music
 http://www.metalstorm.net/rss/reviews.xml music
 http://fetchrss.com/rss/564c95c98a93f864117616bd25406220792.xml music
+http://fetchrss.com/rss/564c95c98a93f864117616bd44982806127.xml music
 
 # Warez
 https://feeds.feedburner.com/Torrentfreak warez
