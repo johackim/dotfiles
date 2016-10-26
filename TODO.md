@@ -5,7 +5,7 @@
 - [x] Chroma keyboard color (fn key startup)
 - [x] Accents, caracteres speciaux terminal (copy files, mutt)
 - [x] Font size console
-- [ ] QT Font size
+- [x] QT Font size
 - [ ] Wifi stable
 - [ ] Add screenshot
 - [ ] Browser Addons

@@ -38,6 +38,12 @@ detach() { sudo umount "/dev/"$1"1"; udisks --detach "/dev/$1"; }
 debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
 drm() { docker rm $(docker ps -q -a); }
 
+live() {
+    qemu-img create -f raw live 8G
+    qemu-system-x86_64 -enable-kvm -cpu host -m 4096 -drive file=live,format=raw -cdrom "$1"
+    rm live
+}
+
 tunnel(){
     if [ -z "$1" ]; then
 	echo "Usage: tunnel [addr]"
