@@ -22,6 +22,7 @@ alias calendar='cal'
 alias pastebin="curl -F 'sprunge=<-' http://sprunge.us"
 alias screencast='ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0 -vcodec huffyuv screencast.avi'
 alias skyrock="mplayer -nocache http://www.skyrock.fm/stream.php/frequenceradio_128mp3.mp3"
+alias franceinter="mplayer -nocache http://direct.franceinter.fr/live/franceinter-midfi.mp3"
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias gitfat='git rev-list --all --objects|sed -n $(git rev-list --objects --all|cut -f1 -d" "|git cat-file --batch-check|grep blob|sort -n -k 3|tail -n40|while read hash type size; do echo -n "-e s/$hash/$size/p "; done)|sort -n -k1;'
 alias gdiff="git diff --color | diff-so-fancy"

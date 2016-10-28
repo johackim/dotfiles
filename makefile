@@ -319,3 +319,11 @@ qt-dpi:
 
 backup:
 	backup home
+
+disable-webcam:
+	@ sudo modprobe -r uvcvideo
+	@ echo 'blacklist uvcvideo' | sudo tee -a /etc/modprobe.d/blacklist.conf
+
+enable-webcam:
+	@ sudo modprobe uvcvideo
+	@ sudo rm -f /etc/modprobe.d/blacklist.conf

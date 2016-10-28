@@ -4,7 +4,7 @@ cd ~/Downloads
 
 mkdir -p images; mv *.png *.svg *.pdf *.jpg *.psd images &>/dev/null
 mkdir -p textes; mv *.xml *.txt *.pdf *.crt *.doc *.docx *.html *.md *.torrent *.aria2 *.key *.ovpn textes &>/dev/null
-mkdir -p videos; mv *.mkv *.webm *.mp4 videos &>/dev/null
+mkdir -p videos; mv *.avi *.mkv *.webm *.mp4 videos &>/dev/null
 mkdir -p archives; mv *.zip *.tar.gz *.tgz *.bundle *.rar archives &>/dev/null
 mkdir -p music; mv *.wav music &>/dev/null
 mkdir -p dossiers; find -maxdepth 1 -type d ! -name images ! -name archives ! -name textes ! -name music ! -name videos -exec mv {} dossiers \; &>/dev/null
