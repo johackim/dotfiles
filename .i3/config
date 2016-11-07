@@ -194,7 +194,7 @@ exec --no-startup-id i3-msg 'workspace 4; exec libreboard'
 # Assign
 assign [class="Iceweasel|Firefox" instance="Navigator"] 3
 assign [instance="libreboard__boards"] 4
-assign [class="chromium"] 3
+assign [instance="chromium"] 3
 assign [class="Vlc|mpv"] 5
 assign [class="Atom"] 6
 
@@ -207,7 +207,8 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="Thunar" instance="file_progress"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Mousepad"] floating enable
-for_window [class="Iceweasel|Firefox" instance="Places"] floating enable
+for_window [class="iceweasel|firefox" instance="places"] floating enable
+for_window [class="Chromium"] floating disable
 for_window [class="Evince"] floating enable
 for_window [class="Display"] floating enable
 for_window [class="Orage"] floating enable
