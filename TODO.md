@@ -6,6 +6,7 @@
 - [x] Accents, caracteres speciaux terminal (copy files, mutt)
 - [x] Font size console
 - [x] QT Font size
+- [ ] Add vim-plug
 - [ ] Wifi stable
 - [ ] Add screenshot
 - [ ] Browser Addons

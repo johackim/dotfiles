@@ -188,7 +188,7 @@ install-yaourt-packages:
 		ttf-ms-fonts \
 		zeal-git \
 		simple-mtpfs \
-		utox \
+		utox-git \
 		atom-editor \
 		etcher \
 		vlsub-git \
@@ -200,6 +200,7 @@ install-yaourt-packages:
 		lantern \
 		flashplugin-beta \
 		turtl \
+		simplescreenrecorder \
 		nodejs-tldr
 
 		yaourt --noconfirm -Sy \
@@ -327,3 +328,11 @@ disable-webcam:
 enable-webcam:
 	@ sudo modprobe uvcvideo
 	@ sudo rm -f /etc/modprobe.d/blacklist.conf
+
+disable-ipv6:
+	@ echo 'net.ipv6.conf.all.disable_ipv6 = 1' | sudo tee /etc/sysctl.d/40-ipv6.conf
+	echo 'you must restart your computer'
+
+enable-ipv6:
+	@ sudo rm /etc/sysctl.d/40-ipv6.conf
+	echo 'you must restart your computer'
