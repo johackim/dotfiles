@@ -201,6 +201,7 @@ install-yaourt-packages:
 		flashplugin-beta \
 		turtl \
 		simplescreenrecorder \
+		hget-git \
 		nodejs-tldr
 
 		yaourt --noconfirm -Sy \
