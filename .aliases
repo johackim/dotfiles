@@ -60,3 +60,20 @@ tunnel(){
     fi
 }
 
+stopwatch(){
+  date1=`date +%s`;
+   while true; do
+    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+    sleep 0.1
+   done
+}
+
+genssl(){
+    if [ -z "$1" ]; then
+	    echo "usage: genssl [domain]"
+    else
+        openssl genrsa -out $1.key 1024
+        openssl req -new -key $1.key -out $1.csr
+        openssl x509 -req -days 365 -in $1.csr -signkey $1.key -out $1.crt
+    fi
+}
