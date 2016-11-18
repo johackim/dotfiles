@@ -31,8 +31,7 @@ http://www.commitstrip.com/en/feed/ dev
 http://www.rssmix.com/u/8207217/rss.xml dev
 
 # Videos
-http://rssmix.com/u/8196328/rss.xml videos # France Inter
-http://www.rssmix.com/u/8212617/rss.xml videos
+http://rssmix.com/u/8214453/rss.xml videos
 
 # Books
 http://boutique.ed-diamond.com/modules/feeder/rss.php books best
@@ -51,15 +50,17 @@ https://feeds.feedburner.com/Torrentfreak warez
 http://nextwarez.com/feed warez best
 http://www.undernews.fr/feed warez
 
-# Hack
-http://null-byte.wonderhowto.com/rss.xml hack
-http://feeds.feedburner.com/SecurityTube?format=xml hack
-https://www.youtube.com/feeds/videos.xml?user=Hak5Darren hack
-http://feeds.feedburner.com/TheHackersNews hack
-http://feeds.feedburner.com/PentestTools hack
-http://feeds.feedburner.com/n0where hack
-http://www.hackingarticles.in/feed/ hack
-http://www.toolwar.com/feeds/posts/default?alt=rss hack
+# Security
+https://geekflare.com/feed/ security
+http://null-byte.wonderhowto.com/rss.xml security
+http://feeds.feedburner.com/SecurityTube?format=xml security
+https://www.youtube.com/feeds/videos.xml?user=Hak5Darren security
+http://feeds.feedburner.com/TheHackersNews security
+http://feeds.feedburner.com/PentestTools security
+http://feeds.feedburner.com/n0where security
+http://www.hackingarticles.in/feed/ security
+http://www.toolwar.com/feeds/posts/default?alt=rss security
+http://feeds.feedburner.com/darknethackers security
 
 # Useful
 https://www.reddit.com/r/UsefulWebsites/.rss useful

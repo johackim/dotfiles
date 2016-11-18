@@ -5,3 +5,4 @@
 [alias]
     s = status -sb
     l = log --graph --oneline
+    moustache = stash
