@@ -6,12 +6,12 @@
 - [x] Accents, caracteres speciaux terminal (copy files, mutt)
 - [x] Font size console
 - [x] QT Font size
+- [x] Middle click keyboard -> SHIFT + INSERT
 - [ ] Add vim-plug
 - [ ] Wifi stable
 - [ ] Add screenshot
 - [ ] Browser Addons
 - [ ] Wine Applications
-- [ ] Middle click keyboard
 - [ ] Extensions application start
 - [ ] Mutt, display first message
 - [ ] Add clean command
