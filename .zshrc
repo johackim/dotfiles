@@ -87,7 +87,7 @@ source $HOME/.aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export GOPATH="$HOME/dev/gocode/"
-export PATH=$PATH:$GOPATH/bin:~/.gem/ruby/2.3.0/bin
+export PATH=$PATH:$GOPATH/bin:~/.gem/ruby/2.3.0/bin:/snap/bin
 export EDITOR="vim"
 export WINEARCH=win32
 export WINEPREFIX=~/.wine # Wine prefix to use
