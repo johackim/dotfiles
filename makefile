@@ -174,6 +174,7 @@ install-pacman-packages:
 		keeweb \
 		pwgen \
 		rdesktop \
+		snapd \
 		simple-scan
 	fi
 
@@ -226,7 +227,6 @@ install-yaourt-packages:
 		theharvester-git \
 		securefs \
 		aur/slack-desktop \
-		snapcraft \
 		screenkey \
 		devd \
 		bitchx-git \
