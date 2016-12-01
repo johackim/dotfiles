@@ -2,7 +2,7 @@
 
 shopt -s nocaseglob
 cd ~/Downloads
-mkdir -p images; mv *.png *.svg *.pdf *.jpg *.psd images &>/dev/null
+mkdir -p images; mv *.png *.svg *.pdf *.jpg *.gif *.psd images &>/dev/null
 mkdir -p textes; mv *.sql *.xml *.txt *.pdf *.crt *.doc *.docx *.html *.csv *.md *.torrent *.aria2 *.key *.ovpn textes &>/dev/null
 mkdir -p videos; mv *.avi *.mkv *.webm *.mp4 *.srt videos &>/dev/null
 mkdir -p archives; mv *.zip *.tar.gz *.tgz *.bundle *.rar *.iso *.exe archives &>/dev/null
