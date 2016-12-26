@@ -189,12 +189,12 @@ exec --no-startup-id orage
 # Startup
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e tmuxinator main'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e tmuxinator second'
-exec --no-startup-id i3-msg 'workspace 4; exec libreboard'
+exec --no-startup-id i3-msg 'workspace 3; exec chromium'
 
 # Assign
 assign [class="Iceweasel|Firefox" instance="Navigator"] 3
-assign [instance="libreboard__boards"] 4
 assign [instance="chromium"] 3
+assign [instance="wekan*"] 4
 assign [class="Vlc|mpv"] 5
 assign [class="Atom"] 6
 
