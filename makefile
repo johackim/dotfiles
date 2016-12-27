@@ -231,7 +231,8 @@ install-yaourt-packages:
 		devd \
 		bitchx-git \
 		molotov \
-		ruby-travis
+		ruby-travis \
+		handbrake
 	fi
 
 install-pip-packages:
