@@ -45,4 +45,8 @@ echo - Autoriser ping : [OK]
 iptables -A INPUT -p tcp --dport 2222 -j ACCEPT
 echo - Autoriser SSH : [OK]
 
+# Bitorrent
+# iptables -A INPUT -p tcp --destination-port 6881:6999 -j ACCEPT
+# echo - Autoriser Bitorrent : [OK]
+
 exit 0

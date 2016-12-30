@@ -175,7 +175,8 @@ install-pacman-packages:
 		pwgen \
 		rdesktop \
 		snapd \
-		simple-scan
+		simple-scan \
+		surf
 	fi
 
 install-yaourt-packages:
