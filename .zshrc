@@ -101,6 +101,8 @@ autoload bashcompinit
 bashcompinit
 source ~/.oh-my-zsh/gh_complete.sh
 
+zstyle ':completion:*' rehash true # Auto refresh
+
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 stty -ixon

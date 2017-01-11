@@ -27,7 +27,7 @@ alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias gitfat='git rev-list --all --objects|sed -n $(git rev-list --objects --all|cut -f1 -d" "|git cat-file --batch-check|grep blob|sort -n -k 3|tail -n40|while read hash type size; do echo -n "-e s/$hash/$size/p "; done)|sort -n -k1;'
 alias gdiff="git diff --color | diff-so-fancy"
 alias git='LANG=en_US.UTF-8 git'
-alias hacklab='docker run -d --name hacklab --net=host --privileged=true -it jcherqui/docker-hacklab bash > /dev/null 2>&1; docker exec -it hacklab bash'
+alias hacklab='docker run -d --name hacklab --net=host --privileged=true -v ~/Public:/mnt -it jcherqui/docker-hacklab bash > /dev/null 2>&1; docker start hacklab > /dev/null; docker exec -it hacklab bash'
 
 monitor(){ watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
 gi() { curl "https://www.gitignore.io/api/$@"; }
