@@ -107,3 +107,9 @@ zstyle ':completion:*' rehash true # Auto refresh
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 stty -ixon
 
+
+# cheat autocompletion
+_cmpl_cheat() {
+    reply=($(cheat -l | cut -d' ' -f1))
+}
+compctl -K _cmpl_cheat cheat
