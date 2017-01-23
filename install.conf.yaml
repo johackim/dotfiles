@@ -5,6 +5,7 @@
     ~/.atom/config.cson: .atom/config.cson
     ~/.atom/keymap.cson: .atom/keymap.cson
     ~/bin: bin/
+    ~/.cheat: .cheat/
     ~/Images/wallpaper.png:
         create: true
         path: Images/wallpaper.png
