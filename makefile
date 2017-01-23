@@ -220,7 +220,7 @@ install-yaourt-packages:
 		powermonius-git \
 		g4l \
 		sopcast-player \
-		fritzing \
+		fritzing KiCad \
 		minecraft \
 		android-studio \
 		s \
@@ -237,7 +237,8 @@ install-yaourt-packages:
 		bitchx-git \
 		molotov \
 		ruby-travis \
-		handbrake
+		handbrake \
+		cutycapt-qt5-git
 	fi
 
 install-pip-packages:
