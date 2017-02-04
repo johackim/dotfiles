@@ -3,9 +3,9 @@
 shopt -s nocaseglob
 cd ~/Downloads
 mkdir -p images; mv -n *.png *.svg *.jpg *.gif *.psd images &>/dev/null
-mkdir -p textes; mv -n *.sql *.odt *.json *.xml *.txt *.pdf *.crt *.doc *.docx *.xlsx *.html *.csv *.md *.torrent *.aria2 *.key *.sh *.py *.ovpn textes &>/dev/null
+mkdir -p textes; mv -n *.sql *.odt *.json *.xml *.txt *.pdf *.crt *.doc *.docx *.xlsx *.html *.csv *.md *.torrent *.aria2 *.key *.sh *.py *.ovpn *.log *.conf textes &>/dev/null
 mkdir -p videos; mv -n *.avi *.mkv *.webm *.mp4 *.srt videos &>/dev/null
-mkdir -p archives; mv -n *.zip *.tar.gz *.tgz *.bundle *.apk *.rar *.7z *.iso *.exe archives &>/dev/null
+mkdir -p archives; mv -n *.zip *.tar.gz *.tgz *.bundle *.apk *.rar *.7z *.iso *.exe *.bz2 archives &>/dev/null
 mkdir -p music; mv -n *.wav music &>/dev/null
 mkdir -p dossiers; find -maxdepth 1 -type d ! -name images ! -name archives ! -name textes ! -name music ! -name videos -exec mv {} dossiers \; &>/dev/null
 find . -maxdepth 1 -type d -empty -delete
