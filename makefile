@@ -192,7 +192,7 @@ install-yaourt-packages:
 		ttf-ms-fonts \
 		zeal-git \
 		simple-mtpfs \
-		utox-git \
+		utox-git toxic \
 		atom-editor \
 		etcher \
 		vlsub-git \
