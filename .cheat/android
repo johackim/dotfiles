@@ -1,0 +1,20 @@
+# Mobile Application Test Notes (Android)
+
+yaourt -S android-studio
+
+[+] Create a virtual device:
+    [-] android avd
+
+[+] Start the emulator:
+    [-] emulator –avd testavd
+
+[+] Install the application:
+    [-] adb install <path of the .apk file>
+
+[+] Open Burp Suite and navigate to Proxy->Options,
+    [-] Edit proxy listeners – enter ‘port’ as 8080, disable ‘loopback only’ and select ‘support invisible’.
+
+[+] Start the emulator and proxy:
+    [-] emulator –avd testavd –http-proxy http://localhost:8080
+
+[+] Download and install burp certificate (.crt) onto the emulator using the push shell command.
