@@ -7,9 +7,11 @@
 - [x] Font size console
 - [x] QT Font size
 - [x] Middle click keyboard -> SHIFT + INSERT
+- [x] Add screenshot
+- [ ] Change global color
+- [ ] Adapt for all linux distributions
 - [ ] Add vim-plug
 - [ ] Wifi stable
-- [ ] Add screenshot
 - [ ] Browser Addons
 - [ ] Wine Applications
 - [ ] Extensions application start
@@ -19,3 +21,4 @@
 - [ ] Close laptop
 - [ ] stop yaourt install
 - [ ] Add notes + web server
+- [ ] Convert notes to cheats

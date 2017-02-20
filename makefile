@@ -178,7 +178,8 @@ install-pacman-packages:
 		simple-scan \
 		surf \
 		icedtea-web \
-		cpulimit
+		cpulimit \
+		pandoc
 	fi
 
 install-yaourt-packages:
@@ -208,7 +209,8 @@ install-yaourt-packages:
 		hget-git \
 		nodejs-tldr \
 		droopy-git \
-		winusb
+		winusb \
+		brave-bin
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
@@ -257,7 +259,7 @@ install-npm-packages:
 		[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 		nvm install --lts
 		nvm use --lts
-		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse
+		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check
 		sudo npm install -g fast-cli bower
 	fi
 
