@@ -179,7 +179,8 @@ install-pacman-packages:
 		surf \
 		icedtea-web \
 		cpulimit \
-		pandoc
+		pandoc \
+		trash-cli
 	fi
 
 install-yaourt-packages:
@@ -210,6 +211,7 @@ install-yaourt-packages:
 		nodejs-tldr \
 		droopy-git \
 		winusb \
+		wiki-git \
 		brave-bin
 
 		yaourt --noconfirm -Sy \
@@ -218,7 +220,6 @@ install-yaourt-packages:
 		namebench \
 		jp2a \
 		chkrootkit \
-		wiki-git \
 		powermonius-git \
 		g4l \
 		sopcast-player \
