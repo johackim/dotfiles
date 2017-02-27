@@ -1,0 +1,23 @@
+# Server protection
+
+- WAF (ex: NAXSI), XSS, Sql Injection
+- Block iframe (add_header X-Frame-Options Deny;)
+- Block Bad bot (SetEnvIfNoCase ^User-Agent$ .*(libwww-perl|aesop_com_spiderman) HTTP_SAFE_BADBOT)
+- Firewall (ex: iptables)
+- IDS (ex: maltrail)
+- IPS (ex: Fail2ban, snort)
+- Filter ip access
+- SSL
+- isoler les serveur au sein d'un réseau privé (vRack)
+- Port knocking
+- Disabled ssh password access and add ssh key
+- Backup
+- High Availability
+- Passphrases instead off password
+- Disable error_reporting
+- Hide verbose informations (apache, php, mysql versions etc..)
+- One user by application
+- DNS(sec) (block spoofing dns)
+- [Security Checklist](http://bit.ly/2lLWFVF)
+- keepass
+- Apparmor

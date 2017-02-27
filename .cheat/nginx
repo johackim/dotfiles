@@ -1,0 +1,15 @@
+FROM debian:wheezy
+
+RUN \
+   apt-get update --fix-missing && \
+   apt-get install -y nginx  && \
+   apt-get clean -y && \
+   apt-get autoclean -y && \
+   apt-get autoremove -y && \
+   rm -rf /tmp/* && \
+   rm -rf /var/lib/{apt,dpkg,cache,log,tmp}/*
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+
