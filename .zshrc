@@ -51,7 +51,7 @@ ZSH_THEME="cyan"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git git-flow docker docker-compose node npm nmap grunt httpie vagrant symfony symfony2 rsync pip bower taskwarrior)
-plugins=(git git-flow docker docker-compose vagrant nmap pip archlinux npm gulp)
+plugins=(git git-flow docker docker-compose vagrant nmap pip archlinux npm gulp zsh-syntax-highlighting)
 
 # User configuration
 
@@ -113,3 +113,9 @@ _cmpl_cheat() {
     reply=($(cheat -l | cut -d' ' -f1))
 }
 compctl -K _cmpl_cheat cheat
+
+# zsh-syntax-highlighting plugin
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[path]='none'
+ZSH_HIGHLIGHT_STYLES[arg0]='none'
+ZSH_HIGHLIGHT_STYLES[precommand]='none'
