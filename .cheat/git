@@ -1,0 +1,83 @@
+Git Cheat Sheet
+===
+
+```bash
+git instaweb --httpd apache2 # Web Server
+git log HEAD..origin/master # Commits HEAD to origin/master
+git checkout -b <new> <exist> # Create new branch from an existing branch.
+git blame <fichier> 
+git cherry-pick # Permet de sélectionner un commit quelconque et de l’appliquer sur la branche actuelle.
+git bisect # Find problems http://www.alexgirard.com/git-book/5_trouver_les_probl%25C3%25A8mes_-_git_bisect.html
+git branch -m old_branch new_branch # Rename branch
+git diff --cached --name-only
+git ls-files --others --exclude-standard | xargs rm
+git ls-files --modified | xargs git checkout --
+git checkout <commit> <file/to/restore> # git revert commit file
+git diff --name-only SHA1 SHA2 # Show all changed files between two commits
+git diff HEAD HEAD@{2014-01-06}
+git log --author=joachim --after="2014-01-06"
+git log --author=joachim --after="2014-01-06" --oneline
+git update-index --assume-unchanged # ??
+git remote set-url origin <depot>
+git archive --format=zip HEAD > eb-py-flask-signup.zip
+git grep <regexp> $(git rev-list --all)
+git show <treeish>:<file> # Show specific file on commit
+git stash branch <name>
+git stash pop <name>
+git log -S <string> path/to/file # How “blame” a deleted line
+git fetch -p # Supprime toutes les branches origin non utilisé
+git log --oneline # Get commits name
+git add -p # Add files step by step with diff (s: split, y: add)
+git diff --staged
+git reset -p ## ???
+git show :o:README.md
+git log -L
+git config --global pull.rebase = preserve
+.git/info/exclude # Gitignore personel
+git cherry-pick
+git bisect
+squashing
+git log --oneline --decorate # Oneline et decorate pour voir les commits de tel et tel branche.
+git rebase -i
+git diff -w # Ne pas prendre en comptes les indentations
+git diff --color | diff-so-fancy # Diff amélioré
+git diff -N <file> # Afficher le diff du <file> non indexé
+git config --get remote.origin.url # Show url remote local
+git --color-words # Hide plus and minus (cacher tirets)
+git diff --cached # git diff index files to be committed
+```
+
+Submodule
+---
+
+NOTE: To updare a submodule: checkout master
+
+```bash
+git submodule init
+git submodule update
+git submodule foreach git pull origin master
+git submodule update --init --recursive
+
+# Add submodule
+git submodule add --force <url> <dir>
+git submodule sync
+```
+
+Rebase
+---
+
+```bash
+git rebase -i <commit>~1 # Rebase specific commit
+git rebase -i -p <id_commit>
+git commit --amend
+git commit --continue
+git rebase
+```
+
+Don't index new changes
+---
+
+http://stackoverflow.com/questions/9794931/keep-file-in-a-git-repo-but-dont-track-changes
+git update-index --assume-unchanged FILE_NAME
+to restore : git update-index --no-assume-unchanged FILE_NAME
+
