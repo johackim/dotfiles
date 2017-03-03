@@ -1,5 +1,6 @@
-! Grayscale dark theme modified
+! xrdb -merge ~/.Xresources (TO APPLY CHANGES)
 
+! Grayscale dark theme modified
 ! special
 *.foreground:   #ffffff
 *.background:   #101010
@@ -73,3 +74,4 @@ URxvt.keysym.C-Down:   perl:font-size:decrease
 URxvt.urgentOnBell: true
 
 Xft.dpi: 192 # xrdb -query | grep dpi
+xterm*font: *-fixed-*-*-*-18-*

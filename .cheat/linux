@@ -1,5 +1,0 @@
-# Set welcome message
-figlet -f small "CHEAT SHEET" > /etc/motd
-
-# Get absolute path of any file
-realpath <file>

@@ -1,0 +1,23 @@
+# Set welcome message
+figlet -f small "CHEAT SHEET" > /etc/motd
+
+# Get absolute path of any file
+realpath <file>
+
+# Search file
+fzf
+
+# Terminal output to clipboard.
+yank
+
+# Watch logs
+lnav
+
+# Remove duplicates
+sort -g <file> | uniq
+
+# List ports
+cat /etc/services
+
+# Ressources
+http://www.commandlinefu.com
