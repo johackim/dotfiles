@@ -180,7 +180,8 @@ install-pacman-packages:
 		icedtea-web \
 		cpulimit \
 		pandoc \
-		trash-cli
+		trash-cli \
+		fzf
 	fi
 
 install-yaourt-packages:
@@ -212,7 +213,10 @@ install-yaourt-packages:
 		droopy-git \
 		winusb \
 		wiki-git \
-		brave-bin
+		brave-bin \
+		yank \
+		wuzz \
+		httplab
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
@@ -346,3 +350,8 @@ disable-ipv6:
 enable-ipv6:
 	@ sudo rm /etc/sysctl.d/40-ipv6.conf
 	echo 'you must restart your computer'
+
+install-gimp:
+	@ sudo pacman -S gimp
+	@ git clone https://github.com/doctormo/GimpPs ~/.gimp-2.8
+	@ git clone https://github.com/jedireza/gimp-hidpi ~/.gimp-2.8/themes/gimp-hidpi/

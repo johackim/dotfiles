@@ -1,17 +1,18 @@
 # Server protection
 
-- WAF (ex: NAXSI), XSS, Sql Injection
+- Firewall Applicatif (WAF) anti XSS, anti Sql Injection (ex: NAXSI)
 - Block iframe (add_header X-Frame-Options Deny;)
+- Block clickjacking attack (anti-clickjacking X-Frame-Options header)
 - Block Bad bot (SetEnvIfNoCase ^User-Agent$ .*(libwww-perl|aesop_com_spiderman) HTTP_SAFE_BADBOT)
 - Firewall (ex: iptables)
-- IDS (ex: maltrail)
 - IPS (ex: Fail2ban, snort)
+- IDS (ex: maltrail)
 - Filter ip access
 - SSL
 - isoler les serveur au sein d'un réseau privé (vRack)
 - Port knocking
 - Disabled ssh password access and add ssh key
-- Backup
+- Backup auto with encryption
 - High Availability
 - Passphrases instead off password
 - Disable error_reporting
@@ -21,3 +22,13 @@
 - [Security Checklist](http://bit.ly/2lLWFVF)
 - keepass
 - Apparmor
+- AV: clamav, rkhunter, chrootkit, metadefender.com, virustotal
+- Keep eyes on logs
+
+# How to respond to an attack ?
+
+- Put website offline
+- Change all passwords
+- Remove all files
+- Reinstall a clean copy
+- Upgrade all plugins
