@@ -36,9 +36,6 @@
     ~/.ncmpcpp/config:
         create: true
         path: .ncmpcpp/config
-    ~/.newsbeuter/urls:
-        create: true
-        path: .newsbeuter/urls
     ~/.newsbeuter/config:
         create: true
         path: .newsbeuter/config

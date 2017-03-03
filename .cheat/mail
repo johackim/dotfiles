@@ -1,0 +1,11 @@
+# SPF (Sender Policy Framework)
+Indique quelles adresses IP sont autorisées ou interdites à envoyer du courrier.
+
+# DKIM (DomainKeys Identified Mail)
+DKIM permet de vérifier si un message a été altéré durant son transport
+
+# DMARC (Domain-based Message Authentication, Reporting and Conformance)
+Supplément à SPF et DKIM
+
+# Test the Spammyness of your Emails
+https://www.mail-tester.com/
