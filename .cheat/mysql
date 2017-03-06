@@ -59,3 +59,8 @@ CREATE TABLE Users (
 
 # To disable general logging 
 set global general_log=0;
+
+# To launch MySQL in safe mode
+sudo /etc/init.d/mysql stop
+sudo mysqld_safe --skip-grant-tables
+mysql

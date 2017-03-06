@@ -1,6 +1,6 @@
 # Server protection
 
-- Firewall Applicatif (WAF) anti XSS, anti Sql Injection (ex: NAXSI)
+- Firewall Applicatif (WAF) anti XSS, anti Sql Injection (ex: NAXSI, raptor_waf)
 - Block iframe (add_header X-Frame-Options Deny;)
 - Block clickjacking attack (anti-clickjacking X-Frame-Options header)
 - Block Bad bot (SetEnvIfNoCase ^User-Agent$ .*(libwww-perl|aesop_com_spiderman) HTTP_SAFE_BADBOT)
@@ -24,6 +24,7 @@
 - Apparmor
 - AV: clamav, rkhunter, chrootkit, metadefender.com, virustotal
 - Keep eyes on logs
+- Double authentification
 
 # How to respond to an attack ?
 
