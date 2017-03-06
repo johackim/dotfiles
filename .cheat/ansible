@@ -1,0 +1,9 @@
+- playbook
+- roles
+- templates
+
+# Ping hosts
+ansible -i hosts all -m ping
+
+# Apply playbook
+ansible-playbook -i hosts playbook.yml
