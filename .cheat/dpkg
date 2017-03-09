@@ -9,3 +9,6 @@ dpkg -I
 
 # Find out if a Debian package is installed or not
 dpkg -s test.deb | grep Status
+
+# List package files
+dpkg -L <package>
