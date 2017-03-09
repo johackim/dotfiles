@@ -3,3 +3,4 @@ Notes/
 .config/systemd/user/default.target.wants/
 .urxvt/urxvtd-debian
 .stfolder
+.ncmpcpp/error.log

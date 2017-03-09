@@ -33,9 +33,7 @@
         create: true
         path: .mozilla/firefox/chrome/userContent.css
     ~/.mpdconf: .mpdconf
-    ~/.ncmpcpp/config:
-        create: true
-        path: .ncmpcpp/config
+    ~/.ncmpcpp: .ncmpcpp/
     ~/.newsbeuter/config:
         create: true
         path: .newsbeuter/config

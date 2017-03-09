@@ -1,0 +1,3 @@
+def_key "ctrl-g"
+  apply_filter
+
