@@ -25,6 +25,7 @@
 - AV: clamav, rkhunter, chrootkit, metadefender.com, virustotal
 - Keep eyes on logs
 - Double authentification
+- [Security guide](https://github.com/forter/security-101-for-saas-startups)
 
 # How to respond to an attack ?
 
