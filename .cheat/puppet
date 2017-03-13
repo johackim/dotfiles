@@ -38,6 +38,9 @@ user { 'root':
 add `autosign = true` on puppet.conf # On puppet master
 puppet cert sign --all # On puppet master
 
+# Puppet agent dry run
+puppet agent -t --noop
+
 # Ressources
 http://bit.ly/2m7XUBU
 http://do.co/2lvsQsr

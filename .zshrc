@@ -112,6 +112,7 @@ _cmpl_cheat() {
     reply=($(cheat -l | cut -d' ' -f1))
 }
 compctl -K _cmpl_cheat cheat
+export CHEATPATH="$HOME/dev/docker-hacklab/.cheat"
 
 # zsh-syntax-highlighting plugin
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=cyan'
