@@ -1,0 +1,14 @@
+# Init
+borg init <dest> or borg init user@hostname:/path/to/repo
+
+# Backup
+borg create --stats --progress --compression lz4 <dest>::<backup name>
+
+# List backups
+borg list <dest>
+
+# Restore
+borg extract --list -v <dest>::<backup name>
+
+# Mount
+borg mount <dest> <mount_point>

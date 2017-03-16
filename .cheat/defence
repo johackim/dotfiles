@@ -1,15 +1,16 @@
 # Server protection
 
-- Firewall Applicatif (WAF) anti XSS, anti Sql Injection (ex: NAXSI, raptor_waf)
+- Firewall Applicatif (WAF) anti XSS, anti Sql Injection (ex: ModSecurity, NAXSI, raptor_waf)
 - Block iframe (add_header X-Frame-Options Deny;)
 - Block clickjacking attack (anti-clickjacking X-Frame-Options header)
 - XSS Protection header (X-XSS-Protection)
 - Block Bad bot (SetEnvIfNoCase ^User-Agent$ .*(libwww-perl|aesop_com_spiderman) HTTP_SAFE_BADBOT)
 - Firewall (ex: iptables)
 - IPS (ex: Fail2ban, snort)
-- IDS (ex: maltrail)
+- IDS réseau (ex: maltrail, snort)
+- IDS systeme (ex: Chkrootkit, rkhunter)
 - Filter ip access
-- SSL
+- Certificats SSL
 - isoler les serveur au sein d'un réseau privé (vRack)
 - Port knocking
 - Disabled ssh password access and add ssh key
@@ -20,13 +21,18 @@
 - Hide verbose informations (apache, php, mysql versions etc..)
 - One user by application
 - DNS(sec) (block spoofing dns)
-- [Security Checklist](http://bit.ly/2lLWFVF)
 - keepass
 - Apparmor
-- AV: clamav, Lynis, rkhunter, chrootkit, metadefender.com, virustotal
+- AV: clamav, metadefender.com, virustotal.com, nodistribute.com, ovs.acunetix.com
+- Audit tool: Lynis
 - Keep eyes on logs
 - Double authentification
+- Prevent RFI attack
+- [Security Checklist](http://bit.ly/2lLWFVF)
 - [Security guide](https://github.com/forter/security-101-for-saas-startups)
+- [How to Secure and Harden Cloud/VPS VM](https://geekflare.com/cloud-vm-security-guide/)
+- Check files integrity
+- Remove metadatas (mat)
 
 # How to respond to an attack ?
 
