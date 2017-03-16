@@ -6,3 +6,4 @@
     s = status -sb
     l = log --graph --oneline
     moustache = stash
+    cleanup = "!f() { git branch --merged | grep -v '*' | xargs -n 1 git branch -d; }; f"
