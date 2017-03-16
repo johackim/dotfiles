@@ -216,7 +216,9 @@ install-yaourt-packages:
 		brave-bin \
 		yank \
 		wuzz \
-		httplab
+		httplab \
+		ctop \
+		mat
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
