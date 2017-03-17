@@ -73,7 +73,6 @@ install-pacman-packages:
 		htop \
 		ttf-dejavu terminus-font \
 		ncftp filezilla \
-		udisks \
 		ntfs-3g exfat-utils cifs-utils fuse-exfat \
 		dosfstools \
 		firefox chromium \
@@ -171,7 +170,6 @@ install-pacman-packages:
 		bchunk \
 		keepassx \
 		figlet \
-		keeweb \
 		pwgen \
 		rdesktop \
 		snapd \
@@ -181,7 +179,8 @@ install-pacman-packages:
 		cpulimit \
 		pandoc \
 		trash-cli \
-		fzf
+		fzf \
+		qbittorrent
 	fi
 
 install-yaourt-packages:
@@ -189,6 +188,8 @@ install-yaourt-packages:
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		yaourt --noconfirm -Sy \
 		kpcli \
+		udisks \
+		keeweb \
 		mcrypt \
 		tmuxinator \
 		light \
@@ -196,7 +197,6 @@ install-yaourt-packages:
 		zeal-git \
 		simple-mtpfs \
 		utox-git toxic \
-		atom-editor \
 		etcher \
 		vlsub-git \
 		thunar-thumbnailers \
@@ -225,11 +225,11 @@ install-yaourt-packages:
 		wego-git \
 		namebench \
 		jp2a \
-		chkrootkit \
+		tiger \
 		powermonius-git \
 		g4l \
 		sopcast-player \
-		fritzing KiCad \
+		fritzing \
 		minecraft \
 		android-studio \
 		s \

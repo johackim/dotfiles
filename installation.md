@@ -24,11 +24,11 @@ pacstrap /mnt base base-devel grub os-prober sudo vim git dialog
 genfstab -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 echo "hostname" > /etc/hostname
-echo "KEYMAP=fr-pc" > /etc/vconsole.conf # Keyboard FR
+echo "KEYMAP=us" > /etc/vconsole.conf # Keyboard US
 vim /etc/locale-gen && locale-gen && echo 'LANG="en_US.UTF-8"' > /etc/locale.conf # Locale system
 ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 On /etc/mkinitcpio.conf HOOKS="... keyboard keymap encrypt lvm2 ... filesystems ..."
-/etc/default/grub (GRUB_CMDLINE_LINUX="cryptdevice=/dev/sda2:lvm")
+/etc/default/grub (GRUB_CMDLINE_LINUX="cryptdevice=/dev/nvme0n1p3:lvm")
 mkinitcpio -p linux
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install --force /dev/sda
@@ -38,15 +38,21 @@ umount -R /mnt
 reboot
 ```
 
-Re-installation
+Re-installation root partition
 ---
 
 ```
-cryptsetup luksOpen /dev/sda4 lvm
+cryptsetup luksOpen /dev/nvme0n1p3 lvm
 mkfs.ext4 /dev/mapper/arch-root
-mkfs.vfat -F32 /dev/sdX1
-mkfs.ext2 /dev/sdX2
-swapon and mount all partitions
-pacstrap /mnt base base-devel grub-efi-x86_64 efibootmgr sudo vim git
-etc...
+mount all partitions and swap
+genfstab -p /mnt >> /mnt/etc/fstab
+pacstrap /mnt base base-devel grub-efi-x86_64 efibootmgr dialog wpa_suplicant sudo vim git
+On /etc/mkinitcpio.conf HOOKS="... keyboard keymap encrypt lvm2 ... filesystems ..."
+/etc/default/grub (GRUB_CMDLINE_LINUX="cryptdevice=/dev/nvme0n1p3:lvm")
+mkinitcpio -p linux
+make install
+passwd root
+useradd -m -g users -G wheel -s /bin/bash <nom utilisateur>
+umount -R /mnt
+reboot
 ```
