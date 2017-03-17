@@ -274,8 +274,9 @@ install-virtualbox:
 	@ set -e
 	@ read -r -p "You want install virtualbox ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		yaourt --noconfirm -Sy virtualbox-bin virtualbox-ext-oracle vagrant
+		yaourt --noconfirm -Sy virtualbox virtualbox-ext-oracle virtualbox-host-modules-arch vagrant
 		echo -e 'vboxdrv\nvboxnetadp\nvboxnetflt\nvboxpci' | sudo tee /etc/modules-load.d/virtualbox.conf
+		sudo /usr/bin/rcvboxdrv setup
 	fi
 
 install-wine:
