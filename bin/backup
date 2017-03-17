@@ -1,9 +1,9 @@
 #!/bin/bash
 
-home()
+backup()
 {
     source="$HOME"
-    target="/media/backups/"
+    target="$1"
     date=$(date +'%d-%m-%y-%H-%M')
 
     echo -e "Sauvegarde partition home..."
@@ -42,14 +42,11 @@ home()
         $source
 }
 
-case "$1" in
-    "home")
-        home
-    ;;
-    *)
-        echo -e "usage: $0 [home]"
-        exit 1
-    ;;
-esac
+if [ ! -d "$1" ]; then
+    echo -e "usage: $0 [target]"
+    exit 1
+fi
+
+backup "$1"
 
 exit 0
