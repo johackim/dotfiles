@@ -218,7 +218,8 @@ install-yaourt-packages:
 		wuzz \
 		httplab \
 		ctop \
-		mat
+		mat \
+		timg
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
@@ -247,7 +248,8 @@ install-yaourt-packages:
 		molotov \
 		ruby-travis \
 		handbrake \
-		cutycapt-qt5-git
+		cutycapt-qt5-git \
+		codeclimate
 	fi
 
 install-pip-packages:
@@ -263,10 +265,11 @@ install-pgcli:
 install-npm-packages:
 	@ read -r -p "You want install npm packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
+		yaourt -S --noconfirm nvm
 		[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 		nvm install --lts
 		nvm use --lts
-		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check
+		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup
 		sudo npm install -g fast-cli bower
 	fi
 

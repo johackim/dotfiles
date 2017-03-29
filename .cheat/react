@@ -1,0 +1,79 @@
+React Cheat Sheet
+===
+
+Angular est un framework (contrairement à React qui est une librairie).
+
+- jsx
+- components
+- refs
+- virtual dom
+- https://egghead.io/technologies/react
+- https://github.com/enaqx/awesome-react
+
+Props VS state
+---
+
+https://github.com/uberVU/react-guide/blob/master/props-vs-state.md
+- props (properties) (Read-Only)
+- state (etats) no fixed
+
+Flux
+---
+
+Definition M6 : un pattern d’architecture unidirectionnel proposé aussi par Facebook, à priori plus scalable que ne l’est le pattern MVC.
+
+Is a pattern from facebook : https://facebook.github.io/flux/docs/overview.html#content
+https://www.youtube.com/watch?v=l9RC1M_pVGw
+
+Redux (flux-like)
+---
+
+https://cdn.css-tricks.com/wp-content/uploads/2016/03/redux-article-3-03.svg
+[React js tutorial - How Redux Works](https://www.youtube.com/watch?v=1w-oQ-i1XB8)
+[example](https://github.com/reactjs/redux/tree/master/examples/todos)
+
+Redux is like Flux in several ways, but it's different as well. It has these pieces:
+- Provider: wraps your application, injecting the store
+- Store: one large store that contains the state for your entire application
+- Reducers: reducers listen to actions and make changes on the store values. They also cannot mutate the data on the store in any way, but must return a new set of data.
+            It describes how an action transforms the state into the next state
+- Actions: pretty much just like flux actions, the only difference is that async can be handled in multiple different ways depending on store "middleware"
+- Components: React components can be injected with various pieces of store data. React components also trigger Redux actions. This is what makes it all come together.
+- Containers: Containers are very similar to components, the only difference is that containers are aware of application state.
+
+How to get dispatch from component
+---
+
+http://stackoverflow.com/questions/35526940/how-to-get-dispatch-redux
+https://github.com/tsaiDavid/simple-redux-boilerplate/blob/master/src/containers/App.js
+
+Statement if/else
+---
+
+http://devnacho.com/2016/02/15/different-ways-to-add-if-else-statements-in-JSX/
+
+React router
+---
+
+https://github.com/ReactTraining/react-router
+
+Isomorphic
+---
+
+TL;DR: Isomorphism is the functional aspect of seamlessly switching between client- and server-side rendering without losing state. Universal is a term used to emphasize the fact that a particular piece of JavaScript code is able to run in multiple environments.
+
+stateless function components
+---
+
+Use setState or redux ?
+https://iamakulov.com/notes/all/redux-vs-react-setstate/
+
+Links
+---
+
+https://www.youtube.com/watch?v=rgzrByrqRTY
+https://www.youtube.com/channel/UCJbPGzawDH1njbqV-D5HqKw
+https://egghead.io/courses/getting-started-with-redux
+https://github.com/bradwestfall/CSS-Tricks-React-Series
+https://github.com/tsaiDavid/simple-redux-boilerplate
+https://www.robinwieruch.de/tips-to-learn-react-redux

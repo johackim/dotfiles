@@ -15,3 +15,6 @@ gzip -r documents_directory
 
 # To create a *.gz compressed file and keep the original
 gzip < test.txt > test.txt.gz
+
+# dd
+gunzip -c IMAGE.HERE-GZ | dd of=/dev/OUTPUT/DEVICE-HERE
