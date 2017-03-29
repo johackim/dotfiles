@@ -2,12 +2,15 @@
 apt-get install -y puppetmaster
 touch /etc/puppet/auth.conf
 service puppetmaster start
+echo 'autosign = true' >> /etc/puppet/puppet.conf
+puppet cert list -a
+puppet cert sign --all
 
 # Install puppet agent
 apt-get install -y puppet
 touch /etc/puppet/auth.conf
 service puppet start
-vim /etc/puppet/puppet.conf
+vim /etc/puppet/puppet.conf # https://doc.ubuntu-fr.org/puppet#configuration_de_l_agent_puppet
 
 # Install module puppet
 puppet module search apache # Search on https://forge.puppet.com/
@@ -19,6 +22,7 @@ node 'puppet-agent' {
   class { 'apache': }
 }
 
+# or
 node default {
 }
 
@@ -32,11 +36,6 @@ user { 'root':
 ```
 
 # import "nodes.pp"
-# puppet cert list -a
-
-# Exiting; no certificate found and waitforcert is disabled
-add `autosign = true` on puppet.conf # On puppet master
-puppet cert sign --all # On puppet master
 
 # Puppet agent dry run
 puppet agent -t --noop

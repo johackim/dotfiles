@@ -30,3 +30,6 @@ ps aux | grep -E --color 'bash|$'
 
 # Binary files
 grep -a pattern file
+
+# Recursive & no-case & line numbers
+grep -rin pattern

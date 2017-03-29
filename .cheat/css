@@ -1,3 +1,25 @@
 https://github.com/AllThingsSmitty/css-protips
 http://nthmaster.com/
 https://flukeout.github.io/
+position: relative;
+position: absolute;
+
+float:left;
+overflow: hidden;
+
+Center: https://css-tricks.com/centering-css-complete-guide/
+
+* 1. header
+* 2. nav
+* 3. main
+* 4. aside
+* 5. footer
+
+
+http://cssguidelin.es
+
+- SMACSS
+- BEM
+- MaintainableCSS
+- KnaCSS
+- OOCSS
