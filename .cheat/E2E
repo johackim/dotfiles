@@ -1,0 +1,23 @@
+Tests E2E
+===
+
+Node.js <=> WebDriver <=> Selenium Server <=> Firefox/Chrome/IE/Safari
+              Client         Server               Browser
+
+WebDriver
+---
+
+selenium-webdriver
+WebdriverIO
+
+Headless browser
+---
+
+PhantomJS
+
+Ressources
+---
+
+http://silvenon.com/selenium-testing-workflow-with-webdriverio/
+https://marmelab.com/blog/2017/01/04/e2e-selenium-no-server.html
+https://marmelab.com/blog/2016/04/19/e2e-testing-with-node-and-es6.html

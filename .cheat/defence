@@ -5,7 +5,7 @@
 - Block clickjacking attack (anti-clickjacking X-Frame-Options header)
 - XSS Protection header (X-XSS-Protection)
 - Block Bad bot (SetEnvIfNoCase ^User-Agent$ .*(libwww-perl|aesop_com_spiderman) HTTP_SAFE_BADBOT)
-- Firewall (ex: iptables)
+- Firewall (ex: iptables, arno-iptables-firewall)
 - IPS (ex: Fail2ban, snort)
 - IDS réseau (ex: maltrail, snort)
 - IDS systeme (ex: Chkrootkit, rkhunter)
@@ -33,6 +33,7 @@
 - [How to Secure and Harden Cloud/VPS VM](https://geekflare.com/cloud-vm-security-guide/)
 - Check files integrity
 - Remove metadatas (mat)
+- Code review/code analyser: RIPS
 
 # How to respond to an attack ?
 
@@ -41,3 +42,12 @@
 - Remove all files
 - Reinstall a clean copy
 - Upgrade all plugins
+
+# Wifi Defense
+
+1 – Rebaptiser le nom de votre réseau Wifi
+2 – Changer tous les mois le mot de passe de votre routeur Wifi
+3 – S’assurer que le mot de passe Wifi est en WPA2-PSK
+4 – Régler le filtrage des adresses MAC
+5 – Mettre en place un VPN
+6 – Régler la portée du signal Wifi

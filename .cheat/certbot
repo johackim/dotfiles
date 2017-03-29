@@ -1,0 +1,7 @@
+# Certbot https://certbot.eff.org
+
+certbot -vvv --apache
+certbot -vvv --nginx
+certbot renew --dry-run
+rm -r /etc/letsencrypt /etc/certbot
+certbot certonly --webroot -w /opt/zammad/public -d website.com
