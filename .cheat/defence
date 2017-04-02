@@ -4,6 +4,9 @@
 - Block iframe (add_header X-Frame-Options Deny;)
 - Block clickjacking attack (anti-clickjacking X-Frame-Options header)
 - XSS Protection header (X-XSS-Protection)
+- Content-Security-Policy header
+- Secure cookie flag to only authorize https
+- Database Firewall: DBShield
 - Block Bad bot (SetEnvIfNoCase ^User-Agent$ .*(libwww-perl|aesop_com_spiderman) HTTP_SAFE_BADBOT)
 - Firewall (ex: iptables, arno-iptables-firewall)
 - IPS (ex: Fail2ban, snort)
