@@ -99,7 +99,6 @@ install-pacman-packages:
 		nmap \
 		the_silver_searcher \
 		python-pip python-virtualenv \
-		ncmpcpp \
 		screenfetch \
 		scummvm dosemu dosbox \
 		ncdu \
@@ -219,7 +218,9 @@ install-yaourt-packages:
 		httplab \
 		ctop \
 		mat \
-		timg
+		timg \
+		hostsctl \
+		ncmpcpp-git
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
@@ -255,7 +256,7 @@ install-yaourt-packages:
 install-pip-packages:
 	@ read -r -p "You want install pip packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		sudo pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg
+		sudo pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg httpstat
 	fi
 
 install-pgcli:

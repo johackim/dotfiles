@@ -80,3 +80,6 @@ ALTER TABLE contacts ADD email VARCHAR(60);
 # Replication mysql
 https://www.digitalocean.com/community/tutorials/how-to-set-up-master-slave-replication-in-mysql
 replicate-wild-do-table = test.Users # Parameter for only one table
+
+# Create VIEW
+CREATE VIEW mail_domain_active AS SELECT * FROM mail_domain WHERE dkim = 'y';

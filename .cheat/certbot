@@ -3,5 +3,6 @@
 certbot -vvv --apache
 certbot -vvv --nginx
 certbot renew --dry-run
+*/12 * * * * certbot-auto renew --quiet --no-self-upgrade
 rm -r /etc/letsencrypt /etc/certbot
 certbot certonly --webroot -w /opt/zammad/public -d website.com
