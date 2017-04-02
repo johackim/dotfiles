@@ -68,9 +68,16 @@ stateless function components
 Use setState or redux ?
 https://iamakulov.com/notes/all/redux-vs-react-setstate/
 
+Lifecycle: https://egghead.io/lessons/react-component-lifecycle-mounting-basics?course=react-fundamentals
+
+componentWillMount
+componentWillUnmount
+
 Links
 ---
 
+https://speakerdeck.com/pedronauck/reactjs-keep-simple-everything-can-be-a-component
+https://github.com/vasanthk/react-bits
 https://www.youtube.com/watch?v=rgzrByrqRTY
 https://www.youtube.com/channel/UCJbPGzawDH1njbqV-D5HqKw
 https://egghead.io/courses/getting-started-with-redux

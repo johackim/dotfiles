@@ -115,7 +115,9 @@ compctl -K _cmpl_cheat cheat
 export CHEATPATH="$HOME/dev/docker-hacklab/.cheat"
 
 # zsh-syntax-highlighting plugin
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[path]='none'
-ZSH_HIGHLIGHT_STYLES[arg0]='none'
-ZSH_HIGHLIGHT_STYLES[precommand]='none'
+export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=cyan'
+export ZSH_HIGHLIGHT_STYLES[path]='none'
+export ZSH_HIGHLIGHT_STYLES[arg0]='none'
+export ZSH_HIGHLIGHT_STYLES[precommand]='none'
+
+export ANSIBLE_NOCOWS=1
