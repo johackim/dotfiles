@@ -28,3 +28,4 @@ echo ${PIPESTATUS[0]}  # replace 0 with N
 
 # Resources
 https://github.com/Idnan/bash-guide
+https://jvns.ca/blog/2017/03/26/bash-quirks/

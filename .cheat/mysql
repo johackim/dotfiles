@@ -80,6 +80,18 @@ ALTER TABLE contacts ADD email VARCHAR(60);
 # Replication mysql
 https://www.digitalocean.com/community/tutorials/how-to-set-up-master-slave-replication-in-mysql
 replicate-wild-do-table = test.Users # Parameter for only one table
+PURGE BINARY LOGS BEFORE DATE(NOW() - INTERVAL 3 DAY) + INTERVAL 0 SECOND; # Remove binary files
+stop slave IO_THREAD; # Help to restart slave
+reset slave; # Help to restart slave
+start slave; # Help to restart slave
+SET GLOBAL slave_parallel_workers = 2;
+
+# Expire logs days
+SET GLOBAL expire_logs_days = 3;
+
+# Show variables
+SHOW variables;
+SHOW variables like 'slave_parallel_workers';
 
 # Create VIEW
 CREATE VIEW mail_domain_active AS SELECT * FROM mail_domain WHERE dkim = 'y';

@@ -37,6 +37,7 @@ youtube-dl-mp3(){ youtube-dl $1 --extract-audio --audio-format mp3 }
 streamer() { youtube-dl -o - "$1" | mpv - }
 reinstall() { sudo pacman -S "$1" $(pacman -Qi "$1"|grep -i depend|cut -d: -f2) }
 downloadAllDocument(){ wget --no-check-certificate -H -r -l 1 -nd -A "$2" "$1"; }
+downloadAllImages(){ wget --no-check-certificate -nd -H -p -A jpg,jpeg,png,gif -e robots=off "$1"; }
 dlmp3(){ wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off "$1"; }
 detach() { sudo umount "/dev/"$1"1"; udisks --detach "/dev/$1"; } 
 debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }

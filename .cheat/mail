@@ -10,5 +10,8 @@ Supplément à SPF et DKIM
 # Test the Spammyness of your Emails
 https://www.mail-tester.com/
 
+# Read local mails
+mutt -f Maildir
+
 # Liste des erreurs SMTP
 https://support.google.com/a/answer/3726730?hl=fr
