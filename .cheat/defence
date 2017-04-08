@@ -37,6 +37,8 @@
 - Check files integrity
 - Remove metadatas (mat)
 - Code review/code analyser: RIPS
+- Remove Leak information like server header
+- Prevent cross site attacks using same site cookies
 
 # How to respond to an attack ?
 

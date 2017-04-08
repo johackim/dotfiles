@@ -22,6 +22,8 @@ Flux
 
 Definition M6 : un pattern d’architecture unidirectionnel proposé aussi par Facebook, à priori plus scalable que ne l’est le pattern MVC.
 
+Chaque interaction de l’utilisateur sur la view déclenche une action, celle-ci passe ensuite dans l’unique dispatcher qui notifie les stores. Le store prévient le composant qu’il a été modifié et celui-ci se met à jour.
+
 Is a pattern from facebook : https://facebook.github.io/flux/docs/overview.html#content
 https://www.youtube.com/watch?v=l9RC1M_pVGw
 
@@ -68,6 +70,8 @@ stateless function components
 Use setState or redux ?
 https://iamakulov.com/notes/all/redux-vs-react-setstate/
 
+getInitialState
+
 Lifecycle: https://egghead.io/lessons/react-component-lifecycle-mounting-basics?course=react-fundamentals
 
 componentWillMount
@@ -84,3 +88,4 @@ https://egghead.io/courses/getting-started-with-redux
 https://github.com/bradwestfall/CSS-Tricks-React-Series
 https://github.com/tsaiDavid/simple-redux-boilerplate
 https://www.robinwieruch.de/tips-to-learn-react-redux
+https://github.com/markerikson/react-redux-links

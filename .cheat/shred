@@ -11,3 +11,6 @@ shred -n 5 -vzu file.txt
 shred -n 5 -vz /dev/sda
 
 # Remember that shred may not behave as expected on journaled file systems if file data is being journaled.
+
+# Remove definitely a file
+shred -u -z -n 26 file.txt

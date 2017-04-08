@@ -7,3 +7,13 @@
     l = log --graph --oneline
     moustache = stash
     cleanup = "!f() { git branch --merged | grep -v '*' | xargs -n 1 git branch -d; }; f"
+    undo = reset --soft HEAD^
+    prune = fetch --prune
+[diff]
+    tool = icdiff
+[difftool]
+    prompt = false
+[difftool "icdiff"]
+    cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
+# [commit]
+    # gpgSign = true
