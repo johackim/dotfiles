@@ -1,0 +1,45 @@
+# Install
+wget https://raw.githubusercontent.com/dokku/dokku/v0.9.2/bootstrap.sh
+DOKKU_TAG=v0.9.2 bash bootstrap.sh
+
+# Create application
+dokku apps:create my-app
+
+# Add domains to app
+dokku domains:add <app> <domain> [<domain> ...] 
+
+# Permanently destroy an app
+dokku apps:destroy <app>
+
+# List your apps
+dokku apps:list
+
+# Remove/Add port binding
+dokku proxy:ports-add <app> http:80:9000
+dokku proxy:ports-remove <app> http:80:5000
+
+# Add letsencrypt
+dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+dokku letsencrypt <app>
+
+# Mysql
+dokku plugin:install https://github.com/dokku/dokku-mysql.git mysql
+cat /var/lib/dokku/services/mysql/mysql/ROOTPASSWORD
+dokku mysql:link <mysql> <app>
+
+# Deploy docker image
+ssh root@domain.tld "dokku apps:create ghost; docker pull ghost; docker tag ghost:latest dokku/ghost:latest; dokku tags:deploy ghost latest"
+
+# expose container `http` port 2368 on host `http` port 80
+dokku proxy:ports-add <app> http:80:2368
+
+# Docker options
+dokku docker-options:add <app> deploy,run "-v $PWD/wp-content:/var/www/html/wp-content"
+dokku deploy <app>
+
+# Remove SSL
+dokku certs:report <app>
+
+# Deploy with tar
+tar c . $* | dokku tar:in <app>
+

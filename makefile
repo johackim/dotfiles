@@ -27,6 +27,7 @@ install-dotbot:
 		@ read -r -p "You want compile YouCompleteMe ? [y/N] " REPLY;
 		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 			sh ~/.vim/bundle/YouCompleteMe/install.sh
+			cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive
 		fi
 	fi
 
@@ -256,8 +257,11 @@ install-yaourt-packages:
 install-pip-packages:
 	@ read -r -p "You want install pip packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		sudo pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg httpstat
+		sudo pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg httpstat http-prompt
 	fi
+
+install-gem-packages:
+	@ gem install wayback_machine_downloader
 
 install-pgcli:
 	sudo pacman -S postgresql-libs
