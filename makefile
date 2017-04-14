@@ -125,6 +125,7 @@ install-pacman-packages:
 		gcolor2 \
 		aspell-fr \
 		tcpdump \
+		ngrep \
 		guvcview \
 		mousepad leafpad \
 		kaffeine \
@@ -180,7 +181,8 @@ install-pacman-packages:
 		pandoc \
 		trash-cli \
 		fzf \
-		qbittorrent
+		qbittorrent \
+		time
 	fi
 
 install-yaourt-packages:

@@ -42,3 +42,6 @@ docker rm $(docker ps -a | grep Exited | awk '{print $1}')
 
 # Remove unused images
 docker rmi $(docker images --no-trunc | grep none | awk '{print $3 }')
+
+# Others
+https://github.com/wsargent/docker-cheat-sheet

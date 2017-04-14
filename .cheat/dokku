@@ -43,3 +43,6 @@ dokku certs:report <app>
 # Deploy with tar
 tar c . $* | dokku tar:in <app>
 
+# Update nginx config
+edit files on /home/dokku/APP/nginx.conf.d/
+dokku nginx:build-config <app>

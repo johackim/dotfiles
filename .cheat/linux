@@ -12,3 +12,7 @@ which, where, whereis, locate
 - mpstat
 - pidstat
 
+# Printer commands
+lpq
+lpr
+lprm
