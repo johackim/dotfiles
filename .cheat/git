@@ -81,3 +81,7 @@ http://stackoverflow.com/questions/9794931/keep-file-in-a-git-repo-but-dont-trac
 git update-index --assume-unchanged FILE_NAME
 to restore : git update-index --no-assume-unchanged FILE_NAME
 
+Change username & email on all commits
+---
+
+https://gist.github.com/octocat/0831f3fbd83ac4d46451

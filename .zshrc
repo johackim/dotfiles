@@ -121,3 +121,6 @@ export ZSH_HIGHLIGHT_STYLES[arg0]='none'
 export ZSH_HIGHLIGHT_STYLES[precommand]='none'
 
 export ANSIBLE_NOCOWS=1
+
+disable -r time
+alias time='time -p '
