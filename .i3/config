@@ -207,6 +207,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="Thunar" instance="file_progress"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Mousepad"] floating enable
+for_window [class="Antidote 9"] floating enable
 for_window [class="iceweasel|firefox" instance="places"] floating enable
 for_window [class="Chromium"] floating disable
 for_window [class="Evince"] floating enable

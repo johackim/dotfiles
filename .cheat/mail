@@ -1,5 +1,6 @@
 # SPF (Sender Policy Framework)
 Indique quelles adresses IP sont autorisées ou interdites à envoyer du courrier.
+"v=spf1 ip4:9.9.9.9 -all" # reject all except ipv4
 
 # DKIM (DomainKeys Identified Mail)
 DKIM permet de vérifier si un message a été altéré durant son transport
@@ -15,3 +16,6 @@ mutt -f Maildir
 
 # Liste des erreurs SMTP
 https://support.google.com/a/answer/3726730?hl=fr
+
+# Others
+http://www.badsender.com/2014/01/13/delivrabilite-spf-dkim-dmarc/

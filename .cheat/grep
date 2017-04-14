@@ -33,3 +33,6 @@ grep -a pattern file
 
 # Recursive & no-case & line numbers
 grep -rin pattern
+
+# alias for grep -E
+egrep

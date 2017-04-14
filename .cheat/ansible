@@ -7,3 +7,7 @@ ansible -i hosts all -m ping
 
 # Apply playbook
 ansible-playbook -i hosts playbook.yml
+
+# Apply on specific host
+ansible-playbook --extra-vars "target=<host>"
+ansible-playbook -i "<host>,"
