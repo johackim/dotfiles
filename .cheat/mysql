@@ -35,6 +35,7 @@ GRANT ALL PRIVILEGES ON database.* TO 'user'@'localhost'IDENTIFIED BY 'password'
 
 # To change the root password
 SET PASSWORD FOR root@localhost=PASSWORD('new_password');
+mysqladmin -u root -p'oldpassword' password newpass
 
 # To delete a database
 DROP DATABASE database_name;
@@ -95,3 +96,6 @@ SHOW variables like 'slave_parallel_workers';
 
 # Create VIEW
 CREATE VIEW mail_domain_active AS SELECT * FROM mail_domain WHERE dkim = 'y';
+
+# Grant ALL privileges
+GRANT ALL privileges on *.* to 'username'@'localhost';
