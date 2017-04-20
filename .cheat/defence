@@ -39,6 +39,7 @@
 - Code review/code analyser: RIPS
 - Remove Leak information like server header
 - Prevent cross site attacks using same site cookies
+- Prevent ARP-spoofing: https://github.com/europa502/shARP
 
 # How to respond to an attack ?
 
