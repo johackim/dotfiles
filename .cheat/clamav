@@ -1,0 +1,12 @@
+# Update antivirus database
+sudo clamd
+sudo freshclam
+
+# Scan recursive system
+sudo clamscan -r /
+
+# Scan file
+sudo clamscan <file>
+
+# Show only infected files
+clamscan -i

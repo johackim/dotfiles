@@ -223,7 +223,8 @@ install-yaourt-packages:
 		mat \
 		timg \
 		hostsctl \
-		ncmpcpp-git
+		ncmpcpp-git \
+		yamllint
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
