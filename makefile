@@ -277,7 +277,7 @@ install-npm-packages:
 		[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 		nvm install --lts
 		nvm use --lts
-		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup
+		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup imgclip
 		sudo npm install -g fast-cli bower
 	fi
 
