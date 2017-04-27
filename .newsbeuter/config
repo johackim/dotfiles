@@ -6,7 +6,6 @@ reload-time 30
 browser chromium
 player vlc
 article-sort-order date-asc
-error-log "~/.newsbeuter/error.log"
 save-path "~/Notes/Bookmarks"
 goto-next-feed no
 show-read-feeds no
