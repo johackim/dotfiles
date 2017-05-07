@@ -64,8 +64,10 @@ CREATE TABLE Users (
 	PRIMARY KEY (username)
 );
 
-# To disable general logging 
-set global general_log=0;
+# To disable/enable general logging
+echo "general_log_file = /var/log/mysql/mysql.log" > /etc/mysql/my.cnf
+SET GLOBAL general_log = 0;
+SET GLOBAL general_log = 1;
 
 # To launch MySQL in safe mode
 sudo /etc/init.d/mysql stop

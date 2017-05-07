@@ -182,7 +182,9 @@ install-pacman-packages:
 		trash-cli \
 		fzf \
 		qbittorrent \
-		time
+		time \
+		calcurse \
+		gnome-font-viewer
 	fi
 
 install-yaourt-packages:
@@ -254,7 +256,9 @@ install-yaourt-packages:
 		ruby-travis \
 		handbrake \
 		cutycapt-qt5-git \
-		codeclimate
+		codeclimate \
+		weboob \
+		ttyrec ttygif
 	fi
 
 install-pip-packages:
@@ -277,7 +281,7 @@ install-npm-packages:
 		[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 		nvm install --lts
 		nvm use --lts
-		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup imgclip
+		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup imgclip mapscii
 		sudo npm install -g fast-cli bower
 	fi
 

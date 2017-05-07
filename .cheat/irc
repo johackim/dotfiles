@@ -1,0 +1,39 @@
+# Connexion sur le irc de debian
+/connect irc.debian.org
+
+# Quitter un irc
+/disconnect
+
+# Liste des channels
+/list
+
+# Joindre une channel
+/join <channel>
+
+# Quitter une channel
+/part
+
+# Changer de pseudo
+/nick <name>
+
+# Close window
+/close
+
+/set theme <name>
+/query <name> # Private messages
+/msg <name> <msg> # Send private message
+/set irc.server.freenode.username "My user name"
+/set irc.server.freenode.realname "My real name"
+/server add <name> <url>
+alt+left, alt+right # switch windows
+
+Auto join
+---
+
+/set irc.server.freenode.autoconnect on
+/set irc.server.freenode.autojoin "#channel1,#channel2"
+
+Weechat
+---
+
+<F11>+<F12> : Scroll users
