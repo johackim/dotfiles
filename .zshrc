@@ -87,10 +87,10 @@ source $HOME/.aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export GOPATH="$HOME/dev/gocode/"
-export PATH=$PATH:$GOPATH/bin:~/.gem/ruby/2.3.0/bin:/snap/bin:~/.gem/ruby/2.4.0/bin
+export PATH=$PATH:$GOPATH/bin:~/.gem/ruby/2.3.0/bin:/snap/bin:~/.gem/ruby/2.4.0/bin:/var/lib/snapd/snap/bin/
 export EDITOR="vim"
 export WINEARCH=win32
-export WINEPREFIX=~/.wine # Wine prefix to use
+export WINEPREFIX=~/.wine32 # Wine prefix to use
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 export QT_SCALE_FACTOR=2
 eval `dircolors ~/.dir_colors`
@@ -124,3 +124,5 @@ export ANSIBLE_NOCOWS=1
 
 disable -r time
 alias time='time -p '
+
+export EDITOR='vim'

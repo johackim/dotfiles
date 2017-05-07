@@ -43,8 +43,14 @@ URxvt*colorIT: #00FFFF
 
 URxvt.scrollBar: false
 
+! Source Code Pro Font
+!URxvt*font: xft:Source Code Pro:size=10, xft:Source Code Pro for Powerline
+!URxvt*letterSpace: -1
+
+! Inconsolata Font
 URxvt*font: xft:Inconsolata:size=10, xft:Inconsolata for Powerline
-!URxvt*letterSpace: -2
+URxvt*letterSpace: 1
+
 URxvt.cursorBlink: true
 
 URxvt*.transparent: true

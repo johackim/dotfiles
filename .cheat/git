@@ -61,6 +61,11 @@ git submodule update --init --recursive
 # Add submodule
 git submodule add --force <url> <dir>
 git submodule sync
+
+# Remove submodule
+git submodule deinit -f <submodule>
+git rm <submodule>
+rm -rf <submodule>
 ```
 
 Rebase

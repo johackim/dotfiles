@@ -1,0 +1,3 @@
+# Setup ssh tunnel
+ssh -D <port> <server>
+proxychains <command>

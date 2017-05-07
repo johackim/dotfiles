@@ -50,4 +50,4 @@ sudo gpasswd -a <user> docker
 https://github.com/wsargent/docker-cheat-sheet
 
 # Update running container
-docker update --restart=always
+docker update --restart=always <container>
