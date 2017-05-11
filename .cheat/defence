@@ -1,23 +1,25 @@
 # Server protection
 
 - Firewall Applicatif (WAF) anti XSS, anti Sql Injection (ex: ModSecurity, NAXSI, raptor_waf)
+- IPS (Instrusion Prevention System) (ex: Fail2ban, snort)
+- IDS réseau (ex: maltrail, snort)
+- IDS systeme (ex: Chkrootkit, rkhunter)
+- Firewall (ex: iptables, arno-iptables-firewall)
+- Audit tool: Lynis
+- AV: clamav, metadefender.com, virustotal.com, nodistribute.com, ovs.acunetix.com
+- Database Firewall: DBShield
+- Backup auto with encryption
 - Block iframe (add_header X-Frame-Options Deny;)
 - Block clickjacking attack (anti-clickjacking X-Frame-Options header)
 - XSS Protection header (X-XSS-Protection)
 - Content-Security-Policy header
 - Secure cookie flag to only authorize https
-- Database Firewall: DBShield
 - Block Bad bot (SetEnvIfNoCase ^User-Agent$ .*(libwww-perl|aesop_com_spiderman) HTTP_SAFE_BADBOT)
-- Firewall (ex: iptables, arno-iptables-firewall)
-- IPS (ex: Fail2ban, snort)
-- IDS réseau (ex: maltrail, snort)
-- IDS systeme (ex: Chkrootkit, rkhunter)
 - Filter ip access
 - Certificats SSL
 - isoler les serveur au sein d'un réseau privé (vRack)
 - Port knocking
 - Disabled ssh password access and add ssh key
-- Backup auto with encryption
 - High Availability
 - Passphrases instead off password
 - Disable error_reporting
@@ -26,8 +28,6 @@
 - DNS(sec) (block spoofing dns)
 - keepass
 - Apparmor
-- AV: clamav, metadefender.com, virustotal.com, nodistribute.com, ovs.acunetix.com
-- Audit tool: Lynis
 - Keep eyes on logs
 - Double authentification
 - Prevent RFI attack
@@ -40,6 +40,8 @@
 - Remove Leak information like server header
 - Prevent cross site attacks using same site cookies
 - Prevent ARP-spoofing: https://github.com/europa502/shARP
+- Find malware
+- SIEM / SOC
 
 # How to respond to an attack ?
 
