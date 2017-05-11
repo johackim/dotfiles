@@ -101,3 +101,9 @@ CREATE VIEW mail_domain_active AS SELECT * FROM mail_domain WHERE dkim = 'y';
 
 # Grant ALL privileges
 GRANT ALL privileges on *.* to 'username'@'localhost';
+
+# Check slow requests
+slow_query_log_file = /var/log/mysql/mysql-slow.log
+slow_query_log      = 1
+long_query_time = 1
+mysqldumpslow /var/log/mysql/mysql-slow.log
