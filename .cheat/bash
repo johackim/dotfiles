@@ -26,6 +26,9 @@ echo ${PIPESTATUS[0]}  # replace 0 with N
 # Lock file:
 ( set -o noclobber; echo > my.lock ) || echo 'Failed to create lock file'
 
+# Check code
+https://github.com/koalaman/shellcheck
+
 # Resources
 https://github.com/Idnan/bash-guide
 https://jvns.ca/blog/2017/03/26/bash-quirks/
