@@ -1,0 +1,2 @@
+# Create user
+psql -c "CREATE USER admin WITH PASSWORD 'password';"

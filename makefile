@@ -130,7 +130,7 @@ install-pacman-packages:
 		mousepad leafpad \
 		kaffeine \
 		rfkill \
-		vim sublime-text codeblocks monodevelop \
+		gvim sublime-text codeblocks monodevelop \
 		lshw \
 		mysql-workbench \
 		orage \
@@ -221,12 +221,13 @@ install-yaourt-packages:
 		yank \
 		wuzz \
 		httplab \
-		ctop \
+		ctop-bin \
 		mat \
 		timg \
 		hostsctl \
 		ncmpcpp-git \
-		yamllint
+		yamllint \
+		shellcheck
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
