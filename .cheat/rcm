@@ -1,0 +1,13 @@
+RCM Cheat Sheet
+===
+
+mkrc -v ~/.gitconfig # Create Symlink
+mkrc -v -U ~/.gitconfig # Create Symlink without create new hide directory
+mkrc -Sv # Create complete directory symlink
+mkrc -v -t <tag> # Create Symlink with tag
+mkrc -vo ~/.rcrc
+lsrc # List symlink
+rcdn -v # Remove Symlink
+rcup -v # Restore Symlink
+rcup -C # Restore original file
+.rcrc # Config file

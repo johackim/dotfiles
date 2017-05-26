@@ -6,6 +6,7 @@
 - IDS systeme (ex: Chkrootkit, rkhunter)
 - Firewall (ex: iptables, arno-iptables-firewall)
 - Audit tool: Lynis
+- Anti-DDOS Tool: https://github.com/fnzv/nShield
 - AV: clamav, metadefender.com, virustotal.com, nodistribute.com, ovs.acunetix.com
 - Database Firewall: DBShield
 - Backup auto with encryption
@@ -42,6 +43,10 @@
 - Prevent ARP-spoofing: https://github.com/europa502/shARP
 - Find malware
 - SIEM / SOC
+- https://github.com/evilsocket/opensnitch
+- https://github.com/yandex/gixy
+- gravityscan.com
+- https://simplesecurity.sensedeep.com/web-developer-security-checklist-f2e4f43c9c56
 
 # How to respond to an attack ?
 
