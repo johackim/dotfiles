@@ -140,7 +140,7 @@ install-pacman-packages:
 		whois \
 		recordmydesktop gtk-recordmydesktop \
 		libmtp mtpfs \
-		cups gutenprint system-config-printer \
+		cups gutenprint system-config-printer gtk3-print-backends \
 		jdk7-openjdk jdk8-openjdk \
 		gksu \
 		docker docker-compose \
@@ -191,7 +191,7 @@ install-yaourt-packages:
 	@ read -r -p "You want install yaourt packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		yaourt --noconfirm -Sy \
-		kpcli \
+		kpcli pass \
 		udisks \
 		keeweb \
 		mcrypt \
@@ -227,7 +227,8 @@ install-yaourt-packages:
 		hostsctl \
 		ncmpcpp-git \
 		yamllint \
-		shellcheck
+		shellcheck \
+		peco
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
