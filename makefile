@@ -228,7 +228,8 @@ install-yaourt-packages:
 		ncmpcpp-git \
 		yamllint \
 		shellcheck \
-		peco
+		peco \
+		cava
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
