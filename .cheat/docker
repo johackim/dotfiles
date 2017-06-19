@@ -51,3 +51,6 @@ https://github.com/wsargent/docker-cheat-sheet
 
 # Update running container
 docker update --restart=always <container>
+
+# Clean volumes
+docker volume ls -qf dangling=true | xargs -r docker volume rm
