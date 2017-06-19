@@ -1,5 +1,6 @@
 # ~/.tmuxinator/second.yml
 
+---
 name: second
 root: ~/
 
