@@ -1,0 +1,8 @@
+# Inspect HTTP requests
+mitmproxy -p 9050
+proxychains curl ipinfo.io
+tsocks
+
+# Tor
+torify curl ipinfo.io
+torsocks

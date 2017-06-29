@@ -66,3 +66,15 @@ d{motion}       delete text that {motion} moves over
 
 # Encrypt text file
 vim -x <file>
+
+# Nerdcommenter shorcuts
+Ctrl+/      comment
+<leader>cc  comment
+<leader>cu  uncomment
+<leader>cm  minimal comment
+
+# Nerdtree
+R   Refresh files
+
+# Emmet shortcut
+<c-y>,
