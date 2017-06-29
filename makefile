@@ -267,7 +267,7 @@ install-yaourt-packages:
 install-pip-packages:
 	@ read -r -p "You want install pip packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		sudo pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg httpstat http-prompt
+		sudo pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg httpstat http-prompt magic-wormhole
 	fi
 
 install-gem-packages:

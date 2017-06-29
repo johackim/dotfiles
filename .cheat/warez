@@ -1,0 +1,8 @@
+# Convert a magnet link from a torrent file
+godo github.com/anacrolix/torrent/cmd/torrent-magnet < ubuntu-14.04.torrent
+
+# Parse torrent
+https://github.com/webtorrent/parse-torrent
+
+# Create torrent
+https://github.com/webtorrent/create-torrent
