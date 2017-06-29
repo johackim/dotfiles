@@ -31,6 +31,7 @@ alias debian='docker run --rm -it debian bash'
 alias hacklab='docker run -d --name hacklab --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --net=host --privileged=true -v ~/Public:/mnt -it jcherqui/docker-hacklab zsh > /dev/null 2>&1; docker start hacklab > /dev/null; docker exec -it hacklab zsh'
 alias rm='echo "This is not the command you are looking for."; false'
 alias yank='/usr/bin/yank -- xclip -selection c'
+alias docker-clean="__clean() { docker volume ls -qf dangling=true | xargs -r docker volume rm; docker ps -aq -f status=exited | xargs -r docker rm -f; docker images --no-trunc | grep none | awk '{print $3 }' | xargs -r docker rmi }; __clean"
 
 monitor() { watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
 gi() { curl "https://www.gitignore.io/api/$@"; }

@@ -1,2 +1,14 @@
 # Create user
 psql -c "CREATE USER admin WITH PASSWORD 'password';"
+
+# List databases
+\list
+
+# Use database
+\c <database>
+
+# Show tables
+\dt
+
+# Remove table
+DROP TABLE <table>
