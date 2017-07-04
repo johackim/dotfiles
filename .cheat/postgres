@@ -1,3 +1,6 @@
+# Install postgres client
+apt-get install postgresql-client
+
 # Create user
 psql -c "CREATE USER admin WITH PASSWORD 'password';"
 

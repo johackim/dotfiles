@@ -107,3 +107,6 @@ slow_query_log_file = /var/log/mysql/mysql-slow.log
 slow_query_log      = 1
 long_query_time = 1
 mysqldumpslow /var/log/mysql/mysql-slow.log
+
+# Rename table
+RENAME TABLE tb1 TO tb2;
