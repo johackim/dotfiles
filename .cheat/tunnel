@@ -1,3 +1,9 @@
 # Setup ssh tunnel
 ssh -D <port> <server>
 proxychains <command>
+
+# Forward
+ssh -L 7777:172.17.0.11:3306 <server>
+
+# Forward with backround process
+ssh -fN -L 7777:172.17.0.11:3306 <server>

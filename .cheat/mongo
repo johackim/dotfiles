@@ -1,0 +1,21 @@
+# Execute mongo shell on docker
+docker exec -it mongo mongo
+
+# Remove all documents in a collection
+db.collection.remove({})
+
+# Drop collection
+db.collection.drop()
+
+# Select entry
+db.collection.find()
+
+# Count
+db.collection.find().count()
+db.collection.count()
+
+# MongoDB references
+https://docs.mongodb.com/v3.2/meta/aggregation-quick-reference/
+
+# Pretty query responses
+db.collection.find().pretty()
