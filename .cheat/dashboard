@@ -17,7 +17,7 @@
     echo 'exec --no-startup-id xset -dpms' >> ~/.i3/config
     echo 'exec --no-startup-id xset s off' >> ~/.i3/config
     echo 'exec --no-startup-id xdotool mousemove 9999 9999' >> ~/.i3/config
-    echo 'exec --no-startup-id chromium --use-fake-ui-for-media-stream --kiosk --start-maximized --app="http://github.com/stoneo"' >> ~/.i3/config
+    echo 'exec --no-startup-id chromium --use-fake-ui-for-media-stream --kiosk --start-maximized --app="http://github.com/ston3o"' >> ~/.i3/config
     echo 'exec i3' >> ~/.xinitrc
     echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile
 
@@ -45,7 +45,7 @@
     echo 'exec --no-startup-id xset -dpms' >> ~/.i3/config
     echo 'exec --no-startup-id xset s off' >> ~/.i3/config
     echo 'exec --no-startup-id xdotool mousemove 9999 9999' >> ~/.i3/config
-    echo 'exec --no-startup-id surf https://github.com/stoneo' >> ~/.i3/config
+    echo 'exec --no-startup-id surf https://github.com/ston3o' >> ~/.i3/config
     echo 'exec --no-startup-id sleep 5 && xdotool key F11' >> ~/.i3/config
     echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile
 7. Upgrade surf (optional)
