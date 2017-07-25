@@ -34,3 +34,6 @@ systemctl isolate foo.target
 
 # Change default target
 systemctl enable foo.target
+
+# Enable & start
+systemctl enable --now <service>

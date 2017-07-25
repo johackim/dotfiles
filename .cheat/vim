@@ -72,6 +72,7 @@ Ctrl+/      comment
 <leader>cc  comment
 <leader>cu  uncomment
 <leader>cm  minimal comment
+<leader>cs  sexy comment
 
 # Nerdtree
 R   Refresh files
