@@ -1,0 +1,10 @@
+# Ubuntu install
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install -y nodejs
+
+# Debian install
+apt-get install -y nodejs-legacy npm
+npm cache clean -f
+npm install -g n
+n stable
+
