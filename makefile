@@ -2,7 +2,7 @@
 .ONESHELL:
 
 hostname := "arch"
-username := "stoneo"
+username := "ston3o"
 current_dir:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 install: install-dotbot install-nvidia-driver install-essentials install-pacman-packages install-yaourt-packages install-virtualbox install-wine install-pip-packages install-npm-packages enable-services
