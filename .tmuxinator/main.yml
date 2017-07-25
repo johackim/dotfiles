@@ -8,7 +8,7 @@ windows:
   - main:
       layout: e68d,273x73,0,0{136x73,0,0[136x58,0,0,0,136x14,0,59,8],136x73,137,0[136x43,137,0,5,136x24,137,44,6,136x4,137,69,7]}
       panes:
-        - clear;screenfetch -c 14
+        - clear;neofetch -c 14
         - clear
         - htop
         - monitor

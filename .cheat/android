@@ -1,20 +1,64 @@
-# Mobile Application Test Notes (Android)
-
+# Dependencies
 yaourt -S android-studio
+yaourt -S android-emulator
+pacman -S android-tools
 
-[+] Create a virtual device:
-    [-] android avd
+# Create a virtual device:
+android create avd --name <name>
 
-[+] Start the emulator:
-    [-] emulator –avd testavd
+# Start the emulator:
+emulator –avd <name>
 
-[+] Install the application:
-    [-] adb install <path of the .apk file>
+# Install the application:
+adb install <apk>
 
-[+] Open Burp Suite and navigate to Proxy->Options,
-    [-] Edit proxy listeners – enter ‘port’ as 8080, disable ‘loopback only’ and select ‘support invisible’.
+# Run apps on hardware Device
+groupadd plugdev
+usermod -aG plugdev <username> # and restart user session
+adb kill-server
+adb start-server
+adb devices
 
-[+] Start the emulator and proxy:
-    [-] emulator –avd testavd –http-proxy http://localhost:8080
+# Screencast android
+adb shell screenrecord <folder-path/filename.mp4>
 
-[+] Download and install burp certificate (.crt) onto the emulator using the push shell command.
+# Extract apk from android
+adb shell pm list packages
+adb shell pm path <package-name>
+adb pull <package-location> <path-on-computer-to-store-APK>
+
+# Push/Pull
+adb push <path to file on computer> <location where you want to save file>
+adb pull <path to file on device> <location where you want to save file>
+
+# Screenshot
+adb shell screencap <file.png>
+
+# Logcat
+adb logcat
+
+# Start bootloader
+adb reboot bootloader
+
+# Fastboot - http://bit.ly/2ttvNNh
+adb reboot bootloader
+fastboot devices
+
+# Start recovery mode
+adb reboot recovery
+
+# Unlock Nexus bootloader (WARNING: will wipe device)
+fastboot oem unlock
+
+# Flash a Custom Recovery (Root Required)
+fastboot erase recovery
+fastboot flash recovery <recovery-file.img>
+
+# Flash a Custom ROM (with fastboot)
+fastboot erase system -w
+fastboot erase boot
+fastboot update <your-file.zip>
+fastboot reboot
+
+# Flash a Custom ROM (with TWRP)
+adb push filename.zip /sdcard/ # And click on install

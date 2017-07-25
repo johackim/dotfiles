@@ -1,0 +1,59 @@
+# Enable IOMMU on Host
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_iommu=on" # /etc/default/grub
+grub-mkconfig -o /boot/grub/grub.cfg
+dmesg|grep -e DMAR -e IOMMU # check IOMMU enabled
+
+# Install EDK2
+pacman -S rpmextract
+wget https://www.kraxel.org/repos/jenkins/edk2/edk2.git-ovmf-x64-0-20170711.b2794.gb1fe202.noarch.rpm
+rpmextract.sh edk2.*.rpm
+cp -R ./usr/share/* /usr/share
+
+# Install libvirt
+pacman -S dnsmasq ebtables dmidecode # libvirt dependencies
+pacman -S qemu ovmf virt-manager
+pacman -S libvirt
+usermod -aG libvirt username
+systemctl enable libvirtd
+
+# backing up qemu.conf
+mv /etc/libvirt/qemu.conf /etc/libvirt/qemu.conf.orig
+
+# configuring qemu.conf
+cat <<EOT >> /etc/libvirt/qemu.conf
+user = "root"
+group = "root"
+clear_emulator_capabilities = 0
+cgroup_device_acl = [
+    "/dev/null", "/dev/full", "/dev/zero",
+    "/dev/random", "/dev/urandom",
+    "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
+    "/dev/rtc","/dev/hpet", "/dev/vfio/vfio",
+    "/dev/vfio/1"
+]
+nvram = [
+  "/usr/share/edk2.git/ovmf-x64/OVMF_CODE-pure-efi.fd:/usr/share/edk2.git/ovmf-x64/OVMF_VARS-pure-efi.fd",
+]
+EOT
+
+# Install vfio
+lspci -nn|grep -iP "NVIDIA|Radeon" # $VFIOID
+echo options vfio-pci ids=$VFIOID > /etc/modprobe.d/vfio.conf
+
+MODULES="vfio vfio_iommu_type1 vfio_pci vfio_virqfd" # /etc/mkinitcpio.conf
+mkinitcpio -p linux
+
+lspci -k | grep -i vfio-pci # Check vfio
+
+# Install virtio
+yaourt -S --noconfirm virtio-win
+
+# Launch virt-manager
+virt-manager
+
+# Resources
+- https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF
+- https://medium.com/@dubistkomisch/gaming-on-arch-linux-and-windows-10-with-vfio-iommu-gpu-passthrough-7c395dde5c2
+- https://www.linuxserver.io/2017/04/28/how-to-setup-vfio-gpu-passthrough-using-ovmf-and-kvm-on-arch-linux/
+- [Play games in Windows on Linux! PCI passthrough quick guide](https://www.youtube.com/watch?v=dsDUtzMkxFk)
+- [Quick GPU Passthrough Guide](https://www.youtube.com/watch?v=6FI31QDtyy4)

@@ -37,7 +37,9 @@ backup()
         -e $HOME/.gnome2/ \
         -e $HOME/.gradle/ \
         -e $HOME/.android/ \
+        -e $HOME/.AndroidStudio2.3/ \
         -e $HOME/.AndroidStudioPreview/ \
+        -e $HOME/AndroidStudioProjects/ \
         -e $HOME/.vagrant.d/ \
         -e *node_modules* \
         $source
