@@ -7,3 +7,7 @@ ssh -L 7777:172.17.0.11:3306 <server>
 
 # Forward with backround process
 ssh -fN -L 7777:172.17.0.11:3306 <server>
+
+# Shadowsocks
+http://shadowsocks.org
+https://github.com/shadowsocks

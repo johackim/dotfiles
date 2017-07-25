@@ -184,7 +184,8 @@ install-pacman-packages:
 		qbittorrent \
 		time \
 		calcurse \
-		gnome-font-viewer
+		gnome-font-viewer \
+		sshfs
 	fi
 
 install-yaourt-packages:
@@ -229,7 +230,10 @@ install-yaourt-packages:
 		yamllint \
 		shellcheck \
 		peco \
-		cava
+		cava \
+		neofetch \
+		netdiscover \
+		run_scaled-git
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
@@ -267,7 +271,7 @@ install-yaourt-packages:
 install-pip-packages:
 	@ read -r -p "You want install pip packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		sudo pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg httpstat http-prompt magic-wormhole
+		sudo pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg httpstat http-prompt magic-wormhole seashells
 	fi
 
 install-gem-packages:
@@ -328,7 +332,7 @@ install-atom-packages:
 
 install warez-tools:
 	sudo pacman -S plowshare
-	yaourt -S --noconfirm popcorntime-bin pirate-get megatools pirateflix np1-mps
+	yaourt -S --noconfirm popcorntime-bin pirate-get megatools pirateflix np1-mps soulseekqt # deezloader
 	sudo npm install -g torrentflix rdcli peerflix
 
 enable-services:

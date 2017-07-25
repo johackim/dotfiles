@@ -17,3 +17,9 @@ for file in `ls original/image/path/`;
     new_file=`basename $new_path`;
     convert $file -resize 150 conerted/image/path/$new_file.png;
 done
+
+# Grayscale
+convert source.jpg -colorspace Gray destination.jpg
+
+# Blur
+convert input.jpg -blur 0x8 output.jpg

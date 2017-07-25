@@ -54,3 +54,8 @@ docker update --restart=always <container>
 
 # Clean volumes
 docker volume ls -qf dangling=true | xargs -r docker volume rm
+
+# Support GUI (Warning: Not Safe)
+docker run --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw"
+xhost +local:root
+xhost -local:root

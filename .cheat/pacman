@@ -48,3 +48,12 @@ cd "$pkgname"
 makepkg -s
 # Install
 sudo pacman -U <package file (.pkg.tar.xz)>
+
+# Refresh signature
+pacman-key --refresh-keys
+# -- or --
+rm -R /etc/pacman.d/gnupg/
+rm -R /root/.gnupg/
+gpg --refresh-keys
+pacman-key --init && pacman-key --populate archlinux
+pacman-key --refresh-keys
