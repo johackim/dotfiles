@@ -19,6 +19,9 @@ adb kill-server
 adb start-server
 adb devices
 
+# Manage Android Virtual Devices
+avdmanager
+
 # Screencast android
 adb shell screenrecord <folder-path/filename.mp4>
 
