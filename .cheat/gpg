@@ -171,3 +171,6 @@
     gpg -K
 
   Should show sec# instead of just sec.
+
+# Reload gpg-agent
+gpg-connect-agent reloadagent /bye

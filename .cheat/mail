@@ -11,6 +11,9 @@ Supplément à SPF et DKIM
 # Test the Spammyness of your Emails
 https://www.mail-tester.com/
 
+# Test SSL
+https://www.checktls.com/TestReceiver
+
 # Read local mails
 mutt -f Maildir
 
@@ -19,3 +22,15 @@ https://support.google.com/a/answer/3726730?hl=fr
 
 # Others
 http://www.badsender.com/2014/01/13/delivrabilite-spf-dkim-dmarc/
+
+# Test SMTP
+smtptest -u <user> -p <password> --port=<port> -t <from> <to> <server>
+
+# Test IMAP
+openssl s_client -connect <server>:<port> -crlf
+A login <user> <password>
+B select INBOX
+C logout
+
+# List imap folders
+A LIST "" "*"
