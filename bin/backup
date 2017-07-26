@@ -15,6 +15,8 @@ backup()
         -e $HOME/.thumbnails/ \
         -e $HOME/.atom/ \
         -e $HOME/.cache/ \
+        -e $HOME/.pkg-cache/ \
+        -e $HOME/.cargo/ \
         -e $HOME/.node-gyp/ \
         -e $HOME/.npm/ \
         -e $HOME/.nvm/ \
@@ -40,6 +42,7 @@ backup()
         -e $HOME/.AndroidStudio2.3/ \
         -e $HOME/.AndroidStudioPreview/ \
         -e $HOME/AndroidStudioProjects/ \
+        -e $HOME/Android/ \
         -e $HOME/.vagrant.d/ \
         -e *node_modules* \
         $source
