@@ -21,7 +21,8 @@ audio_output {
 }
 
 audio_output {
-    type "alsa"
-    name "My ALSA Device"
+    type "pulse"
+    name "My Pulse Output"
+    # type "alsa"
+    # name "My ALSA Device"
 }
-
