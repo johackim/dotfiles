@@ -33,6 +33,10 @@
     ~/.mozilla/firefox/chrome/userContent.css:
       create: true
       path: .mozilla/firefox/chrome/userContent.css
+    ~/.mutt: .mutt/
+    ~/.offlineimap.py: .offlineimap.py
+    ~/.gnupg/gpg-agent.conf: .gnupg/gpg-agent.conf
+    ~/.muttrc: .muttrc
     ~/.mpdconf: .mpdconf
     ~/.ncmpcpp: .ncmpcpp/
     ~/.config/newsbeuter/config:
@@ -42,6 +46,7 @@
       create: true
       path: Notes
     ~/.oh-my-zsh: .oh-my-zsh/
+    ~/.sounds: .sounds/
     ~/.themes/Darkyan:
       create: true
       path: .themes/Darkyan/

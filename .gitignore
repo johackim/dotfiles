@@ -4,3 +4,6 @@ Notes/
 .urxvt/urxvtd-debian
 .stfolder
 .ncmpcpp/error.log
+.mutt/accounts
+.mutt/aliases
+.mutt/passwords.gpg
