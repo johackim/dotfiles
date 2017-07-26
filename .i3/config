@@ -224,6 +224,8 @@ for_window [class="recordMyDesktop"] floating enable
 for_window [class="Wine"] floating enable
 for_window [instance="Photoshop.exe"] floating disable
 for_window [instance="libreboard__boards"] floating disable
+for_window [instance="electron"] floating enable
+for_window [instance="freezer"] floating enable
 
 # Focus
 for_window [class="^Vlc|mpv$"] focus
