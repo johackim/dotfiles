@@ -79,3 +79,6 @@ R   Refresh files
 
 # Emmet shortcut
 <c-y>,
+
+# Replace tab to spaces
+:retab
