@@ -1,9 +1,3 @@
-[submodule ".vim"]
-	path = .vim
-	url = http://github.com/ston3o/dotvim
-[submodule ".themes/Darkyan"]
-	path = .themes/Darkyan
-	url = http://github.com/ston3o/Darkyan
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
@@ -22,3 +16,9 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ston3o/oh-my-zsh
+[submodule ".themes/Darkyan"]
+	path = .themes/Darkyan
+	url = http://github.com/ston3o/Darkyan
+[submodule ".vim"]
+	path = .vim
+	url = http://github.com/ston3o/dotvim
