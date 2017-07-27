@@ -3,8 +3,7 @@ Description=Start offlineimap as a daemon
 After=network.target
 
 [Service]
-User=%i
-ExecStart=/usr/bin/offlineimap
+ExecStart=/usr/bin/offlineimap -a %i -u basic
 KillSignal=SIGUSR2
 Restart=always
 
