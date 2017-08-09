@@ -26,6 +26,9 @@ echo ${PIPESTATUS[0]}  # replace 0 with N
 # Lock file:
 ( set -o noclobber; echo > my.lock ) || echo 'Failed to create lock file'
 
+# EOF Multiline
+cat << EOF > file.txt
+
 # Check code
 https://github.com/koalaman/shellcheck
 

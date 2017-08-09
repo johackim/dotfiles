@@ -1,2 +1,8 @@
 # 404 error
 error_page 404 /404.html;
+
+# Modules nginx
+nginx -V
+
+# Test config
+service nginx configtest

@@ -57,3 +57,6 @@ rm -R /root/.gnupg/
 gpg --refresh-keys
 pacman-key --init && pacman-key --populate archlinux
 pacman-key --refresh-keys
+
+# Problem public key
+gpg --recv-key <key>
