@@ -23,3 +23,6 @@ dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
 
 # Clone sd card
 dd if=/dev/sda of=/dev/sdb status=progress conv=notrunc,noerror
+
+# Create 1Go file
+dd if=/dev/zero of=1g.img bs=1 count=0 seek=1G

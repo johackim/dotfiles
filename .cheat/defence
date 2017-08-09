@@ -4,6 +4,7 @@
 - IPS (Instrusion Prevention System) (ex: Fail2ban, snort)
 - IDS réseau (ex: maltrail, snort)
 - IDS systeme (ex: Chkrootkit, rkhunter)
+- HIDS (OSSEC)
 - Firewall (ex: iptables, arno-iptables-firewall)
 - Audit tool: Lynis
 - Anti-DDOS Tool: https://github.com/fnzv/nShield, https://securityonline.info/15-things-prevent-ddos-attacks/

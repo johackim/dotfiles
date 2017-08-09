@@ -37,7 +37,7 @@
     ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key # (Optional)
     raspi-config # Enable ssh
 4. Install i3
-    apt-get install i3 dmenu rxvt-unicode xorg xinit xdotool surf
+    sudo apt-get install i3 dmenu rxvt-unicode xorg xinit xdotool surf
 5. Auto-login
     sudo systemctl enable autologin@.service
 6. Auto-start
@@ -49,6 +49,6 @@
     echo 'exec --no-startup-id sleep 5 && xdotool key F11' >> ~/.i3/config
     echo '[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx' >> ~/.bash_profile
 7. Upgrade surf (optional)
-    echo 'deb http://mirrordirector.raspbian.org/raspbian/ testing main contrib non-free rpi' >> /etc/apt/sources.list
-    apt-get update
-    apt-get install surf=2.0-2
+    sudo echo 'deb http://mirrordirector.raspbian.org/raspbian/ testing main contrib non-free rpi' >> /etc/apt/sources.list
+    sudo apt-get update
+    sudo apt-get install surf=2.0-2
