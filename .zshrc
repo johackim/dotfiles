@@ -55,7 +55,9 @@ plugins=(git git-flow docker docker-compose vagrant nmap pip archlinux npm gulp 
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH:/usr/local/games/
+export PATH=$PATH:$HOME/bin:/usr/local/bin
+export PATH=$PATH:$GOPATH/bin:~/.gem/ruby/*/bin
+export PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -87,7 +89,6 @@ source $HOME/.aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export GOPATH="$HOME/dev/gocode/"
-export PATH=$PATH:$GOPATH/bin:~/.gem/ruby/2.3.0/bin:/snap/bin:~/.gem/ruby/2.4.0/bin:/var/lib/snapd/snap/bin/
 export EDITOR="vim"
 export WINEARCH=win32
 export WINEPREFIX=~/.wine32 # Wine prefix to use
