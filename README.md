@@ -10,11 +10,6 @@ Install
 
 `make install`
 
-Usage
----
-
-`$ <cmd> --help`
-
 License
 ---
 
