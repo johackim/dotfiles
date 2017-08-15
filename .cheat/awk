@@ -19,3 +19,8 @@ awk -F\\t '$1 != 1 { print $0 }' file.txt > does_not_match_one.txt
 # take all but the first column (sed will eliminate whitespace at beginning)
 awk -F\\t '{ $1=""; print $0 }' file.txt | sed 's/^\s//'
 
+# Don't print first line
+awk '{if (NR!=1) {print}}'
+
+# Print first word
+awk '{print $1;}'
