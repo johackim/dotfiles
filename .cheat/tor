@@ -1,2 +1,9 @@
 # Create .onion
+pacman -S tor
+HiddenServiceDir /var/lib/tor/hidden_service/ # /etc/tor/torrc
+HiddenServicePort 80 127.0.0.1:80 # /etc/tor/torrc
+systemctl start tor
+cat /var/lib/tor/hidden_service/hostname # Get hostname.onion
+
+# Other
 https://github.com/alecmuffett/eotk

@@ -11,7 +11,7 @@ Supplément à SPF et DKIM
 # Test the Spammyness of your Emails
 https://www.mail-tester.com/
 
-# Test SSL
+# Test receiver, Test SSL
 https://www.checktls.com/TestReceiver
 
 # Read local mails

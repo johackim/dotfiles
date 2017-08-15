@@ -12,3 +12,6 @@ dpkg -s test.deb | grep Status
 
 # List package files
 dpkg -L <package>
+
+# Unpack package
+dpkg -x <package> <dest>
