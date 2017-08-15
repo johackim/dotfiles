@@ -52,3 +52,6 @@ dokku ps:restart <app>
 
 # Restart all apps
 dokku ps:restartall
+
+# Update nginx template
+/var/lib/dokku/plugins/available/nginx-vhosts/templates/nginx.conf.sigil

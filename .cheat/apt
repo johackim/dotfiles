@@ -21,3 +21,6 @@ apt install package(s)
 
 # To uninstall package(s)
 apt remove package(s)
+
+# Download *.deb file
+apt download <package>
