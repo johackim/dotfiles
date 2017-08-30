@@ -1,4 +1,0 @@
-#!/bin/bash
-
-wine "C:\Program Files\Adobe\Adobe Photoshop CS6\Photoshop.exe"
-
