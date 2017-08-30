@@ -7,3 +7,15 @@ cat /var/lib/tor/hidden_service/hostname # Get hostname.onion
 
 # Other
 https://github.com/alecmuffett/eotk
+
+# Tor2web
+*.onion.sh
+*.onion.direct
+*.onion.city
+*.onion.link
+*.onion.tor2web.org
+*.onion.cab
+*.onion.to
+
+# torify/torsocks
+. torsocks on # Enable tor on current shell

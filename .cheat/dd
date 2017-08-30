@@ -26,3 +26,6 @@ dd if=/dev/sda of=/dev/sdb status=progress conv=notrunc,noerror
 
 # Create 1Go file
 dd if=/dev/zero of=1g.img bs=1 count=0 seek=1G
+
+# Fill hard disk
+dd if=/dev/zero of=filename bs=$((1024*1024)) count=$((5*1024))
