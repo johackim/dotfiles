@@ -13,4 +13,6 @@ Install
 License
 ---
 
-MIT
+GNU GPL v3.0
+
+**Free Software, Hell Yeah!**
