@@ -36,3 +36,6 @@ grep -rin pattern
 
 # alias for grep -E
 egrep
+
+# Only print match
+grep -oP "([a-z0-9]+.onion)" | sed '/^$/d'
