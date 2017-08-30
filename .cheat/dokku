@@ -34,7 +34,7 @@ ssh root@domain.tld "dokku apps:create ghost; docker pull ghost; docker tag ghos
 dokku proxy:ports-add <app> http:80:2368
 
 # Docker options (add volume)
-dokku docker-options:add <app> deploy,run "-v $PWD/wp-content:/var/www/html/wp-content"
+dokku docker-options:add <app> build,deploy,run "-v $PWD/wp-content:/var/www/html/wp-content"
 dokku deploy <app>
 
 # Remove SSL
@@ -55,3 +55,6 @@ dokku ps:restartall
 
 # Update nginx template
 /var/lib/dokku/plugins/available/nginx-vhosts/templates/nginx.conf.sigil
+
+# Add ssh key
+echo <key> | dokku ssh-keys:add <key_name>

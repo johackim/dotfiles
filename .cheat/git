@@ -66,6 +66,7 @@ git submodule sync
 git submodule deinit -f <submodule>
 git rm <submodule>
 rm -rf <submodule>
+# rm -rf .git/modules/<module_path>
 ```
 
 Rebase

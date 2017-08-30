@@ -1,0 +1,5 @@
+# Start server
+LC_ALL=C.UTF-8 mosh --server="LANG=C.UTF-8 mosh-server"
+
+# Start client
+mosh <host>
