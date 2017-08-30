@@ -9,6 +9,7 @@
     cleanup = "!f() { git branch --merged | grep -v '*' | xargs -n 1 git branch -d; }; f"
     undo = reset --soft HEAD^
     prune = fetch --prune
+    url = config --get remote.origin.url
 [diff]
     tool = icdiff
 [difftool]
