@@ -1,0 +1,152 @@
+Kubernetes
+---
+
+Objets
+Pod
+Labels
+Namespace
+Service
+Replication Controller
+Replica Sets (Replication Controller next gen)
+Node Master
+StatefulSet (Persistent storage)
+CronJobs
+NetworkPolicy (firewall)
+DaemonSet (Un pod run sur tous les noeud de mon cluster)
+Container Runtime (docker, rkt, frakti)
+kubectl (cli)
+Minikube (Running Kubernetes Locally)
+addons (Kube DNS, Kubernetes Dashboard, Heapster)
+Other projects (Helm, Kops, Kube-AWS, Bootkube, Kube-lego, kmachine)
+NodePort
+Deployments strategy (Rolling upgrade, A/B, Replace)
+Health Checking
+Volumes (emptyDir, hostPath, Secret)
+Jobs
+kubectl expose deployment ghost --type=LoadBalancer # Just for cloud providers
+Ingress (load balancer)
+kubernetes cluster federation
+
+Node Worker
+---
+
+Kubelet (agent kubernetes)
+Kube-proxy (gere le réseau, iptables)
+
+Cli commands
+---
+
+kubectl version
+kubectl cluster-info
+kubectl get nodes
+kubectl get all
+kubectl get pods
+kubectl get pods -o json
+kubectl get deployments
+kubectl get rc|replicationcontroller
+kubectl get rs|replicaset
+kubectl get ns|namespace
+kubectl get svc|services
+kubectl get ing|ingress
+kubectl describe pods
+kubectl describe services
+kubectl get pods -l key=value
+kubectl logs
+kubectl run
+kubectl proxy
+kubectl create -f file.yaml
+kubectl apply -f file.yml
+kubectl exec -it $POD_NAME bash
+kubectl run myapp --image=busybox --command -- sleep 3600
+kubectl expose deployment ghost --type=<LoadBalancer|ClusterIP|NodePort|ExternalName> --port=80 --target-port=2368
+kubectl delete deployments --all
+kubectl scale deployment ghost --replicas=4
+kubectl port-forward ghost 2368:2368
+kubeadm init
+kubeadm reset
+kubectl proxy # http://localhost:8001/api/v1/proxy/namespaces/default/pods/$POD_NAME/
+
+Minikube
+---
+
+minikube ip
+minikube dashboard
+
+minikube start --vm-driver=virtualbox
+kubectl run ghost --image=ghost --port=2368
+kubectl expose deployment ghost --type=NodePort --port=80 --target-port=2368
+
+export IP=$(minikube ip)
+export NODE_PORT=$(kubectl get services ghost -o go-template='{{(index .spec.ports 0).nodePort}}')
+http -h http://$IP:$NODE_PORT
+
+Helm
+---
+
+kubectl create clusterrolebinding add-on-cluster-admin \
+  --clusterrole=cluster-admin \
+  --serviceaccount=kube-system:default
+
+helm init --upgrade
+helm repo update
+helm install --name ghost stable/ghost
+
+Draft
+---
+
+https://draft.sh/
+
+Kubernetes install
+---
+
+https://gist.github.com/stump201/fbd25292f656725acafbbc4fed761a08
+https://blog.alexellis.io/kubernetes-in-10-minutes/
+https://kubernetes.io/docs/getting-started-guides/scratch/
+
+```
+# Install master node
+apt-get update && apt-get install -y apt-transport-https docker.io
+echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" >> /etc/apt/sources.list.d/kubernetes.list
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+apt-get update && apt-get install -y kubelet kubeadm kubernetes-cni
+hostnamectl set-hostname node-01
+swapoff /dev/sda5
+kubeadm init --pod-network-cidr=10.32.0.0/12
+
+# installing a pod network http://bit.ly/2Aw3dyE
+kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
+
+# Check master ready (wait 1m)
+kubectl get nodes
+
+# (Optional) Allow a single-host cluster
+kubectl taint nodes --all node-role.kubernetes.io/master-
+
+# Join a node
+kubeadm join --token <TOKEN> <IP>
+
+# Check node ready (wait 1m)
+kubectl get nodes
+
+# Install ghost
+kubectl run ghost --image=nginx
+kubectl scale deployment nginx --replicas=4
+kubectl expose deployment nginx --type=NodePort --port=80 --target-port=80
+export NODE_PORT=$(kubectl get services nginx -o go-template='{{(index .spec.ports 0).nodePort}}')
+curl http://192.168.1.50:$NODE_PORT
+```
+
+Ressources
+---
+
+[Minikube](https://kubernetes.io/docs/getting-started-guides/minikube/)
+[Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
+https://www.youtube.com/watch?v=Ompowc9pkBw
+https://www.youtube.com/watch?v=QDvxQWKY17s
+https://www.youtube.com/watch?v=KV37yqCtpGY
+https://kubernetes.io/
+https://github.com/ramitsurana/awesome-kubernetes
+http://kubernetesbyexample.com/
+https://kubernetesbootcamp.github.io/kubernetes-bootcamp/
+http://blog.wescale.fr/2017/09/04/kubernetes-utiliser-traefik-comme-loadbalancer/
+https://blog.osones.com/kubernetes-ingress-controller-avec-traefik-et-lets-encrypt.html
