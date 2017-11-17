@@ -58,12 +58,12 @@
     ~/.xinitrc: .xinitrc
     ~/.Xresources: .Xresources
     ~/.vimrc: .vim/vimrc
-    ~/.weechat/weechat.conf:
+    ~/.weechat/perl/autoload/listsort.pl:
       create: true
-      path: .weechat/weechat.conf
-    ~/.weechat/irc.conf:
+      path: .weechat/perl/autoload/listsort.pl
+    ~/.weechat/python/autoload/osc_notify.py:
       create: true
-      path: .weechat/irc.conf
+      path: .weechat/python/autoload/osc_notify.py
     ~/.zshrc: .zshrc
 
 - shell:
