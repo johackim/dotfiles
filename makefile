@@ -181,11 +181,12 @@ install-pacman-packages:
 		pandoc \
 		trash-cli \
 		fzf \
-		qbittorrent \
 		time \
 		calcurse \
 		gnome-font-viewer \
-		sshfs
+		sshfs \
+		mosh \
+		nfs-utils
 	fi
 
 install-yaourt-packages:
@@ -233,7 +234,16 @@ install-yaourt-packages:
 		cava \
 		neofetch \
 		netdiscover \
-		run_scaled-git
+		run_scaled-git \
+		masterpassword-cli \
+		rig \
+		xpenguins \
+		translate-shell \
+		keybase-bin \
+		electrun \
+		gifcurry \
+		qbittorrent-dark-git \
+		vrms-arch
 
 		yaourt --noconfirm -Sy \
 		tor-browser-en \
@@ -249,7 +259,7 @@ install-yaourt-packages:
 		android-studio \
 		s \
 		bleachbit-cli \
-		packettracer \
+		packettracer gns3-gui \
 		zeronet \
 		balsamiqmockups \
 		wpscan \
@@ -332,8 +342,9 @@ install-atom-packages:
 
 install warez-tools:
 	sudo pacman -S plowshare
-	yaourt -S --noconfirm popcorntime-bin pirate-get megatools pirateflix np1-mps soulseekqt # deezloader
+	pacaur -S --noconfirm popcorntime-bin pirate-get megatools pirateflix np1-mps soulseekqt # deezloader
 	sudo npm install -g torrentflix rdcli peerflix
+	sudo pip install torrench
 
 enable-services:
 	@ read -r -p "You want enable services ? [y/N] " REPLY;
