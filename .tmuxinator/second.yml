@@ -9,7 +9,7 @@ windows:
       layout: 8749,273x68,0,0[273x33,0,0{136x33,0,0,5,136x33,137,0,6},273x34,0,34{146x34,0,34,7,126x34,147,34,16}]
       panes:
         - ncmpcpp
-        - newsbeuter
+        - newsboat
         - export DISPLAY=""; mutt
-        - toxic
+        - weechat
 

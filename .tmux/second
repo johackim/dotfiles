@@ -9,6 +9,6 @@ selectp -t 2
 splitw -h -p 45
 
 send-keys -R -t 0 'ncmpcpp' enter
-send-keys -R -t 1 'newsbeuter' enter
+send-keys -R -t 1 'newsboat' enter
 send-keys -R -t 2 'export DISPLAY=""; mutt' enter
-send-keys -R -t 3 'toxic' enter
+send-keys -R -t 3 'weechat' enter
