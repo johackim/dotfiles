@@ -51,13 +51,12 @@ ZSH_THEME="cyan"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git git-flow docker docker-compose node npm nmap grunt httpie vagrant symfony symfony2 rsync pip bower taskwarrior)
-plugins=(git git-flow docker docker-compose vagrant nmap pip archlinux npm gulp zsh-syntax-highlighting)
+plugins=(git git-flow docker docker-compose kubectl vagrant nmap pip archlinux npm gulp zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH=$PATH:$HOME/bin:/usr/local/bin
-export PATH=$PATH:$GOPATH/bin:~/.gem/ruby/*/bin
-export PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+export GOPATH="$HOME/dev/gocode/"
+export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin:~/.gem/ruby/2.4.0/bin:$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -88,12 +87,10 @@ source $HOME/.aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export GOPATH="$HOME/dev/gocode/"
 export EDITOR="vim"
 export WINEARCH=win32
 export WINEPREFIX=~/.wine32 # Wine prefix to use
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
-export QT_SCALE_FACTOR=2
 eval `dircolors ~/.dir_colors`
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 [ -f ~/.private_aliases ] && source ~/.private_aliases
