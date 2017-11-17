@@ -21,3 +21,8 @@ ffmpeg -i video.ext -i audio.ext -c:v copy -c:a copy output.ext
 # -autoexit : closes ffplay as soon as the audio finishes
 ffmpeg -ss 00:34:24.85 -t 10 -i path/to/file.mp4 -f mp3 pipe:play | ffplay -i pipe:play -autoexit
 
+# OGV to MP4
+ffmpeg -i <OGV> -vcodec libx264 <MP4>
+
+# Remove audio
+ffmpeg -i <INPUT> -c copy -an <OUTPUT>

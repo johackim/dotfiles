@@ -58,3 +58,6 @@ dokku ps:restartall
 
 # Add ssh key
 echo <key> | dokku ssh-keys:add <key_name>
+
+# Change env var
+dokku config:set <app> KEY=VALUE

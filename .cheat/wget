@@ -4,9 +4,6 @@ wget http://path.to.the/file
 # To download a file and change its name
 wget http://path.to.the/file -O newname
 
-# To download a file into a directory
-wget -P path/to/directory http://path.to.the/file
-
 # To continue an aborted downloaded
 wget -c http://path.to.the/file
 
@@ -33,3 +30,9 @@ wget -S --spider -O - http://google.com
 
 # Change the User-Agent to 'User-Agent: toto'
 wget -U 'toto' http://google.com
+
+# To download a file into a directory
+wget -P path/to/directory http://path.to.the/file
+
+# Download on a specific path
+wget -O <path> <url>

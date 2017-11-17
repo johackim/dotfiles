@@ -1,0 +1,14 @@
+# Taiga installation
+git clone https://github.com/taigaio/taiga-scripts.git
+
+mkdir -p ~/.setup
+
+cat > ~/.setup/data.sh <<EOF
+scheme="http"
+hostname="localhost:8000"
+EOF
+
+bash setup-server.sh
+
+vim settings/local.py # change MEDIA_URL, STATIC_URL, SITES["front"]["domain"]
+circusctl restart taiga
