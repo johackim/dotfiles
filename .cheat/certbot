@@ -22,3 +22,6 @@ certbot run -d <domain>
 
 # Download certbot
 https://certbot.eff.org/
+
+# Renew
+docker run --rm -ti -v /var/log/letsencrypt/:/var/log/letsencrypt/ -v /etc/letsencrypt/:/etc/letsencrypt/ -p 443:443 deliverous/certbot renew

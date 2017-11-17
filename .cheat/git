@@ -91,3 +91,14 @@ Change username & email on all commits
 ---
 
 https://gist.github.com/octocat/0831f3fbd83ac4d46451
+
+Bind remote and local branch
+---
+
+git branch --track master origin/master
+
+I accidentally did a hard reset, and I want my changes back
+---
+
+git reflog
+git reset --hard SHA1234

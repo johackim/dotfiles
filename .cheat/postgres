@@ -15,3 +15,14 @@ psql -c "CREATE USER admin WITH PASSWORD 'password';"
 
 # Remove table
 DROP TABLE <table>
+
+# Allow remote connection
+echo "listen_addresses = '*'" >> /etc/postgresql/9.5/main/postgresql.conf
+cat >> /etc/postgresql/9.5/main/pg_hba.conf << EOF
+host    all             all              0.0.0.0/0                       md5
+host    all             all              ::/0                            md5
+EOF
+
+# Grant user permissions
+\c <database>
+GRANT ALL PRIVILEGES ON database <database> to <user>;

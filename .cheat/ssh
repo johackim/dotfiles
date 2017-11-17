@@ -44,3 +44,6 @@ emacs /ssh:name@server:/path/to/file
 
 # Forward port with backround process
 ssh -fN (with -f for "fork into background" and -N for "run no command")
+
+# Force client to use only password auth
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no example.com

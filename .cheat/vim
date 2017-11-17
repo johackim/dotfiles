@@ -82,3 +82,32 @@ R   Refresh files
 
 # Replace tab to spaces
 :retab
+
+# Go to character
+t <character>
+T <character>
+f <character>
+F <character>
+
+# Delete until character
+dt <character>
+dT <character>
+df <character>
+dF <character>
+
+# Change until character
+cf(
+
+# Change inside quotes,parentheses
+ci"
+ci(
+ci{
+
+# Change inside HTML tag
+cit
+
+# Change around parentheses
+ca(
+
+# Replace single quote by double quote
+cs'"

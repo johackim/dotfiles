@@ -1,0 +1,8 @@
+# Install
+curl -s https://install.zerotier.com/ | sudo bash
+
+# Join
+zerotier-cli join <network>
+
+# Leave
+zerotier-cli leave <network>
