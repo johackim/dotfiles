@@ -1,0 +1,20 @@
+# Web shodan.io
+
+net:<ip range> # Filter IP range
+port:<port> # Filter port
+city:"<city>" country:<country_code> # Filter location
+geo:<coords> # Filter location
+hostname:<hostname> # Filter hostname
+os:<operating system> # Filter operating system
+before:<date> # Filter dates
+after:<date> # Filter dates
+
+# CLI
+
+shodan init <API_KEY>
+shodan myip
+shodan count webcamxp
+shodan host <IP>
+shodan search --fields ip_str,port,org,product webcamxp
+shodan download --limit 50 webcamxp webcamxp
+shodan honeyscore <IP>

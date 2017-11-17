@@ -1,0 +1,4 @@
+# Add trust certificate
+https://www.archlinux.org/news/ca-certificates-update/
+cp <file.crt or file.pem> /etc/ca-certificates/trust-source/anchors/
+update-ca-certificates or trust extract-compat

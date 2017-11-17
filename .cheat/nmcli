@@ -38,3 +38,9 @@ ncmli con add type ethernet con-name <name> ifname <iface_name>
 
 # Bring up the ethernet connection
 nmcli con up <name>
+
+# Import .ovpn
+nmcli con import type openvpn file <file>
+
+# Edit connection's name
+nmcli con modify <old name> connection.id <new name>

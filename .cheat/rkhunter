@@ -1,0 +1,15 @@
+# Update rkhunter database
+rkhunter --update
+
+# Create referencial
+rkhunter --propupd
+
+# Check
+rkhunter -c
+
+# Check only alerts
+rkhunter -c --rwo
+
+# White liste
+ALLOWHIDDENFILE=<file> # /etc/rkhunter.conf
+ALLOWHIDDENDIR=<dir> # /etc/rkhunter.conf

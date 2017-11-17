@@ -38,3 +38,8 @@ iptables -D INPUT 2
 
 # 2.b) OR INSERT a rule.
 iptables -I INPUT {LINE_NUMBER} -i eth1 -p tcp --dport 21 -s 123.123.123.123 -j ACCEPT -m comment --comment "This rule is here for this reason"
+
+# Iptables permanent
+apt-get install iptables-persistent
+iptables-save > /etc/iptables/rules.v4
+iptables-save > /etc/iptables/iptables.rules

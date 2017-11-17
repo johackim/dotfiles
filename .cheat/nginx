@@ -6,3 +6,14 @@ nginx -V
 
 # Test config
 service nginx configtest
+
+# Reverse proxy
+server {
+    listen 80;
+    server_name test.localhost;
+
+    location / {
+        proxy_pass http://10.147.18.144:80;
+        proxy_set_header Host $host;
+    }
+}

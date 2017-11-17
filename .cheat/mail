@@ -37,4 +37,4 @@ A LIST "" "*"
 
 # Test mail
 https://www.checktls.com/TestReceiver # Reception
-smtptest -u <user> -p <password> --port=<port> -t <from> ID@mail-tester.com <server> # Send
+smtptest -u <user> -p <password> --port=<port> -t <from> ID@mail-tester.com <server> # Send and receive

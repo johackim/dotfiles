@@ -2,5 +2,4 @@
 /var/lib/vz/template/iso/
 
 # On virtualbox / No acceleator found
-disable KVM hardware virtualization option
-https://www.youtube.com/watch?v=_D9XTAzXECE
+disable KVM hardware virtualization option (VM Options tab)

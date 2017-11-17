@@ -31,3 +31,6 @@ vagrant destroy
 
 # Restart vm with new provision script
 vagran reload --provision
+
+# List running vms
+vagrant global-status
