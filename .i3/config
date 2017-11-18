@@ -154,6 +154,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command ~/.i3/i3status.sh
+        modifier None
         position bottom
         colors {
             background #000000
@@ -165,6 +166,8 @@ bar {
             urgent_workspace   #2f343a #900000 #ffffff
         }
 }
+
+bindsym $mod+b bar mode toggle
 
 # Colors
 client.focused          #4c7899 #00AAAA #ffffff #55FFFF
@@ -210,6 +213,7 @@ for_window [class="Mousepad"] floating enable
 for_window [class="Antidote 9"] floating enable
 for_window [class="iceweasel|firefox" instance="places"] floating enable
 for_window [class="Chromium"] floating disable
+for_window [class="vlc"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="Display"] floating enable
 for_window [class="Orage"] floating enable
@@ -255,3 +259,5 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 # Minimize windows
 bindsym Control+Shift+Down move scratchpad
 bindsym Control+Shift+Up scratchpad show
+
+focus_follows_mouse no
