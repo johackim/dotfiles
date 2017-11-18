@@ -39,9 +39,9 @@
     ~/.muttrc: .muttrc
     ~/.mpdconf: .mpdconf
     ~/.ncmpcpp: .ncmpcpp/
-    ~/.config/newsbeuter/config:
+    ~/.config/newsboat/config:
       create: true
-      path: .newsbeuter/config
+      path: .config/newsboat/config
     ~/Notes:
       create: true
       path: Notes
