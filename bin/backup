@@ -2,13 +2,12 @@
 
 backup()
 {
-    source="$HOME"
-    target="$1"
-    date=$(date +'%d-%m-%y-%H-%M')
+    export BORG_REPO=$1
+    export DATE=$(date +'%d-%m-%y-%H-%M')
 
     echo -e "Sauvegarde partition home..."
 
-    borg create --exclude-caches --stats --progress --compression lz4 $target::$date \
+    borg create --exclude-caches --stats --progress --compression lz4 \
         -e $HOME/Downloads/ \
         -e $HOME/VirtualBox\ VMs/ \
         -e $HOME/.PlayOnLinux/ \
@@ -45,10 +44,11 @@ backup()
         -e $HOME/Android/ \
         -e $HOME/.vagrant.d/ \
         -e *node_modules* \
-        $source
+        ::$DATE \
+        $HOME
 }
 
-if [ ! -d "$1" ]; then
+if [ -z "$1" ]; then
     echo -e "usage: $0 [target]"
     exit 1
 fi
