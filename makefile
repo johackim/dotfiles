@@ -21,9 +21,8 @@ install-dotbot:
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		pacman -Qq | grep -qw python || sudo pacman -Sy python
 		pacman -Qq | grep -qw cmake || sudo pacman -Sy cmake
-		git submodule update --init --recursive dotbot
-		${current_dir}/dotbot/bin/dotbot -d ${current_dir} -c install.conf.yaml
 		git submodule update --init --recursive
+		${current_dir}/dotbot/bin/dotbot -d ${current_dir} -c install.conf.yaml
 		@ read -r -p "You want compile YouCompleteMe ? [y/N] " REPLY;
 		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 			sh ~/.vim/bundle/YouCompleteMe/install.sh
@@ -351,6 +350,8 @@ enable-services:
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		sudo systemctl enable acpid ntpd docker
 		systemctl --user enable syncthing
+		systemctl --user enable mpd
+		systemctl --user enable offlineimap
 	fi
 
 enable-ftp:
@@ -366,7 +367,8 @@ disable-sleep:
 	@ echo 'HandleLidSwitch=ignore' | sudo tee -a /etc/systemd/logind.conf
 
 qt-dpi:
-	@ echo 'export QT_SCALE_FACTOR=2' | sudo tee /etc/profile.d/qt-hidpi.sh
+	@ echo 'export QT_AUTO_SCREEN_SCALE_FACTOR=0' | sudo tee /etc/profile.d/qt-hidpi.sh
+	@ echo 'export QT_SCALE_FACTOR=2' | sudo tee -a /etc/profile.d/qt-hidpi.sh
 
 backup:
 	backup home
