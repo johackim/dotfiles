@@ -3,7 +3,7 @@ auto-reload yes
 refresh-on-startup yes
 confirm-exit yes
 reload-time 30
-browser chromium
+browser firefox
 player vlc
 article-sort-order date-asc
 save-path "~/Notes/Bookmarks"
