@@ -1,3 +1,4 @@
+- [ ] Ansible, global colors, vim-plug, pacaur
 - [x] Make install
 - [x] dunst size
 - [x] Light shortcut
