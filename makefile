@@ -95,7 +95,7 @@ install-pacman-packages:
 		progress \
 		numlockx \
 		tig \
-		newsbeuter \
+		newsboat \
 		tmux \
 		nmap \
 		the_silver_searcher \
