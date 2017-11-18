@@ -1,8 +1,8 @@
 #!/bin/bash
 cache=~/.cache/dmenu_run
 freq=~/.dmenu_history
-aliases=~/.aliases
-source $aliases
+source ~/.aliases
+source ~/.private_aliases
 echo > $freq # Disable history
 
 case "$1" in 
