@@ -5,7 +5,7 @@ hostname := "arch"
 username := "ston3o"
 current_dir:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-install: install-dotbot install-nvidia-driver install-essentials install-pacman-packages install-yaourt-packages install-virtualbox install-wine install-pip-packages install-npm-packages enable-services
+install: install-dotbot install-nvidia-driver install-essentials install-pacman-packages install-aur-packages install-virtualbox install-wine install-pip-packages install-npm-packages enable-services
 
 install-base:
 	echo ${hostname} > /etc/hostname
@@ -59,7 +59,7 @@ install-pacman-packages:
 	@ read -r -p "You want install pacman packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 		sudo pacman --needed -Syu \
-		yaourt \
+		pacaur \
 		wget \
 		curl \
 		zsh \
@@ -188,10 +188,10 @@ install-pacman-packages:
 		nfs-utils
 	fi
 
-install-yaourt-packages:
-	@ read -r -p "You want install yaourt packages ? [y/N] " REPLY;
+install-aur-packages:
+	@ read -r -p "You want install aur packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		yaourt --noconfirm -Sy \
+		pacaur -Sy --noconfirm --noedit \
 		kpcli pass \
 		udisks \
 		keeweb \
@@ -239,12 +239,10 @@ install-yaourt-packages:
 		xpenguins \
 		translate-shell \
 		keybase-bin \
-		electrun \
+		electrum \
 		gifcurry \
 		qbittorrent-dark-git \
-		vrms-arch
-
-		yaourt --noconfirm -Sy \
+		vrms-arch \
 		tor-browser-en \
 		wego-git \
 		namebench \
@@ -293,7 +291,7 @@ install-pgcli:
 install-npm-packages:
 	@ read -r -p "You want install npm packages ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		yaourt -S --noconfirm nvm
+		pacaur -S --noconfirm --noedit nvm
 		[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 		nvm install --lts
 		nvm use --lts
@@ -305,7 +303,7 @@ install-virtualbox:
 	@ set -e
 	@ read -r -p "You want install virtualbox ? [y/N] " REPLY;
 	if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-		yaourt --noconfirm -Sy virtualbox virtualbox-ext-oracle virtualbox-host-modules-arch vagrant
+		pacaur -Sy --noconfirm --noedit virtualbox virtualbox-ext-oracle virtualbox-host-modules-arch vagrant
 		echo -e 'vboxdrv\nvboxnetadp\nvboxnetflt\nvboxpci' | sudo tee /etc/modules-load.d/virtualbox.conf
 		sudo /usr/bin/rcvboxdrv setup
 	fi
@@ -325,7 +323,7 @@ install-firewall:
 
 install-mutt:
 	# [Passwords management]([https://wiki.archlinux.org/index.php/mutt#Passwords_management)
-	yaourt --noconfirm -Sy mutt-patched
+	pacaur -Sy --noconfirm --noedit mutt-patched
 	systemctl --user enable offlineimap
 
 install-mpd:
@@ -334,14 +332,14 @@ install-mpd:
 	systemctl --user enable mpd
 
 install-razer-packages:
-	yaourt -S --noconfirm openrazer-drivers-dkms razer_blade_14_2016_acpi_dsdt-git
+	pacaur -Sy --noconfirm --noedit openrazer-drivers-dkms razer_blade_14_2016_acpi_dsdt-git
 
 install-atom-packages:
 	apm install --packages-file .atom/packages.list
 
 install warez-tools:
 	sudo pacman -S plowshare
-	pacaur -S --noconfirm popcorntime-bin pirate-get megatools pirateflix np1-mps soulseekqt # deezloader
+	pacaur -S --noconfirm --noedit popcorntime-bin pirate-get megatools pirateflix np1-mps soulseekqt # deezloader
 	sudo npm install -g torrentflix rdcli peerflix
 	sudo pip install torrench
 
