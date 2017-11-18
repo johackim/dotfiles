@@ -1,4 +1,4 @@
-- [ ] Ansible, global colors, vim-plug, pacaur
+- [ ] Ansible, global colors, vim-plug
 - [x] Make install
 - [x] dunst size
 - [x] Light shortcut
@@ -20,6 +20,5 @@
 - [ ] Add clean command
 - [ ] FTP Rule iptable
 - [ ] Close laptop
-- [ ] stop yaourt install
 - [ ] Add notes + web server
 - [ ] Convert notes to cheats
