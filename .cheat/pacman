@@ -60,3 +60,6 @@ pacman-key --refresh-keys
 
 # Problem public key
 gpg --recv-key <key>
+
+# List package's files
+pacman -Ql <package>
