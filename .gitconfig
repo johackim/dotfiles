@@ -1,7 +1,7 @@
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [color]
-	ui = true
+    ui = true
 [alias]
     s = status -sb
     l = log --graph --oneline
@@ -16,5 +16,10 @@
     prompt = false
 [difftool "icdiff"]
     cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
-# [commit]
-    # gpgSign = true
+[commit]
+    gpgsign = true
+[user]
+    name = ston3o
+    email = contact@ston3o.me
+[gpg]
+    program = gpg2
