@@ -21,3 +21,6 @@ ansible-galaxy install --roles-path <path> <role>
 
 # Debug ansible
 ANSIBLE_DEBUG=1
+
+# Ask pass
+ansible --ask-pass
