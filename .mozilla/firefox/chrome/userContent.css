@@ -6,8 +6,13 @@ input[type="button"],
 input[type="submit"],
 select,
 textarea {
--moz-appearance: none !important;
-background-color: white;
-color: black;
+    -moz-appearance: none !important;
+    background-color: white;
+    color: black;
 }
 
+@-moz-document url("about:blank"), url("about:newtab") {
+    html, body, #newtab-customize-overlay {
+        background: #181818 !important;
+    }
+}

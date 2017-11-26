@@ -192,7 +192,7 @@ exec --no-startup-id orage
 # Startup
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e tmuxinator main'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e tmuxinator second'
-exec --no-startup-id i3-msg 'workspace 3; exec chromium'
+exec --no-startup-id i3-msg 'workspace 3; exec firefox'
 
 # Assign
 assign [class="Iceweasel|Firefox" instance="Navigator"] 3
