@@ -102,3 +102,8 @@ I accidentally did a hard reset, and I want my changes back
 
 git reflog
 git reset --hard SHA1234
+
+Show Changes to be committed
+---
+
+git diff --cached
