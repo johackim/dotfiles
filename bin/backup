@@ -43,6 +43,7 @@ backup()
         -e $HOME/AndroidStudioProjects/ \
         -e $HOME/Android/ \
         -e $HOME/.vagrant.d/ \
+        -e $HOME/.minikube/ \
         -e *node_modules* \
         ::$DATE \
         $HOME
