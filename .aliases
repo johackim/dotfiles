@@ -27,8 +27,8 @@ alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias gitfat='git rev-list --all --objects|sed -n $(git rev-list --objects --all|cut -f1 -d" "|git cat-file --batch-check|grep blob|sort -n -k 3|tail -n40|while read hash type size; do echo -n "-e s/$hash/$size/p "; done)|sort -n -k1;'
 alias gdiff="git diff --color | diff-so-fancy"
 alias git='LANG=en_US.UTF-8 git'
-alias debian='docker run -d --name debian -it debian > /dev/null 2>&1; docker exec -it debian bash'
-alias hacklab='docker run -d --name hacklab --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --net=host --privileged=true -v ~/Public:/mnt -it ston3o/docker-hacklab zsh > /dev/null 2>&1; docker start hacklab > /dev/null; docker exec -it hacklab zsh'
+alias debian='docker run -d --name debian -it debian > /dev/null 2>&1; docker exec -e COLUMNS=$COLUMNS -e LINES=$LINES -e TERM=$TERM -it debian bash'
+alias hacklab='docker run -d --name hacklab --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --net=host --privileged=true -v ~/Public:/mnt -it ston3o/docker-hacklab bash > /dev/null 2>&1; docker start hacklab > /dev/null; docker exec -e COLUMNS=$COLUMNS -e LINES=$LINES -e TERM=$TERM -it hacklab zsh'
 alias rm='echo "This is not the command you are looking for."; false'
 alias yank='/usr/bin/yank -- xclip -selection c'
 alias docker-clean="__clean() { docker volume ls -qf dangling=true | xargs -r docker volume rm; docker ps -aq -f status=exited | xargs -r docker rm -f; docker images --no-trunc | grep none | awk '{print $3 }' | xargs -r docker rmi }; __clean"
