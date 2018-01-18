@@ -1,1 +1,9 @@
 cyberchef.html linguist-language=false
+.weechat/python/autoload/osc_notify.py linguist-language=false
+bin/crawler.py linguist-language=false
+bin/smtptest linguist-language=false
+bin/googler linguist-language=false
+.offlineimap.py linguist-language=false
+.urxvt/perl/* linguist-language=false
+.weechat/perl/autoload/listsort.pl linguist-language=false
+bin/slowloris.pl linguist-language=false
