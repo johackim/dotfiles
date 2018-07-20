@@ -1,0 +1,28 @@
+# Commands
+
+helm init --upgrade --service-account tiller
+helm init --upgrade --service-account tiller --output yaml
+helm repo update
+helm install --name ghost stable/ghost --set serviceType=NodePort,ghostHost=$(minikube ip),ghostPort=$APP_PORT
+helm search
+helm del --purge ghost
+helm create sample
+helm lint
+helm serve
+helm install --name ./charts/mychart
+helm package ghost
+helm repo index .
+helm install --name-template "{{randAlpha 6 | lower}}" stable/redis
+helm template
+helm template etherpad-0.1.0.tgz | kubectl apply -f -
+helm fetch stable/mariadb
+helm upgrade --reuse-values
+helm upgrade test --install --reuse-values chart.tgz
+
+# Fix helm forbidden access
+# https://github.com/kubernetes/helm/blob/master/docs/rbac.md 
+kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
+
+# Resources
+
+https://medium.com/@gajus/the-missing-ci-cd-kubernetes-component-helm-package-manager-1fe002aac680
