@@ -8,6 +8,7 @@ alias th='thunar .'
 alias shutdown='sudo shutdown -h now'
 alias poogle='ping google.com'
 alias ipinfo='curl ipinfo.io'
+alias ipapi='curl -s ip-api.com/json | jq'
 alias cleaner='sudo apt-get autoremove -y && sudo apt-get autoclean -y && sudo apt-get update -y && sudo apt-get upgrade -y;'
 alias getcomposer='curl -sS https://getcomposer.org/installer | php'
 alias random='mktemp -u | cut -d'.' -f2'
@@ -19,7 +20,8 @@ alias watch-network='sudo watch -n 1 -t lsof -P -i -n'
 alias t='tmux attach || tmux'
 alias diskinfo="sudo lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT,STATE,GROUP,UUID,MODEL,VENDOR"
 alias calendar='cal'
-alias pastebin="curl -F 'sprunge=<-' http://sprunge.us"
+# alias pastebin="curl -F 'sprunge=<-' http://sprunge.us"
+alias pastebin="nc termbin.com 9999"
 alias screencast='ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0 -vcodec huffyuv screencast.avi'
 alias skyrock="mplayer -nocache http://www.skyrock.fm/stream.php/frequenceradio_128mp3.mp3"
 alias franceinter="mplayer -nocache http://direct.franceinter.fr/live/franceinter-midfi.mp3"
@@ -35,16 +37,17 @@ alias docker-clean="__clean() { docker volume ls -qf dangling=true | xargs -r do
 alias fake="curl -s https://randomuser.me/api/ | jq -r .results[0].login.username"
 alias nexus='emulator -avd Nexus -gpu off'
 alias drawio='chromium --app=http://draw.io'
+alias calculator='gnome-calculator'
 
 monitor() { watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
 gi() { curl "https://www.gitignore.io/api/$@"; }
 youtube-dl-mp3(){ youtube-dl $1 --extract-audio --audio-format mp3 }
 streamer() { youtube-dl -o - "$1" | mpv - }
 reinstall() { sudo pacman -S "$1" $(pacman -Qi "$1"|grep -i depend|cut -d: -f2) }
-downloadAllDocument(){ wget --no-check-certificate -H -r -l 1 -nd -A "$2" "$1"; }
+downloadAllDocument(){ wget --no-check-certificate -H -r -l 1 -nd -A "$1" "$2"; }
 downloadAllImages(){ wget --no-check-certificate -nd -H -p -A jpg,jpeg,png,gif -e robots=off "$1"; }
 dlmp3(){ wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off "$1"; }
-detach() { sudo umount "/dev/"$1"1"; udisks --detach "/dev/$1"; } 
+detach() { sudo umount -l "/dev/"$1"1"; udisks --detach "/dev/$1"; }
 debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
 drm() { docker rm $(docker ps -q -a); }
 
