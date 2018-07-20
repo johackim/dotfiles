@@ -26,6 +26,7 @@ backup()
         -e $HOME/.pulse/ \
         -e $HOME/.Wine/ \
         -e $HOME/.wine/ \
+        -e $HOME/.wine32/ \
         -e $HOME/.macromedia/ \
         -e $HOME/.xsession-errors \
         -e $HOME/.gvfs/ \
