@@ -115,7 +115,7 @@ install-pacman-packages:
 		evince zathura-pdf-mupdf \
 		proxychains-ng \
 		rsync duplicity \
-		thunar thunar-volman thunar-media-tags-plugin gvfs gvfs-afc gvfs-smb thunar-archive-plugin \
+		thunar thunar-volman thunar-media-tags-plugin gvfs gvfs-afc gvfs-smb gvfs-mtp thunar-archive-plugin \
 		libimobiledevice \
 		httpie \
 		tigervnc \
@@ -185,7 +185,10 @@ install-pacman-packages:
 		gnome-font-viewer \
 		sshfs \
 		mosh \
-		nfs-utils
+		nfs-utils \
+		pdfgrep \
+		nethogs \
+		ripgrep
 	fi
 
 install-aur-packages:
@@ -271,7 +274,11 @@ install-aur-packages:
 		cutycapt-qt5-git \
 		codeclimate \
 		weboob \
-		ttyrec ttygif
+		ttyrec ttygif \
+		ship \
+		flameshot \
+		zbar \
+		omxplayer
 	fi
 
 install-pip-packages:
@@ -282,6 +289,7 @@ install-pip-packages:
 
 install-go-packages:
 	@ go get github.com/tj/node-prune/cmd/node-prune
+	@ go get github.com/apex/gh-polls/cmd/polls
 
 install-gem-packages:
 	@ gem install wayback_machine_downloader
@@ -297,7 +305,7 @@ install-npm-packages:
 		[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 		nvm install --lts
 		nvm use --lts
-		sudo npm -g install instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup imgclip mapscii ngrock stacks-cli
+		sudo npm install -g instant-markdown-d cloudconvert-cli psi grunt-cli gulp browser-sync diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup imgclip mapscii ngrock stacks-cli conduct
 		sudo npm install -g fast-cli bower
 	fi
 
