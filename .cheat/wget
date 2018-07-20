@@ -36,3 +36,6 @@ wget -P path/to/directory http://path.to.the/file
 
 # Download on a specific path
 wget -O <path> <url>
+
+# No check certificate
+wget --no-check-certificate <url>

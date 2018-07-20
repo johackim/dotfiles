@@ -1,6 +1,6 @@
 # Update antivirus database
-sudo freshclam
 sudo clamd
+sudo freshclam
 
 # Scan recursive system
 sudo clamscan -r /

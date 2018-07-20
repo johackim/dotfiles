@@ -14,7 +14,7 @@ sed -i -r 's/^\s+//g' file.txt
 sed '/^$/d' file.txt
 
 # To replace newlines in multiple lines
-sed ':a;N;$!ba;s/\n//g'  file.txt
+sed ':a;N;$!ba;s/\n//g' file.txt
 
 # Insert text on specific line
 sed -i '2i hello' index.html

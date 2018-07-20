@@ -32,7 +32,12 @@ cat << EOF > file.txt
 # Check code
 https://github.com/koalaman/shellcheck
 
+# While
+while true; do echo "test"; sleep 1; done;
+
 # Resources
 https://github.com/Idnan/bash-guide
 https://jvns.ca/blog/2017/03/26/bash-quirks/
 https://learnxinyminutes.com/docs/bash/
+https://github.com/LeCoupa/awesome-cheatsheets/blob/master/languages/bash.sh
+https://github.com/dylanaraps/pure-bash-bible

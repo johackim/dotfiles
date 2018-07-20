@@ -1,5 +1,8 @@
 # Server protection
 
+- https://securityheaders.io/
+- https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet
+- https://observatory.mozilla.org/
 - Firewall Applicatif (WAF) anti XSS, anti Sql Injection (ex: ModSecurity, NAXSI, raptor_waf)
 - IPS (Instrusion Prevention System) (ex: Fail2ban, snort)
 - IDS réseau (ex: maltrail, snort)
@@ -49,6 +52,7 @@
 - https://github.com/yandex/gixy
 - gravityscan.com
 - https://simplesecurity.sensedeep.com/web-developer-security-checklist-f2e4f43c9c56
+- https://blog.risingstack.com/node-js-security-checklist/
 
 # How to respond to an attack ?
 

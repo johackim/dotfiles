@@ -6,3 +6,8 @@ gpg --list-secret-keys --keyid-format LONG
 
 # Delete key
 gpg --delete-keys <KEY>
+
+# Change password
+gpg --edit-key Your-Key-ID-Here
+gpg> passwd
+gpg> save

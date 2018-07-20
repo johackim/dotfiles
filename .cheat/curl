@@ -37,5 +37,5 @@ curl --limit-rate 1000B -O http://path.to.the/file
 # Quiet Mode
 curl -s http://example.com
 
-# Curl JSON
-curl -H "Content-Type: application/json" -X POST -d '{"username":"xyz","password":"xyz"}' http://localhost:3000/api/login
+# Curl POST JSON
+curl -H "Content-Type: application/json" -d '{"username":"xyz","password":"xyz"}' http://localhost:3000/api/login
