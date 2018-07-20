@@ -14,8 +14,8 @@ Props VS state
 ---
 
 https://github.com/uberVU/react-guide/blob/master/props-vs-state.md
-- props (properties) (Read-Only)
-- state (etats) no fixed
+- props (properties) (Read-Only) (doesn't change inside component)
+- state (etats) no fixed (can potentially change inside component)
 
 Flux
 ---
@@ -93,3 +93,6 @@ https://learnredux.com/
 https://github.com/uanders/react-redux-cheatsheet
 https://codesandbox.io/
 https://codepen.io/stowball/post/a-dummy-s-guide-to-redux-and-thunk-in-react
+https://decembersoft.com/posts/a-simple-naming-convention-for-action-creators-in-redux-js/
+https://github.com/brillout/awesome-react-components
+https://github.com/adam-golab/react-developer-roadmap

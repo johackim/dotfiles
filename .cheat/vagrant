@@ -34,3 +34,9 @@ vagran reload --provision
 
 # List running vms
 vagrant global-status
+
+# SFTP
+sftp -oPort=2222 -i $PWD/.vagrant/machines/default/virtualbox/private_key vagrant@127.0.0.1
+
+# Remove zombie boxes
+vagrant global-status --prune

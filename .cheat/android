@@ -1,6 +1,6 @@
 # Dependencies
-yaourt -S android-studio
-yaourt -S android-emulator
+pacaur -S android-studio
+pacaur -S android-emulator
 pacman -S android-tools
 
 # Create a virtual device:
@@ -65,3 +65,13 @@ fastboot reboot
 
 # Flash a Custom ROM (with TWRP)
 adb push filename.zip /sdcard/ # And click on install
+
+# Android AOSP
+https://source.android.com/
+
+# Google Mobile Services (GMS)
+http://www.phonandroid.com/android-comment-piste-google.html
+
+# Files
+build.gradle
+AndroidManifest.xml
