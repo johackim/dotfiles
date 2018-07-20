@@ -1,0 +1,15 @@
+https://github.com/mawrkus/js-unit-testing-guide#design-principles
+
+unit of work - scenario/context - expected behaviour
+
+describe('[unit of work]', () => {
+  it('should [expected behaviour] when [scenario/context]', () => {
+  });
+});
+
+describe('[unit of work]', () => {
+  describe('when [scenario/context]', () => {
+    it('should [expected behaviour]', () => {
+    });
+  });
+});

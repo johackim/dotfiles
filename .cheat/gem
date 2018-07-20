@@ -1,0 +1,5 @@
+# Update gem
+gem update --system
+
+# Install specific version
+gem install <package> -v <version>
