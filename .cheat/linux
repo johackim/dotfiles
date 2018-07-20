@@ -16,3 +16,6 @@ which, where, whereis, locate
 lpq
 lpr
 lprm
+
+# Show linux modules
+lsmod

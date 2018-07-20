@@ -1,3 +1,7 @@
+# Prerequisites
+- CPU that supports IOMMU which is VT-D (Intel) and AMD-Vi
+- Arch linux
+
 # Enable IOMMU on Host
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_iommu=on" # /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -51,9 +55,30 @@ yaourt -S --noconfirm virtio-win
 # Launch virt-manager
 virt-manager
 
+# QEMU CLI
+
+sudo /usr/sbin/qemu-system-x86_64 \
+-cpu host,kvm=off \
+-enable-kvm \
+-m 4096 \
+-smp cores=4,threads=2 \
+-vga qxl \
+-device vfio-pci,host=01:00.0 \
+-drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/ovmf_code_x64.bin \
+-drive if=pflash,format=raw,file=/usr/share/ovmf/ovmf_vars_x64.bin \
+-drive file=/var/lib/libvirt/images/win10.qcow2,format=qcow2,if=none,id=disk0,cache=writeback \
+-device virtio-blk-pci,scsi=off,bus=pci.0,addr=0x8,drive=disk0,id=virtio-disk0,bootindex=1 \
+-netdev type=tap,script=no,downscript=no,id=net0,ifname=tap2 \
+-device virtio-net-pci,netdev=net0,disable-legacy=on,iommu_platform=true,romfile= \
+-boot menu=on
+
+-drive file=/home/ston3o/OSs/linux/antergos-17.11-x86_64.iso,index=1,media=cdrom \
+
 # Resources
 - https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF
 - https://medium.com/@dubistkomisch/gaming-on-arch-linux-and-windows-10-with-vfio-iommu-gpu-passthrough-7c395dde5c2
 - https://www.linuxserver.io/2017/04/28/how-to-setup-vfio-gpu-passthrough-using-ovmf-and-kvm-on-arch-linux/
 - [Play games in Windows on Linux! PCI passthrough quick guide](https://www.youtube.com/watch?v=dsDUtzMkxFk)
 - [Quick GPU Passthrough Guide](https://www.youtube.com/watch?v=6FI31QDtyy4)
+- https://looking-glass.hostfission.com/
+- https://github.com/AMDESE/AMDSEV/blob/master/launch-qemu.sh
