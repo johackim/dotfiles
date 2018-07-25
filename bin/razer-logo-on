@@ -1,5 +1,0 @@
-#!/bin/bash
-
-DEVICE_PATH="/sys/bus/hid/drivers/hid-razer/0003:1532:020F.0003"
-
-echo -n "1" > "$DEVICE_PATH/set_logo"
