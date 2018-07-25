@@ -3,8 +3,6 @@
 
 - link:
     ~/.aliases: .aliases
-    ~/.atom/config.cson: .atom/config.cson
-    ~/.atom/keymap.cson: .atom/keymap.cson
     ~/bin: bin/
     ~/.cheat: .cheat/
     ~/Images/wallpaper.png:
@@ -29,7 +27,6 @@
     ~/.gitconfig: .gitconfig
     ~/.gtkrc-2.0: .gtkrc-2.0
     ~/.i3: .i3/
-    ~/.irssi: .irssi/
     ~/.mozilla/firefox/chrome/userContent.css:
       create: true
       path: .mozilla/firefox/chrome/userContent.css
@@ -42,9 +39,6 @@
     ~/.config/newsboat/config:
       create: true
       path: .config/newsboat/config
-    ~/Notes:
-      create: true
-      path: Notes
     ~/.oh-my-zsh: .oh-my-zsh/
     ~/.sounds: .sounds/
     ~/.themes/Darkyan:
