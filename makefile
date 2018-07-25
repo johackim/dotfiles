@@ -106,7 +106,7 @@ configure-arch: check-root check-archlinux \
 	configure-root-password
 
 chroot-configure-arch:
-	@ arch-chroot /mnt git clone -b make-install https://github.com/ston3o/dotfiles ~/.dotfiles # TODO
+	@ arch-chroot /mnt git clone https://github.com/ston3o/dotfiles ~/.dotfiles
 	@ arch-chroot /mnt make configure-arch -C ~/.dotfiles
 
 configure-user: check-non-root \
@@ -313,7 +313,7 @@ add-new-user:
 			@ read -r -p "Enter username: " USERNAME;
 			@ useradd -m -g users -G wheel -s /bin/bash $${USERNAME}
 			@ passwd $${USERNAME}
-			@ sudo -u $${USERNAME} git clone -b make-install https://github.com/ston3o/dotfiles /home/$${USERNAME}/.dotfiles # TODO
+			@ sudo -u $${USERNAME} git clone https://github.com/ston3o/dotfiles /home/$${USERNAME}/.dotfiles
 			exit 0
 		fi
 	@ done
