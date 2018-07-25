@@ -1,6 +1,0 @@
-#!/bin/bash
-
-DEVICE_PATH="/sys/bus/hid/drivers/hid-razer/0003:1532:020F.0003"
-CYAN="\x00\xFF\xFF"
-
-echo -e -n "\x02${CYAN}" > "$DEVICE_PATH/mode_reactive"
