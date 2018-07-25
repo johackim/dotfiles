@@ -51,7 +51,7 @@ ZSH_THEME="cyan"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git git-flow docker docker-compose node npm nmap grunt httpie vagrant symfony symfony2 rsync pip bower taskwarrior)
-plugins=(git git-flow docker docker-compose kubectl helm vagrant nmap pip archlinux npm gulp zsh-syntax-highlighting)
+plugins=(archlinux git git-flow docker docker-compose kubectl helm vagrant nmap pip archlinux npm gulp zsh-syntax-highlighting)
 
 # User configuration
 
@@ -92,7 +92,6 @@ export WINEARCH=win32
 export WINEPREFIX=~/.wine32 # Wine prefix to use
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 eval `dircolors ~/.dir_colors`
-[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 [ -f ~/.private_aliases ] && source ~/.private_aliases
 
 autoload bashcompinit
@@ -124,3 +123,6 @@ disable -r time
 alias time='time -p '
 
 export EDITOR='vim'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
