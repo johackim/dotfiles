@@ -2,7 +2,7 @@
 .SILENT:
 CURRENT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-create-new-partitions: umount-partitions
+create-new-partitions: check-root check-archlinux umount-partitions
 	@ while true; do
 		@ read -r -p "Do you want create new partitions ? (WARNING: You need to be in live system) [y/N] " REPLY;
 		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
@@ -193,12 +193,14 @@ configure-locale:
 	@ echo "Locale configuration. Done."
 
 configure-mkinitcpio:
-	@ sed -i -e '/^HOOKS/s/block filesystems/block encrypt lvm2 filesystems/' /etc/mkinitcpio.conf
+	@ sed -i -e '/^HOOKS/s/block filesystems/block encrypt lvm2 filesystems/' /etc/mkinitcpio.conf # Only with LUKS
 	@ mkinitcpio -p linux
 
 configure-bootloader:
-	@ pacman -Sy --noconfirm --needed grub
+	@ pacman -Syy
+	@ pacman -S --noconfirm --needed grub
 	@ pacman -S --noconfirm --needed efibootmgr # Only with EFI
+	@ pacman -S --noconfirm --needed dmidecode
 
 	# Only with LUKS
 	@ DEVICES_LIST=(`lsblk -d | awk '{print "/dev/" $$1}' | grep 'sd\|hd\|vd\|nvme\|mmcblk'`);
@@ -208,7 +210,12 @@ configure-bootloader:
 	done
 	@ sed -i -e 's|GRUB_CMDLINE_LINUX=""|GRUB_CMDLINE_LINUX="cryptdevice='$${DEVICE}'3:lvm"|g' /etc/default/grub
 
-	@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck # Only with EFI
+	@ dmidecode | grep VirtualBox
+	if [[ $$? == 0 ]]; then
+		@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --removable # Only with VirtualBox
+	else
+		@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck # Only with EFI
+	fi
 	@ grub-mkconfig -o /boot/grub/grub.cfg
 
 configure-root-password:
@@ -386,7 +393,6 @@ install-npm-packages:
 			exit 0
 		fi
 	@ done
-
 
 install-go-packages:
 	@ while true; do
