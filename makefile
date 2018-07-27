@@ -172,6 +172,7 @@ chroot:
 
 configure-keymap:
 	@ echo "KEYMAP=us" > /etc/vconsole.conf
+	@ echo "FONT=latarcyrheb-sun32" >> /etc/vconsole.conf
 	@ echo "Keymap configuration. Done."
 
 configure-hostname:
@@ -308,9 +309,6 @@ configure-high-dpi:
 
 configure-touchpad:
 	@ pacman -S --noconfirm --needed xf86-input-synaptics xf86-input-libinput libinput
-	@ cp /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf
-	# Option "TapButton1" "1"
-	# Option "TapButton2" "3"
 
 add-new-user:
 	@ while true; do
@@ -351,7 +349,7 @@ install-other-packages:
 
 install-packages:
 	@ sudo pacman -S --noconfirm --needed rxvt-unicode firefox acpi tmux mpd mpc offlineimap htop zsh lsof progress newsboat ncmpcpp mutt weechat dmenu neofetch feh thunar
-	@ yay -S --noconfirm --needed tmuxinator
+	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme
 	@ echo "User packages installation. Done."
 
 install-arch-packages:
@@ -442,3 +440,13 @@ enable-zsh:
 	@ if [[ $$SHELL != "/bin/zsh" ]]; then
 		@ chsh -s /bin/zsh
 	@ fi
+
+disable-ipv6: check-root
+		@ echo 'net.ipv6.conf.all.disable_ipv6 = 1' > /etc/sysctl.d/40-ipv6.conf
+		@ echo "Disable IPV6. Done."
+		@ echo 'You must restart your computer.'
+
+enable-ipv6: check-root
+		@ sudo rm /etc/sysctl.d/40-ipv6.conf
+		@ echo "Enable IPV6. Done."
+		@ echo 'You must restart your computer.'
