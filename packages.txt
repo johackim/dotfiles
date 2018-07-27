@@ -220,3 +220,4 @@ mutt
 hostsctl
 cht.sh
 signal-desktop-bin
+oomox-git python-cairo
