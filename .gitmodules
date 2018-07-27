@@ -22,3 +22,6 @@
 [submodule ".vim"]
 	path = .vim
 	url = http://github.com/ston3o/dotvim
+[submodule ".config/i3blocks/blocklets"]
+	path = .config/i3blocks/blocklets
+	url = https://github.com/ston3o/i3blocks-contrib
