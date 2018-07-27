@@ -197,10 +197,8 @@ exec --no-startup-id dunst
 exec --no-startup-id numlockx on
 exec --no-startup-id mpc clear && mpc load all && mpc random on
 exec --no-startup-id setxkbmap us,us_intl '' compose:rwin grp:rctrl_rshift_toggle
+exec --no-startup-id synclient TapButton1=1 TapButton2=3
 exec --no-startup-id orage
-# exec --no-startup-id xfce4-notes
-# exec --no-startup-id setxkbmap fr
-# exec --no-startup-id synclient TapButton1=1
 
 # Startup
 exec --no-startup-id i3-msg 'workspace $ws1; exec urxvt -e tmuxinator main'
@@ -230,7 +228,6 @@ for_window [class="Evince"] floating enable
 for_window [class="Display"] floating enable
 for_window [class="Orage"] floating enable
 for_window [class="feh"] floating enable
-for_window [class="Xfce4-notes"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="Ristretto"] floating enable
@@ -242,6 +239,10 @@ for_window [instance="Photoshop.exe"] floating disable
 for_window [instance="libreboard__boards"] floating disable
 for_window [instance="electron"] floating enable
 for_window [instance="freezer"] floating enable
+for_window [instance="gnome-calculator"] floating enable
+for_window [instance="TogglDesktop"] floating enable
+for_window [class="Cypress"] floating enable
+for_window [class="Surf"] fullscreen
 
 # Focus
 for_window [class="^Vlc|mpv$"] focus
