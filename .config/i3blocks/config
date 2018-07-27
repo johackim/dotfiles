@@ -8,12 +8,12 @@ command=$SCRIPT_DIR/battery2/battery2
 markup=pango
 interval=30
 
-[cpu_usage]
+[cpu]
 label=
 command=/usr/lib/i3blocks/cpu_usage
 interval=1
 
-[disk-home]
+[disk]
 label=
 command=df -h -P -l $HOME | awk '/\/.*/ { print $4; exit 0 }'
 interval=30
@@ -23,7 +23,22 @@ label=♪
 command=amixer get Master | grep -E -o '[0-9]{1,3}?%' | head -1
 interval=1
 
+[vpn]
+command=test -x /proc/sys/net/ipv4/conf/tun0 && echo '<span foreground="cyan"> VPN</span>' || echo '<span foreground="red"> VPN</span>'
+markup=pango
+interval=1
+
+[ethernet]
+command=export FILE=/sys/class/net/enp58s0u1u1u3/operstate && [ -e $FILE ] && grep -Fxq "up" $FILE && echo '<span foreground="cyan"> Ethernet</span>' || echo ""
+markup=pango
+interval=1
+
+[wifi]
+command=export FILE=/sys/class/net/wlp59s0/operstate && [ -e $FILE ] && grep -Fxq "up" $FILE && echo '<span foreground="cyan"> Wifi</span>' || echo ""
+markup=pango
+interval=1
+
 [time]
-label=
+label= 
 command= date '+%a %d.%m.%Y %H:%M:%S'
 interval=1
