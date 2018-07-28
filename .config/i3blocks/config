@@ -4,7 +4,7 @@ command=mpc current
 interval=1
 
 [battery]
-command=$SCRIPT_DIR/battery2/battery2
+command=$SCRIPT_DIR/battery3/battery3
 markup=pango
 interval=30
 
@@ -37,6 +37,11 @@ interval=1
 command=export FILE=/sys/class/net/wlp59s0/operstate && [ -e $FILE ] && grep -Fxq "up" $FILE && echo '<span foreground="cyan"> Wifi</span>' || echo ""
 markup=pango
 interval=1
+
+[weather]
+command=$SCRIPT_DIR/weather/weather
+instance=6454307
+interval=60
 
 [time]
 label= 
