@@ -8,7 +8,7 @@ mpd
 mlocate
 cmake
 openssh
-unzip unrar p7zip
+unzip unrar p7zip file-roller
 pkgfile
 ctags
 lsof
@@ -48,6 +48,7 @@ ncdu
 thefuck cmatrix cowsay
 clamav rkhunter
 xclip
+simple-scan
 aria2
 offlineimap
 w3m
@@ -58,7 +59,7 @@ weechat aspell tcl
 evince zathura-pdf-mupdf
 proxychains-ng
 rsync duplicity
-thunar thunar-volman thunar-media-tags-plugin gvfs gvfs-afc gvfs-smb gvfs-mtp thunar-archive-plugin
+thunar thunar-volman thunar-media-tags-plugin gvfs gvfs-afc gvfs-mtp thunar-archive-plugin
 libimobiledevice
 httpie
 tigervnc
