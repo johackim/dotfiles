@@ -349,7 +349,7 @@ install-other-packages:
 
 install-packages:
 	@ sudo pacman -S --noconfirm --needed rxvt-unicode firefox acpi tmux mpd mpc offlineimap htop zsh lsof progress newsboat ncmpcpp mutt weechat dmenu neofetch feh thunar
-	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme
+	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme udisks
 	@ echo "User packages installation. Done."
 
 install-arch-packages:
@@ -426,7 +426,7 @@ clean-orphan-packages: check-root
 
 install-virtualbox: check-root
 	@ while true; do
-		@ read -r -p "Do you want clean orphan packages ? [y/N] " REPLY;
+		@ read -r -p "Do you want install virtualbox ? [y/N] " REPLY;
 		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
 		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
 			yay -S --needed --noconfirm virtualbox virtualbox-host-modules-arch virtualbox-ext-oracle
@@ -442,11 +442,15 @@ enable-zsh:
 	@ fi
 
 disable-ipv6: check-root
-		@ echo 'net.ipv6.conf.all.disable_ipv6 = 1' > /etc/sysctl.d/40-ipv6.conf
-		@ echo "Disable IPV6. Done."
-		@ echo 'You must restart your computer.'
+	@ echo 'net.ipv6.conf.all.disable_ipv6 = 1' > /etc/sysctl.d/40-ipv6.conf
+	@ echo "Disable IPV6. Done."
+	@ echo 'You must restart your computer.'
 
 enable-ipv6: check-root
-		@ sudo rm /etc/sysctl.d/40-ipv6.conf
-		@ echo "Enable IPV6. Done."
-		@ echo 'You must restart your computer.'
+	@ sudo rm /etc/sysctl.d/40-ipv6.conf
+	@ echo "Enable IPV6. Done."
+	@ echo 'You must restart your computer.'
+
+install-wine: check-non-root
+	sudo pacman -S --noconfirm wine winetricks wine-mono wine_gecko lib32-libxslt lib32-libxml2
+	winetricks d3dx9
