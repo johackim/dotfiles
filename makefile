@@ -452,5 +452,5 @@ enable-ipv6: check-root
 	@ echo 'You must restart your computer.'
 
 install-wine: check-non-root
-	sudo pacman -S --noconfirm wine winetricks wine-mono wine_gecko lib32-libxslt lib32-libxml2
-	winetricks d3dx9
+	@ sudo pacman -S --noconfirm wine winetricks wine-mono wine_gecko lib32-libxslt lib32-libxml2
+	@ winetricks d3dx9
