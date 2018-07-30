@@ -16,7 +16,12 @@ interval=1
 [disk]
 label=
 command=df -h -P -l $HOME | awk '/\/.*/ { print $4; exit 0 }'
-interval=30
+interval=10
+
+[mail]
+label=
+command=find $HOME/Mail/*/INBOX/new/ -type f | wc -l
+interval=5
 
 [volume]
 label=♪
