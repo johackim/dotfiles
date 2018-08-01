@@ -348,6 +348,7 @@ install-other-packages:
 	@ done
 
 install-packages:
+	@ pacman -Qq | grep -qw python || sudo pacman -Sy --noconfirm python
 	@ sudo pacman -S --noconfirm --needed rxvt-unicode firefox acpi tmux mpd mpc offlineimap htop zsh lsof progress newsboat ncmpcpp mutt weechat dmenu neofetch feh thunar
 	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme udisks
 	@ echo "User packages installation. Done."
@@ -387,7 +388,7 @@ install-npm-packages:
 		@ read -r -p "Do you want install npm packages ? [y/N] " REPLY;
 		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
 		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-			@ npm install -g instant-markdown-d cloudconvert-cli psi grunt-cli diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup imgclip mapscii ngrock stacks-cli conduct fast-cli
+			@ npm install -g instant-markdown-d cloudconvert-cli psi grunt-cli diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup imgclip mapscii ngrock stacks-cli conduct fast-cli taskbook
 			exit 0
 		fi
 	@ done
@@ -439,6 +440,7 @@ install-virtualbox: check-root
 enable-zsh:
 	@ if [[ $$SHELL != "/bin/zsh" ]]; then
 		@ chsh -s /bin/zsh
+		@ zsh
 	@ fi
 
 disable-ipv6: check-root
