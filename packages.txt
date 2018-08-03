@@ -40,7 +40,7 @@ tig
 newsboat
 tmux
 nmap
-the_silver_searcher
+the_silver_searcher ripgrep
 python-pip python-virtualenv
 screenfetch
 scummvm dosemu dosbox
@@ -163,7 +163,7 @@ yank
 wuzz
 httplab
 ctop-bin
-mat
+mat-git
 timg
 hostsctl
 ncmpcpp-git
@@ -202,7 +202,7 @@ balsamiqmockups
 wpscan
 theharvester-git
 securefs
-aur/slack-desktop
+slack-desktop
 screenkey
 devd
 bitchx-git
@@ -222,3 +222,4 @@ hostsctl
 cht.sh
 signal-desktop-bin
 oomox-git python-cairo
+quickserve
