@@ -276,14 +276,14 @@ install-window-manager:
 	@ pacman -S --noconfirm i3
 	@ echo "Window Manager installation. Done."
 
-enable-firewall:
+enable-firewall: check-root
 	@ pacman -S --noconfirm --needed iptables
 	@ sed -i -e 's/#Port 22/Port 2222/g' /etc/ssh/sshd_config
 	@ bash ${CURRENT_DIR}/bin/firewall && iptables-save > /etc/iptables/iptables.rules
 	@ systemctl enable iptables
 	@ echo "Firewall enabled. Done."
 
-disable-firewall:
+disable-firewall: check-root
 	@ iptables -F
 	@ iptables -F -t mangle
 	@ iptables -F -t nat
@@ -349,7 +349,7 @@ install-other-packages:
 
 install-packages:
 	@ pacman -Qq | grep -qw python || sudo pacman -Sy --noconfirm python
-	@ sudo pacman -S --noconfirm --needed rxvt-unicode firefox acpi tmux mpd mpc offlineimap htop zsh lsof progress newsboat ncmpcpp mutt weechat dmenu neofetch feh thunar
+	@ sudo pacman -S --noconfirm --needed rxvt-unicode firefox acpi tmux mpd mpc offlineimap htop zsh lsof progress newsboat ncmpcpp mutt weechat dmenu neofetch feh thunar cronie
 	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme udisks
 	@ echo "User packages installation. Done."
 
@@ -378,7 +378,7 @@ install-gem-packages:
 		@ read -r -p "Do you want install gem packages ? [y/N] " REPLY;
 		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
 		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-			@ gem install wayback_machine_downloader
+			@ gem install wayback_machine_downloader travis
 			exit 0
 		fi
 	@ done
@@ -388,7 +388,7 @@ install-npm-packages:
 		@ read -r -p "Do you want install npm packages ? [y/N] " REPLY;
 		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
 		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-			@ npm install -g instant-markdown-d cloudconvert-cli psi grunt-cli diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup imgclip mapscii ngrock stacks-cli conduct fast-cli taskbook
+			@ npm install -g instant-markdown-d cloudconvert-cli psi grunt-cli diff-so-fancy learnyounode bitly-cli etcher-cli git-open wappalyzer-cli speed-test subsync npm-check-updates json dispatch-proxy npms-cli jsonlint sitemap-generator yarn tget lighthouse npm-check git-standup imgclip mapscii ngrock stacks-cli conduct fast-cli taskbook hint
 			exit 0
 		fi
 	@ done
