@@ -260,7 +260,7 @@ install-xorg:
 
 install-gpu-drivers:
 	@ sed -i 's/MODULES=()/MODULES=(nvidia)/g' /etc/mkinitcpio.conf
-	@ pacman -S --noconfirm --needed nvidia nvidia-utils libglvnd lib32-nvidia-utils
+	@ pacman -S --noconfirm --needed nvidia nvidia-utils libglvnd lib32-nvidia-utils intel-dri xf86-video-intel bumblebee lib32-intel-dri primus lib32-primus
 	@ echo "GPU Drivers installation. Done."
 
 install-audio-drivers:
@@ -349,7 +349,7 @@ install-other-packages:
 
 install-packages:
 	@ pacman -Qq | grep -qw python || sudo pacman -Sy --noconfirm python
-	@ sudo pacman -S --noconfirm --needed rxvt-unicode firefox acpi tmux mpd mpc offlineimap htop zsh lsof progress newsboat ncmpcpp mutt weechat dmenu neofetch feh thunar cronie
+	@ sudo pacman -S --noconfirm --needed rxvt-unicode firefox acpi tmux mpd mpc offlineimap htop zsh lsof progress newsboat ncmpcpp mutt weechat dmenu neofetch feh thunar cronie pkgfile
 	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme udisks
 	@ echo "User packages installation. Done."
 
