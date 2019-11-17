@@ -68,7 +68,7 @@ install-new-arch: check-root check-archlinux umount-partitions
 				@ mkdir -p /mnt/boot/efi
 				@ mount $${DEVICE}1 /mnt/boot/efi/
 				@ swapon /dev/mapper/arch-swap
-				@ pacstrap /mnt base base-devel net-tools sudo gvim git grub efibootmgr dmidecode
+				@ pacstrap /mnt base base-devel net-tools sudo gvim lvm2 git grub efibootmgr dmidecode
 				@ genfstab -p /mnt >> /mnt/etc/fstab
 				@ sed -i -e 's|GRUB_CMDLINE_LINUX=""|GRUB_CMDLINE_LINUX="cryptdevice='$${DEVICE}'3:lvm"|g' /mnt/etc/default/grub
 				@ arch-chroot /mnt dmidecode | grep VirtualBox
@@ -217,7 +217,7 @@ configure-bootloader:
 	else
 		@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck # Only with EFI
 	fi
-	@ grub-mkconfig -o /boot/grub/grub.cfg
+	@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 configure-root-password:
 	@ while true; do
@@ -350,7 +350,7 @@ install-other-packages:
 install-packages:
 	@ pacman -Qq | grep -qw python || sudo pacman -Sy --noconfirm python
 	@ sudo pacman -S --noconfirm --needed rxvt-unicode firefox acpi tmux mpd mpc offlineimap htop zsh lsof progress newsboat ncmpcpp mutt weechat dmenu neofetch feh thunar cronie pkgfile
-	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme udisks
+	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme udisks ttf-ms-fonts
 	@ echo "User packages installation. Done."
 
 install-arch-packages:
@@ -358,7 +358,7 @@ install-arch-packages:
 		@ read -r -p "Do you want install arch packages ? [y/N] " REPLY;
 		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
 		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-			yay --noconfirm -S $$(cat ${CURRENT_DIR}/packages.txt)
+			yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages.txt)
 			exit 0
 		fi
 	@ done
