@@ -71,14 +71,7 @@ install-new-arch: check-root check-archlinux umount-partitions
 				@ pacstrap /mnt base base-devel net-tools sudo gvim lvm2 git grub efibootmgr dmidecode
 				@ genfstab -p /mnt >> /mnt/etc/fstab
 				@ sed -i -e 's|GRUB_CMDLINE_LINUX=""|GRUB_CMDLINE_LINUX="cryptdevice='$${DEVICE}'3:lvm"|g' /mnt/etc/default/grub
-				@ arch-chroot /mnt dmidecode | grep VirtualBox
-				if [[ $$? == 0 ]]; then
-					@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --removable
-				else
-					@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck
-				fi
-				@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
-				@ sed -i -e '/^HOOKS/s/filesystems/encrypt lvm2 filesystems/' /mnt/etc/mkinitcpio.conf
+				@ arch-chroot /mnt make configure-bootloader -C ~/.dotfiles
 				@ arch-chroot /mnt mkinitcpio -p linux
 				@ make chroot-configure-arch
 			fi
@@ -213,11 +206,11 @@ configure-bootloader:
 
 	@ dmidecode | grep VirtualBox
 	if [[ $$? == 0 ]]; then
-		@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --removable # Only with VirtualBox
+		@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --removable # Only with VirtualBox
 	else
-		@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck # Only with EFI
+		@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck # Only with EFI
 	fi
-	@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+	@ grub-mkconfig -o /boot/grub/grub.cfg
 
 configure-root-password:
 	@ while true; do
