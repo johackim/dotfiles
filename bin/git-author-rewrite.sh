@@ -1,7 +1,6 @@
 #!/bin/sh
 
 git filter-branch --env-filter '
-
 OLD_NAME="OLD_NAME"
 CORRECT_NAME="CORRECT_NAME"
 CORRECT_EMAIL="CORRECT_EMAIL"
