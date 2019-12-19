@@ -8,6 +8,7 @@ backup()
     echo -e "Sauvegarde partition home..."
 
     borg create --exclude-caches --stats --progress --compression lz4 \
+        -e $HOME/Public/ \
         -e $HOME/Downloads/ \
         -e $HOME/VirtualBox\ VMs/ \
         -e $HOME/.PlayOnLinux/ \
@@ -24,7 +25,6 @@ backup()
         -e $HOME/.local/share/Trash/ \
         -e $HOME/.local/share/Zeal/ \
         -e $HOME/.pulse/ \
-        -e $HOME/.Wine/ \
         -e $HOME/.wine/ \
         -e $HOME/.wine32/ \
         -e $HOME/.macromedia/ \
@@ -45,6 +45,8 @@ backup()
         -e $HOME/Android/ \
         -e $HOME/.vagrant.d/ \
         -e $HOME/.minikube/ \
+        -e $HOME/.glide/ \
+        -e $HOME/.config/Sia-UI/ \
         -e *node_modules* \
         ::$DATE \
         $HOME
