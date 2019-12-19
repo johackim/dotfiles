@@ -1,3 +1,0 @@
-# Extract contents of a .deb file
-$ ar vx foo.deb    # -> data.tar.gz
-$ tar xf data.tar.gz

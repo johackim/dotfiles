@@ -1,3 +1,0 @@
-# Add port
-pacman -S miniupnpc
-upnpc -a ip port external_port protocol

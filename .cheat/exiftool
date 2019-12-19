@@ -1,6 +1,0 @@
-# Remove all EXIF metadata from the given files:      
-exiftool -All= <file>
-
-# Other tool
-mat <file>
-exiv2 rm <file>

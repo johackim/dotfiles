@@ -1,5 +1,0 @@
-# Configure VPN
-CID=$(docker run -d --name dockvpn --restart=always --privileged --net=host ston3o/dockvpn)
-docker run -t -i -p 8080:8080 --volumes-from $CID ston3o/dockvpn serveconfig
-# iptables -A PREROUTING -t nat -i eth0 -p tcp -d <src_ip> -j DNAT --to-destination <dest_ip>
-# iptables -A PREROUTING -t nat -i eth0 -p tcp -d <src_ip> --dport <port> -j DNAT --to-destination <dest_ip>

@@ -1,2 +1,0 @@
-# Start openvpn daemon
-openvpn --config myvpn.ovpn --daemon

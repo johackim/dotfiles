@@ -1,3 +1,0 @@
-# Generate certificate
-openssl req -batch -new -x509 -days 365 -nodes -out server.pem -keyout server.pem
-https://gist.github.com/jeremiahsnapp/6426298
