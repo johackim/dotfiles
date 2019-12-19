@@ -11,7 +11,7 @@ make create-new-partitions
 
 ```bash
 # Install new Arch Linux
-# WARNING! This will overwrite root,boot,efi partition irrevocably!
+# WARNING! This will overwrite root,boot,efi partitions irrevocably!
 make install-new-arch
 ```
 
