@@ -32,24 +32,28 @@ alias git='LANG=en_US.UTF-8 git'
 alias debian='docker run -d --name debian -it debian > /dev/null 2>&1; docker exec -e COLUMNS=$COLUMNS -e LINES=$LINES -e TERM=$TERM -it debian bash'
 alias hacklab='docker run -d --name hacklab --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --net=host --privileged=true -v ~/Public:/mnt -it ston3o/docker-hacklab bash > /dev/null 2>&1; docker start hacklab > /dev/null; docker exec -e COLUMNS=$COLUMNS -e LINES=$LINES -e TERM=$TERM -it hacklab zsh'
 alias rm='echo "This is not the command you are looking for."; false'
-alias yank='/usr/bin/yank -- xclip -selection c'
 alias docker-clean="__clean() { docker volume ls -qf dangling=true | xargs -r docker volume rm; docker ps -aq -f status=exited | xargs -r docker rm -f; docker images --no-trunc | grep none | awk '{print $3 }' | xargs -r docker rmi }; __clean"
 alias fake="curl -s https://randomuser.me/api/ | jq -r .results[0].login.username"
 alias nexus='emulator -avd Nexus -gpu off'
 alias drawio='chromium --app=http://draw.io'
 alias calculator='gnome-calculator'
+alias cls='printf "\033c"'
+alias copy='xclip -selection clipboard'
+alias yank='/usr/bin/yank -- xclip -selection c'
 
 monitor() { watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
 gi() { curl "https://www.gitignore.io/api/$@"; }
-youtube-dl-mp3(){ youtube-dl $1 --extract-audio --audio-format mp3 }
-streamer() { youtube-dl -o - "$1" | mpv - }
-reinstall() { sudo pacman -S "$1" $(pacman -Qi "$1"|grep -i depend|cut -d: -f2) }
+youtube-dl-mp3() { youtube-dl $1 --extract-audio --audio-format mp3; }
+streamer() { youtube-dl -o - "$1" | mpv -; }
+reinstall() { sudo pacman -S "$1" $(pacman -Qi "$1"|grep -i depend|cut -d: -f2); }
 downloadAllDocument(){ wget --no-check-certificate -H -r -l 1 -nd -A "$1" "$2"; }
 downloadAllImages(){ wget --no-check-certificate -nd -H -p -A jpg,jpeg,png,gif -e robots=off "$1"; }
+downloadWebsite(){ wget -m -k -p -c -E "$1"; }
 dlmp3(){ wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off "$1"; }
-detach() { sudo umount -l "/dev/"$1"1"; udisks --detach "/dev/$1"; }
+detach() { sudo umount -l "/dev/"$1"1"; udisksctl power-off -b "/dev/$1"; }
 debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
 drm() { docker rm $(docker ps -q -a); }
+whitespace() { sed -i 's/[[:space:]]*$//' $1; }
 
 live() {
     qemu-img create -f raw live 8G
@@ -89,5 +93,3 @@ genssl(){
         openssl x509 -req -days 365 -in $1.csr -signkey $1.key -out $1.crt
     fi
 }
-
-whitespace() { sed -i 's/[[:space:]]*$//' $1 }
