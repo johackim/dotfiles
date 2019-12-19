@@ -1,2 +1,0 @@
-# Delete recursively duplicate files
-fdupes -r -dN .

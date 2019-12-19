@@ -1,2 +1,0 @@
-# Scan subdomains
-python2 nettacker.py -i <domain> -m subdomain_scan

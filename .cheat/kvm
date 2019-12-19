@@ -1,2 +1,0 @@
-# list of supported device emulations in KVM
-kvm -net nic,model=?
