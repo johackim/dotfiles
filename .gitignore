@@ -7,3 +7,6 @@ Notes/
 .mutt/accounts
 .mutt/aliases
 .mutt/passwords.gpg
+.cheat/
+.config/
+.fonts/.uuid

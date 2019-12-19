@@ -50,3 +50,7 @@ Thumbs.db
 *.swp
 
 *.bak
+
+_assets
+
+TODO.md
