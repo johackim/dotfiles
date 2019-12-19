@@ -177,7 +177,8 @@ configure-timezone:
 	@ echo "Timezone configuration. Done."
 
 configure-hardware-clock:
-	@ hwclock --systohc --localtime
+	# @ hwclock --systohc --localtime
+	# @ sudo timedatectl set-ntp true
 	@ echo "Hardware clock configuration. Done."
 
 configure-locale:
@@ -311,7 +312,6 @@ add-new-user:
 			@ read -r -p "Enter username: " USERNAME;
 			@ useradd -m -g users -G wheel -s /bin/bash $${USERNAME}
 			@ passwd $${USERNAME}
-			@ sudo -u $${USERNAME} git clone https://github.com/ston3o/dotfiles /home/$${USERNAME}/.dotfiles
 			exit 0
 		fi
 	@ done
@@ -361,7 +361,7 @@ install-pip-packages:
 		@ read -r -p "Do you want install pip packages ? [y/N] " REPLY;
 		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
 		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-			@ pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg httpstat http-prompt magic-wormhole seashells
+			@ pip install --upgrade instantmusic mycli subliminal whatportis youtube-dl maybe fig awscli gitsome socli cheat greg httpstat http-prompt magic-wormhole seashells docker-compose obfsproxy
 			exit 0
 		fi
 	@ done
@@ -399,7 +399,7 @@ install-go-packages:
 
 configure-dns: check-root
 	@ cp ${CURRENT_DIR}/resolv.conf /etc/resolv.conf
-	# @ chattr +i /etc/resolv.conf
+	@ chattr +i /etc/resolv.conf
 	@ echo "DNS configuration. Done."
 
 enable-services:
@@ -447,5 +447,15 @@ enable-ipv6: check-root
 	@ echo 'You must restart your computer.'
 
 install-wine: check-non-root
-	@ sudo pacman -S --noconfirm wine winetricks wine-mono wine_gecko lib32-libxslt lib32-libxml2
+	@ sudo pacman -S --noconfirm wine winetricks wine-mono wine_gecko lib32-libxslt lib32-libxml2 zenity
 	@ winetricks d3dx9
+
+enable-hostsctl: check-root
+	hostsctl fetch-updates
+	hostsctl merge
+
+enable-razer-config: check-root
+	echo 'HandleLidSwitch=ignore' | tee -a /etc/systemd/logind.conf
+
+enable-ftp:
+	@ sudo iptables -A INPUT -p tcp --dport 50000:60000 -m state --state RELATED,ESTABLISHED,NEW -j ACCEPT
