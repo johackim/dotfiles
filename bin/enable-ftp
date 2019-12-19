@@ -1,0 +1,16 @@
+#!/bin/sh
+
+test -x /sbin/iptables || exit 0
+
+if [ "$(whoami)" != "root" ]; then
+    echo "$0: Permission denied"
+    exit 1;
+fi 
+
+iptables -A INPUT -p tcp -m tcp --dport 21 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 20 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --sport 1024:65535 --dport 20:65535 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -p tcp -m state --state ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 21 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 20 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --sport 1024:65535 --dport 20:65535 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
