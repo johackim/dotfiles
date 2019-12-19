@@ -51,12 +51,12 @@ ZSH_THEME="cyan"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git git-flow docker docker-compose node npm nmap grunt httpie vagrant symfony symfony2 rsync pip bower taskwarrior)
-plugins=(archlinux git git-flow docker docker-compose kubectl helm vagrant nmap pip archlinux npm gulp zsh-syntax-highlighting)
+plugins=(archlinux git git-flow docker docker-compose kubectl helm vagrant nmap pip archlinux npm gulp zsh-syntax-highlighting ark terraform)
 
 # User configuration
 
 export GOPATH="$HOME/dev/gocode/"
-export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin:~/.gem/ruby/2.5.0/bin:$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin:~/.gem/ruby/2.5.0/bin:$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++'):~/.local/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -126,3 +126,5 @@ export EDITOR='vim'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+autoload -U zmv
