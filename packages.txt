@@ -227,7 +227,7 @@ lnav
 vagrant
 gpodder
 apache-tools
-kdenlive
+kdenlive swh-plugins
 obs-studio
 fd
 gimp-plugin-beautify
@@ -242,3 +242,6 @@ plasma-desktop
 bookworm
 qt5-styleplugins qt5ct
 megatools
+binutils
+base-devel
+net-tools

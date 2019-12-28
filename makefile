@@ -343,7 +343,7 @@ install-other-packages:
 install-packages:
 	@ pacman -Qq | grep -qw python || sudo pacman -Sy --noconfirm python
 	@ sudo pacman -S --noconfirm --needed rxvt-unicode firefox acpi tmux mpd mpc offlineimap htop zsh lsof progress newsboat ncmpcpp mutt weechat dmenu neofetch feh thunar cronie pkgfile
-	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme udisks ttf-ms-fonts
+	@ yay -S --noconfirm --needed tmuxinator i3blocks archdroid-icon-theme ttf-ms-fonts
 	@ echo "User packages installation. Done."
 
 install-arch-packages:
