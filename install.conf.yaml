@@ -4,7 +4,6 @@
 - link:
     ~/.aliases: .aliases
     ~/bin: bin/
-    ~/.cheat: .cheat/
     ~/Images/wallpaper.png:
       create: true
       path: Images/wallpaper.png
