@@ -1,17 +1,14 @@
 Dotfiles
 ===
 
-My personal archlinux dotfiles with zsh, vim, tmux, i3, rxvt, newsboat, ncmpcpp, dunst, mutt, git, cheat
+My personal archlinux dotfiles with zsh, vim, tmux, i3, rxvt, newsboat, ncmpcpp, git
 
-[![screenshot](https://raw.githubusercontent.com/ston3o/dotfiles/master/screenshot.png)](https://raw.githubusercontent.com/ston3o/dotfiles/master/screenshot.png)
+[![screenshot](https://raw.githubusercontent.com/johackim/dotfiles/master/screenshot.png)](https://raw.githubusercontent.com/johackim/dotfiles/master/screenshot.png)
 
-## Support
+## Quick Start
 
-Support me with a monthly donation and help me continue my activities:
-
-[![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/ston3o/donate)
-
-Buy me a beer (BTC): [bitcoin:112aZxX9Jiya4TM6Le4foxTq9V8U6aVGbG](112aZxX9Jiya4TM6Le4foxTq9V8U6aVGbG)
+git clone https://github.com/dotfiles ~/.dotfiles
+make install
 
 ## License
 

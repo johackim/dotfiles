@@ -75,5 +75,5 @@ URxvt.keysym.C-Down:   perl:font-size:decrease
 
 URxvt.urgentOnBell: true
 
-Xft.dpi: 192 # xrdb -query | grep dpi
+Xft.dpi: 128 # xrdb -query | grep dpi
 xterm*font: *-fixed-*-*-*-18-*
