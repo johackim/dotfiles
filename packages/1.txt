@@ -1,0 +1,134 @@
+gvim
+wget
+curl
+zsh
+rxvt-unicode
+acpi
+mpd mpc
+mlocate
+cmake
+openssh
+unzip unrar p7zip file-roller
+pkgfile
+ctags
+lsof
+htop
+ttf-dejavu terminus-font
+ncftp filezilla
+ntfs-3g exfat-utils cifs-utils fuse-exfat
+dosfstools
+firefox chromium
+vlc mplayer mpv
+fdupes
+fail2ban
+ntp
+gnome-calculator
+dunst
+libnotify
+faenza-icon-theme
+speedtest-cli
+gtk3
+gtk-engines
+gtk-engine-murrine
+lxappearance
+awf-git
+dmenu
+progress
+numlockx
+tig
+newsboat
+tmux
+nmap
+the_silver_searcher ripgrep
+python-pip python-virtualenv
+screenfetch
+ncdu
+xclip
+simple-scan
+aria2
+scrot xfce4-screenshooter
+ristretto tumbler feh eog
+rlwrap
+evince zathura-pdf-mupdf
+rsync duplicity
+thunar thunar-volman thunar-media-tags-plugin gvfs gvfs-afc gvfs-mtp thunar-archive-plugin
+httpie
+zip
+ccze
+gcolor2
+aspell-fr
+tcpdump
+ngrep
+guvcview
+mousepad leafpad
+rfkill
+lshw
+orage
+xfce4-notes-plugin
+mariadb-clients
+bind-tools
+whois
+libmtp mtpfs
+cups gutenprint system-config-printer gtk3-print-backends
+jdk7-openjdk jdk8-openjdk
+gksu
+docker
+jq
+perl-image-exiftool
+docx2txt
+tree
+phantomjs
+gimp
+perl-file-mimeinfo
+asciinema
+borg python-llfuse
+srm
+hardinfo
+downgrade
+simple-scan
+cpulimit
+pandoc
+trash-cli
+time
+calcurse
+gnome-font-viewer
+sshfs
+nfs-utils
+pdfgrep
+kpcli pass
+udisks
+tmuxinator
+light
+ttf-ms-fonts
+nvm
+git-extras
+yank
+httplab
+timg
+hostsctl
+ncmpcpp-git
+yamllint
+shellcheck
+neofetch
+rig
+vrms-arch
+jp2a
+tiger
+powermonius-git
+s
+flameshot
+hostsctl
+signal-desktop
+i3blocks i3blocks-contrib sysstat
+lnav
+apache-tools
+fd
+gimp-plugin-beautify
+telegram-desktop-bin
+python2-pip
+kodi
+libreoffice
+qt5-styleplugins qt5ct
+binutils
+base-devel
+net-tools

@@ -12,4 +12,6 @@ install-dotfiles:
 	@ echo "Dotfiles installation. Done."
 
 install-packages:
-	@ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages.txt)
+	@ pacman -Rsn --noconfirm vim
+	@ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages/1.txt)
+	# @ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages/2.txt)
