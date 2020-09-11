@@ -3,10 +3,10 @@ label=♪
 command=mpc current
 interval=1
 
-[battery]
-command=$SCRIPT_DIR/battery3/battery3
-markup=pango
-interval=30
+# [battery]
+# command=$SCRIPT_DIR/battery3/battery3
+# markup=pango
+# interval=30
 
 [cpu]
 label=
