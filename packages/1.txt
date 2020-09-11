@@ -133,3 +133,4 @@ base-devel
 net-tools
 themix-full-git python-cairo
 archdroid-icon-theme
+alsa-utils
