@@ -7,8 +7,10 @@ My personal archlinux dotfiles with zsh, vim, tmux, i3, rxvt, newsboat, ncmpcpp,
 
 ## Quick Start
 
+```bash
 git clone https://github.com/dotfiles ~/.dotfiles
 make install
+```
 
 ## License
 
