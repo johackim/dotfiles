@@ -100,7 +100,6 @@ udisks
 tmuxinator
 light
 ttf-ms-fonts
-nvm
 git-extras
 yank
 httplab
