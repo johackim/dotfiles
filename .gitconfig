@@ -20,5 +20,5 @@
 [difftool "icdiff"]
     cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
 [user]
-    name = ston3o
-    email = contact@ston3o.me
+    name = johackim
+    email = contact@johackim.com
