@@ -9,7 +9,6 @@ mandb
 thunar-thumbnailers
 theharvester-git
 tor-browser-en
-oomox-git python-cairo
 python2-powerline
 keepassx
 lantern
