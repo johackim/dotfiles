@@ -19,10 +19,6 @@
     prompt = false
 [difftool "icdiff"]
     cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
-[commit]
-    gpgsign = true
 [user]
-    name = ston3o
-    email = contact@ston3o.me
-[gpg]
-    program = gpg2
+    name = johackim
+    email = contact@johackim.com

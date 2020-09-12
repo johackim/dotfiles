@@ -40,6 +40,7 @@ alias calculator='gnome-calculator'
 alias cls='printf "\033c"'
 alias copy='xclip -selection clipboard'
 alias yank='/usr/bin/yank -- xclip -selection c'
+alias mpw='docker run -ti registry.gitlab.com/masterpassword/masterpassword mpw'
 
 monitor() { watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
 gi() { curl "https://www.gitignore.io/api/$@"; }
