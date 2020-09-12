@@ -3,10 +3,10 @@ label=♪
 command=mpc current
 interval=1
 
-[battery]
-command=$SCRIPT_DIR/battery3/battery3
-markup=pango
-interval=30
+# [battery]
+# command=$SCRIPT_DIR/battery3/battery3
+# markup=pango
+# interval=30
 
 [cpu]
 label=
@@ -17,11 +17,6 @@ interval=1
 label= 
 command=df -h -P -l $HOME | awk '/\/.*/ { print $4; exit 0 }'
 interval=10
-
-# [mail]
-# label= 
-# command=find $HOME/Mail/*/INBOX/new/ -type f | wc -l
-# interval=5
 
 [volume]
 label=♪ 

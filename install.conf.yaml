@@ -27,20 +27,12 @@
     ~/.gitconfig: .gitconfig
     ~/.gtkrc-2.0: .gtkrc-2.0
     ~/.i3: .i3/
-    ~/.mozilla/firefox/chrome/userContent.css:
-      create: true
-      path: .mozilla/firefox/chrome/userContent.css
-    ~/.mutt: .mutt/
-    ~/.offlineimap.py: .offlineimap.py
-    ~/.gnupg/gpg-agent.conf: .gnupg/gpg-agent.conf
-    ~/.muttrc: .muttrc
     ~/.mpdconf: .mpdconf
     ~/.ncmpcpp: .ncmpcpp/
     ~/.config/newsboat/config:
       create: true
       path: .config/newsboat/config
     ~/.oh-my-zsh: .oh-my-zsh/
-    ~/.sounds: .sounds/
     ~/.themes/Darkyan:
       create: true
       path: .themes/Darkyan/
@@ -49,16 +41,14 @@
     ~/.tmuxinator: .tmuxinator
     ~/.urxvt: .urxvt/
     ~/.vim: .vim/
-    ~/.xinitrc: .xinitrc
+    ~/.xinitrc:
+      force: true
+      path: .xinitrc
     ~/.Xresources: .Xresources
     ~/.vimrc: .vim/vimrc
-    ~/.weechat/perl/autoload/listsort.pl:
-      create: true
-      path: .weechat/perl/autoload/listsort.pl
-    ~/.weechat/python/autoload/osc_notify.py:
-      create: true
-      path: .weechat/python/autoload/osc_notify.py
-    ~/.zshrc: .zshrc
+    ~/.zshrc:
+      force: true
+      path: .zshrc
 
 - shell:
     - mkdir -p ~/Images/Screens
