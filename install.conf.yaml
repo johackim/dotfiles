@@ -52,3 +52,4 @@
 
 - shell:
     - mkdir -p ~/Images/Screens
+    - rm -rf ~/.config/i3
