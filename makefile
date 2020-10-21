@@ -1,6 +1,7 @@
 .ONESHELL:
 .SILENT:
-	CURRENT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+
+CURRENT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 install: check-root install-yay install-dotfiles install-packages
 
