@@ -95,7 +95,6 @@ gnome-font-viewer
 sshfs
 nfs-utils
 pdfgrep
-kpcli pass
 udisks
 tmuxinator
 light
