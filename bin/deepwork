@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cat <<EOF > /etc/hosts
+127.0.0.1 localhost
+::1 localhost ip6-localhost ip6-loopback
+0.0.0.0 koreus.com www.koreus.com
+0.0.0.0 quora.com
+0.0.0.0 www.goodreads.com
+0.0.0.0 allocine.fr www.allocine.fr
+0.0.0.0 twitter.com
+EOF
+
+pkill -f -9 newsboat
+pkill -f -9 signal-desktop
+pkill -f -9 kodi
+pkill -f -9 calibre
