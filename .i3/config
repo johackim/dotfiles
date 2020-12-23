@@ -199,6 +199,10 @@ exec --no-startup-id numlockx on
 exec --no-startup-id mpc clear && mpc load calm && mpc random on
 exec --no-startup-id setxkbmap us,us_intl '' compose:rwin grp:rctrl_rshift_toggle
 exec --no-startup-id synclient TapButton1=1 TapButton2=3
+exec --no-startup-id xrandr -s 1600x900
+exec --no-startup-id telegram-desktop
+exec --no-startup-id protonmail-bridge
+exec --no-startup-id sleep 3 && /usr/bin/feh --bg-fill $HOME/Images/wallpaper.png
 
 # Startup
 exec --no-startup-id i3-msg 'workspace $ws1; exec urxvt -e tmuxinator main'
