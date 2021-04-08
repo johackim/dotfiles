@@ -133,3 +133,4 @@ net-tools
 themix-full-git python-cairo
 archdroid-icon-theme
 alsa-utils
+noto-fonts-emoji
