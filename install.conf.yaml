@@ -32,6 +32,9 @@
     ~/.config/newsboat/config:
       create: true
       path: .config/newsboat/config
+    ~/.config/yamllint/config:
+      create: true
+      path: .config/yamllint/config
     ~/.oh-my-zsh: .oh-my-zsh/
     ~/.themes/Darkyan:
       create: true
