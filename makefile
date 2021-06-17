@@ -37,6 +37,12 @@ install-packages:
 	# @ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages/2.txt)
 	@ echo "Packages installation. Done."
 
+install-mpw:
+	@ wget -O /tmp/mpw.tar.gz https://ssl.masterpasswordapp.com/masterpassword-cli.tar.gz
+	@ cd /tmp && tar xvf mpw.tar.gz
+	@ cd /tmp/cli && ./build
+	@ sudo mv /tmp/cli/mpw /usr/local/bin/
+
 install-virtualbox: check-root
 	@ while true; do
 		@ read -r -p "Do you want install virtualbox ? [y/N] " REPLY;
