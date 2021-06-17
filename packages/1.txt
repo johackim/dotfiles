@@ -30,8 +30,7 @@ speedtest-cli
 gtk3
 gtk-engines
 gtk-engine-murrine
-lxappearance
-awf-git
+lxappearance awf-git themix-full-git python-cairo
 dmenu
 progress
 numlockx
@@ -63,7 +62,6 @@ guvcview
 mousepad leafpad
 rfkill
 lshw
-orage
 xfce4-notes-plugin
 mariadb-clients
 bind-tools
@@ -71,7 +69,6 @@ whois
 libmtp mtpfs
 cups gutenprint system-config-printer gtk3-print-backends
 jdk7-openjdk jdk8-openjdk
-gksu
 docker
 jq
 perl-image-exiftool
@@ -130,7 +127,6 @@ qt5-styleplugins qt5ct
 binutils
 base-devel
 net-tools
-themix-full-git python-cairo
 archdroid-icon-theme
 alsa-utils
 noto-fonts-emoji
