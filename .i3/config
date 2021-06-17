@@ -33,10 +33,11 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvtc --perl-lib ~/.urxvt/perl
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+a kill # French
+bindsym $mod+Shift+q kill # English
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#222222' -nf '#FFFFFF' -sb '#00AAAA' -sf '#222222'
+bindsym $mod+d exec --no-startup-id dmenu_recent_aliases -nb '#222222' -nf '#FFFFFF' -sb '#00AAAA' -sf '#222222'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -79,7 +80,6 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-# bindsym $mod+x layout toggle all
 bindsym $mod+x layout toggle stacking tabbed splith
 
 # toggle tiling / floating
@@ -190,6 +190,8 @@ client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Daemons
+# exec --no-startup-id setxkbmap us,us_intl '' compose:rwin grp:rctrl_rshift_toggle
+exec --no-startup-id setxkbmap fr # French
 exec --no-startup-id urxvtd -o -f -q
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
@@ -197,9 +199,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id numlockx on
 exec --no-startup-id mpc clear && mpc load calm && mpc random on
-exec --no-startup-id setxkbmap us,us_intl '' compose:rwin grp:rctrl_rshift_toggle
 exec --no-startup-id synclient TapButton1=1 TapButton2=3
 exec --no-startup-id xrandr -s 1600x900
+exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 exec --no-startup-id telegram-desktop
 exec --no-startup-id protonmail-bridge
 exec --no-startup-id sleep 3 && /usr/bin/feh --bg-fill $HOME/Images/wallpaper.png
@@ -207,12 +209,18 @@ exec --no-startup-id sleep 3 && /usr/bin/feh --bg-fill $HOME/Images/wallpaper.pn
 # Startup
 exec --no-startup-id i3-msg 'workspace $ws1; exec urxvt -e tmuxinator main'
 exec --no-startup-id i3-msg 'workspace $ws2; exec urxvt -e tmuxinator second'
-exec --no-startup-id i3-msg 'workspace $ws3; exec firefox'
+exec --no-startup-id i3-msg 'workspace $ws3; exec chromium'
 
 # Assign
-assign [class="Firefox" instance="Navigator"] $ws3
-assign [instance="chromium"] $ws3
+assign [class="firefox" instance="Navigator"] $ws3
+assign [class="calibre"] $ws4
+assign [class="ProtonMail Bridge"] $ws5
 assign [class="Vlc|mpv"] $ws5
+assign [class="qBittorrent"] $ws6
+assign [class="TelegramDesktop"] $ws6
+assign [class="Signal"] $ws7
+assign [class="discord"] $ws8
+assign [class="Mailspring"] $ws9
 
 # Shortcuts
 bindsym 0xff61 exec --no-startup-id scrot ~/Images/Screens/screenshot_%Y_%m_%d_%H_%M_%S.png
