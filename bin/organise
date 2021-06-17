@@ -3,7 +3,7 @@
 shopt -s nocaseglob
 cd ~/Downloads || exit
 mkdir -p images; mv -n *.png *.svg *.jpg *.jpeg *.gif *.psd images &>/dev/null
-mkdir -p textes; mv -n *.sql *.rtf *.odt *.json *.yml *.yaml *.xml *.xls *.txt *.opml *.po *.pdf *.epub *.mobi *.crt *.doc *.docx *.xlsx *.html *.csv *.md *.torrent *.aria2 *.key *.sh *.py *.ovpn *.log *.conf *.ods *.m3u* textes &>/dev/null
+mkdir -p textes; mv -n *.sql *.rtf *.odt *.json *.yml *.yaml *.xml *.xls *.txt *.opml *.po *.pdf *.epub *.mobi *.crt *.doc *.docx *.xlsx *.html *.csv *.md *.torrent *.aria2 *.key *.sh *.py *.ovpn *.log *.conf *.ods *.xmind *.db *.m3u* textes &>/dev/null
 mkdir -p videos; mv -n *.avi *.mkv *.m4v *.webm *.mp4 *.srt *.ogv videos &>/dev/null
 mkdir -p archives; mv -n *.zip *.tar.gz *.tgz *.gz *.bundle *.apk *.rar *.7z *.iso *.exe *.bz2 archives &>/dev/null
 mkdir -p music; mv -n *.wav music &>/dev/null
