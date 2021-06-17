@@ -3,7 +3,7 @@
 
 CURRENT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-install: check-root install-yay install-dotfiles install-packages
+install: check-root install-yay install-packages
 
 check-root:
 	@ if [ $$(whoami) != "root" ]; then
