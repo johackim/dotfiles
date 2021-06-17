@@ -7,5 +7,5 @@ root: ~/
 windows:
   - editor:
       panes:
-        - ncmpcpp
+        - freezer -S -H 0.0.0.0
 
