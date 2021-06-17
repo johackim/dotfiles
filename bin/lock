@@ -26,15 +26,18 @@ logout_root() {
 }
 
 reset_hosts() {
-    echo '127.0.0.1 localhost' > /etc/hosts
-    echo '::1 localhost ip6-localhost ip6-loopback' >> /etc/hosts
+    if [[ -f /etc/hosts.orig ]]; then
+        cp /etc/hosts.orig /etc/hosts
+    else
+        echo '127.0.0.1 localhost' > /etc/hosts
+        echo '::1 localhost ip6-localhost ip6-loopback' >> /etc/hosts
+    fi
 }
 
 lock_apps() {
     for APP in $APPS;do
         pkill -f -9 "$APP"
     done
-
 }
 
 lock_domains() {
@@ -44,7 +47,7 @@ lock_domains() {
     done
 }
 
-unlock() {
+reset() {
     if [[ $1 == '--force' ]]; then
         rm -f /tmp/expired
     fi
@@ -92,7 +95,7 @@ case $1 in
         ;;
     reset)
         check_root
-        unlock "$2"
+        reset "$2"
         ;;
     *)
         check_root
