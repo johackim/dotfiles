@@ -56,7 +56,7 @@ plugins=(archlinux git git-flow docker docker-compose kubectl helm vagrant nmap 
 # User configuration
 
 export GOPATH="$HOME/dev/gocode/"
-export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin:~/.gem/ruby/2.5.0/bin:$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++'):~/.local/bin
+export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin:~/.gem/ruby/3.0.0/bin:$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++'):~/.local/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
