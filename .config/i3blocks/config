@@ -8,6 +8,11 @@ interval=1
 # markup=pango
 # interval=30
 
+[deepwork]
+command=/home/johackim/bin/lock status
+interval=1
+color=#FF000
+
 [cpu]
 label=
 command=/usr/lib/i3blocks/cpu_usage
@@ -19,7 +24,7 @@ command=df -h -P -l $HOME | awk '/\/.*/ { print $4; exit 0 }'
 interval=10
 
 [volume]
-label=♪ 
+label=♪
 command=amixer get Master | grep -E -o '[0-9]{1,3}?%' | head -1
 interval=1
 
