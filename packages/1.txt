@@ -130,3 +130,5 @@ net-tools
 archdroid-icon-theme
 alsa-utils
 noto-fonts-emoji
+openvpn
+networkmanager-openvpn
