@@ -36,3 +36,15 @@ install-packages:
 	@ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages/1.txt)
 	# @ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages/2.txt)
 	@ echo "Packages installation. Done."
+
+install-virtualbox: check-root
+	@ while true; do
+		@ read -r -p "Do you want install virtualbox ? [y/N] " REPLY;
+		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
+		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
+			yay -S --needed --noconfirm virtualbox virtualbox-host-modules-arch virtualbox-ext-oracle
+			echo -e 'vboxdrv\nvboxnetadp\nvboxnetflt\nvboxpci' > /etc/modules-load.d/virtualbox.conf
+			/usr/bin/rcvboxdrv setup
+			exit 0
+		fi
+	@ done
