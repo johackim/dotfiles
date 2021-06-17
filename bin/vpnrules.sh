@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# sudo pacman -S net-tools bind cronie
 # Add on crontab :
 # @reboot sleep 20 && /home/USER/bin/vpnrules.sh
 # * * * * * /home/USER/bin/vpnrules.sh
