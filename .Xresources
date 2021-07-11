@@ -64,7 +64,7 @@ URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 
 URxvt.keysym.C-f: perl:url-picker
-URxvt.url-picker.launcher: firefox
+URxvt.url-picker.launcher: chromium
 URxvt.keysym.C-0xff0d: perl:url-picker
 
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
