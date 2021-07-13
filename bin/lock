@@ -49,7 +49,7 @@ lock_domains() {
 
 reset() {
     if [[ $1 == '--force' ]]; then
-        rm -f /tmp/expired
+        rm -f $EXPIRED_FILE
     fi
 
     if [[ "$NOW" > "$(cat $EXPIRED_FILE 2> /dev/null)" ]]; then
@@ -63,8 +63,8 @@ reset() {
 }
 
 lock() {
-    HOURS=$1
-    EXPIRED_DATE=$(date -d "$(date -d "+${HOURS:-1} hour" '+%H:%M:00')" '+%s')
+    HOURS=${1:-1}
+    EXPIRED_DATE=$(date -d "$(date -d "+${HOURS} hour" '+%H:%M:00')" '+%s')
 
     if [[ "$NOW" > "$(cat $EXPIRED_FILE 2> /dev/null)" ]]; then
         chmod -x /usr/bin/su
