@@ -7,5 +7,4 @@ root: ~/
 windows:
   - editor:
       panes:
-        - freezer -S -H 0.0.0.0
-
+        - clear
