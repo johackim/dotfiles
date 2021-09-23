@@ -42,6 +42,7 @@ alias copy='xclip -selection clipboard'
 alias yank='/usr/bin/yank -- xclip -selection c'
 alias standardnotes='chromium --app=https://app.standardnotes.org'
 
+srttotxt() { sed -r 's/\r$//;/^[0-9]+$/{N;/\n[0-9]/d;}' "$1" }
 monitor() { watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
 gi() { curl -L "https://www.gitignore.io/api/$@"; }
 youtube-dl-mp3() { youtube-dl $1 --extract-audio --audio-format mp3; }
@@ -53,7 +54,9 @@ downloadWebsite(){ wget -m -k -p -c -E "$1"; }
 dlmp3(){ wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off "$1"; }
 detach() { sudo umount -l "/dev/"$1"1"; udisksctl power-off -b "/dev/$1"; }
 debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
-drm() { docker rm $(docker ps -q -a); }
+drm() { docker rm $(docker ps -a | grep 'Exited\|Created' | awk '{print $1}') > /dev/null 2>&1; }
+drmi() { docker rmi $(docker images --no-trunc | grep none | awk '{print $3 }') > /dev/null 2>&1; }
+dpa() { docker ps -a; }
 whitespace() { sed -i 's/[[:space:]]*$//' $1; }
 
 live() {
