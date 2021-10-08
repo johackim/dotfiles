@@ -49,8 +49,8 @@ Thumbs.db
 #######
 *.swp
 
+# Others #
+###########
 *.bak
-
 _assets
-
 TODO.md
