@@ -133,3 +133,4 @@ noto-fonts-emoji
 openvpn
 networkmanager-openvpn
 foliate hyphen-fr hyphen-en
+gnome-keyring
