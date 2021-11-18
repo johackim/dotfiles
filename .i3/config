@@ -212,7 +212,8 @@ exec --no-startup-id i3-msg 'workspace $ws3; exec chromium'
 
 # Assign
 assign [class="firefox" instance="Navigator"] $ws3
-assign [title="open.spotify.com"] $ws4
+assign [class="Chromium" title="open.spotify.com"] $ws4
+assign [class="Chromium" title="app.standardnotes.org"] $ws10
 assign [class="Chromium"] $ws3
 assign [class="calibre"] $ws4
 assign [class="ProtonMail Bridge"] $ws5
