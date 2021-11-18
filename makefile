@@ -12,7 +12,7 @@ check-root:
 	@ fi
 
 check-noroot:
-	@ if [ $$(whoami) != "root" ]; then
+	@ if [ $$(whoami) == "root" ]; then
 		@ echo "You must not execute the script as the 'root' user."
 		@ exit 1
 	@ fi
