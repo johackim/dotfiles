@@ -134,3 +134,4 @@ openvpn
 networkmanager-openvpn
 foliate hyphen-fr hyphen-en
 gnome-keyring
+xf86-input-synaptics
