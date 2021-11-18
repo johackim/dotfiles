@@ -41,6 +41,7 @@ alias cls='printf "\033c"'
 alias copy='xclip -selection clipboard'
 alias yank='/usr/bin/yank -- xclip -selection c'
 alias standardnotes='chromium --app=https://app.standardnotes.org'
+alias spotify='chromium --app=https://open.spotify.com'
 
 srttotxt() { sed -r 's/\r$//;/^[0-9]+$/{N;/\n[0-9]/d;}' "$1" }
 monitor() { watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
