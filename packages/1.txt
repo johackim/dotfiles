@@ -114,7 +114,7 @@ s
 flameshot
 hostsctl
 signal-desktop
-i3blocks i3blocks-contrib sysstat
+i3 i3blocks i3blocks-contrib sysstat
 lnav
 apache-tools
 fd
@@ -135,3 +135,5 @@ networkmanager-openvpn
 foliate hyphen-fr hyphen-en
 gnome-keyring
 xf86-input-synaptics
+xorg xorg-xinit
+networkmanager network-manager-applet
