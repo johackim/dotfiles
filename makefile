@@ -11,6 +11,12 @@ check-root:
 		@ exit 1
 	@ fi
 
+check-noroot:
+	@ if [ $$(whoami) != "root" ]; then
+		@ echo "You must not execute the script as the 'root' user."
+		@ exit 1
+	@ fi
+
 install-yay:
 	@ test -x /usr/bin/yay
 	@ if [[ $$? != 0 ]]; then
@@ -31,8 +37,8 @@ install-dotfiles:
 	@ ${CURRENT_DIR}/dotbot/bin/dotbot -d ${CURRENT_DIR} -c install.conf.yaml
 	@ echo "Dotfiles installation. Done."
 
-install-packages:
-	@ pacman -Rsn --noconfirm vim
+install-packages: check-noroot
+	@ sudo pacman -Rsn --noconfirm vim
 	@ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages/1.txt)
 	# @ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages/2.txt)
 	@ echo "Packages installation. Done."
