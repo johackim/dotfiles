@@ -1,0 +1,9 @@
+#!/bin/bash
+
+sudo swapoff -a && sudo swapon -a
+sudo pacman -Syyu --noconfirm
+yes | sudo pacman -Scc > /dev/null
+docker system prune -af > /dev/null
+sudo -E bleachbit --preset --clean
+trash ~/.cache
+trash-empty -f
