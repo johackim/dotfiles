@@ -37,7 +37,7 @@ bindsym $mod+Shift+a kill
 # bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_recent_aliases -nb '#222222' -nf '#FFFFFF' -sb '#00AAAA' -sf '#222222'
+bindsym $mod+d exec --no-startup-id dmenu_recent_aliases -nf '#D6D7DE' -nb '#000000' -sb '#212421' -sf '#FFFFFF'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -166,28 +166,29 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command SCRIPT_DIR=~/.config/i3blocks/blocklets i3blocks
-        separator_symbol " > "
-        modifier None
-        position bottom
-        colors {
-            background #000000
-            statusline #ffffff
-            separator #666666
-            focused_workspace  #4c7899 #00AAAA #ffffff
-            active_workspace   #333333 #5f676a #ffffff
-            inactive_workspace #333333 #222222 #888888
-            urgent_workspace   #2f343a #900000 #ffffff
-        }
+    tray_output none
+    status_command SCRIPT_DIR=~/.config/i3blocks/blocklets i3blocks
+    separator_symbol " > "
+    colors {
+        background #000000
+        statusline #FFFFFF
+        separator  #666666
+        focused_workspace  #212421 #212421 #FFFFFF
+        active_workspace   #000000 #000000 #FFFFFF
+        inactive_workspace #000000 #000000 #D6D7DE
+        urgent_workspace   #000000 #000000 #FFFFFF
+        binding_mode       #000000 #000000 #FFFFFF
+    }
 }
 
 bindsym $mod+b bar mode toggle
 
-# Colors
-client.focused          #4c7899 #00AAAA #ffffff #55FFFF
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.unfocused        #333333 #222222 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
+# class                 border  bground text    indicator child_border
+client.focused          #000000 #212421 #FFFFFF #000000   #000000
+client.focused_inactive #000000 #000000 #D6D7DE #000000   #000000
+client.unfocused        #000000 #101410 #D6D7DE #000000   #000000
+client.urgent           #000000 #000000 #D6D7DE #000000   #000000
+client.placeholder      #000000 #000000 #D6D7DE #000000   #000000
 
 # Daemons
 # exec --no-startup-id setxkbmap us,us_intl '' compose:rwin grp:rctrl_rshift_toggle

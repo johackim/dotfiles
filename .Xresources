@@ -11,12 +11,12 @@
 *.color8:       #525252
 
 ! red
-*.color1:       #AA0000
-*.color9:       #AA0000
+*.color1:       #828282
+*.color9:       #828282
 
 ! green
-*.color2:       #8e8e8e
-*.color10:      #8e8e8e
+*.color2:       #828282
+*.color10:      #828283
 
 ! yellow
 *.color3:       #a0a0a0
@@ -31,15 +31,15 @@
 *.color13:      #747474
 
 ! cyan
-*.color6:       #00CDCD
-*.color14:      #00FFFF
+*.color6:       #FFFFFF
+*.color14:      #FFFFFF
 
 ! white
-*.color7:       #ffffff
-*.color15:      #f7f7f7
+*.color7:       #FFFFFF
+*.color15:      #FFFFFF
 
 ! Italic color tmux
-URxvt*colorIT: #00FFFF
+URxvt*colorIT: #FFFFFF
 
 URxvt.scrollBar: false
 
