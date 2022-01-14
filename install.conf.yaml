@@ -10,45 +10,29 @@
     ~/.config/dunst/dunstrc:
       create: true
       path: .config/dunst/dunstrc
-    ~/.config/gtk-3.0/settings.ini:
-      create: true
-      path: .config/gtk-3.0/settings.ini
-    ~/.config/htop/htoprc:
-      create: true
-      path: .config/htop/htoprc
-    ~/.config/i3blocks: .config/i3blocks
-    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml:
-      create: true
-      path: .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-    ~/.config/systemd: .config/systemd/
     ~/.dir_colors: .dir_colors
     ~/.fonts: .fonts/
     ~/.gitignore_global: .gitignore_global
     ~/.gitconfig: .gitconfig
-    ~/.gtkrc-2.0: .gtkrc-2.0
     ~/.i3: .i3/
-    ~/.mpdconf: .mpdconf
-    ~/.ncmpcpp: .ncmpcpp/
-    ~/.config/newsboat/config:
-      create: true
-      path: .config/newsboat/config
     ~/.config/yamllint/config:
       create: true
       path: .config/yamllint/config
-    ~/.oh-my-zsh: .oh-my-zsh/
-    ~/.themes/Darkyan:
+    ~/.config/polybar/config.ini:
       create: true
-      path: .themes/Darkyan/
+      path: .config/polybar/config.ini
+    ~/.config/nvim/init.vim:
+      create: true
+      path: .config/nvim/init.vim
+    ~/.oh-my-zsh: .oh-my-zsh/
     ~/.tmux: .tmux/
     ~/.tmux.conf: .tmux.conf
     ~/.tmuxinator: .tmuxinator
     ~/.urxvt: .urxvt/
-    ~/.vim: .vim/
     ~/.xinitrc:
       force: true
       path: .xinitrc
     ~/.Xresources: .Xresources
-    ~/.vimrc: .vim/vimrc
     ~/.zshrc:
       force: true
       path: .zshrc
