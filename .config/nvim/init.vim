@@ -12,7 +12,6 @@ call plug#begin('~/.config/nvim')
   Plug 'airblade/vim-gitgutter'
   Plug 'preservim/nerdcommenter'
   Plug 'plasticboy/vim-markdown'
-  Plug 'jistr/vim-nerdtree-tabs'
   Plug 'prettier/vim-prettier'
   Plug 'matze/vim-move'
   Plug 'Raimondi/delimitMate'
