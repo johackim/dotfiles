@@ -3,9 +3,9 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="cyan"
 plugins=(zsh-syntax-highlighting)
 
+[ -f ~/.private_aliases ] && source ~/.private_aliases
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
-source $HOME/.private_aliases
 source $HOME/.cache/wal/colors-tty.sh
 
 export GOPATH="$HOME/dev/gocode/"
