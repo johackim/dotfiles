@@ -1,7 +1,7 @@
 Dotfiles
 ===
 
-My personal archlinux dotfiles with zsh, vim, tmux, i3, rxvt, newsboat, ncmpcpp, git, dunst
+My personal archlinux dotfiles with zsh, neovim, tmux, i3, rxvt, polybar, pywal & dunst
 
 [![screenshot](https://raw.githubusercontent.com/johackim/dotfiles/master/screenshot.png)](https://raw.githubusercontent.com/johackim/dotfiles/master/screenshot.png)
 
@@ -12,7 +12,6 @@ My personal archlinux dotfiles with zsh, vim, tmux, i3, rxvt, newsboat, ncmpcpp,
 ```bash
 git clone https://github.com/dotfiles ~/.dotfiles
 make install
-make install-dotfiles # Optional
 ```
 
 ## License

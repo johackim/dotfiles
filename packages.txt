@@ -137,3 +137,112 @@ gnome-keyring
 xf86-input-synaptics
 xorg xorg-xinit
 networkmanager network-manager-applet
+megatools
+quickserve
+ripgr
+mat-git
+wego-git
+monodevelop
+omxplay
+mandb
+thunar-thumbnailers
+theharvester-git
+tor-browser-en
+python2-powerline
+keepassx
+lantern
+flashplugin-beta
+winusb
+wiki-git
+masterpassword-cli
+sopcast-player
+minecraft
+packettracer gns3-gui
+balsamiqmockups
+cht.sh
+proxychains-ng
+libimobiledevice
+sublime-text codeblocks
+veracrypt
+g4l
+fritzing
+android-studio
+slack-desktop
+bitchx-git
+molotov
+codeclimate
+zeronet
+ruby-travis
+skypeforlinux-stable-bin
+wire-desktop
+devd
+handbrake
+cutycapt-qt5-git
+securefs
+screenkey
+weboob
+ttyrec ttygif
+ship
+plasma-desktop
+bookworm
+kdenlive swh-plugins
+obs-studio
+bleachbit-cli
+wpscan
+mysql-workbench
+recordmydesktop gtk-recordmydesktop
+xpenguins
+translate-shell
+keybase-bin
+electrum
+gifcurry
+zeal-git
+simple-mtpfs
+utox-git toxic
+etcher-bin woeusb
+run_scaled-git
+vlsub-git
+tigervnc
+thefuck cmatrix-git cowsay
+scummvm dosemu dosbox
+clamav rkhunter
+weechat aspell tcl
+netdata
+picard
+mednafen
+bchunk
+vagrant
+namebench
+turtl
+simplescreenrecorder
+hget-git
+droopy-git
+syncthing
+wuzz
+ctop-bin
+netdiscover
+peco
+cava
+yogo
+arch-audit
+mosh
+zbar
+mutt
+nethogs
+keeweb
+mcrypt
+figlet
+apg
+cool-retro-term
+pwgen
+rdesktop
+icedtea-web
+qemu
+espeak
+mkvtoolnix-cli
+fzf
+snapd
+surf
+gpodder
+kaffeine
+kpcli pass

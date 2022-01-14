@@ -13,4 +13,3 @@ windows:
         - htop
         - monitor
         - watch -t -n1 progress -q
-

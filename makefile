@@ -3,7 +3,7 @@
 
 CURRENT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-install: check-root install-yay install-packages
+install: check-root install-yay install-dotfiles install-packages
 
 check-root:
 	@ if [ $$(whoami) != "root" ]; then
@@ -38,9 +38,10 @@ install-dotfiles:
 	@ echo "Dotfiles installation. Done."
 
 install-packages: check-noroot
-	@ sudo pacman -Rsn --noconfirm vim
-	@ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages/1.txt)
-	# @ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages/2.txt)
+	@ sudo pacman -Rsn --noconfirm vim gvim
+	@ sudo pacman -S --noconfirm neovim tmux tmuxinator
+	@ yay -S --noconfirm polybar
+	# @ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages.txt)
 	@ echo "Packages installation. Done."
 
 install-mpw:

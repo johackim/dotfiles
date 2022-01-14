@@ -1,49 +1,7 @@
 ! xrdb -merge ~/.Xresources (TO APPLY CHANGES)
 
-! Grayscale dark theme modified
-! special
-*.foreground:   #ffffff
-*.background:   #101010
-*.cursorColor:  #ffffff
-
-! black
-*.color0:       #101010
-*.color8:       #525252
-
-! red
-*.color1:       #828282
-*.color9:       #828282
-
-! green
-*.color2:       #828282
-*.color10:      #828283
-
-! yellow
-*.color3:       #a0a0a0
-*.color11:      #a0a0a0
-
-! blue
-*.color4:       #686868
-*.color12:      #686868
-
-! magenta
-*.color5:       #747474
-*.color13:      #747474
-
-! cyan
-*.color6:       #FFFFFF
-*.color14:      #FFFFFF
-
-! white
-*.color7:       #FFFFFF
-*.color15:      #FFFFFF
-
-! Italic color tmux
-URxvt*colorIT: #FFFFFF
-
 URxvt.scrollBar: false
 
-! Inconsolata Font
 URxvt*font: xft:Inconsolata:size=10, xft:Inconsolata for Powerline, xft:Noto Emoji
 URxvt*letterSpace: 1
 

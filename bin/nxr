@@ -1,8 +1,0 @@
-#!/bin/bash
-
-SOURCE=~/Desktop/root/home/$USER/Documents/NoMachine
-DEST=~/Hacklab/content/Attachments
-
-cp -r $SOURCE/* $DEST
-fd . $DEST -j 1 -e nxr -x ffmpeg -fflags +genpts -i {} -r 24 {.}.mp4
-fd . $DEST -j 1 -e nxr -e nxs -x trash {}
