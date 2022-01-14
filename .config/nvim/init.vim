@@ -10,7 +10,6 @@ call plug#begin('~/.config/nvim')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
-  Plug 't184256/vim-boring'
   Plug 'preservim/nerdcommenter'
   Plug 'plasticboy/vim-markdown'
   Plug 'jistr/vim-nerdtree-tabs'
@@ -64,6 +63,7 @@ let g:NERDSpaceDelims = 2
 
 " Markdown configuration
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_new_list_item_indent = 0
 
 " Search configuration
 set ignorecase " Ignore Case
