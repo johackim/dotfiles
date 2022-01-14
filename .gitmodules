@@ -16,12 +16,3 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/johackim/oh-my-zsh
-[submodule ".themes/Darkyan"]
-	path = .themes/Darkyan
-	url = https://github.com/johackim/Darkyan
-[submodule ".vim"]
-	path = .vim
-	url = https://github.com/johackim/dotvim
-[submodule ".config/i3blocks/blocklets"]
-	path = .config/i3blocks/blocklets
-	url = https://github.com/johackim/i3blocks-contrib
