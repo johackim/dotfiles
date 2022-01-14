@@ -1,6 +1,3 @@
-# ~/.tmuxinator/main.yml
-
----
 name: main
 root: ~/
 

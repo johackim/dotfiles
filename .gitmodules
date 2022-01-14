@@ -4,12 +4,6 @@
 [submodule ".tmux/plugins/tmux-yank"]
 	path = .tmux/plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank
-[submodule ".tmux/plugins/tmux-resurrect"]
-	path = .tmux/plugins/tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect
-[submodule ".tmux/plugins/tmux-copycat"]
-	path = .tmux/plugins/tmux-copycat
-	url = https://github.com/tmux-plugins/tmux-copycat
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
