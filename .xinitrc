@@ -1,8 +1,8 @@
 #!/bin/sh
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+[ -f ~/.Xresources ] && xrdb -merge -I "$HOME" ~/.Xresources
 
-/usr/bin/feh --bg-fill $HOME/Images/wallpaper.png
+/usr/bin/feh --bg-fill "$HOME/Images/wallpaper.png"
 
 dbus-update-activation-environment --systemd DISPLAY
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
