@@ -16,6 +16,7 @@ alias hacklab='cd ~/dev/johackim.com/content'
 alias rm='echo "This is not the command you are looking for."; false'
 alias copy='xclip -selection clipboard'
 alias cava="TERM=st-256color cava"
+alias nomachine='/usr/NX/bin/nxplayer'
 alias drawio='chromium --app=http://draw.io'
 alias standardnotes='chromium --app=https://app.standardnotes.org'
 alias spotify='chromium --app=https://open.spotify.com'
