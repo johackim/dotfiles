@@ -98,7 +98,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+b bar mode toggle
+bindsym $mod+b exec polybar-msg cmd toggle
 
 set_from_resource $bg i3wm.background
 set_from_resource $fg i3wm.foreground
