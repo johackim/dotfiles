@@ -6,7 +6,7 @@ call plug#begin('~/.config/nvim')
   Plug 'dense-analysis/ale'
   Plug 'tpope/vim-surround'
   Plug 'dylanaraps/wal.vim'
-  Plug 'ap/vim-css-color'
+  Plug 'vim-scripts/colorizer'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
