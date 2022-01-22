@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim')
   Plug 'prettier/vim-prettier'
   Plug 'matze/vim-move'
   Plug 'Raimondi/delimitMate'
+  Plug 'mattn/emmet-vim'
 call plug#end()
 
 " Key Leader
@@ -43,6 +44,7 @@ set incsearch  " Highlights search results while typing
 set hlsearch   " Highlights search results
 
 " NerdTREE configuration
+let NERDTreeShowHidden=1
 nnoremap <C-n> :NERDTreeToggle<CR>
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
