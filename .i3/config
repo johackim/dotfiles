@@ -5,7 +5,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec urxvtc --perl-lib ~/.urxvt/perl
 
-bindsym $mod+Shift+a kill
+bindsym $mod+Shift+q kill
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -114,7 +114,7 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 exec --no-startup-id wal -R
-exec --no-startup-id setxkbmap fr
+exec --no-startup-id setxkbmap us_intl,us,fr grp:rctrl_rshift_toggle
 exec --no-startup-id urxvtd -o -f -q
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
