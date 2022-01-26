@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim')
   Plug 'matze/vim-move'
   Plug 'Raimondi/delimitMate'
   Plug 'mattn/emmet-vim'
+  Plug 'amadeus/vim-mjml'
 call plug#end()
 
 " Key Leader
