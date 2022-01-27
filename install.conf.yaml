@@ -4,9 +4,9 @@
 - link:
     ~/.aliases: .aliases
     ~/bin: bin/
-    ~/Images/wallpaper.png:
+    ~/Images/wallpaper.jpg:
       create: true
-      path: Images/wallpaper.png
+      path: Images/wallpaper.jpg
     ~/.config/dunst/dunstrc:
       create: true
       path: .config/dunst/dunstrc

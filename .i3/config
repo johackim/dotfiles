@@ -160,11 +160,12 @@ for_window [instance="electron"] floating enable
 for_window [instance="gnome-calculator"] floating enable
 for_window [instance="TogglDesktop"] floating enable
 for_window [class="Cypress"] floating enable
+for_window [class="evince"] floating disable
 for_window [class="^Vlc|mpv$"] focus
 
 hide_edge_borders both
 
-bindsym Control+mod1+l exec --no-startup-id "i3lock -t -e -u -i ~/Images/wallpaper.jpg"
+bindsym Control+mod1+l exec --no-startup-id "i3lock -F -e -u -i ~/Images/wallpaper.jpg"
 bindsym 0xff61 exec --no-startup-id scrot ~/Images/Screens/screenshot_%Y_%m_%d_%H_%M_%S.png
 bindsym $mod+Shift+t exec --no-startup-id "thunar"
 
