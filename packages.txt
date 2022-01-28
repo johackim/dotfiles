@@ -246,3 +246,5 @@ surf
 gpodder
 kaffeine
 kpcli pass
+hstr
+i3lock-color
