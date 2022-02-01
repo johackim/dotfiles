@@ -17,6 +17,8 @@ call plug#begin('~/.config/nvim')
   Plug 'Raimondi/delimitMate'
   Plug 'mattn/emmet-vim'
   Plug 'amadeus/vim-mjml'
+  Plug 'yuezk/vim-js'
+  Plug 'MaxMEllon/vim-jsx-pretty'
 call plug#end()
 
 " Key Leader
