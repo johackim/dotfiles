@@ -120,6 +120,7 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
+exec --no-startup-id keynav
 exec --no-startup-id numlockx on
 exec --no-startup-id synclient TapButton1=1 TapButton2=3
 exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
@@ -185,7 +186,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 bindsym Control+Shift+Down move scratchpad
-bindsym Control+Shift+Up scratchpad show
+# bindsym Control+Shift+Up scratchpad show
+bindsym Control+Shift+question scratchpad show
 
 workspace_layout default
 default_orientation horizontal
