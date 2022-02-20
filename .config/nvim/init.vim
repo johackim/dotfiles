@@ -107,3 +107,6 @@ function! ToggleHiddenAll()
     endif
 endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
+
+" Don't add a line at the end of the file
+set noendofline binary
