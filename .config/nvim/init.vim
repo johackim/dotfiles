@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim')
   Plug 'amadeus/vim-mjml'
   Plug 'yuezk/vim-js'
   Plug 'MaxMEllon/vim-jsx-pretty'
+  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Key Leader
