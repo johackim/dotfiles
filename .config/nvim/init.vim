@@ -11,7 +11,6 @@ call plug#begin('~/.config/nvim')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
   Plug 'preservim/nerdcommenter'
-  Plug 'plasticboy/vim-markdown'
   Plug 'prettier/vim-prettier'
   Plug 'matze/vim-move'
   Plug 'Raimondi/delimitMate'
