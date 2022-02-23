@@ -31,6 +31,8 @@ set number
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
+set autoindent
 
 " Theme
 colorscheme wal
@@ -107,6 +109,3 @@ function! ToggleHiddenAll()
     endif
 endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
-
-" Don't add a line at the end of the file
-set noendofline binary
