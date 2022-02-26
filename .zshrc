@@ -4,9 +4,9 @@ ZSH_THEME="cyan"
 plugins=(zsh-syntax-highlighting)
 
 [ -f ~/.private_aliases ] && source ~/.private_aliases
+[ -f ~/.cache/wal/colors-tty.sh ] && source $HOME/.cache/wal/colors-tty.sh
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
-source $HOME/.cache/wal/colors-tty.sh
 
 export GOPATH="$HOME/dev/gocode/"
 export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/.local/bin
