@@ -35,7 +35,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+x layout toggle stacking tabbed splith
+bindsym $mod+x layout toggle stacking tabbed split
 
 bindsym $mod+Shift+space floating toggle
 
@@ -119,7 +119,7 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec --no-startup-id keynav
+exec --no-startup-id keynav daemonize
 exec --no-startup-id numlockx on
 exec --no-startup-id synclient TapButton1=1 TapButton2=3
 exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
@@ -128,6 +128,8 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id protonmail-bridge --no-window
 exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
 exec --no-startup-id xcompmgr # fix black background behind windows
+# exec --no-startup-id ~/.config/wpg/wp_init.sh
+# exec --no-startup-id wal -R
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec urxvt -e tmuxinator main'
 exec --no-startup-id i3-msg 'workspace $ws2; exec urxvt -e tmuxinator second'
@@ -156,12 +158,12 @@ for_window [class="Orage"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Wine"] floating enable
-for_window [instance="electron"] floating enable
 for_window [instance="gnome-calculator"] floating enable
 for_window [instance="TogglDesktop"] floating enable
 for_window [class="Cypress"] floating enable
 for_window [class="evince"] floating disable
 for_window [class="^Vlc|mpv$"] focus
+for_window [class="Foliate$"] floating disable
 
 hide_edge_borders both
 
