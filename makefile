@@ -3,20 +3,6 @@
 
 CURRENT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-install: check-root install-yay install-dotfiles install-packages
-
-check-root:
-	@ if [ $$(whoami) != "root" ]; then
-		@ echo "Permission denied! You must execute the script as the 'root' user."
-		@ exit 1
-	@ fi
-
-check-noroot:
-	@ if [ $$(whoami) == "root" ]; then
-		@ echo "You must not execute the script as the 'root' user."
-		@ exit 1
-	@ fi
-
 install-yay:
 	@ test -x /usr/bin/yay
 	@ if [[ $$? != 0 ]]; then
@@ -37,20 +23,7 @@ install-dotfiles:
 	@ ${CURRENT_DIR}/dotbot/bin/dotbot -d ${CURRENT_DIR} -c install.conf.yaml
 	@ echo "Dotfiles installation. Done."
 
-install-packages: check-noroot
-	@ sudo pacman -Rsn --noconfirm vim gvim
-	@ sudo pacman -S --noconfirm neovim tmux tmuxinator
-	@ yay -S --noconfirm polybar
-	# @ yay --noconfirm --needed -S $$(cat ${CURRENT_DIR}/packages.txt)
-	@ echo "Packages installation. Done."
-
-install-mpw:
-	@ wget -O /tmp/mpw.tar.gz https://ssl.masterpasswordapp.com/masterpassword-cli.tar.gz
-	@ cd /tmp && tar xvf mpw.tar.gz
-	@ cd /tmp/cli && ./build
-	@ sudo mv /tmp/cli/mpw /usr/local/bin/
-
-install-virtualbox: check-root
+install-virtualbox:
 	@ while true; do
 		@ read -r -p "Do you want install virtualbox ? [y/N] " REPLY;
 		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
