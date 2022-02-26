@@ -2,7 +2,7 @@
 
 URxvt.scrollBar: false
 
-URxvt*font: xft:Inconsolata:size=10, xft:Inconsolata for Powerline, xft:Noto Emoji
+URxvt*font: xft:Inconsolata Nerd Font Mono:size=10
 URxvt*letterSpace: 1
 
 URxvt.cursorBlink: true
