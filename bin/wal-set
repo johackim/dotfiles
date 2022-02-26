@@ -19,9 +19,6 @@ sed -i -e "s/frame_color = \"#.*\"/frame_color = \"$foreground\"/" "$DFILE"
 sed -i -e "s/foreground = \"#.*\"/foreground = \"$foreground\"/g" "$DFILE"
 pkill dunst
 
-# Update cava theme
-cp ~/.cache/wal/cava ~/.config/cava/config
-
 # Create GTK theme
 /opt/oomox/plugins/theme_oomox/change_color.sh -o Pywal /opt/oomox/scripted_colors/xresources/xresources-reverse
 

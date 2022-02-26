@@ -24,6 +24,9 @@
     ~/.config/nvim/init.vim:
       create: true
       path: .config/nvim/init.vim
+    ~/.config/wpg/wpg.conf:
+      create: true
+      path: .config/wpg/wpg.conf
     ~/.oh-my-zsh: .oh-my-zsh/
     ~/.tmux: .tmux/
     ~/.tmux.conf: .tmux.conf
