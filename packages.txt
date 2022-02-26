@@ -248,3 +248,4 @@ kaffeine
 kpcli pass
 hstr
 i3lock-color
+ack
