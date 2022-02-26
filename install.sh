@@ -47,7 +47,7 @@ sudo pacman -S --noconfirm --needed nodejs yarn > /dev/null 2>&1
 
 echo "Install gtk..."
 
-sudo pacman -S --noconfirm --needed gtk3 > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed gtk3 lxappearance > /dev/null 2>&1
 
 echo "Install polybar..."
 
@@ -64,7 +64,7 @@ wget -qO ~/Images/wallpaper-cyan.jpg https://i.imgur.com/TZJYo2k.jpeg > /dev/nul
 
 echo "Install tmux..."
 
-sudo pacman -S --noconfirm --needed tmux lsof htop progress neofetch > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed tmux xclip lsof htop progress neofetch > /dev/null 2>&1
 yay -S --sudoloop --noconfirm --needed tmuxinator > /dev/null 2>&1
 
 echo "Install chromium..."
