@@ -37,6 +37,19 @@ echo "Install dunst..."
 
 sudo pacman -S --noconfirm --needed dunst > /dev/null 2>&1
 
+echo "Install alsa..."
+
+sudo pacman -S --noconfirm --needed alsa-utils > /dev/null 2>&1
+
+echo "Install touchpad..."
+
+sudo pacman -S --noconfirm --needed xf86-input-synaptics > /dev/null 2>&1
+
+echo "Install bluetooth..."
+
+sudo pacman -S --noconfirm --needed bluez blueman bluez-hid2hci pulseaudio-bluetooth > /dev/null 2>&1
+sudo systemctl enable --now bluetooth > /dev/null 2>&1
+
 echo "Install fonts..."
 
 yay -S --sudoloop --noconfirm --needed nerd-fonts nerd-fonts-inconsolata > /dev/null 2>&1
@@ -47,12 +60,15 @@ sudo pacman -S --noconfirm --needed nodejs yarn > /dev/null 2>&1
 
 echo "Install gtk..."
 
-sudo pacman -S --noconfirm --needed gtk3 lxappearance > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed gtk3 libappindicator-gtk3 lxappearance > /dev/null 2>&1
 
 echo "Install polybar..."
 
 yay -S --sudoloop --noconfirm --needed polybar jq > /dev/null 2>&1
-touch ~/.private_aliases
+
+echo "Install networkmanager-applet..."
+
+sudo pacman -S --noconfirm --needed network-manager-applet > /dev/null 2>&1
 
 echo "Install wpg..."
 
