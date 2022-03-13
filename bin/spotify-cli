@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$HOME/.private_aliases"
+[ -f ~/.private_aliases ] && source ~/.private_aliases
 
 CLIENT_ID="${SPOTIFY_CLIENT_ID}"
 CLIENT_SECRET="${SPOTIFY_CLIENT_SECRET}"
