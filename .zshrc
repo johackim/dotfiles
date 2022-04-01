@@ -5,6 +5,7 @@ plugins=(zsh-syntax-highlighting)
 
 [ -f ~/.private_aliases ] && source ~/.private_aliases
 [ -f ~/.cache/wal/colors-tty.sh ] && source $HOME/.cache/wal/colors-tty.sh
+[ -f /opt/asdf-vm/asdf.sh ] && source /opt/asdf-vm/asdf.sh
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 
@@ -22,6 +23,3 @@ export ZSH_HIGHLIGHT_STYLES[arg0]='none'
 export ZSH_HIGHLIGHT_STYLES[precommand]='none'
 
 eval `dircolors ~/.dir_colors`
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
