@@ -52,7 +52,7 @@ sudo systemctl enable --now bluetooth > /dev/null 2>&1
 
 echo "Install fonts..."
 
-yay -S --sudoloop --noconfirm --needed nerd-fonts nerd-fonts-inconsolata noto-fonts-emoji > /dev/null 2>&1
+yay -S --sudoloop --noconfirm --needed nerd-fonts nerd-fonts-inconsolata noto-fonts-emoji fonts-noto-hinted > /dev/null 2>&1
 
 echo "Install nodejs..."
 
