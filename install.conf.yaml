@@ -14,7 +14,9 @@
     ~/.fonts: .fonts/
     ~/.gitignore_global: .gitignore_global
     ~/.gitconfig: .gitconfig
-    ~/.i3: .i3/
+    ~/.config/i3/config:
+      create: true
+      path: .config/i3/config
     ~/.config/yamllint/config:
       create: true
       path: .config/yamllint/config
