@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim')
   Plug 'yuezk/vim-js'
   Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " Key Leader
@@ -109,3 +110,7 @@ function! ToggleHiddenAll()
     endif
 endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
+
+" Vimwiki configuration
+let g:vimwiki_conceallevel = 0
+set concealcursor=nc
