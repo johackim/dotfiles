@@ -12,7 +12,6 @@ alias t='tmux attach || tmux'
 alias skyrock="mplayer -nocache http://www.skyrock.fm/stream.php/frequenceradio_128mp3.mp3"
 alias git='LANG=en_US.UTF-8 git'
 alias debian='docker run -d --name debian -it debian > /dev/null 2>&1; docker exec -e COLUMNS=$COLUMNS -e LINES=$LINES -e TERM=$TERM -it debian bash'
-alias hacklab='cd ~/dev/johackim.com/content'
 alias rm='echo "This is not the command you are looking for."; false'
 alias copy='xclip -selection clipboard'
 alias cava="TERM=st-256color cava"
