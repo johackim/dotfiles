@@ -1,5 +1,13 @@
 #!/bin/bash
 
+echo "Upgrade packages..."
+
+sudo pacman -Syyu --noconfirm > /dev/null 2>&1
+
+echo "Install base-devel..."
+
+sudo pacman -S --noconfirm --needed base-devel > /dev/null 2>&1
+
 echo "Install git..."
 
 sudo pacman -S --noconfirm --needed git > /dev/null 2>&1
@@ -39,7 +47,7 @@ sudo pacman -S --noconfirm --needed dunst > /dev/null 2>&1
 
 echo "Install alsa..."
 
-sudo pacman -S --noconfirm --needed alsa-utils > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed alsa-utils pavucontrol > /dev/null 2>&1
 
 echo "Install touchpad..."
 
