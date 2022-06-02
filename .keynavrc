@@ -11,6 +11,7 @@ b cut-left,cut-down
 n cut-right,cut-down
 shift+h move-left
 shift+j move-down
+shift+question move-up
 shift+k move-up
 shift+l move-right
 shift+y move-left,move-up

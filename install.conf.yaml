@@ -38,6 +38,7 @@
       force: true
       path: .xinitrc
     ~/.Xresources: .Xresources
+    ~/.keynavrc: .keynavrc
     ~/.zshrc:
       force: true
       path: .zshrc
