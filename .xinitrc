@@ -2,4 +2,4 @@
 
 sh "$HOME/.dotfiles/bin/init.sh"
 
-exec i3
+exec ${1:-i3}
