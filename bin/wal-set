@@ -4,7 +4,7 @@ source "$HOME/.cache/wal/colors.sh"
 
 # Update Polybar theme
 PFILE="$HOME/.config/polybar/config.ini"
-sed -i -e "s/background = #.*/background = $background/" "$PFILE"
+sed -i -e "s/background = #.*/background = #000000/" "$PFILE"
 sed -i -e "s/background-alt = #.*/background-alt = $color1/" "$PFILE"
 sed -i -e "s/foreground = #.*/foreground = $foreground/" "$PFILE"
 sed -i -e "s/foreground-alt = #.*/foreground-alt = $color8/" "$PFILE"
@@ -20,7 +20,7 @@ sed -i -e "s/foreground = \"#.*\"/foreground = \"$foreground\"/g" "$DFILE"
 pkill dunst
 
 # Create GTK theme
-/opt/oomox/plugins/theme_oomox/change_color.sh -o Pywal /opt/oomox/scripted_colors/xresources/xresources-reverse
+no_jokes=true /opt/oomox/plugins/theme_oomox/change_color.sh -o Pywal /opt/oomox/scripted_colors/xresources/xresources-reverse
 
 # Create Archdroid icons
 oomox-archdroid-icons-cli -o Pywal ~/.cache/wal/colors-oomox
