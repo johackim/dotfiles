@@ -18,7 +18,6 @@ alias cava="TERM=st-256color cava"
 alias nomachine='/usr/NX/bin/nxplayer'
 alias drawio='chromium --app=http://draw.io'
 alias standardnotes='chromium --app=https://app.standardnotes.org'
-alias spotify='chromium --app=https://open.spotify.com'
 alias grafana='chromium --app=https://grafana.ethibox.fr'
 alias toggl='chromium --app=https://toggl.com/app/timer'
 
