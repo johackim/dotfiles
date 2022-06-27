@@ -197,3 +197,5 @@ bindsym $mod+Shift+s sticky toggle
 
 smart_gaps on
 gaps inner 20
+
+bindsym $mod+y exec $HOME/bin/youtube-copy
