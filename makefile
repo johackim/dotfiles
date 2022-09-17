@@ -3,6 +3,9 @@
 
 CURRENT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
+upgrade:
+	@ sudo pacman -Syyu --noconfirm
+
 install-yay:
 	@ test -x /usr/bin/yay
 	@ if [[ $$? != 0 ]]; then
@@ -23,14 +26,15 @@ install-dotfiles:
 	@ ${CURRENT_DIR}/dotbot/bin/dotbot -d ${CURRENT_DIR} -c install.conf.yaml
 	@ echo "Dotfiles installation. Done."
 
-install-virtualbox:
+install-virtualbox: upgrade
 	@ while true; do
 		@ read -r -p "Do you want install virtualbox ? [y/N] " REPLY;
 		[[ $$REPLY == '' || $$REPLY =~ ^[Nn]$$ ]] && exit 0
 		if [[ $$REPLY =~ ^[Yy]$$ ]]; then
-			yay -S --needed --noconfirm virtualbox virtualbox-host-modules-arch virtualbox-ext-oracle
-			echo -e 'vboxdrv\nvboxnetadp\nvboxnetflt\nvboxpci' > /etc/modules-load.d/virtualbox.conf
-			/usr/bin/rcvboxdrv setup
+			yay -S --sudoloop --needed --noconfirm virtualbox virtualbox-host-modules-arch virtualbox-ext-oracle linux-headers
+			echo -e 'vboxdrv\nvboxnetadp\nvboxnetflt' | sudo tee /etc/modules-load.d/virtualbox.conf
+			sudo /usr/bin/rcvboxdrv setup
+			sudo systemctl restart systemd-modules-load.service
 			exit 0
 		fi
 	@ done
