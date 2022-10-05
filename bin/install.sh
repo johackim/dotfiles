@@ -101,5 +101,9 @@ sudo pacman -S --noconfirm --needed neovim > /dev/null 2>&1
 curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +"!yarn --cwd ~/.config/nvim/coc.nvim/" +qa! > /dev/null 2>&1
 
+echo "Install misc tools..."
+
+sudi pacman -S --noconfirm --needed scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile > /dev/null 2>&1
+
 # Reload session manually
 # Apply Gtk and icons theme with lxappearance manually
