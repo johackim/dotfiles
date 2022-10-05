@@ -20,6 +20,7 @@ alias drawio='chromium --app=http://draw.io'
 alias standardnotes='chromium --app=https://app.standardnotes.org'
 alias grafana='chromium --app=https://grafana.ethibox.fr'
 alias toggl='chromium --app=https://toggl.com/app/timer'
+alias portmaster='/opt/safing/portmaster/portmaster-start app --data=/opt/safing/portmaster'
 
 monitor() { watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
 gi() { curl -L "https://www.gitignore.io/api/$@"; }
