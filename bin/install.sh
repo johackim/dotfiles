@@ -80,10 +80,10 @@ sudo pacman -S --noconfirm --needed network-manager-applet > /dev/null 2>&1
 
 echo "Install wpg..."
 
-sudo pacman -S --noconfirm --needed python python2 python-pip python-gobject python-pillow > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed python python-pip python-gobject python-pillow > /dev/null 2>&1
 sudo pacman -S --noconfirm --needed wget feh thunar > /dev/null 2>&1
 yay -S --sudoloop --noconfirm --needed themix-full-git > /dev/null 2>&1
-sudo pip3 install pywal wpgtk > /dev/null 2>&1
+sudo pip install pywal wpgtk > /dev/null 2>&1
 wget -qO ~/Images/wallpaper-cyan.jpg https://i.imgur.com/TZJYo2k.jpeg > /dev/null 2>&1
 
 echo "Install tmux..."
