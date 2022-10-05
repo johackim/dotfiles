@@ -125,6 +125,7 @@ exec --no-startup-id synclient TapButton1=1 TapButton2=3
 exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 exec --no-startup-id telegram-desktop -startintray
 exec --no-startup-id blueman-applet
+exec --no-startup-id tockler
 exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
 exec --no-startup-id xcompmgr # fix black background behind windows
 
@@ -146,10 +147,13 @@ assign [class="TelegramDesktop"] $ws8
 assign [class="Signal"] $ws7
 assign [class="discord"] $ws8
 assign [class="Mailspring"] $ws9
+assign [class="shadow alpha"] $ws5
+assign [class="Shadow"] $ws5
 
 for_window [window_role="pop-up"] floating enable
 for_window [class="Thunar" instance="file_progress"] floating enable
 for_window [class="firefox" instance="places"] floating enable
+for_window [class="Chromium"] floating disable
 for_window [class="Display"] floating enable
 for_window [class="Orage"] floating enable
 for_window [class="feh"] floating enable
@@ -161,6 +165,7 @@ for_window [class="Cypress"] floating enable
 for_window [class="evince"] floating disable
 for_window [class="^Vlc|mpv$"] focus
 for_window [class="Foliate$"] floating disable
+for_window [class="Spotify"] move to workspace $ws4
 
 hide_edge_borders both
 
