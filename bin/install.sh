@@ -103,7 +103,7 @@ nvim +PlugInstall +"!yarn --cwd ~/.config/nvim/coc.nvim/" +qa! > /dev/null 2>&1
 
 echo "Install misc tools..."
 
-sudi pacman -S --noconfirm --needed scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile > /dev/null 2>&1
+sudi pacman -S --noconfirm --needed scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav > /dev/null 2>&1
 
 # Reload session manually
 # Apply Gtk and icons theme with lxappearance manually
