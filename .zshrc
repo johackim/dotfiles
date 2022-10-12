@@ -1,13 +1,11 @@
-export ZSH=$HOME/.oh-my-zsh
-
 ZSH_THEME="cyan"
 plugins=(zsh-syntax-highlighting)
 
+[ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.private_aliases ] && source ~/.private_aliases
-[ -f ~/.cache/wal/colors-tty.sh ] && source $HOME/.cache/wal/colors-tty.sh
+[ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
+[ -f ~/.oh-my-zsh/oh-my-zsh.sh ] && source ~/.oh-my-zsh/oh-my-zsh.sh
 [ -f /opt/asdf-vm/asdf.sh ] && source /opt/asdf-vm/asdf.sh
-source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
 
 export GOPATH="$HOME/dev/gocode/"
 export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/.local/bin

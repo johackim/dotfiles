@@ -7,22 +7,16 @@
     ~/Images/wallpaper.jpg:
       create: true
       path: Images/wallpaper.jpg
-    ~/.config/dunst/dunstrc:
-      create: true
-      path: .config/dunst/dunstrc
+    ~/.config/dunst: .config/dunst
     ~/.dir_colors: .dir_colors
     ~/.fonts: .fonts/
     ~/.gitignore_global: .gitignore_global
     ~/.gitconfig: .gitconfig
-    ~/.config/i3/config:
-      create: true
-      path: .config/i3/config
+    ~/.config/i3: .config/i3
     ~/.config/yamllint/config:
       create: true
       path: .config/yamllint/config
-    ~/.config/polybar/config.ini:
-      create: true
-      path: .config/polybar/config.ini
+    ~/.config/polybar: .config/polybar
     ~/.config/nvim/init.vim:
       create: true
       path: .config/nvim/init.vim
