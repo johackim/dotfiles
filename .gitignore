@@ -1,12 +1,3 @@
 !Images/Screens/.gitkeep
-Notes/
-.config/systemd/user/default.target.wants/
-.urxvt/urxvtd-debian
-.stfolder
-.ncmpcpp/error.log
-.mutt/accounts
-.mutt/aliases
-.mutt/passwords.gpg
-.cheat/
 .config/
 .fonts/.uuid
