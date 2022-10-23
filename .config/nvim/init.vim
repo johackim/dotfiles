@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim')
   Plug 'preservim/nerdtree'
-  Plug 'neoclide/coc.nvim'
+  Plug 'neoclide/coc.nvim', { 'tag': 'v0.0.81', 'do': 'yarn install' }
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'jamessan/vim-gnupg'
   Plug 'dense-analysis/ale'
