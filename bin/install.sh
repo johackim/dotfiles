@@ -103,12 +103,12 @@ nvim +PlugInstall +"!yarn --cwd ~/.config/nvim/coc.nvim/" +qa! > /dev/null 2>&1
 
 echo "Install spotify..."
 
-yay -S --sudoloop --noconfirm --needed spotify > /dev/null 2>&1
+yay -S --sudoloop --noconfirm --needed spotify ffmpeg-compat-57 > /dev/null 2>&1
 sudo pip install -U spotify-cli-linux dbus-python > /dev/null 2>&1
 
 echo "Install misc tools..."
 
-sudi pacman -S --noconfirm --needed scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad > /dev/null 2>&1
 
 # Reload session manually
 # Apply Gtk and icons theme with lxappearance manually
