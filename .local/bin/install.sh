@@ -30,7 +30,7 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit > /dev/null 2>&1
 echo "Install i3..."
 
 sudo pacman -S --noconfirm --needed i3-gaps dmenu xcompmgr > /dev/null 2>&1
-sudo cp ~/bin/dmenu_recent_aliases /usr/local/bin/
+sudo cp ~/.local/.bin/dmenu_recent_aliases.sh /usr/local/bin/dmenu_recent_aliases
 
 echo "Install urxvt..."
 
