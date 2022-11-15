@@ -13,6 +13,7 @@
       path: .config/yamllint/config
     ~/.config/polybar: .config/polybar
     ~/.config/mpv: .config/mpv
+    ~/.config/ncdu: .config/ncdu
     ~/.config/nvim/init.vim:
       create: true
       path: .config/nvim/init.vim
