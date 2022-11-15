@@ -169,8 +169,8 @@ for_window [class="Spotify"] move to workspace $ws4
 
 hide_edge_borders both
 
-bindsym Control+mod1+l exec --no-startup-id "i3lock -F -e -u -i ~/Images/wallpaper.jpg"
-bindsym 0xff61 exec --no-startup-id scrot ~/Images/Screens/screenshot_%Y_%m_%d_%H_%M_%S.png
+bindsym Control+mod1+l exec --no-startup-id "i3lock -F -e -u -i ~/.dotfiles/wallpaper.jpg"
+bindsym 0xff61 exec --no-startup-id scrot ~/Images/screenshot_%Y_%m_%d_%H_%M_%S.png
 bindsym $mod+Shift+t exec --no-startup-id "thunar"
 
 bindsym F12 exec --no-startup-id "amixer set Master -q 5%+"
@@ -203,4 +203,4 @@ bindsym $mod+Shift+s sticky toggle
 smart_gaps on
 gaps inner 20
 
-bindsym $mod+y exec $HOME/bin/youtube-copy
+bindsym $mod+y exec $HOME/.local/bin/youtube-copy.sh

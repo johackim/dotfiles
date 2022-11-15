@@ -1,12 +1,7 @@
----
 - clean: ['~', '~/.config']
 
 - link:
     ~/.aliases: .aliases
-    ~/bin: bin/
-    ~/Images/wallpaper.jpg:
-      create: true
-      path: Images/wallpaper.jpg
     ~/.config/dunst: .config/dunst
     ~/.dir_colors: .dir_colors
     ~/.fonts: .fonts/
@@ -24,6 +19,7 @@
     ~/.config/wpg/wpg.conf:
       create: true
       path: .config/wpg/wpg.conf
+    ~/.local/bin: .local/bin/
     ~/.oh-my-zsh: .oh-my-zsh/
     ~/.tmux: .tmux/
     ~/.tmux.conf: .tmux.conf
@@ -37,6 +33,3 @@
     ~/.zshrc:
       force: true
       path: .zshrc
-
-- shell:
-    - mkdir -p ~/Images/Screens

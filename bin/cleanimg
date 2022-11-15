@@ -1,6 +1,0 @@
-#!/bin/bash
-
-TINIFY_API_KEY=$TINIFY_API_KEY
-IMG=$1
-
-curl -s --user api:$TINIFY_API_KEY --data-binary @"$IMG" https://api.tinify.com/shrink | jq -r .output.url | xargs wget -O "$IMG"

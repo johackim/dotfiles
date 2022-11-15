@@ -8,7 +8,7 @@ plugins=(zsh-syntax-highlighting)
 [ -f /opt/asdf-vm/asdf.sh ] && source /opt/asdf-vm/asdf.sh
 
 export GOPATH="$HOME/dev/gocode/"
-export PATH=$PATH:$HOME/bin:/usr/local/bin:$GOPATH/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$HOME/.local/share/gem/ruby/3.0.0/bin
 
 export EDITOR=nvim
 export WINEARCH=win32
