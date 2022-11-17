@@ -102,14 +102,15 @@ bindsym $mod+b exec polybar-msg cmd toggle
 
 set_from_resource $bg i3wm.background
 set_from_resource $fg i3wm.foreground
-set_from_resource $bg2 i3wm.color1
+set_from_resource $c1 i3wm.color1
+set_from_resource $c8 i3wm.color8
 
-bindsym $mod+d exec --no-startup-id dmenu_recent_aliases -nf "$fg" -nb "$bg" -sb "$bg2" -sf "$fg"
+bindsym $mod+d exec --no-startup-id dmenu_recent_aliases -nf "$fg" -nb "$bg" -sb "$c1" -sf "$fg"
 
 # class                 border  bground text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $c8  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 

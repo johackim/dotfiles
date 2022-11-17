@@ -9,7 +9,7 @@ separator_height = 2
 padding = 8
 horizontal_padding = 8
 frame_width = 3
-frame_color = "#a3dfdf"
+frame_color = "#cdffff"
 separator_color = frame
 sort = yes
 idle_threshold = 120
@@ -47,17 +47,17 @@ history = ctrl+grave
 context = ctrl+shift+period
 
 [urgency_low]
-background = "#001313"
-foreground = "#a3dfdf"
+background = "#011313"
+foreground = "#cdffff"
 timeout = 10
 
 [urgency_normal]
-background = "#001313"
-foreground = "#a3dfdf"
+background = "#011313"
+foreground = "#cdffff"
 timeout = 10
 
 [urgency_critical]
-background = "#001313"
-foreground = "#a3dfdf"
-frame_color = "#a3dfdf"
+background = "#011313"
+foreground = "#cdffff"
+frame_color = "#cdffff"
 timeout = 0
