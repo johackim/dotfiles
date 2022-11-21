@@ -7,7 +7,7 @@ plugins=(zsh-syntax-highlighting)
 [ -f ~/.oh-my-zsh/oh-my-zsh.sh ] && source ~/.oh-my-zsh/oh-my-zsh.sh
 [ -f /opt/asdf-vm/asdf.sh ] && source /opt/asdf-vm/asdf.sh
 
-export GOPATH="$HOME/.go"
+export GOPATH="$HOME/.golang"
 export PATH=$PATH:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$HOME/.local/share/gem/ruby/3.0.0/bin
 
 export EDITOR=nvim
