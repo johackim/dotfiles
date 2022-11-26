@@ -30,7 +30,7 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit > /dev/null 2>&1
 echo "Install i3..."
 
 sudo pacman -S --noconfirm --needed i3-gaps dmenu xcompmgr > /dev/null 2>&1
-sudo cp ~/.local/.bin/dmenu_recent_aliases.sh /usr/local/bin/dmenu_recent_aliases
+sudo cp ~/.local/bin/dmenu_recent_aliases.sh /usr/local/bin/dmenu_recent_aliases
 
 echo "Install urxvt..."
 
@@ -81,10 +81,9 @@ sudo pacman -S --noconfirm --needed network-manager-applet > /dev/null 2>&1
 echo "Install wpg..."
 
 sudo pacman -S --noconfirm --needed python python-pip python-gobject python-pillow > /dev/null 2>&1
-sudo pacman -S --noconfirm --needed wget feh thunar > /dev/null 2>&1
-yay -S --sudoloop --noconfirm --needed themix-full-git > /dev/null 2>&1
-sudo pip install pywal wpgtk > /dev/null 2>&1
-wget -qO ~/Images/wallpaper-cyan.jpg https://i.imgur.com/TZJYo2k.jpeg > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed wget feh > /dev/null 2>&1
+sudo pip install pywal > /dev/null 2>&1
+yay -S --sudoloop --noconfirm --needed --overwrite=* themix-full-git wpgtk > /dev/null 2>&1
 
 echo "Install tmux..."
 
@@ -108,7 +107,7 @@ sudo pip install -U spotify-cli-linux dbus-python > /dev/null 2>&1
 
 echo "Install misc tools..."
 
-sudo pacman -S --noconfirm --needed scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed --overwrite=* thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad > /dev/null 2>&1
 
 # Reload session manually
 # Apply Gtk and icons theme with lxappearance manually

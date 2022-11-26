@@ -2,15 +2,18 @@
 
 - link:
     ~/.aliases: .aliases
-    ~/.config/dunst: .config/dunst
     ~/.dir_colors: .dir_colors
     ~/.fonts: .fonts/
     ~/.gitignore_global: .gitignore_global
     ~/.gitconfig: .gitconfig
-    ~/.config/i3: .config/i3
+    ~/.config/i3:
+      force: true
+      create: true
+      path: .config/i3
     ~/.config/yamllint/config:
       create: true
       path: .config/yamllint/config
+    ~/.config/dunst: .config/dunst
     ~/.config/polybar: .config/polybar
     ~/.config/mpv: .config/mpv
     ~/.config/ncdu: .config/ncdu
@@ -20,7 +23,9 @@
     ~/.config/wpg/wpg.conf:
       create: true
       path: .config/wpg/wpg.conf
-    ~/.local/bin: .local/bin/
+    ~/.local/bin:
+      create: true
+      path: .local/bin/
     ~/.oh-my-zsh: .oh-my-zsh/
     ~/.tmux: .tmux/
     ~/.tmux.conf: .tmux.conf
