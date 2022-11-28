@@ -83,7 +83,7 @@ echo "Install wpg..."
 sudo pacman -S --noconfirm --needed python python-pip python-gobject python-pillow > /dev/null 2>&1
 sudo pacman -S --noconfirm --needed wget feh > /dev/null 2>&1
 sudo pip install pywal > /dev/null 2>&1
-yay -S --sudoloop --noconfirm --needed --overwrite=* themix-full-git wpgtk > /dev/null 2>&1
+yay -S --sudoloop --noconfirm --needed --overwrite="*" themix-full-git wpgtk > /dev/null 2>&1
 
 echo "Install tmux..."
 
@@ -107,7 +107,7 @@ sudo pip install -U spotify-cli-linux dbus-python > /dev/null 2>&1
 
 echo "Install misc tools..."
 
-sudo pacman -S --noconfirm --needed --overwrite=* thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed --overwrite="*" thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad > /dev/null 2>&1
 
 # Reload session manually
 # Apply Gtk and icons theme with lxappearance manually

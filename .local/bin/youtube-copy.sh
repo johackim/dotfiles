@@ -12,6 +12,6 @@ yt-dlp -f mp4 -o '%(id)s.%(ext)s' --skip-download --print-json --no-warnings "$u
 title=$(jq -r '.title' /tmp/.metadata 2>/dev/null)
 uploader=$(jq -r '.uploader' /tmp/.metadata 2>/dev/null)
 
-echo "[$uploader - $title]($url)"| xclip -selection clipboard
+echo "[$uploader - $title]($url)" | xclip -selection clipboard
 
 notify-send -t 3000 "Video copied" "$(xclip -o)";
