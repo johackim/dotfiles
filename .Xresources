@@ -8,7 +8,7 @@ URxvt*letterSpace: 1
 URxvt.cursorBlink: true
 
 URxvt*.transparent: true
-URxvt*.shading: 30
+URxvt*.shading: 20
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false
