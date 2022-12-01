@@ -171,7 +171,7 @@ for_window [class="Spotify"] move to workspace $ws4
 hide_edge_borders both
 
 bindsym Control+mod1+l exec --no-startup-id "i3lock -F -e -u -i ~/.dotfiles/wallpaper.jpg"
-bindsym 0xff61 exec --no-startup-id scrot ~/Images/screenshot_%Y_%m_%d_%H_%M_%S.png
+bindsym 0xff61 exec --no-startup-id scrot ~/Downloads/screenshot_%Y_%m_%d_%H_%M_%S.png
 bindsym $mod+Shift+t exec --no-startup-id "thunar"
 
 bindsym F12 exec --no-startup-id "amixer set Master -q 5%+"
