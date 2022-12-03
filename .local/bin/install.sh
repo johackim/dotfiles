@@ -60,7 +60,7 @@ sudo systemctl enable --now bluetooth > /dev/null 2>&1
 
 echo "Install fonts..."
 
-yay -S --sudoloop --noconfirm --needed nerd-fonts nerd-fonts-inconsolata noto-fonts-emoji fonts-noto-hinted > /dev/null 2>&1
+yay -S --sudoloop --noconfirm --needed nerd-fonts nerd-fonts-inconsolata noto-fonts-emoji fonts-noto-hinted gnu-free-fonts ttf-ms-fonts > /dev/null 2>&1
 
 echo "Install nodejs..."
 
@@ -96,9 +96,10 @@ sudo pacman -S --noconfirm --needed chromium > /dev/null 2>&1
 
 echo "Install neovim..."
 
-sudo pacman -S --noconfirm --needed neovim > /dev/null 2>&1
+sudo wget -O /usr/local/bin/nvim https://github.com/neovim/neovim/releases/download/v0.7.2/nvim.appimage
+sudo chmod +x /usr/local/bin/nvim
 curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugInstall +"!yarn --cwd ~/.config/nvim/coc.nvim/" +qa! > /dev/null 2>&1
+nvim +PlugInstall +qa! > /dev/null 2>&1
 
 echo "Install spotify..."
 
@@ -107,7 +108,9 @@ sudo pip install -U spotify-cli-linux dbus-python > /dev/null 2>&1
 
 echo "Install misc tools..."
 
-sudo pacman -S --noconfirm --needed --overwrite="*" thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad cronie signal-desktop qbittorrent firefox docker evince calibre the_silver_searcher telegram-desktop mpv aria2 > /dev/null 2>&1
+yay -S --sudoloop --noconfirm --needed masterpassword-cli portmaster-stub-bin > /dev/null 2>&1
+sudo systemctl enable --now cronie portmaster docker > /dev/null 2>&1
 
 # Reload session manually
 # Apply Gtk and icons theme with lxappearance manually
