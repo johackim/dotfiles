@@ -27,6 +27,7 @@
       create: true
       path: .local/bin/
     ~/.oh-my-zsh: .oh-my-zsh/
+    ~/.profile: .profile
     ~/.tmux: .tmux/
     ~/.tmux.conf: .tmux.conf
     ~/.tmuxinator: .tmuxinator
