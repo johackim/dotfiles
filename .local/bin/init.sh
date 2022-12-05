@@ -5,6 +5,7 @@
 dbus-update-activation-environment --systemd DISPLAY
 eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
 export SSH_AUTH_SOCK
+xrandr -s 1920x1080
 
 wpg -a ~/.dotfiles/wallpaper.jpg > /dev/null 2>&1
 wpg -s wallpaper.jpg > /dev/null 2>&1
