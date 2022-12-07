@@ -124,7 +124,7 @@ exec --no-startup-id keynav daemonize
 exec --no-startup-id numlockx on
 exec --no-startup-id synclient TapButton1=1 TapButton2=3
 exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-exec --no-startup-id qbittorrent
+exec --no-startup-id /usr/bin/polkit-dumb-agent
 exec --no-startup-id blueman-applet
 exec --no-startup-id tockler
 exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
