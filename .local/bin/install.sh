@@ -96,9 +96,10 @@ sudo pacman -S --noconfirm --needed chromium > /dev/null 2>&1
 
 echo "Install neovim..."
 
-sudo wget -O /usr/local/bin/nvim https://github.com/neovim/neovim/releases/download/v0.7.2/nvim.appimage
-sudo chmod +x /usr/local/bin/nvim
-curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sudo pacman -S --noconfirm --needed fuse > /dev/null 2>&1
+sudo wget -O /usr/local/bin/nvim https://github.com/neovim/neovim/releases/download/v0.7.2/nvim.appimage > /dev/null 2>&1
+sudo chmod +x /usr/local/bin/nvim > /dev/null 2>&1
+curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > /dev/null 2>&1
 nvim +PlugInstall +qa! > /dev/null 2>&1
 
 echo "Install spotify..."
@@ -111,6 +112,7 @@ echo "Install misc tools..."
 sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad cronie signal-desktop qbittorrent firefox docker evince calibre the_silver_searcher telegram-desktop mpv aria2 > /dev/null 2>&1
 yay -S --sudoloop --noconfirm --needed masterpassword-cli portmaster-stub-bin polkit-dumb-agent-git > /dev/null 2>&1
 sudo systemctl enable --now cronie portmaster docker > /dev/null 2>&1
+sudo -E pip install yt-dlp httpie > /dev/null 2>&1
 
 # Reload session manually
 # Apply Gtk and icons theme with lxappearance manually
