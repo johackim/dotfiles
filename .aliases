@@ -24,8 +24,8 @@ alias portmaster='/opt/safing/portmaster/portmaster-start app --data=/opt/safing
 
 monitor() { watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
 gi() { curl -L "https://www.gitignore.io/api/$@"; }
-youtube-dl-mp3() { youtube-dl $1 --extract-audio --audio-format mp3; }
-streamer() { youtube-dl -o - "$1" | mpv -; }
+yt-dlp-mp3() { yt-dlp $1 --extract-audio --audio-format mp3; }
+streamer() { yt-dlp -o - "$1" | mpv -; }
 detach() { sudo umount -l "/dev/"$1"1"; udisksctl power-off -b "/dev/$1"; }
 debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
 drm() { docker rm $(docker ps -a | grep 'Exited\|Created' | awk '{print $1}') > /dev/null 2>&1; }
