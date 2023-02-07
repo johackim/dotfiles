@@ -109,7 +109,7 @@ sudo pip install -U spotify-cli-linux dbus-python > /dev/null 2>&1
 
 echo "Install misc tools..."
 
-sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad cronie signal-desktop qbittorrent firefox docker evince calibre the_silver_searcher telegram-desktop mpv aria2 > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools keynav mousepad cronie signal-desktop qbittorrent firefox docker evince calibre the_silver_searcher telegram-desktop mpv aria2 ncdu brightnessctl > /dev/null 2>&1
 yay -S --sudoloop --noconfirm --needed masterpassword-cli portmaster-stub-bin polkit-dumb-agent-git > /dev/null 2>&1
 sudo systemctl enable --now cronie portmaster docker > /dev/null 2>&1
 sudo -E pip install yt-dlp httpie > /dev/null 2>&1
