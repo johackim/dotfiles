@@ -185,12 +185,12 @@ bindsym XF86AudioPlay exec --no-startup-id spotifycli --playpause
 bindsym XF86AudioNext exec --no-startup-id spotifycli --next
 bindsym XF86AudioPrev exec --no-startup-id spotifycli --prev
 bindsym XF86AudioStop exec --no-startup-id spotifycli --pause
-bindsym $mod+Control+Down exec --no-startup-id spotifycli --playpause
-bindsym $mod+Control+Right exec --no-startup-id spotifycli --next
-bindsym $mod+Control+Left exec --no-startup-id spotifycli --prev
+bindsym $mod+Control+Down exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym $mod+Control+Right exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym $mod+Control+Left exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
 
 bindsym Control+Shift+Down move scratchpad
 bindsym Control+Shift+Up scratchpad show
