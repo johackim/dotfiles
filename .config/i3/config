@@ -25,6 +25,7 @@ bindsym $mod+Shift+m move right
 bindsym $mod+Shift+Left move left 50
 bindsym $mod+Shift+Down move down 50
 bindsym $mod+Shift+Up move up 50
+bindsym $mod+Shift+question move up 50
 bindsym $mod+Shift+Right move right 50
 
 bindsym $mod+h split h
