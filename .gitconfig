@@ -23,3 +23,5 @@
 [user]
     name = johackim
     email = contact@johackim.com
+[include]
+    path = ~/.gitconfig_sensitive

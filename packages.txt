@@ -249,3 +249,4 @@ kpcli pass
 hstr
 i3lock-color
 ack
+calibre-installer

@@ -6,7 +6,14 @@ date=${3:-$(date +"%Y-%m-%d" --date='tomorrow')}
 endpoint="https://s3.fr-par.scw.cloud"
 
 objects=$(aws --endpoint-url "$endpoint" s3api list-object-versions --bucket "$bucket" --prefix "$prefix")
-data=$(echo "$objects" | jq ".Versions | sort_by(.Size) | reverse | .[] | select(.LastModified < \"$date\") | {VersionId, Key}")
+
+if jq -e '.Versions' <<< "$objects" > /dev/null; then
+    field=".Versions"
+else
+    field=".DeleteMarkers"
+fi
+
+data=$(echo "$objects" | jq "$field | sort_by(.Size) | reverse | .[] | select(.LastModified < \"$date\") | {VersionId, Key}")
 
 for row in $(echo "$data" | jq -s '.' | jq -r '.[] | @base64'); do
     key=$(echo "$row" | base64 --decode | jq -r ".Key")

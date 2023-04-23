@@ -128,6 +128,7 @@ exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=p
 exec --no-startup-id /usr/bin/polkit-dumb-agent
 exec --no-startup-id blueman-applet
 exec --no-startup-id tockler
+exec --no-startup-id calibre --start-in-tray
 exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
 exec --no-startup-id polybar-msg cmd restart
 exec --no-startup-id xcompmgr # fix black background behind windows
@@ -140,7 +141,7 @@ assign [class="firefox" instance="Navigator"] $ws3
 assign [class="Chromium" title="grafana.ethibox.fr"] $ws4
 assign [class="Chromium" title="open.spotify.com"] $ws10
 assign [class="Chromium" title="app.standardnotes.org"] $ws10
-assign [class="Chromium"] $ws3
+assign [class="Chromium|Google-chrome"] $ws3
 assign [class="obsidian"] $ws6
 assign [class="Nxplayer.bin"] $ws10
 assign [class="calibre"] $ws4
@@ -152,6 +153,7 @@ assign [class="discord"] $ws8
 assign [class="Mailspring"] $ws9
 assign [class="shadow alpha"] $ws5
 assign [class="Shadow"] $ws5
+assign [class="Cypress"] $ws3
 
 for_window [window_role="pop-up"] floating enable
 for_window [class="Thunar" instance="file_progress"] floating enable
@@ -169,6 +171,9 @@ for_window [class="evince"] floating disable
 for_window [class="^Vlc|mpv$"] focus
 for_window [class="Foliate$"] floating disable
 for_window [class="Spotify"] move to workspace $ws4
+for_window [class="Cypress"] floating disable
+for_window [class="Electron"] floating disable
+for_window [class="obsidian"] floating disable
 
 hide_edge_borders both
 

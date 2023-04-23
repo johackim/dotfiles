@@ -54,3 +54,5 @@ Thumbs.db
 *.bak
 _assets
 TODO.md
+.env
+yarn.lock
