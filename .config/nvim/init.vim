@@ -20,6 +20,11 @@ call plug#begin('~/.config/nvim')
   Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'ryanoasis/vim-devicons'
   Plug 'vimwiki/vimwiki'
+  Plug 'github/copilot.vim'
+  Plug 'instant-markdown/vim-instant-markdown'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'roobert/tailwindcss-colorizer-cmp.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " Key Leader
@@ -114,3 +119,9 @@ nnoremap <S-h> :call ToggleHiddenAll()<CR>
 " Vimwiki configuration
 let g:vimwiki_conceallevel = 0
 set concealcursor=nc
+
+" Vim-instant-markdown configuration
+let g:instant_markdown_autostart = 0
+
+" Github copilot configuration
+let g:copilot_enabled = v:false
