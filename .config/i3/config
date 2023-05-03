@@ -212,3 +212,5 @@ smart_gaps on
 gaps inner 20
 
 bindsym $mod+y exec $HOME/.local/bin/youtube-copy.sh
+
+include ~/.config/i3/custom.conf
