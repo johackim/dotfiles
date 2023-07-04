@@ -4,7 +4,7 @@ if [ -f "$1.srt" ]; then
     exit 1
 fi
 
-FILENAME=$(basename "$1")
+FILENAME=$(basename "${1%.*}")
 
 if [[ $1 =~ ^https?:// ]]; then
     FILENAME=$(yt-dlp --get-title $1)
