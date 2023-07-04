@@ -250,3 +250,4 @@ hstr
 i3lock-color
 ack
 calibre-installer
+clipboard
