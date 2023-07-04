@@ -125,3 +125,8 @@ let g:instant_markdown_autostart = 0
 
 " Github copilot configuration
 let g:copilot_enabled = v:false
+
+" Ale
+nnoremap <leader>f :ALEFix<CR>
+let g:ale_fix_on_save = 1
+let g:ale_fixers = { 'javascript': ['eslint'] }
