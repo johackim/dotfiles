@@ -17,4 +17,4 @@ fi
 openai api audio.transcribe -f "${FILENAME}.mp3" --response-format srt > "${FILENAME}.srt" 2>&1
 sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "${FILENAME}.srt"
 sed -i '/Upload progress/d' "${FILENAME}.srt"
-trash "${FILENAME}.mp3"
+rm "${FILENAME}.mp3"
