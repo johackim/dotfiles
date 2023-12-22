@@ -8,8 +8,9 @@ plugins=(zsh-syntax-highlighting)
 [ -f /opt/asdf-vm/asdf.sh ] && source /opt/asdf-vm/asdf.sh
 
 export GOPATH="$HOME/.golang"
-export PATH=$PATH:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$HOME/.local/share/gem/ruby/3.0.0/bin
+export PATH=$PATH:$HOME/.local/bin:/usr/local/bin:$GOPATH/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/.cargo/bin
 
+export GPG_TTY=tty
 export EDITOR=nvim
 export WINEARCH=win32
 export WINEPREFIX=~/.wine32
