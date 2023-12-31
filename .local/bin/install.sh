@@ -103,8 +103,8 @@ nvim +PlugInstall +qa! > /dev/null 2>&1
 
 echo "Install spotify..."
 
-yay -S --sudoloop --noconfirm --needed spotify ffmpeg-compat-57 > /dev/null 2>&1
-sudo pip install -U spotify-cli-linux dbus-python --break-system-packages > /dev/null 2>&1
+yay -S --sudoloop --noconfirm --needed spotify spotx-git ffmpeg-compat-57 > /dev/null 2>&1
+sudo pip install -U spotify-cli-linux dbus-python bs4 --break-system-packages > /dev/null 2>&1
 
 echo "Install misc tools..."
 
