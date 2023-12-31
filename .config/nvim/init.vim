@@ -125,6 +125,7 @@ let g:instant_markdown_autostart = 0
 
 " Github copilot configuration
 let g:copilot_enabled = v:false
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 
 " Ale
 nnoremap <leader>f :ALEFix<CR>
