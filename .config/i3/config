@@ -181,12 +181,12 @@ bindsym Control+mod1+l exec --no-startup-id "i3lock -F -e -u -i ~/.dotfiles/wall
 bindsym 0xff61 exec --no-startup-id scrot ~/Downloads/screenshot_%Y_%m_%d_%H_%M_%S.png
 bindsym $mod+Shift+t exec --no-startup-id "thunar"
 
-bindsym F12 exec --no-startup-id "amixer set Master -q 5%+"
-bindsym F11 exec --no-startup-id "amixer set Master -q 5%-"
-bindsym F10 exec --no-startup-id "amixer -q sset Master,0 toggle"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master -q 5%+"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master -q 5%-"
-bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master,0 toggle"
+bindsym F9 exec --no-startup-id "spotifycli --prev"
+bindsym F10 exec --no-startup-id "spotifycli --playpause"
+bindsym F11 exec --no-startup-id "spotifycli --next"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle"
 bindsym XF86AudioPlay exec --no-startup-id spotifycli --playpause
 bindsym XF86AudioNext exec --no-startup-id spotifycli --next
 bindsym XF86AudioPrev exec --no-startup-id spotifycli --prev

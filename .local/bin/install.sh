@@ -45,9 +45,9 @@ echo "Install dunst..."
 
 sudo pacman -S --noconfirm --needed dunst > /dev/null 2>&1
 
-echo "Install alsa..."
+echo "Install pipewire..."
 
-sudo pacman -S --noconfirm --needed alsa-utils pavucontrol > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio > /dev/null 2>&1
 
 echo "Install touchpad..."
 
@@ -55,7 +55,7 @@ sudo pacman -S --noconfirm --needed xf86-input-synaptics > /dev/null 2>&1
 
 echo "Install bluetooth..."
 
-sudo pacman -S --noconfirm --needed bluez blueman bluez-hid2hci pulseaudio-bluetooth > /dev/null 2>&1
+sudo pacman -S --noconfirm --needed bluez blueman bluez-hid2hci > /dev/null 2>&1
 sudo systemctl enable --now bluetooth > /dev/null 2>&1
 
 echo "Install fonts..."
