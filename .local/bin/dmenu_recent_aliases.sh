@@ -3,6 +3,7 @@ cache=~/.cache/dmenu_run
 freq=~/.dmenu_history
 source ~/.aliases
 source ~/.private_aliases
+source ~/.zshrc
 echo > $freq # Disable history
 
 case "$1" in 
