@@ -131,3 +131,6 @@ imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 nnoremap <leader>f :ALEFix<CR>
 let g:ale_fix_on_save = 1
 let g:ale_fixers = { 'javascript': ['eslint'] }
+
+" Disable mouse
+set mouse=
