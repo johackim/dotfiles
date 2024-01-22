@@ -21,7 +21,7 @@ call plug#begin('~/.config/nvim')
   Plug 'ryanoasis/vim-devicons'
   Plug 'vimwiki/vimwiki'
   Plug 'github/copilot.vim'
-  Plug 'instant-markdown/vim-instant-markdown'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
   Plug 'hrsh7th/nvim-cmp'
   Plug 'roobert/tailwindcss-colorizer-cmp.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
