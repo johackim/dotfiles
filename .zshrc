@@ -1,4 +1,5 @@
 ZSH_THEME="cyan"
+DISABLE_AUTO_UPDATE=true
 plugins=(zsh-syntax-highlighting)
 
 [ -f ~/.aliases ] && source ~/.aliases
