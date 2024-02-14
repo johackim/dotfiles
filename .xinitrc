@@ -2,4 +2,4 @@
 
 sh "$HOME/.local/bin/init.sh"
 
-exec ${1:-i3}
+exec ${2:-i3}
