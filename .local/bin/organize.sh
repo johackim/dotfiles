@@ -13,7 +13,7 @@ mkdir -p videos
 fd -j1 -d1 -eavi -emkv -em4v -ewebm -emp4 -esrt -eogv -x mv -n {} videos
 
 mkdir -p archives
-fd -j1 -d1 -ezip -etar.gz -etgz -egz -ebundle -eapk -erar -e7z -eiso -eexe -ebz2 -etar -eimg -x mv -n {} archives
+fd -j1 -d1 -ezip -etar.gz -etgz -egz -ebundle -eapk -erar -e7z -eiso -eexe -ebz2 -etar -eimg -exz -x mv -n {} archives
 
 mkdir -p music
 fd -j1 -d1 -ewav -emp3 -x mv {} music
