@@ -115,7 +115,6 @@ client.unfocused        $bg     $bg     $c8  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
-exec --no-startup-id setxkbmap us_intl,us,fr grp:rctrl_rshift_toggle
 exec --no-startup-id urxvtd -o -f -q
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
@@ -123,7 +122,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id keynav daemonize
 exec --no-startup-id numlockx on
-exec --no-startup-id synclient TapButton1=1 TapButton2=3
 exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 exec --no-startup-id /usr/bin/polkit-dumb-agent
 exec --no-startup-id blueman-applet
