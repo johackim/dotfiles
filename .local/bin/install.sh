@@ -101,16 +101,16 @@ sudo pacman -S --noconfirm --needed neovim
 curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qa!
 
-echo "Install spotify..."
-
-yay -S --sudoloop --noconfirm --needed spotify spotx-git ffmpeg-compat-57
-
 echo "Install misc tools..."
 
 sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools mousepad cronie signal-desktop qbittorrent firefox docker evince calibre the_silver_searcher telegram-desktop mpv aria2 ncdu brightnessctl cronie polkit-kde-agent arandr i3status
 yay -S --sudoloop --noconfirm --needed masterpassword-cli keynav
 sudo systemctl enable --now cronie docker
 sudo pip install yt-dlp httpie --break-system-packages
+
+echo "Install spotify..."
+
+yay -S --sudoloop --noconfirm --needed spotify spotx-git ffmpeg-compat-57
 
 # Reload session manually
 # Apply Gtk and icons theme with lxappearance manually
