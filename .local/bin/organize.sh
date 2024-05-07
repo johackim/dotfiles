@@ -15,11 +15,11 @@ fd -j1 -d1 -eavi -emkv -em4v -ewebm -emp4 -esrt -eogv -x mv -n {} videos
 mkdir -p archives
 fd -j1 -d1 -ezip -etar.gz -etgz -egz -ebundle -eapk -erar -e7z -eiso -eexe -ebz2 -etar -eimg -exz -eab -x mv -n {} archives
 
-mkdir -p music
-fd -j1 -d1 -ewav -emp3 -x mv {} music
+mkdir -p audio
+fd -j1 -d1 -ewav -emp3 -x mv {} audio
 
 mkdir -p dossiers
-find . -maxdepth 1 -type d ! -name images ! -name archives ! -name textes ! -name music ! -name videos ! -name torrents -exec mv {} dossiers \; &>/dev/null
+find . -maxdepth 1 -type d ! -name images ! -name archives ! -name textes ! -name audio ! -name videos ! -name torrents -exec mv {} dossiers \; &>/dev/null
 
 find . -maxdepth 1 -type d -empty -delete
 find . -name "*.part" -delete
