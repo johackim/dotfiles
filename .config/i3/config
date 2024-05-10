@@ -126,7 +126,6 @@ exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=p
 exec --no-startup-id /usr/bin/polkit-dumb-agent
 exec --no-startup-id blueman-applet
 exec --no-startup-id tockler
-exec --no-startup-id calibre --start-in-tray
 exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
 exec --no-startup-id polybar-msg cmd restart
 exec --no-startup-id xcompmgr # fix black background behind windows
