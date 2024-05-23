@@ -2,13 +2,13 @@ respawn-window -k
 rename-window "main"
 
 selectp -t 0
-splitw -h -p 50
+splitw -h -l 50%
  
 selectp -t 1
-splitw -v -p 40
-splitw -v -p 15
+splitw -v -l 40%
+splitw -v -l 15%
 selectp -t 0
-splitw -v -p 20
+splitw -v -l 20%
 selectp -t 0
 
 send-keys -R -t 0 'clear;neofetch' enter
