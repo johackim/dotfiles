@@ -35,7 +35,7 @@ if [[ $PARAM =~ ^https?:// ]]; then
 else
     [ ! -f "$PARAM" ] && error_exit "File not found: $PARAM"
     echo "Converting to mp3..."
-    ffmpeg -i "$PARAM" -fs 25M -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 "${FILENAME}.mp3" > /dev/null 2>&1
+    [ -f "${FILENAME}.mp3" ] || ffmpeg -i "$PARAM" -fs 25M -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 "${FILENAME}.mp3" > /dev/null 2>&1
 fi
 
 echo "Uploading mp3..."

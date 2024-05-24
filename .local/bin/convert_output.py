@@ -36,6 +36,13 @@ class SrtFormatter:
     def format_chunk(cls, chunk, index):
         text = chunk['text']
         start, end = chunk['timestamp'][0], chunk['timestamp'][1]
+
+        if start is None:
+            start = 0
+
+        if end is None:
+            end = 0
+
         start_format, end_format = cls.format_seconds(start), cls.format_seconds(end)
         return f"{index}\n{start_format} --> {end_format}\n{text}\n\n"
 
