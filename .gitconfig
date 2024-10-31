@@ -1,27 +1,16 @@
 [core]
     excludesfile = ~/.gitignore_global
     quotePath = false
+
 [color]
     ui = true
+
 [alias]
-    s = status -sb
-    l = log --graph --oneline
-    moustache = stash
-    poule = pull
-    vommit = commit
-    yolo = push --force
-    cleanup = "!f() { git branch --merged | grep -v '*' | xargs -n 1 git branch -d; git fetch -p; }; f"
-    undo = reset --soft HEAD^
-    prune = fetch --prune
     url = config --get remote.origin.url
-[diff]
-    tool = icdiff
-[difftool]
-    prompt = false
-[difftool "icdiff"]
-    cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
+
 [user]
     name = johackim
     email = contact@johackim.com
+
 [include]
     path = ~/.gitconfig_sensitive
