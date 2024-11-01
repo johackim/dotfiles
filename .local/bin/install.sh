@@ -110,7 +110,11 @@ sudo pip install yt-dlp httpie --break-system-packages
 
 echo "Install spotify..."
 
-yay -S --sudoloop --noconfirm --needed spotify spotx-git ffmpeg-compat-57
+yay -S --sudoloop --noconfirm --needed spotify spotx-git
+
+echo "Install themix-gui"
+
+yay -S --sudoloop --noconfirm --needed themix-full-git
 
 # Reload session manually
 # Apply Gtk and icons theme with lxappearance manually
