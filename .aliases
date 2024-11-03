@@ -59,3 +59,13 @@ screenshot () {
     pageres --filename=screenshot -d 5 --overwrite $1
     imgur upload screenshot.png
 }
+
+similarweb () {
+    curl -s -H "x-rapidapi-key: $RAPIDAPI_KEY" "https://similar-web.p.rapidapi.com/get-analysis?domain=$1" \
+    | jq -r '.GlobalRank.Rank' | numfmt --grouping
+}
+
+competitors () {
+    curl -s -H "x-rapidapi-key: $RAPIDAPI_KEY" "https://similar-web.p.rapidapi.com/get-similar-sites?domain=$1" \
+    | jq -r '(.SimilarSites // []) | map({Site, GlobalRank}) | sort_by(.GlobalRank) | reverse[] | "\(.Site) (\(.GlobalRank))"'
+}
