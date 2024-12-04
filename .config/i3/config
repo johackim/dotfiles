@@ -123,9 +123,8 @@ exec --no-startup-id dunst
 exec --no-startup-id keynav daemonize
 exec --no-startup-id numlockx on
 exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-exec --no-startup-id /usr/bin/polkit-dumb-agent
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id blueman-applet
-exec --no-startup-id tockler
 exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
 exec --no-startup-id polybar-msg cmd restart
 
@@ -135,8 +134,6 @@ exec --no-startup-id i3-msg 'workspace $ws3; exec chromium'
 
 assign [class="firefox" instance="Navigator"] $ws3
 assign [class="Chromium" title="grafana.ethibox.fr"] $ws4
-assign [class="Chromium" title="open.spotify.com"] $ws10
-assign [class="Chromium" title="app.standardnotes.org"] $ws10
 assign [class="Chromium|Google-chrome"] $ws3
 assign [class="obsidian"] $ws6
 assign [class="Nxplayer.bin"] $ws10
@@ -166,31 +163,24 @@ for_window [class="Cypress"] floating enable
 for_window [class="evince"] floating disable
 for_window [class="^Vlc|mpv$"] focus
 for_window [class="Foliate$"] floating disable
-for_window [class="Spotify"] move to workspace $ws4
+for_window [class="Spotify"] move to workspace $ws5
 for_window [class="Cypress"] floating disable
 for_window [class="Electron"] floating disable
 for_window [class="obsidian"] floating disable
 
 hide_edge_borders both
 
-bindsym Control+mod1+l exec --no-startup-id "i3lock -F -e -u -i ~/.dotfiles/wallpaper.jpg"
+bindsym Control+mod1+l exec --no-startup-id "i3lock -c 00000000 -F -e -u -i ~/.dotfiles/wallpaper.jpg"
 bindsym 0xff61 exec --no-startup-id scrot ~/Downloads/screenshot_%Y_%m_%d_%H_%M_%S.png
 bindsym $mod+Shift+t exec --no-startup-id "thunar"
 
-bindsym F9 exec --no-startup-id "spotifycli --prev"
-bindsym F10 exec --no-startup-id "spotifycli --playpause"
-bindsym F11 exec --no-startup-id "spotifycli --next"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%"
-bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle"
-bindsym XF86AudioPlay exec --no-startup-id spotifycli --playpause
-bindsym XF86AudioNext exec --no-startup-id spotifycli --next
-bindsym XF86AudioPrev exec --no-startup-id spotifycli --prev
-bindsym XF86AudioStop exec --no-startup-id spotifycli --pause
 bindsym $mod+Control+Down exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym $mod+Control+Right exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym $mod+Control+Left exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle"
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
 
