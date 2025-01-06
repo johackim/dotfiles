@@ -103,7 +103,7 @@ nvim +PlugInstall +sleep 3 +qa!
 
 echo "Install misc tools..."
 
-sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl cronie polkit-kde-agent arandr i3status gnome-calculator
+sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar thunar-volman scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl cronie polkit-kde-agent arandr i3status gnome-calculator gcolor3 flameshot
 yay -S --sudoloop --noconfirm --needed masterpassword-cli keynav calibre-installer
 sudo systemctl enable --now cronie docker
 sudo pip install yt-dlp httpie --break-system-packages
