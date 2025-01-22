@@ -30,6 +30,7 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit
 echo "Install i3..."
 
 sudo pacman -S --noconfirm --needed i3-gaps dmenu xcompmgr
+yay -S --sudoloop --noconfirm --needed i3lock-color
 sudo cp ~/.local/bin/dmenu_recent_aliases.sh /usr/local/bin/dmenu_recent_aliases
 
 echo "Install urxvt..."
@@ -103,7 +104,7 @@ nvim +PlugInstall +sleep 3 +qa!
 
 echo "Install misc tools..."
 
-sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar thunar-volman scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl cronie polkit-kde-agent arandr i3status gnome-calculator gcolor3 flameshot
+sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar thunar-volman scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl cronie polkit-kde-agent arandr i3status gnome-calculator gcolor3 flameshot file-roller
 yay -S --sudoloop --noconfirm --needed masterpassword-cli keynav calibre-installer
 sudo systemctl enable --now cronie docker
 sudo pip install yt-dlp httpie --break-system-packages
