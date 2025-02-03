@@ -62,7 +62,7 @@ screenshot () {
 
 similarweb () {
     curl -s -H "x-rapidapi-key: $RAPIDAPI_KEY" "https://similar-web.p.rapidapi.com/get-analysis?domain=$1" \
-    | jq -r '.GlobalRank.Rank' | numfmt --grouping
+    | jq -r '(.GlobalRank.Rank // 0)' | numfmt --grouping
 }
 
 competitors () {
