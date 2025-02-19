@@ -167,6 +167,7 @@ for_window [class="Spotify"] move to workspace $ws5
 for_window [class="Cypress"] floating disable
 for_window [class="Electron"] floating disable
 for_window [class="obsidian"] floating disable
+for_window [class="Protonvpn-app"] floating enable
 
 hide_edge_borders both
 
