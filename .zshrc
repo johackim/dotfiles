@@ -12,7 +12,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/var/lib/snapd/snap/bin/
 export PATH=$PATH:$HOME/.local/bin:/usr/local/bin
-export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
+export PATH=$PATH:$HOME/.local/share/gem/ruby/3.4.0/bin
 
 export ASDF_DATA_DIR=$HOME/.asdf
 export PATH=$PATH:$ASDF_DATA_DIR/shims
