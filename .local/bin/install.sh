@@ -48,7 +48,7 @@ sudo pacman -S --noconfirm --needed dunst
 
 echo "Install pipewire..."
 
-sudo pacman -S --noconfirm --needed pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio pavucontrol
+sudo pacman -S --noconfirm --needed pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio pavucontrol wireplumber
 
 echo "Install touchpad..."
 
@@ -80,11 +80,14 @@ echo "Install networkmanager-applet..."
 
 sudo pacman -S --noconfirm --needed network-manager-applet
 
+echo "Install uv..."
+
+sudo pacman -S --noconfirm --needed uv
+
 echo "Install wpg..."
 
-sudo pacman -S --noconfirm --needed python python-pip python-gobject python-pillow
 sudo pacman -S --noconfirm --needed wget feh
-sudo pip install pywal --break-system-packages
+uv tool install pywal
 yay -S --sudoloop --noconfirm --needed --overwrite="*" wpgtk
 
 echo "Install tmux..."
@@ -104,10 +107,11 @@ nvim +PlugInstall +sleep 3 +qa!
 
 echo "Install misc tools..."
 
-sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar thunar-volman scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl cronie polkit-kde-agent arandr i3status gnome-calculator gcolor3 flameshot file-roller
+sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar thunar-volman gvfs-mtp scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl cronie polkit-kde-agent arandr i3status gnome-calculator gcolor3 flameshot file-roller
 yay -S --sudoloop --noconfirm --needed masterpassword-cli keynav calibre-installer
 sudo systemctl enable --now cronie docker
-sudo pip install yt-dlp httpie --break-system-packages
+uv tool install yt-dlp
+uv tool install httpie
 
 echo "Install spotify..."
 
