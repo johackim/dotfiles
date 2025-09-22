@@ -92,7 +92,7 @@ yay -S --sudoloop --noconfirm --needed --overwrite="*" wpgtk
 
 echo "Install tmux..."
 
-sudo pacman -S --noconfirm --needed tmux xclip lsof htop progress neofetch
+sudo pacman -S --noconfirm --needed tmux xclip lsof htop progress fastfetch
 yay -S --sudoloop --noconfirm --needed tmuxinator
 
 echo "Install chromium..."
