@@ -70,7 +70,7 @@ sudo pacman -S --noconfirm --needed nodejs yarn
 
 echo "Install gtk..."
 
-sudo pacman -S --noconfirm --needed gtk3 libappindicator-gtk3 lxappearance
+sudo pacman -S --noconfirm --needed gtk3 libappindicator-gtk3
 
 echo "Install polybar..."
 
@@ -120,6 +120,3 @@ yay -S --sudoloop --noconfirm --needed spotify spotx-git
 echo "Install themix-gui"
 
 yay -S --sudoloop --noconfirm --needed themix-full-git
-
-# Reload session manually
-# Apply Gtk and icons theme with lxappearance manually

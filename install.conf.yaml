@@ -40,3 +40,14 @@
     ~/.zshrc:
       force: true
       path: .zshrc
+    ~/.gtkrc-2.0:
+      force: true
+      path: .gtkrc-2.0
+    ~/.config/gtk-3.0/settings.ini:
+      create: true
+      force: true
+      path: .config/gtk-3.0/settings.ini
+    ~/.config/gtk-4.0/settings.ini:
+      create: true
+      force: true
+      path: .config/gtk-4.0/settings.ini
