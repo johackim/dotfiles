@@ -64,10 +64,6 @@ echo "Install fonts..."
 sudo pacman -S --noconfirm --needed ttf-inconsolata-nerd noto-fonts-emoji gnu-free-fonts
 yay -S --sudoloop --noconfirm --needed fonts-noto-hinted ttf-ms-fonts
 
-echo "Install nodejs..."
-
-sudo pacman -S --noconfirm --needed nodejs yarn
-
 echo "Install gtk..."
 
 sudo pacman -S --noconfirm --needed gtk3 libappindicator-gtk3
