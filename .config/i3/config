@@ -198,6 +198,6 @@ bindsym $mod+Shift+s sticky toggle
 smart_gaps on
 gaps inner 20
 
-bindsym $mod+y exec $HOME/.local/bin/youtube-copy.sh
+bindsym $mod+y exec $HOME/.local/bin/yt-copy.sh
 
 include ~/.config/i3/custom.conf

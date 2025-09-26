@@ -2,6 +2,8 @@
 
 url=$(xclip -o)
 
+url=$(printf '%s' "$url" | sed -E 's/([?&])feature=shared([&#]|$)/\1\2/g; s/([?&])&/\1/g; s/[?&]([#]|$)/\1/g')
+
 notify-send -t 3000 "Copy video" "$(xclip -o)";
 
 if [[ ! "$url" =~ ^.*youtu[be.com|.be].*$ ]]; then
@@ -18,6 +20,6 @@ if [[ "$url" =~ ^.*youtu.be.*$ ]]; then
     short_url="$url"
 fi
 
-echo "[$uploader - $title]($short_url)" | xclip -selection clipboard
+printf "%s" "[$uploader - $title]($short_url)" | xclip -selection clipboard
 
 notify-send -t 3000 "Video copied" "$(xclip -o)";
