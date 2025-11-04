@@ -2,7 +2,7 @@
 
 url=$(xclip -o)
 
-url=$(printf '%s' "$url" | sed -E 's/([?&])feature=shared([&#]|$)/\1\2/g; s/([?&])&/\1/g; s/[?&]([#]|$)/\1/g')
+url=$(printf '%s' "$url" | sed -E 's/([?&])feature=shared([&#]|$)/\1\2/g; s/([?&])si=[^&#]*([&#]|$)/\1\2/g; s/([?&])&/\1/g; s/[?&]([#]|$)/\1/g')
 
 notify-send -t 3000 "Copy video" "$(xclip -o)";
 
