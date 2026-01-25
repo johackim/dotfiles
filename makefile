@@ -32,6 +32,14 @@ install-dotfiles:
 	fi
 	@ git submodule update --init --recursive
 	@ ${CURRENT_DIR}/dotbot/bin/dotbot -d ${CURRENT_DIR} -c install.conf.yaml
+	@ if [ ! -d "$$HOME/.tmux/plugins/tpm" ]; then \
+		echo "Installing Tmux Plugin Manager..."; \
+		git clone https://github.com/tmux-plugins/tpm $$HOME/.tmux/plugins/tpm; \
+	fi
+	@ if [ ! -d "$$HOME/.tmux/plugins/tmux-yank" ]; then \
+		echo "Installing tmux-yank..."; \
+		git clone https://github.com/tmux-plugins/tmux-yank $$HOME/.tmux/plugins/tmux-yank; \
+	fi
 	@ echo "Dotfiles installation. Done."
 
 install-virtualbox: upgrade

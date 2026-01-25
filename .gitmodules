@@ -1,9 +1,3 @@
-[submodule ".tmux/plugins/tpm"]
-	path = .tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
-[submodule ".tmux/plugins/tmux-yank"]
-	path = .tmux/plugins/tmux-yank
-	url = https://github.com/tmux-plugins/tmux-yank
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
