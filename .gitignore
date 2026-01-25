@@ -1,2 +1,3 @@
-.config/
 .fonts/.uuid
+.local/bin/*
+!.local/bin/*.sh
