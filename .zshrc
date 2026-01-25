@@ -8,8 +8,8 @@ export plugins=(zsh-syntax-highlighting)
 [ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
 
 export GOPATH=$HOME/.golang
-export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:/var/lib/snapd/snap/bin/
 export PATH=$PATH:$HOME/.local/bin:/usr/local/bin
 export PATH=$PATH:$HOME/.local/share/gem/ruby/3.4.0/bin
