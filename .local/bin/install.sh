@@ -12,6 +12,11 @@ echo "Install git..."
 
 sudo pacman -S --noconfirm --needed git
 
+echo "Install zsh..."
+
+sudo pacman -S --noconfirm --needed zsh
+sudo chsh -s "$(which zsh)" "$(whoami)"
+
 echo "Install dotfiles..."
 
 if [[ ! -d "$HOME/.dotfiles" ]]; then
@@ -36,11 +41,6 @@ sudo cp ~/.local/bin/dmenu_recent_aliases.sh /usr/local/bin/dmenu_recent_aliases
 echo "Install urxvt..."
 
 sudo pacman -S --noconfirm --needed rxvt-unicode
-
-echo "Install zsh..."
-
-sudo pacman -S --noconfirm --needed zsh
-sudo chsh -s "$(which zsh)" "$(whoami)"
 
 echo "Install dunst..."
 

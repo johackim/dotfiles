@@ -7,6 +7,3 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://github.com/johackim/oh-my-zsh
