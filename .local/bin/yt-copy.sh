@@ -1,4 +1,12 @@
 #!/bin/bash
+#
+# Support the following URL formats:
+# https://www.youtube.com/watch?v=abc123xyz&feature=shared&si=abc123xyz&t=10s
+# https://www.youtube.com/watch?v=abc123xyz&feature=shared
+# https://www.youtube.com/watch?v=abc123xyz&t=423s
+# https://youtu.be/abc123xyz?si=abc123xyz#fragment
+# https://youtu.be/abc123xyz?si=abc123xyz&t=423
+# https://youtu.be/abc123xyz?si=abc123xyz
 
 url=$(xclip -o)
 
@@ -14,7 +22,7 @@ yt-dlp -f mp4 -o '%(id)s.%(ext)s' --skip-download --print-json --no-warnings "$u
 title=$(jq -r '.title' /tmp/.metadata 2>/dev/null)
 uploader=$(jq -r '.uploader' /tmp/.metadata 2>/dev/null)
 id=$(jq -r '.display_id' /tmp/.metadata 2> /dev/null)
-short_url="https://youtu.be/$(echo "$url" | awk -F '=' '{print $NF}')"
+short_url="https://youtu.be/$id$(echo "$url" | grep -o '[?&]t=[^&#]*' | head -n1 | sed 's/^&/?/')"
 
 if [[ "$url" =~ ^.*youtu.be.*$ ]]; then
     short_url="$url"
