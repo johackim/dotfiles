@@ -30,8 +30,8 @@ install-dotfiles:
 		echo "Installing zsh-syntax-highlighting..."; \
 		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $${ZSH_CUSTOM:-$$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting; \
 	fi
-	@ git submodule update --init --recursive
-	@ ${CURRENT_DIR}/dotbot/bin/dotbot -d ${CURRENT_DIR} -c install.conf.yaml
+	@ uv tool install dotbot
+	@ ~/.local/bin/dotbot -d ${CURRENT_DIR} -c install.conf.yaml
 	@ if [ ! -d "$$HOME/.tmux/plugins/tpm" ]; then \
 		echo "Installing Tmux Plugin Manager..."; \
 		git clone https://github.com/tmux-plugins/tpm $$HOME/.tmux/plugins/tpm; \

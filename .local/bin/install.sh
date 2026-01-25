@@ -17,10 +17,14 @@ echo "Install zsh..."
 sudo pacman -S --noconfirm --needed zsh
 sudo chsh -s "$(which zsh)" "$(whoami)"
 
+echo "Install uv..."
+
+sudo pacman -S --noconfirm --needed uv
+
 echo "Install dotfiles..."
 
 if [[ ! -d "$HOME/.dotfiles" ]]; then
-    git clone --recursive https://github.com/johackim/dotfiles ~/.dotfiles
+    git clone https://github.com/johackim/dotfiles ~/.dotfiles
     cd ~/.dotfiles && make install-dotfiles
 fi
 
@@ -75,10 +79,6 @@ yay -S --sudoloop --noconfirm --needed polybar jq
 echo "Install networkmanager-applet..."
 
 sudo pacman -S --noconfirm --needed network-manager-applet
-
-echo "Install uv..."
-
-sudo pacman -S --noconfirm --needed uv
 
 echo "Install wpg..."
 
