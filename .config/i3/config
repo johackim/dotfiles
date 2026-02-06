@@ -124,8 +124,8 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id blueman-applet
 exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
 
-exec --no-startup-id i3-msg 'workspace $ws1; exec urxvt -e tmuxinator main'
-exec --no-startup-id i3-msg 'workspace $ws2; exec urxvt -e tmuxinator second'
+exec --no-startup-id i3-msg 'workspace $ws1; exec urxvt -e ~/.local/bin/tmux-main.sh'
+exec --no-startup-id i3-msg 'workspace $ws2; exec urxvt -e ~/.local/bin/tmux-second.sh'
 exec --no-startup-id i3-msg 'workspace $ws3; exec chromium'
 
 assign [class="firefox" instance="Navigator"] $ws3

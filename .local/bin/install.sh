@@ -91,7 +91,6 @@ wpg -s wallpaper.jpg
 echo "Install tmux..."
 
 sudo pacman -S --noconfirm --needed tmux xclip lsof htop progress fastfetch
-yay -S --sudoloop --noconfirm --needed tmuxinator
 
 echo "Install chromium..."
 

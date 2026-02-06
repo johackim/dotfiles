@@ -1,7 +1,0 @@
-name: second
-root: ~/
-
-windows:
-  - editor:
-      panes:
-        - clear

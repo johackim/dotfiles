@@ -30,7 +30,6 @@
     ~/.profile: .profile
     ~/.tmux: .tmux/
     ~/.tmux.conf: .tmux.conf
-    ~/.tmuxinator: .tmuxinator
     ~/.urxvt: .urxvt/
     ~/.xinitrc:
       force: true
