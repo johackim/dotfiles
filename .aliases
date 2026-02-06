@@ -14,29 +14,19 @@ alias rm='echo "This is not the command you are looking for."; false'
 alias copy='xclip -selection clipboard'
 alias nomachine='/usr/NX/bin/nxplayer'
 alias drawio='chromium --app=http://draw.io'
-alias standardnotes='chromium --app=https://app.standardnotes.org'
 alias grafana='chromium --app=https://grafana.ethibox.fr'
 alias toggl='chromium --app=https://toggl.com/app/timer'
 alias steam='steam -system-composer'
 
-monitor() { watch -n1 -t "lsof -i -n|awk '{print \$1, \$2, \$9}'|column -t"; }
+monitor() { watch -n1 -t "lsof -i -n | awk '{print \$1, \$2, \$9}' | column -t"; }
 gi() { curl -L "https://www.gitignore.io/api/$@"; }
 yt-dlp-mp3() { yt-dlp $1 --extract-audio --audio-format mp3; }
-streamer() { yt-dlp -o - "$1" | mpv -; }
-detach() { sudo umount -l "/dev/"$1"1"; udisksctl power-off -b "/dev/$1"; }
-debug() { sudo strace -Ff -tt -p $(pidof $1) 2>&1 | tee strace-$1.log; }
 drm() { docker rm $(docker ps -qf status=exited) 2> /dev/null }
 dpid() { docker ps -f id=$(grep -o "[0-9a-f]\{64\}" /proc/$1/cgroup | head -n 1) }
 drmi() { docker rmi $(docker images --no-trunc | grep none | awk '{print $3 }') > /dev/null 2>&1; }
 dpa() { docker ps -a; }
 whitespace() { sed -i 's/[[:space:]]*$//' $1; }
 timestamp() { date -d @$1; }
-
-live() {
-    qemu-img create -f raw live 8G
-    qemu-system-x86_64 -enable-kvm -cpu host -m 4096 -drive file=live,format=raw -cdrom "$1"
-    rm live
-}
 
 stopwatch(){
   date1=`date +%s`;
@@ -46,27 +36,7 @@ stopwatch(){
    done
 }
 
-genssl(){
-    if [ -z "$1" ]; then
-	    echo "usage: genssl [domain]"
-    else
-        openssl genrsa -out $1.key 1024
-        openssl req -new -key $1.key -out $1.csr
-        openssl x509 -req -days 365 -in $1.csr -signkey $1.key -out $1.crt
-    fi
-}
-
-screenshot () {
-    pageres --filename=screenshot -d 5 --overwrite $1
-    imgur upload screenshot.png
-}
-
 similarweb () {
     curl -s -H "x-rapidapi-key: $RAPIDAPI_KEY" "https://similar-web.p.rapidapi.com/get-analysis?domain=$1" \
     | jq -r '(.GlobalRank.Rank // 0)' | numfmt --grouping
-}
-
-competitors () {
-    curl -s -H "x-rapidapi-key: $RAPIDAPI_KEY" "https://similar-web.p.rapidapi.com/get-similar-sites?domain=$1" \
-    | jq -r '(.SimilarSites // []) | map({Site, GlobalRank}) | sort_by(.GlobalRank) | reverse[] | "\(.Site) (\(.GlobalRank))"'
 }

@@ -44,16 +44,16 @@ bindsym $mod+space focus mode_toggle
 
 bindsym $mod+a focus parent
 
-set $ws1    "1"
-set $ws2    "2"
-set $ws3    "3"
-set $ws4    "4"
-set $ws5    "5"
-set $ws6    "6"
-set $ws7    "7"
-set $ws8    "8"
-set $ws9    "9"
-set $ws10   "10"
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -79,8 +79,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
@@ -121,12 +120,9 @@ exec --no-startup-id xset s off
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id keynav daemonize
-exec --no-startup-id numlockx on
-exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id blueman-applet
 exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
-exec --no-startup-id polybar-msg cmd restart
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec urxvt -e tmuxinator main'
 exec --no-startup-id i3-msg 'workspace $ws2; exec urxvt -e tmuxinator second'
@@ -148,6 +144,8 @@ assign [class="shadow alpha"] $ws5
 assign [class="Shadow"] $ws5
 assign [class="Cypress"] $ws3
 
+for_window [instance="gnome-calculator"] floating enable
+for_window [instance="TogglDesktop"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [class="Thunar" instance="file_progress"] floating enable
 for_window [class="firefox" instance="places"] floating enable
@@ -157,8 +155,6 @@ for_window [class="Orage"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Wine"] floating enable
-for_window [instance="gnome-calculator"] floating enable
-for_window [instance="TogglDesktop"] floating enable
 for_window [class="Cypress"] floating enable
 for_window [class="evince"] floating disable
 for_window [class="^Vlc|mpv$"] focus

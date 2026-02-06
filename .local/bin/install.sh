@@ -85,6 +85,8 @@ echo "Install wpg..."
 sudo pacman -S --noconfirm --needed wget feh
 uv tool install pywal
 yay -S --sudoloop --noconfirm --needed --overwrite="*" wpgtk
+wpg -a ~/.dotfiles/wallpaper.jpg
+wpg -s wallpaper.jpg
 
 echo "Install tmux..."
 
