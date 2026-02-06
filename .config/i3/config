@@ -100,10 +100,10 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+b exec polybar-msg cmd toggle
 
-set_from_resource $bg i3wm.background
-set_from_resource $fg i3wm.foreground
-set_from_resource $c1 i3wm.color1
-set_from_resource $c8 i3wm.color8
+set_from_resource $bg i3wm.background #000000
+set_from_resource $fg i3wm.foreground #FFFFFF
+set_from_resource $c1 i3wm.color1 #046F6E
+set_from_resource $c8 i3wm.color8 #00AAAA
 
 bindsym $mod+d exec --no-startup-id dmenu_recent_aliases -nf "$fg" -nb "$bg" -sb "$c1" -sf "$fg"
 
