@@ -25,12 +25,30 @@ echo "Install dotfiles..."
 
 if [[ ! -d "$HOME/.dotfiles" ]]; then
     git clone https://github.com/johackim/dotfiles ~/.dotfiles
-    cd ~/.dotfiles && make install-dotfiles
 fi
+
+sudo pacman -S --noconfirm --needed python cmake
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+if [ ! -d "${$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+    echo "Installing zsh-syntax-highlighting..."
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+fi
+
+uv tool install dotbot
+~/.local/bin/dotbot -d "$HOME/.dotfiles" -c "$HOME/.dotfiles/install.conf.yaml"
 
 echo "Install yay..."
 
-cd ~/.dotfiles && sudo make install-yay
+if ! command -v yay &> /dev/null; then
+    git clone https://aur.archlinux.org/yay-bin.git /tmp/yay
+    (cd /tmp/yay && makepkg --noconfirm && sudo pacman -U --noconfirm *.pkg.tar.zst)
+    rm -rf /tmp/yay
+fi
 
 echo "Install xorg..."
 
@@ -91,6 +109,8 @@ wpg -s wallpaper.jpg
 echo "Install tmux..."
 
 sudo pacman -S --noconfirm --needed tmux xclip lsof htop progress fastfetch
+[ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+[ ! -d "$HOME/.tmux/plugins/tmux-yank" ] && git clone https://github.com/tmux-plugins/tmux-yank "$HOME/.tmux/plugins/tmux-yank"
 
 echo "Install chromium..."
 
