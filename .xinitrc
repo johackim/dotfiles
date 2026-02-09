@@ -2,7 +2,7 @@
 
 [ -f ~/.Xresources ] && xrdb -merge -I "$HOME" ~/.Xresources
 
-eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY
 setxkbmap us_intl,us,fr grp:rctrl_rshift_toggle
 synclient TapButton1=1 TapButton2=3
 
