@@ -1,6 +1,5 @@
 [global]
 monitor = 0
-geometry = "700x5-30+20"
 indicate_hidden = yes
 shrink = no
 transparency = 0
