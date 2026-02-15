@@ -42,8 +42,8 @@ set autoindent
 
 " Theme
 colorscheme wal
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
+highlight Normal guibg=none ctermbg=none
+highlight NonText guibg=none ctermbg=none
 
 " Copy to the clipboard
 set clipboard+=unnamedplus
