@@ -6,7 +6,6 @@ splitw -h -l 50%
  
 selectp -t 1
 splitw -v -l 40%
-splitw -v -l 15%
 selectp -t 0
 splitw -v -l 20%
 selectp -t 0
@@ -14,4 +13,3 @@ selectp -t 0
 send-keys -R -t 0 'clear;fastfetch' enter
 send-keys -R -t 2 'clear;htop' enter
 send-keys -R -t 3 'clear;monitor' enter
-send-keys -R -t 4 'clear;watch -t -n1 progress -q' enter
