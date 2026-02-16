@@ -8,6 +8,8 @@
 # https://youtu.be/abc123xyz?si=abc123xyz&t=423
 # https://youtu.be/abc123xyz?si=abc123xyz
 
+PATH=$HOME/.local/bin:$PATH
+
 url=$(xclip -o)
 
 url=$(printf '%s' "$url" | sed -E 's/([?&])feature=shared([&#]|$)/\1\2/g; s/([?&])si=[^&#]*([&#]|$)/\1\2/g; s/([?&])&/\1/g; s/[?&]([#]|$)/\1/g')
