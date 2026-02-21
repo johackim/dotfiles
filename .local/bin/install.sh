@@ -34,9 +34,9 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-if [ ! -d "${$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
     echo "Installing zsh-syntax-highlighting..."
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 fi
 
 uv tool install dotbot
@@ -46,7 +46,7 @@ echo "Install yay..."
 
 if ! command -v yay &> /dev/null; then
     git clone https://aur.archlinux.org/yay-bin.git /tmp/yay
-    (cd /tmp/yay && makepkg --noconfirm && sudo pacman -U --noconfirm *.pkg.tar.zst)
+    (cd /tmp/yay && makepkg --noconfirm && sudo pacman -U --noconfirm *.pkg.tar.*)
     rm -rf /tmp/yay
 fi
 
