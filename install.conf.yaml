@@ -25,7 +25,9 @@
       path: .config/wpg/wpg.conf
     ~/.local/bin:
       create: true
-      path: .local/bin/
+      force: true
+      glob: true
+      path: .local/bin/*.sh
     ~/.oh-my-zsh/custom/themes/cyan.zsh-theme: .oh-my-zsh/custom/themes/cyan.zsh-theme
     ~/.profile: .profile
     ~/.tmux: .tmux/
