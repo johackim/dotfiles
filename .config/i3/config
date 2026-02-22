@@ -105,7 +105,7 @@ set_from_resource $fg i3wm.foreground #FFFFFF
 set_from_resource $c1 i3wm.color1 #046F6E
 set_from_resource $c8 i3wm.color8 #00AAAA
 
-bindsym $mod+d exec --no-startup-id dmenu_recent_aliases -nf "$fg" -nb "$bg" -sb "$c1" -sf "$fg"
+bindsym $mod+d exec --no-startup-id zsh -ic 'eval "$(print -rl -- ${(k)aliases} ${(k)commands} ${(k)functions} | sort -u | dmenu -nf "$fg" -nb "$bg" -sb "$c1" -sf "$fg")"'
 
 # class                 border  bground text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg

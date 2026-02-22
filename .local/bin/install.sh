@@ -58,7 +58,6 @@ echo "Install i3..."
 
 sudo pacman -S --noconfirm --needed i3-gaps dmenu xcompmgr
 yay -S --sudoloop --noconfirm --needed i3lock-color
-sudo cp ~/.local/bin/dmenu_recent_aliases.sh /usr/local/bin/dmenu_recent_aliases
 
 echo "Install urxvt..."
 
