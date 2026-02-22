@@ -114,16 +114,16 @@ client.unfocused        $bg     $bg     $c8  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
-exec --no-startup-id urxvtd -o -f -q
-exec --no-startup-id xset -dpms
-exec --no-startup-id xset s off
-exec --no-startup-id nm-applet
-exec --no-startup-id dunst
-exec --no-startup-id sh ~/.fehbg
-exec --no-startup-id keynav daemonize
-exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-exec --no-startup-id blueman-applet
-exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
+exec --no-startup-id urxvtd -o -f -q 2>/dev/null
+exec --no-startup-id xset -dpms 2>/dev/null
+exec --no-startup-id xset s off 2>/dev/null
+exec --no-startup-id nm-applet 2>/dev/null
+exec --no-startup-id dunst 2>/dev/null
+exec --no-startup-id sh ~/.fehbg 2>/dev/null
+exec --no-startup-id keynav daemonize 2>/dev/null
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 2>/dev/null
+exec --no-startup-id blueman-applet 2>/dev/null
+exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini 2>/dev/null
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec urxvt -e ~/.local/bin/tmux-main.sh'
 exec --no-startup-id i3-msg 'workspace $ws2; exec urxvt -e ~/.local/bin/tmux-second.sh'
