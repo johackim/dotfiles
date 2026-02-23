@@ -20,6 +20,5 @@ tmux send-keys -t "$SESSION:main.0" 'clear;fastfetch' C-m
 tmux send-keys -t "$SESSION:main.1" 'clear' C-m
 tmux send-keys -t "$SESSION:main.2" 'htop' C-m
 tmux send-keys -t "$SESSION:main.3" 'monitor' C-m
-tmux send-keys -t "$SESSION:main.4" 'watch -t -n1 progress -q' C-m
 
 exec tmux attach-session -t "$SESSION"
