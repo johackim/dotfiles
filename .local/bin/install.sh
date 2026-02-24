@@ -117,7 +117,7 @@ sudo pacman -S --noconfirm --needed chromium
 
 echo "Install neovim..."
 
-sudo pacman -S --noconfirm --needed neovim
+sudo pacman -S --noconfirm --needed neovim tree-sitter-cli
 curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +sleep 3 +qa!
 
