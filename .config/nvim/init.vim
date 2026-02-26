@@ -22,6 +22,10 @@ let mapleader = ","
 " Display line number
 set number
 
+" Disable automatic newline at end of file
+set nofixendofline
+set noeol
+
 " Disable mouse
 set mouse=
 
