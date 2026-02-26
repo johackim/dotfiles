@@ -172,9 +172,9 @@ bindsym Control+mod1+l exec --no-startup-id "i3lock -c 00000000 -F -e -u -i ~/.d
 bindsym 0xff61 exec --no-startup-id scrot ~/Downloads/screenshot_%Y_%m_%d_%H_%M_%S.png
 bindsym $mod+Shift+t exec --no-startup-id "thunar"
 
-bindsym $mod+Control+Down  exec --no-startup-id playerctl play-pause
-bindsym $mod+Control+Right exec --no-startup-id playerctl next
-bindsym $mod+Control+Left  exec --no-startup-id playerctl previous
+bindsym $mod+Control+Down  exec --no-startup-id "playerctl --player=ncspot,spotify,chromium play-pause"
+bindsym $mod+Control+Right exec --no-startup-id "playerctl --player=ncspot,spotify,chromium next"
+bindsym $mod+Control+Left  exec --no-startup-id "playerctl --player=ncspot,spotify,chromium previous"
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%"
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%"
