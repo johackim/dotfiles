@@ -99,7 +99,7 @@ sudo pacman -S --noconfirm --needed network-manager-applet
 
 echo "Install wpg..."
 
-sudo pacman -S --noconfirm --needed wget feh
+sudo pacman -S --noconfirm --needed feh
 uv tool install pywal
 yay -S --sudoloop --noconfirm --needed --overwrite="*" wpgtk
 wpg -a ~/.dotfiles/wallpaper.jpg
