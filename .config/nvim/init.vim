@@ -64,6 +64,9 @@ function! F(...)
   return ''
 endfunction
 
+" vim-gnupg configuration
+let g:GPGDefaultRecipients=["johackim"]
+
 " NERD Commenter
 let g:NERDSpaceDelims = 2
 
