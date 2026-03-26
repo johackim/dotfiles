@@ -7,6 +7,7 @@
 
 [alias]
     url = config --get remote.origin.url
+    zk = !git --no-pager log --follow --diff-filter=A --format=%ad --date=format:'%Y%m%d%H%M' --
 
 [user]
     name = johackim
