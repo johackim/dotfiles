@@ -9,4 +9,4 @@ if [ -n "$NAME" ]; then
     curl -s -N -X POST "$SERVER" -d "link=$REMOTE_LINK" -d "user=" -d "name=$NAME"
 else
     curl -s -N -X POST "$SERVER" -d "link=$REMOTE_LINK" -d "user="
-fi | jq -j --unbuffered 'if .progress then "\rUploading... \(.progress)" elif .url then "\rDownload URL: \(.url)\n" else empty end'
+fi | jq -Rr --unbuffered 'try (fromjson | if .progress then "\rUploading... \(.progress)" elif .url then "\rDownload URL: \(.url)\n" else empty end)'
