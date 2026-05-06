@@ -12,7 +12,7 @@ BUCKETS=$(timeout 30s rclone lsf --dir-slash=false "$SRC":)
 for b in $BUCKETS; do
     echo "Syncing bucket: $b";
 
-    rclone sync --fast-list --size-only --transfers 32 --checkers 32 \
+    rclone sync --fast-list --checksum --transfers 32 --checkers 32 \
         --exclude ".archives/**" \
         --backup-dir "$DEST:$b/.archives/$DATE" \
         "$SRC:$b" "$DEST:$b";
