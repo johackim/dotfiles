@@ -131,6 +131,7 @@ exec --no-startup-id i3-msg 'workspace $ws3; exec chromium'
 
 assign [class="firefox" instance="Navigator"] $ws3
 assign [class="Chromium" title="grafana.ethibox.fr"] $ws4
+assign [class="Google-chrome" instance="play.geforcenow.com"] $ws5
 assign [class="Chromium|Google-chrome"] $ws3
 assign [class="obsidian"] $ws6
 assign [class="Nxplayer.bin"] $ws10
@@ -150,6 +151,7 @@ for_window [instance="TogglDesktop"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [class="Thunar" instance="file_progress"] floating enable
 for_window [class="firefox" instance="places"] floating enable
+for_window [class="Google-chrome"] floating disable
 for_window [class="Chromium"] floating disable
 for_window [class="Display"] floating enable
 for_window [class="Orage"] floating enable
