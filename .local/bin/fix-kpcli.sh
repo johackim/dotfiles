@@ -1,6 +1,6 @@
 #!/bin/bash
 
 sudo pacman -S --noconfirm --needed cpanminus
-sudo cpanm PhonyClipboard
-sudo cpanm Crypt::Rijndael
-sudo cpanm Capture::Tiny
+sudo /usr/bin/vendor_perl/cpanm PhonyClipboard
+sudo /usr/bin/vendor_perl/cpanm Crypt::Rijndael
+sudo /usr/bin/vendor_perl/cpanm Capture::Tiny
