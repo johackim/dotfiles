@@ -131,7 +131,7 @@ uv tool install httpie
 
 echo "Install spotify..."
 
-yay -S --sudoloop --noconfirm --needed spotify spotx-git
+yay -S --sudoloop --noconfirm --needed spotify ncspot spotx-git
 
 echo "Install themix-gui"
 

@@ -1,0 +1,6 @@
+audio_cache_size = 1024
+
+[keybindings]
+"Esc" = "noop"
+"q" = "noop"
+"Shift+q" = "quit"

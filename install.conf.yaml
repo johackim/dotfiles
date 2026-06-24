@@ -17,6 +17,9 @@
     ~/.config/polybar: .config/polybar
     ~/.config/mpv: .config/mpv
     ~/.config/ncdu: .config/ncdu
+    ~/.config/ncspot/config.toml:
+      create: true
+      path: .config/ncspot/config.toml
     ~/.config/nvim/init.vim:
       create: true
       path: .config/nvim/init.vim
