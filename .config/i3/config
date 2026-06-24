@@ -131,7 +131,7 @@ exec --no-startup-id i3-msg 'workspace $ws3; exec chromium'
 
 assign [class="firefox" instance="Navigator"] $ws3
 assign [class="Chromium" title="grafana.ethibox.fr"] $ws4
-assign [class="Google-chrome" instance="play.geforcenow.com"] $ws5
+assign [class="GeForceNOW"] $ws5
 assign [class="Chromium|Google-chrome"] $ws3
 assign [class="obsidian"] $ws6
 assign [class="Nxplayer.bin"] $ws10
@@ -139,7 +139,7 @@ assign [class="calibre"] $ws4
 assign [class="Vlc|mpv"] $ws5
 assign [class="qBittorrent"] $ws8
 assign [class="TelegramDesktop"] $ws8
-assign [class="Signal"] $ws7
+assign [class="signal"] $ws7
 assign [class="discord"] $ws8
 assign [class="Mailspring"] $ws9
 assign [class="shadow alpha"] $ws5
