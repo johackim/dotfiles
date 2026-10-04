@@ -1,0 +1,68 @@
+! Title: Minimal web
+! Import: uBlock Origin > Dashboard > My filters > Import and append
+! Trust (for trusted-* scriptlets): in My filters, check "Allow custom filters requiring trust"
+! Trust, when subscribed by URL in Filter lists: Settings > "I am an advanced user" > gear icon > trustedListPrefixes ublock- https://raw.githubusercontent.com/johackim/dotfiles/
+
+! YouTube: home page recommendations grid, category chips and Shorts shelves
+www.youtube.com##ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer
+www.youtube.com##ytd-browse[page-subtype="home"] #header.ytd-rich-grid-renderer
+www.youtube.com##ytd-browse[page-subtype="home"] ytd-rich-section-renderer
+
+! YouTube: related videos on the watch page (sidebar, or below the video in narrow windows)
+www.youtube.com##ytd-watch-flexy #related
+! YouTube: drop the empty right column of the watch page so the video is centered (kept for playlists and live chat)
+www.youtube.com##ytd-watch-flexy[is-two-columns_] #secondary:not(:has(ytd-playlist-panel-renderer:not([hidden]), ytd-live-chat-frame))
+! YouTube: no horizontal scrollbar once the right column is gone
+www.youtube.com##body:style(overflow-x: hidden !important)
+
+! YouTube: end screen and end cards
+www.youtube.com##.ytp-endscreen-content
+www.youtube.com##.ytp-ce-element
+
+! YouTube: Shorts entry in the side menu
+www.youtube.com##ytd-guide-entry-renderer:has(a[title="Shorts"])
+www.youtube.com##ytd-mini-guide-entry-renderer:has(a[title="Shorts"])
+
+! YouTube: discreet logo (from minimal's youtube.css)
+www.youtube.com###country-code
+www.youtube.com###logo svg:style(filter: grayscale(1) !important; opacity: 0.5 !important)
+
+! YouTube: discreet thumbnails until hovered (from minimal's former youtube.css)
+www.youtube.com##:is(ytd-thumbnail, yt-thumbnail-view-model) img:style(opacity: 0.15 !important; transition: opacity 400ms ease !important)
+www.youtube.com##:is(ytd-rich-item-renderer, ytd-video-renderer, ytd-playlist-renderer, ytd-compact-video-renderer, ytd-grid-video-renderer, yt-lockup-view-model, ytm-shorts-lockup-view-model, ytd-playlist-panel-video-renderer):hover :is(ytd-thumbnail, yt-thumbnail-view-model) img:style(opacity: 1 !important)
+
+! Amazon: neutral colors for the header (from minimal's amazon.css)
+amazon.*###nav-swmslot
+amazon.*##:is(#nav-search-form, #nav-logobar):style(background: transparent !important; border: none !important)
+amazon.*##:is(.nav-blueheaven #nav-gwbar, .nav-ftr-batmobile #nav-gwbar, .glow-subnav-template, #navbar.nav-bluebeacon, #nav-belt, #nav-main, #nav-subnav):style(background-color: gainsboro !important)
+amazon.*###nav-subnav:style(border: none !important)
+amazon.*###navbar *:style(color: dimgrey !important)
+amazon.*##:is(.nav-cart-icon, #nav-packard-glow-loc-icon):style(filter: invert(1) saturate(0) !important; opacity: 0.45 !important)
+amazon.*###nav-search .nav-search-field:style(border: 1pt solid lightgrey !important; border-width: 1pt 0 !important; border-radius: 0 !important)
+amazon.*##.nav-search-submit:style(background: gainsboro !important)
+amazon.*##.nav-search-submit:hover:style(background: lightgrey !important)
+amazon.*##.nav-logo-base:style(filter: saturate(0) !important)
+amazon.*###nav-logo:style(filter: invert(1) saturate(0) !important; opacity: 0.3 !important)
+
+! Amazon: neutral button colors (from minimal's amazon.css)
+amazon.*##.a-button:not(.a-button-thumbnail):style(filter: grayscale(1) !important)
+
+! Amazon: full-width promo carousel on the home page (from minimal's amazon.css)
+amazon.*###gwm-Deck-cf
+
+! Amazon: sponsored banner above the product page
+amazon.*##[id^="desktop-dp-ilm_feature_div"]
+
+! Facebook: close the login popup
+facebook.com##+js(trusted-click-element, body > div[id^="mount"] #scrollview ~ div div[role="button"]:has(> div[data-visualcompletion="ignore"]) )
+facebook.com##div[id^="mount"] div:not([id]):not([class]):not([style]) > div[data-nosnippet]
+facebook.com##+js(aeld, scroll)
+facebook.com##body > div[class*="__fb-light-mode"]
+
+! LinkedIn: login popup shown on public pages (moved to .top-level-modal-container when opened), and keep the page scrollable
+linkedin.com##:is(.contextual-sign-in-modal, .base-contextual-sign-in-modal, .modal--contextual-sign-in)
+linkedin.com##body.overflow-hidden:style(overflow: auto !important)
+
+! Goodreads: header banner image
+www.goodreads.com##.siteHeader__topFullImage
+www.goodreads.com##.SiteHeaderBanner
