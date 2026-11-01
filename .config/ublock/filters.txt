@@ -4,7 +4,7 @@
 ! Trust, when subscribed by URL in Filter lists: Settings > "I am an advanced user" > gear icon > trustedListPrefixes ublock- https://raw.githubusercontent.com/johackim/dotfiles/
 
 ! YouTube: home page recommendations grid, category chips and Shorts shelves
-www.youtube.com##ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer
+! www.youtube.com##ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer
 www.youtube.com##ytd-browse[page-subtype="home"] #header.ytd-rich-grid-renderer
 www.youtube.com##ytd-browse[page-subtype="home"] ytd-rich-section-renderer
 
