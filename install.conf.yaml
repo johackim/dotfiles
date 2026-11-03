@@ -32,7 +32,6 @@
       glob: true
       path: .local/bin/*.sh
     ~/.oh-my-zsh/custom/themes/cyan.zsh-theme: .oh-my-zsh/custom/themes/cyan.zsh-theme
-    ~/.profile: .profile
     ~/.tmux: .tmux/
     ~/.tmux.conf: .tmux.conf
     ~/.urxvt: .urxvt/
