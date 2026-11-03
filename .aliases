@@ -3,9 +3,10 @@
 alias ll='ls -lFh'
 alias la='ls -A'
 alias l='ls -CF'
-alias mv='mv -i $*'
+alias mv='mv -i'
 alias th='thunar .'
 alias vim='nvim'
+alias startx='exec startx'
 alias poogle='ping google.com'
 alias t='tmux attach || tmux'
 alias skyrock="mpv http://www.skyrock.fm/stream.php/frequenceradio_128mp3.mp3"
