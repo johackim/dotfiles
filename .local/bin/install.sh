@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Upgrade packages..."
 
 sudo pacman -Syyu --noconfirm
@@ -123,8 +125,8 @@ nvim +PlugInstall +sleep 3 +qa!
 
 echo "Install misc tools..."
 
-sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar thunar-volman gvfs-mtp scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl cronie polkit-kde-agent arandr i3status gnome-calculator gcolor3 flameshot file-roller 7zip playerctl
-yay -S --sudoloop --noconfirm --needed masterpassword-cli keynav calibre-installer
+sudo pacman -S --noconfirm --needed --overwrite="*" restic thunar thunar-volman gvfs-mtp scrot eog mplayer trash-cli inetutils gnome-keyring pkgfile fd net-tools mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl polkit-kde-agent arandr i3status gnome-calculator gcolor3 flameshot file-roller 7zip playerctl rclone
+yay -S --sudoloop --noconfirm --needed masterpassword-cli keynav calibre-bin
 sudo systemctl enable --now cronie docker
 uv tool install yt-dlp
 uv tool install httpie
