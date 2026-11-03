@@ -16,7 +16,7 @@ url=$(printf '%s' "$url" | sed -E 's/([?&])feature=shared([&#]|$)/\1\2/g; s/([?&
 
 notify-send -t 3000 "Copy video" "$(xclip -o)";
 
-if [[ ! "$url" =~ ^.*youtu[be.com|.be].*$ ]]; then
+if [[ ! "$url" =~ youtu(be\.com|\.be) ]]; then
     exit 1;
 fi
 
