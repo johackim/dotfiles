@@ -10,7 +10,7 @@ My personal archlinux dotfiles with zsh, neovim, tmux, i3, rxvt, polybar, pywal 
 **Warning**: If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
 ```bash
-curl -sL johackim.com/install | sh
+curl -sL https://johackim.com/install | sh
 ```
 
 ## Support me
