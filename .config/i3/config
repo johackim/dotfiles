@@ -98,7 +98,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+b exec polybar-msg cmd toggle
+bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 
 set_from_resource $bg i3wm.background #000000
 set_from_resource $fg i3wm.foreground #FFFFFF
@@ -127,7 +127,7 @@ exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini 2>/dev/n
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec urxvt -e ~/.local/bin/tmux-main.sh'
 exec --no-startup-id i3-msg 'workspace $ws2; exec urxvt -e ~/.local/bin/tmux-second.sh'
-exec --no-startup-id i3-msg 'workspace $ws3; exec chromium'
+exec --no-startup-id i3-msg 'workspace $ws3; exec --no-startup-id chromium'
 
 assign [class="firefox" instance="Navigator"] $ws3
 assign [class="Chromium" title="grafana.ethibox.fr"] $ws4
@@ -194,6 +194,6 @@ focus_follows_mouse no
 
 bindsym $mod+Shift+s sticky toggle
 
-bindsym $mod+y exec $HOME/.local/bin/yt-copy.sh
+bindsym $mod+y exec --no-startup-id $HOME/.local/bin/yt-copy.sh
 
 include ~/.config/i3/custom.conf
