@@ -16,6 +16,7 @@
     ~/.config/polybar: .config/polybar
     ~/.config/mpv: .config/mpv
     ~/.config/ncdu: .config/ncdu
+    ~/.config/zsh: .config/zsh
     ~/.config/ncspot/config.toml:
       create: true
       path: .config/ncspot/config.toml
@@ -34,7 +35,6 @@
       force: true
       glob: true
       path: .local/bin/*.sh
-    ~/.oh-my-zsh/custom/themes/cyan.zsh-theme: .oh-my-zsh/custom/themes/cyan.zsh-theme
     ~/.tmux: .tmux/
     ~/.tmux.conf: .tmux.conf
     ~/.urxvt: .urxvt/

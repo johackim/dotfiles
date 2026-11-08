@@ -1,8 +1,10 @@
 # Aliases
 
-alias ll='ls -lFh'
-alias la='ls -A'
-alias l='ls -CF'
+alias ls='ls --color=tty'
+alias grep='grep --color=auto'
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias l='ls -lah'
 alias mv='mv -i'
 alias th='thunar .'
 alias vim='nvim'

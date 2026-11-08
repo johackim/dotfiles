@@ -16,7 +16,7 @@ sudo pacman -S --noconfirm --needed git
 
 echo "Install zsh..."
 
-sudo pacman -S --noconfirm --needed zsh
+sudo pacman -S --noconfirm --needed zsh zsh-syntax-highlighting
 sudo chsh -s "$(which zsh)" "$(whoami)"
 
 echo "Install uv..."
@@ -30,16 +30,6 @@ if [[ ! -d "$HOME/.dotfiles" ]]; then
 fi
 
 sudo pacman -S --noconfirm --needed python cmake
-
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-fi
-
-if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
-    echo "Installing zsh-syntax-highlighting..."
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-fi
 
 uv tool install dotbot
 ~/.local/bin/dotbot -d "$HOME/.dotfiles" -c "$HOME/.dotfiles/install.conf.yaml"

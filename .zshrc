@@ -1,10 +1,7 @@
-export ZSH_THEME="cyan"
-export DISABLE_AUTO_UPDATE=true
-export plugins=(zsh-syntax-highlighting)
+source ~/.config/zsh/oh-my.zsh
 
 [ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.private_aliases ] && source ~/.private_aliases
-[ -f ~/.oh-my-zsh/oh-my-zsh.sh ] && source ~/.oh-my-zsh/oh-my-zsh.sh
 [ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
 
 typeset -U path PATH
@@ -19,10 +16,5 @@ export PATH=$PATH:$ASDF_DATA_DIR/shims
 
 export GPG_TTY=$(tty)
 export EDITOR=nvim
-
-export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=cyan'
-export ZSH_HIGHLIGHT_STYLES[path]='none'
-export ZSH_HIGHLIGHT_STYLES[arg0]='none'
-export ZSH_HIGHLIGHT_STYLES[precommand]='none'
 
 eval `dircolors ~/.dir_colors`
