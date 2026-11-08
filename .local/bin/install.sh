@@ -65,7 +65,7 @@ sudo pacman -S --noconfirm --needed pipewire pipewire-alsa pipewire-pulse pipewi
 
 echo "Install touchpad..."
 
-sudo pacman -S --noconfirm --needed xf86-input-synaptics
+sudo pacman -S --noconfirm --needed xf86-input-libinput
 
 echo "Install bluetooth..."
 

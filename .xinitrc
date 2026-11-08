@@ -9,7 +9,7 @@ dbus-update-activation-environment --systemd --all
 
 setxkbmap us_intl,us,fr grp:rctrl_rshift_toggle
 
-synclient TapButton1=1 TapButton2=3
+xinput set-prop "MSFT0001:01 0488:1014 Touchpad" "libinput Tapping Enabled" 1
 
 wal -R > /dev/null 2>&1
 
