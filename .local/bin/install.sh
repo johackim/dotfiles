@@ -48,7 +48,7 @@ sudo pacman -S --noconfirm --needed xorg xorg-xinit
 
 echo "Install i3..."
 
-sudo pacman -S --noconfirm --needed i3-gaps dmenu xcompmgr
+sudo pacman -S --noconfirm --needed i3-wm dmenu xcompmgr
 yay -S --sudoloop --noconfirm --needed i3lock-color
 
 echo "Install urxvt..."
@@ -79,11 +79,11 @@ yay -S --sudoloop --noconfirm --needed fonts-noto-hinted ttf-ms-fonts
 
 echo "Install gtk..."
 
-sudo pacman -S --noconfirm --needed gtk3 libappindicator-gtk3
+sudo pacman -S --noconfirm --needed gtk3 libappindicator
 
 echo "Install polybar..."
 
-yay -S --sudoloop --noconfirm --needed polybar jq
+sudo pacman -S --noconfirm --needed polybar jq
 
 echo "Install networkmanager-applet..."
 
