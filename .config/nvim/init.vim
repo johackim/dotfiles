@@ -7,12 +7,10 @@ call plug#begin('~/.config/nvim')
   Plug 'vim-airline/vim-airline'
   Plug 'airblade/vim-gitgutter'
   Plug 'preservim/nerdcommenter'
-  Plug 'matze/vim-move'
   Plug 'Raimondi/delimitMate'
   Plug 'ryanoasis/vim-devicons'
   Plug 'github/copilot.vim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'neoclide/coc.nvim', { 'tag': 'v0.0.81', 'do': 'yarn install' }
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh' }
 call plug#end()
 
@@ -70,9 +68,9 @@ let g:GPGDefaultRecipients=["johackim"]
 " NERD Commenter
 let g:NERDSpaceDelims = 2
 
-" Vim-move
-vmap <C-j> <Plug>MoveBlockDown
-vmap <C-k> <Plug>MoveBlockUp
+" Move selected lines
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Github copilot
 let g:copilot_enabled = v:false
@@ -82,11 +80,8 @@ imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:ale_fix_on_save = 1
 let g:ale_fixers = { 'javascript': ['eslint'] }
 
-" Coc.nvim
-let s:asdf_node = expand('~/.asdf/shims/node')
-if executable(s:asdf_node)
-  let g:coc_node_path = s:asdf_node
-endif
+" Completion
+set autocomplete
 
 " Treesitter
 lua << EOF
