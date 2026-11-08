@@ -1,4 +1,3 @@
-.fonts/.uuid
 .local/bin/*
 !.local/bin/*.sh
 .tmux/plugins/*

@@ -1,6 +1,0 @@
-respawn-window -k
-rename-window "second"
-
-selectp -t 0
-
-send-keys -R -t 0 'clear' enter

@@ -110,7 +110,6 @@ wpg -s wallpaper.jpg
 echo "Install tmux..."
 
 sudo pacman -S --noconfirm --needed tmux xclip lsof htop progress fastfetch
-[ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 [ ! -d "$HOME/.tmux/plugins/tmux-yank" ] && git clone https://github.com/tmux-plugins/tmux-yank "$HOME/.tmux/plugins/tmux-yank"
 
 echo "Install chromium..."

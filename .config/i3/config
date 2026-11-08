@@ -1,9 +1,9 @@
 set $mod Mod4
 
-font xft:Inconsolata for Powerline Medium 14
+font pango:Inconsolata Nerd Font 14
 floating_modifier $mod
 
-bindsym $mod+Return exec urxvtc --perl-lib ~/.urxvt/perl
+bindsym $mod+Return exec urxvtc
 
 bindsym $mod+Shift+q kill
 

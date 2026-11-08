@@ -3,7 +3,6 @@
 - link:
     ~/.aliases: .aliases
     ~/.dir_colors: .dir_colors
-    ~/.fonts: .fonts/
     ~/.gitignore_global: .gitignore_global
     ~/.gitconfig: .gitconfig
     ~/.config/i3:
