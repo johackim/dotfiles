@@ -19,7 +19,6 @@
     ~/.config/ncspot/config.toml: .config/ncspot/config.toml
     ~/.config/nvim/init.vim: .config/nvim/init.vim
     ~/.config/wpg/wpg.conf: .config/wpg/wpg.conf
-    ~/.config/yamllint/config: .config/yamllint/config
     ~/.config/zsh: .config/zsh
     ~/.config/gtk-3.0/settings.ini:
       force: true
