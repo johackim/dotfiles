@@ -160,7 +160,7 @@ for_window [class="obsidian"] floating disable
 
 hide_edge_borders both
 
-bindsym Control+mod1+l exec --no-startup-id "i3lock -c 00000000 -F -e -u -i ~/.dotfiles/wallpaper.jpg"
+bindsym Control+mod1+l exec --no-startup-id "i3lock -e -u -i ~/.cache/wal/lock.png"
 bindsym 0xff61 exec --no-startup-id scrot ~/Downloads/screenshot_%Y_%m_%d_%H_%M_%S.png
 bindsym $mod+Shift+t exec --no-startup-id "thunar"
 

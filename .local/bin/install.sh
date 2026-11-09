@@ -4,7 +4,7 @@ set -e
 
 sudo pacman -Syu --noconfirm --needed --overwrite="*" \
     base-devel git zsh zsh-syntax-highlighting uv \
-    xorg xorg-xinit xf86-input-libinput i3-wm dmenu rxvt-unicode dunst jq network-manager-applet feh \
+    xorg xorg-xinit xf86-input-libinput i3-wm i3lock dmenu rxvt-unicode dunst jq network-manager-applet feh \
     pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio pavucontrol wireplumber sof-firmware \
     bluez blueman bluez-hid2hci bluez-utils \
     ttf-inconsolata-nerd noto-fonts-emoji gnu-free-fonts gtk3 libappindicator \
@@ -25,7 +25,7 @@ if ! command -v yay &> /dev/null; then
     rm -rf ~/.cache/yay-bin
 fi
 
-yay -S --sudoloop --noconfirm --needed --overwrite="*" i3lock-color fonts-noto-hinted ttf-ms-fonts wpgtk masterpassword-cli keynav spotify spotx-git themix-theme-oomox-git themix-icons-archdroid-git
+yay -S --sudoloop --noconfirm --needed --overwrite="*" fonts-noto-hinted ttf-ms-fonts wpgtk masterpassword-cli keynav spotify spotx-git themix-theme-oomox-git themix-icons-archdroid-git
 
 wpg -a ~/.dotfiles/wallpaper.jpg
 wpg -s wallpaper.jpg

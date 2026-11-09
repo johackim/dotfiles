@@ -11,6 +11,9 @@ pkill dunst
 # Reload i3bar colors from xrdb
 i3-msg reload
 
+# Create lock screen image (i3lock only reads PNG at screen size)
+ffmpeg -v error -y -i "$wallpaper" -vf scale=1920:1080 ~/.cache/wal/lock.png
+
 # Create GTK theme and icons
 no_jokes=true /opt/oomox/plugins/theme_oomox/change_color.sh -o Pywal ~/.cache/wal/colors-oomox
 oomox-archdroid-icons-cli -o Pywal ~/.cache/wal/colors-oomox
