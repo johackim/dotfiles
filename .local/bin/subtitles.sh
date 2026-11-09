@@ -1,63 +1,44 @@
 #!/bin/bash
 
-PARAM=$1
+set -e
 
-[ -z "$PARAM" ] && echo "Usage: subtitles.sh <file or url>" && exit 1
-[ -z "$OPENAI_API_KEY" ] && echo "OPENAI_API_KEY is not set" && exit 1
+[ -n "$1" ] || { echo "Usage: subtitles.sh <file or url>"; exit 1; }
+[ -n "$OPENAI_API_KEY" ] || { echo "OPENAI_API_KEY is not set"; exit 1; }
 
-for cmd in yt-dlp ffmpeg curl; do
-    if ! command -v "$cmd" &> /dev/null; then
-        echo "Error: $cmd is required but not installed."
-        exit 1
-    fi
-done
-
-if [[ $PARAM =~ ^https?:// ]]; then
+if [[ $1 =~ ^https?:// ]]; then
     echo "Getting video title..."
-    FILENAME=$(yt-dlp -O title "$PARAM" 2>/dev/null | sed 's/[^a-zA-Z0-9 _-]//g')
-    [ -z "$FILENAME" ] && FILENAME="audio"
-
-    [ -f "${FILENAME}.srt" ] && echo "Subtitle file ${FILENAME}.srt already exists" && exit 1
-
-    echo "Downloading video as mp4..."
-    yt-dlp -S "ext:mp4:m4a" --remux-video mp4 -o "${FILENAME}.%(ext)s" "$PARAM" > /dev/null 2>&1
-
-    echo "Extracting audio to mp3..."
-    ffmpeg -y -i "${FILENAME}.mp4" -vn -c:a libmp3lame -q:a 4 "${FILENAME}.mp3" > /dev/null 2>&1
+    name=$(yt-dlp --no-warnings --print filename -o "%(title)s" "$1")
 else
-    [ ! -f "$PARAM" ] && echo "File not found: $PARAM" && exit 1
-    FILENAME=$(basename "${PARAM%.*}" | sed 's/[^a-zA-Z0-9 _-]//g')
-
-    [ -f "${FILENAME}.srt" ] && echo "Subtitle file ${FILENAME}.srt already exists" && exit 1
-
-    echo "Converting to mp3..."
-    ffmpeg -y -i "$PARAM" -vn -c:a libmp3lame -q:a 4 "${FILENAME}.mp3" > /dev/null 2>&1
+    [ -f "$1" ] || { echo "File not found: $1"; exit 1; }
+    name=$(basename "$1")
+    name=${name%.*}
 fi
 
-SIZE=$(stat -c%s "${FILENAME}.mp3")
+[ ! -f "$name.srt" ] || { echo "Subtitle file $name.srt already exists"; exit 1; }
 
-if [ "$SIZE" -gt 26214400 ]; then
-    echo "File too large ($(du -h "${FILENAME}.mp3" | cut -f1)). Compressing..."
-    ffmpeg -y -i "${FILENAME}.mp3" -map 0:a -ar 16000 -ac 1 -b:a 32k "${FILENAME}_compressed.mp3" > /dev/null 2>&1
-    mv "${FILENAME}_compressed.mp3" "${FILENAME}.mp3"
+src=$1
+if [[ $1 =~ ^https?:// ]]; then
+    echo "Downloading video as mp4..."
+    yt-dlp -q --no-warnings -S "ext:mp4:m4a" --remux-video mp4 -o "%(title)s.%(ext)s" "$1"
+    src=$name.mp4
 fi
+
+# A temp file never overwrites an input .mp3. Whisper resamples to 16kHz mono anyway,
+# and 32kbps stays under the API's 25MB limit up to ~1h45.
+audio=$(mktemp --suffix .mp3)
+trap 'rm -f "$audio"' EXIT
+echo "Extracting audio..."
+ffmpeg -v error -y -i "$src" -vn -ac 1 -ar 16000 -b:a 32k "$audio"
 
 echo "Transcribing with OpenAI Whisper..."
-curl -s --request POST \
-  --url https://api.openai.com/v1/audio/transcriptions \
-  --header "Authorization: Bearer $OPENAI_API_KEY" \
-  --header "Content-Type: multipart/form-data" \
-  --form file=@"${FILENAME}.mp3" \
-  --form model="whisper-1" \
-  --form response_format="srt" > "${FILENAME}.srt"
-
-if grep -q '"error":' "${FILENAME}.srt"; then
+if ! curl -sS --fail-with-body https://api.openai.com/v1/audio/transcriptions \
+    -H "Authorization: Bearer $OPENAI_API_KEY" \
+    -F file=@"$audio" -F model=whisper-1 -F response_format=srt > "$name.srt"; then
     echo "Error during transcription:"
-    cat "${FILENAME}.srt"
-    rm -f "${FILENAME}.srt"
+    cat "$name.srt"
+    rm "$name.srt"
     exit 1
 fi
 
-rm -f "${FILENAME}.mp3"
-sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "${FILENAME}.srt"
-echo "Done! Subtitles saved to ${FILENAME}.srt"
+sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "$name.srt"
+echo "Done! Subtitles saved to $name.srt"
