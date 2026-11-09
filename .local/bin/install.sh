@@ -9,7 +9,7 @@ sudo pacman -Syu --noconfirm --needed --overwrite="*" \
     bluez blueman bluez-hid2hci bluez-utils \
     ttf-inconsolata-nerd noto-fonts-emoji gnu-free-fonts gtk3 libappindicator \
     tmux xclip lsof htop progress fastfetch chromium neovim tree-sitter-cli yt-dlp httpie \
-    restic thunar thunar-volman gvfs-mtp scrot eog trash-cli inetutils gnome-keyring pkgfile fd mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl polkit-kde-agent arandr gnome-calculator gcolor3 file-roller 7zip playerctl rclone calibre ncspot
+    restic thunar thunar-volman gvfs-mtp scrot eog trash-cli inetutils gnome-keyring pkgfile fd mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep telegram-desktop mpv aria2 ncdu brightnessctl polkit-kde-agent arandr gnome-calculator gcolor3 file-roller 7zip playerctl rclone calibre ncspot
 
 sudo chsh -s "$(which zsh)" "$(whoami)"
 sudo systemctl enable --now bluetooth cronie docker
