@@ -1,2 +1,2 @@
-.urxvt/perl/* linguist-language=false
+.urxvt/ext/* linguist-language=false
 .config/mpv/scripts/*.lua linguist-language=false
