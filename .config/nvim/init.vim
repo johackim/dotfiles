@@ -11,6 +11,14 @@ vim.pack.add({
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/iamcco/markdown-preview.nvim',
 }, { confirm = false })
+
+-- Treesitter
+local langs = { "javascript", "markdown", "json", "html", "css", "vim" }
+pcall(function() require('nvim-treesitter').install(langs) end)
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = langs,
+  callback = function() pcall(vim.treesitter.start) end,
+})
 EOF
 
 " Key Leader
@@ -31,7 +39,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set autoindent
 
 " Theme
 colorscheme wal
@@ -78,14 +85,3 @@ let g:ale_fixers = { 'javascript': ['eslint'] }
 
 " Completion
 set autocomplete
-
-" Treesitter
-lua << EOF
-pcall(function()
-  require('nvim-treesitter').install({ "javascript", "markdown", "json", "html", "css", "vim" })
-end)
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { "javascript", "markdown", "json", "html", "css", "vim" },
-  callback = function() pcall(vim.treesitter.start) end,
-})
-EOF

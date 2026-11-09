@@ -24,13 +24,12 @@ URxvt.url-launcher: chromium
 URxvt.keysym.C-f: matcher:list
 URxvt.keysym.C-0xff0d: matcher:list
 
-URxvt.keysym.C-Up:     perl:font-size:increase
-URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
 
 URxvt.urgentOnBell: true
 
 ! xrdb -query | grep dpi
 Xft.dpi: 128
-xterm*font: *-fixed-*-*-*-18-*
 
 URxvt.geometry: 400x400

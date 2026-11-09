@@ -4,9 +4,8 @@ source "$HOME/.cache/wal/colors.sh"
 
 # Update Dunst theme
 DFILE="$HOME/.config/dunst/dunstrc"
-sed -i -e "s/background = \"#.*\"/background = \"$background\"/g" "$DFILE"
-sed -i -e "s/frame_color = \"#.*\"/frame_color = \"$foreground\"/" "$DFILE"
-sed -i -e "s/foreground = \"#.*\"/foreground = \"$foreground\"/g" "$DFILE"
+sed -i "s/^background = .*/background = \"$background\"/" "$DFILE"
+sed -i "s/^\(foreground\|frame_color\) = .*/\1 = \"$foreground\"/" "$DFILE"
 pkill dunst
 
 # Reload polybar colors from xrdb

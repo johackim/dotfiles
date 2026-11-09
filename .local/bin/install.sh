@@ -8,7 +8,7 @@ sudo pacman -Syu --noconfirm --needed --overwrite="*" \
     pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio pavucontrol wireplumber sof-firmware \
     bluez blueman bluez-hid2hci bluez-utils \
     ttf-inconsolata-nerd noto-fonts-emoji gnu-free-fonts gtk3 libappindicator \
-    tmux xclip lsof htop progress fastfetch chromium neovim tree-sitter-cli \
+    tmux xclip lsof htop progress fastfetch chromium neovim tree-sitter-cli yt-dlp httpie \
     restic thunar thunar-volman gvfs-mtp scrot eog trash-cli inetutils gnome-keyring pkgfile fd mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep-all telegram-desktop mpv aria2 ncdu brightnessctl polkit-kde-agent arandr gnome-calculator gcolor3 file-roller 7zip playerctl rclone calibre ncspot
 
 sudo chsh -s "$(which zsh)" "$(whoami)"
@@ -31,6 +31,3 @@ wpg -a ~/.dotfiles/wallpaper.jpg
 wpg -s wallpaper.jpg
 
 nvim --headless +'call mkdp#util#install_sync()' +qa
-
-uv tool install yt-dlp
-uv tool install httpie
