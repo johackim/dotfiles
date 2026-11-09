@@ -1,25 +1,23 @@
 #!/bin/bash
 
-shopt -s nocaseglob
+shopt -s nocasematch
 cd ~/Downloads || exit
 
-mkdir -p images
-fd -j1 -d1 -epng -esvg -ejpg -ejpeg -egif -epsd -ewebp -x mv -n {} images
-
-mkdir -p textes
-fd -j1 -d1 -esql -ertf -eodt -ejson -eyml -eyaml -exml -exls -etxt -eopml -epo -epdf -eepub -emobi -ecrt -edoc -edocx -exlsx -ehtml -ecsv -emd -etorrent -earia2 -ekey -esh -epy -eovpn -elog -econf -eods -exmind -egpx -edb -edrawio -eazw -eazw3 -eencrypted -eAppImage -ebin -em3u -x mv -n {} textes
-
-mkdir -p videos
-fd -j1 -d1 -eavi -emkv -em4v -ewebm -emp4 -esrt -eogv -x mv -n {} videos
-
-mkdir -p archives
-fd -j1 -d1 -ezip -etar.gz -etgz -egz -ebundle -eapk -erar -e7z -eiso -eexe -ebz2 -etar -eimg -exz -eab -x mv -n {} archives
-
-mkdir -p audio
-fd -j1 -d1 -ewav -emp3 -x mv -n {} audio
+for f in *; do
+    [ -f "$f" ] || continue
+    case "$f" in
+        *.png|*.svg|*.jpg|*.jpeg|*.gif|*.psd|*.webp) d=images ;;
+        *.sql|*.rtf|*.odt|*.json|*.yml|*.yaml|*.xml|*.xls|*.txt|*.opml|*.po|*.pdf|*.epub|*.mobi|*.crt|*.doc|*.docx|*.xlsx|*.html|*.csv|*.md|*.torrent|*.aria2|*.key|*.sh|*.py|*.ovpn|*.log|*.conf|*.ods|*.xmind|*.gpx|*.db|*.drawio|*.azw|*.azw3|*.encrypted|*.appimage|*.bin|*.m3u) d=textes ;;
+        *.avi|*.mkv|*.m4v|*.webm|*.mp4|*.srt|*.ogv) d=videos ;;
+        *.zip|*.tgz|*.gz|*.bundle|*.apk|*.rar|*.7z|*.iso|*.exe|*.bz2|*.tar|*.img|*.xz|*.ab) d=archives ;;
+        *.wav|*.mp3) d=audio ;;
+        *) continue ;;
+    esac
+    mkdir -p "$d" && mv -n -- "$f" "$d"
+done
 
 mkdir -p dossiers
-find . -maxdepth 1 -type d ! -name images ! -name archives ! -name textes ! -name audio ! -name videos ! -name torrents -exec mv {} dossiers \; &>/dev/null
 
+find . -maxdepth 1 -type d ! -name images ! -name archives ! -name textes ! -name audio ! -name videos ! -name torrents -exec mv {} dossiers \; &>/dev/null
 find . -maxdepth 1 -type d -empty -delete
 find . -name "*.part" -delete
