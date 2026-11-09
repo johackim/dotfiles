@@ -4,7 +4,7 @@ set -e
 
 sudo pacman -Syu --noconfirm --needed --overwrite="*" \
     base-devel git zsh zsh-syntax-highlighting uv \
-    xorg xorg-xinit xf86-input-libinput i3-wm dmenu rxvt-unicode dunst polybar jq network-manager-applet feh \
+    xorg xorg-xinit xf86-input-libinput i3-wm dmenu rxvt-unicode dunst jq network-manager-applet feh \
     pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio pavucontrol wireplumber sof-firmware \
     bluez blueman bluez-hid2hci bluez-utils \
     ttf-inconsolata-nerd noto-fonts-emoji gnu-free-fonts gtk3 libappindicator \

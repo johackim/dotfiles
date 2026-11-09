@@ -18,7 +18,6 @@
     ~/.config/ncdu: .config/ncdu
     ~/.config/ncspot/config.toml: .config/ncspot/config.toml
     ~/.config/nvim/init.vim: .config/nvim/init.vim
-    ~/.config/polybar: .config/polybar
     ~/.config/wpg/wpg.conf: .config/wpg/wpg.conf
     ~/.config/yamllint/config: .config/yamllint/config
     ~/.config/zsh: .config/zsh

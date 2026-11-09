@@ -1,7 +1,7 @@
 Dotfiles
 ===
 
-My personal archlinux dotfiles with zsh, neovim, tmux, i3, rxvt, polybar, pywal & dunst
+My personal archlinux dotfiles with zsh, neovim, tmux, i3, rxvt, pywal & dunst
 
 [![screenshot](https://raw.githubusercontent.com/johackim/dotfiles/master/screenshot.png)](https://raw.githubusercontent.com/johackim/dotfiles/master/screenshot.png)
 

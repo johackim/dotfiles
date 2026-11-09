@@ -8,8 +8,8 @@ sed -i "s/^background = .*/background = \"$background\"/" "$DFILE"
 sed -i "s/^\(foreground\|frame_color\) = .*/\1 = \"$foreground\"/" "$DFILE"
 pkill dunst
 
-# Reload polybar colors from xrdb
-polybar-msg cmd restart
+# Reload i3bar colors from xrdb
+i3-msg reload
 
 # Create GTK theme and icons
 no_jokes=true /opt/oomox/plugins/theme_oomox/change_color.sh -o Pywal ~/.cache/wal/colors-oomox

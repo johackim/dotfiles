@@ -87,7 +87,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
+bindsym $mod+b bar mode toggle
 
 set_from_resource $bg i3wm.background #000000
 set_from_resource $fg i3wm.foreground #FFFFFF
@@ -103,6 +103,21 @@ client.unfocused        $bg     $bg     $c8  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
+bar {
+    position bottom
+    font pango:Noto Sans 9
+    tray_padding 6
+    status_command ~/.local/bin/status.sh
+    colors {
+        background #000000
+        statusline $fg
+        focused_workspace  $c1      $c1      $fg
+        active_workspace   $c1      $c1      $fg
+        inactive_workspace #000000 #000000 $fg
+        urgent_workspace   #000000 #000000 $fg
+    }
+}
+
 exec --no-startup-id urxvtd -o -f -q
 exec --no-startup-id xset s off -dpms
 exec --no-startup-id nm-applet
@@ -111,7 +126,6 @@ exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id keynav daemonize
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id blueman-applet
-exec --no-startup-id polybar -q -r main -c ~/.config/polybar/config.ini
 
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e ~/.local/bin/tmux-main.sh'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e tmux new -As second -n editor'
