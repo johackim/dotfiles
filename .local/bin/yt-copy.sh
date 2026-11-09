@@ -8,28 +8,18 @@
 # https://youtu.be/abc123xyz?si=abc123xyz&t=423
 # https://youtu.be/abc123xyz?si=abc123xyz
 
-PATH=$HOME/.local/bin:$PATH
+url=$(xclip -o | sed -E 's/([?&])feature=shared([&#]|$)/\1\2/g; s/([?&])si=[^&#]*([&#]|$)/\1\2/g; s/([?&])&/\1/g; s/[?&]([#]|$)/\1/g')
 
-url=$(xclip -o)
+notify-send -t 3000 "Copy video" "$url"
 
-url=$(printf '%s' "$url" | sed -E 's/([?&])feature=shared([&#]|$)/\1\2/g; s/([?&])si=[^&#]*([&#]|$)/\1\2/g; s/([?&])&/\1/g; s/[?&]([#]|$)/\1/g')
+[[ $url =~ youtu(be\.com|\.be) ]] || exit 1
 
-notify-send -t 3000 "Copy video" "$(xclip -o)";
+read -r id title < <(yt-dlp --no-warnings --print "%(id)s %(uploader)s - %(title)s" "$url") || exit 1
+t=$(grep -o '[?&]t=[^&#]*' <<< "$url" | head -1)
+short_url=https://youtu.be/$id${t/#&/?}
+[[ $url =~ youtu\.be ]] && short_url=$url
+link="[$title]($short_url)"
 
-if [[ ! "$url" =~ youtu(be\.com|\.be) ]]; then
-    exit 1;
-fi
+printf '%s' "$link" | xclip -selection clipboard
 
-yt-dlp -f mp4 -o '%(id)s.%(ext)s' --skip-download --print-json --no-warnings "$url" > /tmp/.metadata
-title=$(jq -r '.title' /tmp/.metadata 2>/dev/null)
-uploader=$(jq -r '.uploader' /tmp/.metadata 2>/dev/null)
-id=$(jq -r '.display_id' /tmp/.metadata 2> /dev/null)
-short_url="https://youtu.be/$id$(echo "$url" | grep -o '[?&]t=[^&#]*' | head -n1 | sed 's/^&/?/')"
-
-if [[ "$url" =~ ^.*youtu.be.*$ ]]; then
-    short_url="$url"
-fi
-
-printf "%s" "[$uploader - $title]($short_url)" | xclip -selection clipboard
-
-notify-send -t 3000 "Video copied" "$(xclip -o)";
+notify-send -t 3000 "Video copied" "$link"
