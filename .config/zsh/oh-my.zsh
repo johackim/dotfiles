@@ -24,13 +24,14 @@ bindkey '^[[8~' end-of-line
 bindkey '^[[3~' delete-char
 
 setopt prompt_subst
+[[ $TERM == linux ]] && bright=(black white green) || bright=(8 15 10)
 git_prompt_info() {
   local ref=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
   [[ -n $ref ]] || return
   [[ -n $(git status --porcelain --ignore-submodules=dirty 2>/dev/null) ]] && ref+=" %F{yellow}✗"
-  print -rn -- "(%B%F{green}$ref%f%b)"
+  print -rn -- "(%B%F{$bright[3]}$ref%f%b)"
 }
-PROMPT='[%F{cyan}%D{%H:%M:%S}%f] [%B%F{black}%n%f%b@%B%F{white}%m%f%b %F{cyan}%c%f $(git_prompt_info)]$ '
+PROMPT='[%F{cyan}%D{%H:%M:%S}%f] [%B%F{$bright[1]}%n%f%b@%B%F{$bright[2]}%m%f%b %F{cyan}%c%f $(git_prompt_info)]$ '
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=cyan'
