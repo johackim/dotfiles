@@ -23,6 +23,10 @@ bindkey '^[[4~' end-of-line
 bindkey '^[[8~' end-of-line
 bindkey '^[[3~' delete-char
 
+copy-line() { print -rn -- $BUFFER | xclip -selection clipboard }
+zle -N copy-line
+bindkey '^Xy' copy-line
+
 setopt prompt_subst
 [[ $TERM == linux ]] && bright=(black white green) || bright=(8 15 10)
 git_prompt_info() {

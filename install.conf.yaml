@@ -10,7 +10,6 @@
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore_global
     ~/.keynavrc: .keynavrc
-    ~/.tmux: .tmux
     ~/.tmux.conf: .tmux.conf
     ~/.urxvt: .urxvt
     ~/.Xresources: .Xresources

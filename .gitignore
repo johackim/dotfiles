@@ -1,4 +1,2 @@
 .local/bin/*
 !.local/bin/*.sh
-.tmux/plugins/*
-!.tmux/plugins/.gitkeep

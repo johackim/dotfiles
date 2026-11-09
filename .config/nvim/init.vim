@@ -1,18 +1,17 @@
-call plug#begin('~/.config/nvim')
-  Plug 'preservim/nerdtree'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'jamessan/vim-gnupg'
-  Plug 'dense-analysis/ale'
-  Plug 'dylanaraps/wal.vim'
-  Plug 'vim-airline/vim-airline'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'preservim/nerdcommenter'
-  Plug 'Raimondi/delimitMate'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'github/copilot.vim'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && ./install.sh' }
-call plug#end()
+lua << EOF
+vim.pack.add({
+  'https://github.com/preservim/nerdtree',
+  'https://github.com/ctrlpvim/ctrlp.vim',
+  'https://github.com/jamessan/vim-gnupg',
+  'https://github.com/dense-analysis/ale',
+  'https://github.com/dylanaraps/wal.vim',
+  'https://github.com/airblade/vim-gitgutter',
+  'https://github.com/Raimondi/delimitMate',
+  'https://github.com/github/copilot.vim',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/iamcco/markdown-preview.nvim',
+}, { confirm = false })
+EOF
 
 " Key Leader
 let mapleader = ","
@@ -64,9 +63,6 @@ endfunction
 
 " vim-gnupg configuration
 let g:GPGDefaultRecipients=["johackim"]
-
-" NERD Commenter
-let g:NERDSpaceDelims = 2
 
 " Move selected lines
 vnoremap <C-j> :m '>+1<CR>gv=gv

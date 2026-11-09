@@ -13,19 +13,16 @@ URxvt*.shading: 15
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-URxvt.perl-ext-common: default,matcher,clipboard,url-picker,font-size,notify
+URxvt.perl-ext-common: default,matcher,font-size,notify
 
 URxvt.keysym.C-Right: \033[1;5C
 URxvt.keysym.C-Left: \033[1;5D
-URxvt.keysym.C-C: perl:clipboard:copy
-URxvt.keysym.C-V: perl:clipboard:paste
+URxvt.keysym.C-C: clipboard:copy
+URxvt.keysym.C-V: clipboard:paste
 
-URxvt.keysym.C-f: perl:url-picker
-URxvt.url-picker.launcher: chromium
-URxvt.keysym.C-0xff0d: perl:url-picker
-
-URxvt.clipboard.copycmd:  xclip -i -selection clipboard
-URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+URxvt.url-launcher: chromium
+URxvt.keysym.C-f: matcher:list
+URxvt.keysym.C-0xff0d: matcher:list
 
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
