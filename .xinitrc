@@ -9,7 +9,9 @@ dbus-update-activation-environment --systemd --all
 
 setxkbmap us_intl,us,fr grp:rctrl_rshift_toggle
 
+xinput set-prop "MSFT0001:01 0488:1014 Touchpad" "libinput Accel Speed" 0.1
 xinput set-prop "MSFT0001:01 0488:1014 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "MSFT0001:01 0488:1014 Touchpad" "libinput Disable While Typing Enabled" 0
 
 wal -R > /dev/null 2>&1
 
