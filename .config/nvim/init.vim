@@ -9,7 +9,6 @@ vim.pack.add({
   'https://github.com/Raimondi/delimitMate',
   'https://github.com/github/copilot.vim',
   'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/iamcco/markdown-preview.nvim',
 }, { confirm = false })
 
 -- Treesitter
@@ -19,6 +18,24 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = langs,
   callback = function() pcall(vim.treesitter.start) end,
 })
+
+-- Markdown preview
+vim.api.nvim_create_user_command('MarkdownPreview', function()
+  local buf, html = vim.api.nvim_get_current_buf(), vim.fn.tempname() .. '.html'
+  local function render()
+    local markdown = table.concat(vim.api.nvim_buf_get_lines(buf, 0, -1, false), '\n')
+    vim.fn.writefile({
+      '<!doctype html><meta charset="utf-8">',
+      '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown.min.css">',
+      '<script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"></script>',
+      '<body class="markdown-body" style="max-width:900px;margin:auto;padding:2em">',
+      '<script>document.body.innerHTML = marked.parse(' .. vim.json.encode(markdown):gsub('<', '\\u003c') .. ')</script>',
+    }, html)
+  end
+  render()
+  vim.api.nvim_create_autocmd('BufWritePost', { buffer = buf, callback = render })
+  vim.ui.open(html)
+end, {})
 EOF
 
 " Key Leader

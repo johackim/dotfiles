@@ -30,4 +30,4 @@ yay -S --sudoloop --noconfirm --needed --overwrite="*" i3lock-color fonts-noto-h
 wpg -a ~/.dotfiles/wallpaper.jpg
 wpg -s wallpaper.jpg
 
-nvim --headless +'call mkdp#util#install_sync()' +qa
+nvim --headless +qa
