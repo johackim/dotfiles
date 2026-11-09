@@ -25,7 +25,7 @@ if ! command -v yay &> /dev/null; then
     rm -rf ~/.cache/yay-bin
 fi
 
-yay -S --sudoloop --noconfirm --needed --overwrite="*" i3lock-color fonts-noto-hinted ttf-ms-fonts wpgtk masterpassword-cli keynav spotify spotx-git themix-full-git
+yay -S --sudoloop --noconfirm --needed --overwrite="*" i3lock-color fonts-noto-hinted ttf-ms-fonts wpgtk masterpassword-cli keynav spotify spotx-git themix-theme-oomox-git themix-icons-archdroid-git
 
 wpg -a ~/.dotfiles/wallpaper.jpg
 wpg -s wallpaper.jpg

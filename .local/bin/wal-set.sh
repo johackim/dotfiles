@@ -11,10 +11,8 @@ pkill dunst
 # Reload polybar colors from xrdb
 polybar-msg cmd restart
 
-# Create GTK theme
-no_jokes=true /opt/oomox/plugins/theme_oomox/change_color.sh -o Pywal /opt/oomox/scripted_colors/xresources/xresources-reverse
-
-# Create Archdroid icons
+# Create GTK theme and icons
+no_jokes=true /opt/oomox/plugins/theme_oomox/change_color.sh -o Pywal ~/.cache/wal/colors-oomox
 oomox-archdroid-icons-cli -o Pywal ~/.cache/wal/colors-oomox
 
 # Reload thunar
