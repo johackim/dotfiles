@@ -20,9 +20,9 @@ uv tool install dotbot
 ~/.local/bin/dotbot -d "$HOME/.dotfiles" -c "$HOME/.dotfiles/install.conf.yaml"
 
 if ! command -v yay &> /dev/null; then
-    git clone https://aur.archlinux.org/yay-bin.git /tmp/yay
-    (cd /tmp/yay && makepkg --noconfirm && sudo pacman -U --noconfirm *.pkg.tar.*)
-    rm -rf /tmp/yay
+    git clone https://aur.archlinux.org/yay-bin.git ~/.cache/yay-bin
+    (cd ~/.cache/yay-bin && makepkg -si --noconfirm)
+    rm -rf ~/.cache/yay-bin
 fi
 
 yay -S --sudoloop --noconfirm --needed --overwrite="*" i3lock-color fonts-noto-hinted ttf-ms-fonts wpgtk masterpassword-cli keynav spotify spotx-git themix-full-git
