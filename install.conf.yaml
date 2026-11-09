@@ -6,7 +6,6 @@
 
 - link:
     ~/.aliases: .aliases
-    ~/.dir_colors: .dir_colors
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore_global
     ~/.keynavrc: .keynavrc

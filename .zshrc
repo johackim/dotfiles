@@ -1,4 +1,5 @@
 source ~/.config/zsh/oh-my.zsh
+source ~/.config/zsh/ls-colors.zsh
 
 [ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.private_aliases ] && source ~/.private_aliases
@@ -16,5 +17,3 @@ export PATH=$PATH:$ASDF_DATA_DIR/shims
 
 export GPG_TTY=$(tty)
 export EDITOR=nvim
-
-eval `dircolors ~/.dir_colors`
