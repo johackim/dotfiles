@@ -104,12 +104,10 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 bar {
-    position bottom
     font pango:Noto Sans 9
     tray_padding 6
     status_command ~/.local/bin/status.sh
     colors {
-        background #000000
         statusline $fg
         focused_workspace  $c1      $c1      $fg
         active_workspace   $c1      $c1      $fg
@@ -178,7 +176,6 @@ bindsym Control+Shift+Down move scratchpad
 bindsym Control+Shift+Up scratchpad show
 bindsym Control+Shift+question scratchpad show
 
-workspace_layout default
 default_orientation horizontal
 focus_follows_mouse no
 
