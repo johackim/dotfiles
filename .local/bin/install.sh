@@ -26,6 +26,7 @@ fi
 
 yay -S --sudoloop --noconfirm --needed --overwrite="*" fonts-noto-hinted ttf-ms-fonts wpgtk masterpassword-cli keynav spotify spotx-git themix-theme-oomox-git themix-icons-archdroid-git
 
+export PATH="$PATH:$HOME/.local/bin"
 wpg -a ~/.dotfiles/wallpaper.jpg
 wpg -s wallpaper.jpg
 
