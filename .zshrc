@@ -10,7 +10,7 @@ typeset -U path PATH
 export GOPATH=$HOME/.golang
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/.local/bin:/usr/local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 export ASDF_DATA_DIR=$HOME/.asdf
 export PATH=$PATH:$ASDF_DATA_DIR/shims
