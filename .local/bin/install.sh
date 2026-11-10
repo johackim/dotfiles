@@ -3,7 +3,7 @@
 set -e
 
 sudo pacman -Syu --noconfirm --needed --overwrite="*" \
-    base-devel git zsh zsh-syntax-highlighting uv \
+    base-devel git zsh zsh-syntax-highlighting \
     xorg xorg-xinit xf86-input-libinput i3-wm i3lock dmenu rxvt-unicode dunst jq network-manager-applet feh \
     pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio pavucontrol wireplumber sof-firmware \
     bluez blueman bluez-hid2hci bluez-utils \
@@ -16,8 +16,7 @@ sudo systemctl enable --now bluetooth cronie docker
 
 [ -d "$HOME/.dotfiles" ] || git clone https://github.com/johackim/dotfiles ~/.dotfiles
 
-uv tool install dotbot
-~/.local/bin/dotbot -d "$HOME/.dotfiles" -c "$HOME/.dotfiles/install.conf.yaml"
+~/.dotfiles/.local/bin/dotfiles.sh
 
 if ! command -v yay &> /dev/null; then
     git clone https://aur.archlinux.org/yay-bin.git ~/.cache/yay-bin
