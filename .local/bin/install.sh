@@ -9,7 +9,7 @@ sudo pacman -Syu --noconfirm --needed --overwrite="*" \
     bluez blueman bluez-hid2hci bluez-utils \
     ttf-inconsolata-nerd noto-fonts-emoji gnu-free-fonts gtk3 libappindicator \
     tmux xclip lsof htop progress fastfetch chromium neovim tree-sitter-cli yt-dlp \
-    restic thunar thunar-volman gvfs-mtp scrot eog trash-cli inetutils gnome-keyring pkgfile fd mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep telegram-desktop mpv aria2 ncdu brightnessctl polkit-gnome arandr gnome-calculator gcolor3 file-roller 7zip playerctl rclone calibre ncspot
+    restic thunar thunar-volman gvfs-mtp scrot eog trash-cli inetutils gnome-keyring pkgfile fd mousepad cronie signal-desktop qbittorrent firefox docker evince ripgrep telegram-desktop mpv aria2 ncdu brightnessctl polkit-gnome arandr gnome-calculator gcolor3 file-roller 7zip playerctl rclone ncspot
 
 sudo chsh -s "$(which zsh)" "$(whoami)"
 sudo systemctl enable bluetooth cronie docker
@@ -24,7 +24,7 @@ if ! command -v yay &> /dev/null; then
     rm -rf ~/.cache/yay-bin
 fi
 
-yay -S --sudoloop --noconfirm --needed --overwrite="*" fonts-noto-hinted ttf-ms-fonts wpgtk masterpassword-cli keynav spotify spotx-git themix-theme-oomox-git themix-icons-archdroid-git
+yay -S --sudoloop --noconfirm --needed --overwrite="*" fonts-noto-hinted ttf-ms-fonts wpgtk masterpassword-cli keynav calibre-bin spotify spotx-git themix-theme-oomox-git themix-icons-archdroid-git
 
 export PATH="$PATH:$HOME/.local/bin"
 wpg -a ~/.dotfiles/wallpaper.jpg
