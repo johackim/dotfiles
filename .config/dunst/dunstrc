@@ -2,7 +2,9 @@
 frame_color = "#cdffff"
 idle_threshold = 120
 max_icon_size = 32
-browser = /usr/bin/firefox -new-tab
+enable_recursive_icon_lookup = true
+browser = /usr/bin/chromium
+icon_theme = "Adwaita"
 
 [urgency_low]
 background = "#011313"
