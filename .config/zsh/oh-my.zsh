@@ -28,6 +28,9 @@ copy-line() { print -rn -- $BUFFER | xclip -selection clipboard }
 zle -N copy-line
 bindkey '^Xy' copy-line
 
+autoload -Uz bracketed-paste-url-magic
+zle -N bracketed-paste bracketed-paste-url-magic
+
 setopt prompt_subst
 [[ $TERM == linux ]] && bright=(black white green) || bright=(8 15 10)
 git_prompt_info() {
