@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export SHELL=/bin/zsh
+
 [ -f ~/.Xresources ] && xrdb -merge -I "$HOME" ~/.Xresources
 
 eval "$(gnome-keyring-daemon --start)"
