@@ -5,7 +5,7 @@
 
 ! YouTube: home page recommendations grid, category chips and Shorts shelves
 ! www.youtube.com##ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer
-www.youtube.com##ytd-browse[page-subtype="home"] #header.ytd-rich-grid-renderer
+www.youtube.com##ytd-browse[page-subtype="home"] #header.ytd-rich-grid-renderer:style(visibility: hidden !important)
 www.youtube.com##ytd-browse[page-subtype="home"] ytd-rich-section-renderer
 
 ! YouTube: related videos on the watch page (sidebar, or below the video in narrow windows)
