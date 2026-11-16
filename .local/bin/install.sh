@@ -24,9 +24,10 @@ if ! command -v yay &> /dev/null; then
     rm -rf ~/.cache/yay-bin
 fi
 
+export PATH="$PATH:$HOME/.local/bin:/usr/bin/core_perl"
+
 yay -S --sudoloop --noconfirm --needed --overwrite="*" fonts-noto-hinted ttf-ms-fonts wpgtk masterpassword-cli keynav calibre-bin spotify spotx-git themix-theme-oomox-git themix-icons-archdroid-git
 
-export PATH="$PATH:$HOME/.local/bin"
 wpg -a ~/.dotfiles/wallpaper.jpg
 wpg -s wallpaper.jpg
 
