@@ -13,7 +13,7 @@ URxvt*.shading: 15
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-URxvt.perl-ext-common: default,matcher,font-size,notify
+URxvt.perl-ext-common: default,matcher,font-size
 
 URxvt.keysym.C-Right: \033[1;5C
 URxvt.keysym.C-Left: \033[1;5D

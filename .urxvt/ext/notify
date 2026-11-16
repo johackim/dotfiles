@@ -1,7 +1,0 @@
-#! perl
-
-sub on_osc_seq_perl {
-   my ($self, $osc) = @_;
-   system('notify-send', '--', $1, $2) if $osc =~ /^notify;(\S+);(.*)$/;
-   ()
-}
