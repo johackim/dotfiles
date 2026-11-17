@@ -22,4 +22,4 @@ no_jokes=true /opt/oomox/plugins/theme_oomox/change_color.sh -o Pywal ~/.cache/w
 ICONS_ARCHDROID=${colors[3]:1} oomox-archdroid-icons-cli -o Pywal ~/.cache/wal/colors-oomox
 
 # Reload thunar
-thunar -q
+thunar -q 2> /dev/null

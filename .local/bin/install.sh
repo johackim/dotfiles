@@ -30,5 +30,7 @@ yay -S --sudoloop --noconfirm --needed --overwrite="*" fonts-noto-hinted ttf-ms-
 
 wpg -a ~/.dotfiles/wallpaper.jpg
 wpg -s wallpaper.jpg
+while pgrep -f wal-set.sh > /dev/null; do sleep 1; done
 
 nvim --headless +qa
+printf "\nInstallation complete\n"

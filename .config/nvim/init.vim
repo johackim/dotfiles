@@ -13,7 +13,7 @@ vim.pack.add({
 
 -- Treesitter
 local langs = { "javascript", "markdown", "json", "html", "css", "vim" }
-pcall(function() require('nvim-treesitter').install(langs) end)
+pcall(function() require('nvim-treesitter').install(langs):wait(300000) end)
 vim.api.nvim_create_autocmd('FileType', {
   pattern = langs,
   callback = function() pcall(vim.treesitter.start) end,
