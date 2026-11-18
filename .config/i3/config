@@ -155,6 +155,7 @@ for_window [class="^Vlc|mpv$"] focus
 for_window [class="Foliate$"] floating disable
 for_window [class="Spotify"] move to workspace 5
 for_window [class="obsidian"] floating disable
+for_window [window_role="GtkFileChooserDialog"] floating enable, resize set 1000 650, move position center
 
 hide_edge_borders both
 
