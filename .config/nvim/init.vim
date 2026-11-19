@@ -103,3 +103,8 @@ let g:ale_fixers = { 'javascript': ['eslint'] }
 
 " Completion
 set autocomplete
+
+" Wiki links: Ctrl+Enter on [[note]] opens note.md
+autocmd FileType markdown setlocal suffixesadd+=.md path+=** isfname+=32 | nnoremap <buffer> <C-CR> gf
+autocmd BufWinEnter,WinEnter *.md match WikiLink /\[\[.\{-}\]\]/
+highlight link WikiLink @markup.link
