@@ -125,10 +125,12 @@ exec --no-startup-id keynav daemonize
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id blueman-applet
 
-exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e tmux new -As main'
-exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e tmux new -As second'
-exec --no-startup-id i3-msg 'workspace 3; exec --no-startup-id chromium'
+exec --no-startup-id urxvt -name tmux-main -title urxvt -e tmux new -As main
+exec --no-startup-id urxvt -name tmux-second -title urxvt -e tmux new -As second
+exec --no-startup-id chromium
 
+assign [instance="^tmux-main$"] 1
+assign [instance="^tmux-second$"] 2
 assign [class="firefox" instance="Navigator"] 3
 assign [class="Chromium" title="grafana.ethibox.fr"] 4
 assign [class="Chromium|Google-chrome"] 3
