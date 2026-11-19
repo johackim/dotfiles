@@ -9,6 +9,7 @@ vim.pack.add({
   'https://github.com/Raimondi/delimitMate',
   'https://github.com/github/copilot.vim',
   'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/ryanoasis/vim-devicons',
 }, { confirm = false })
 
 -- Treesitter
