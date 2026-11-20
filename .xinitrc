@@ -15,4 +15,6 @@ synclient TapButton1=1 TapButton2=3
 
 wal -R > /dev/null 2>&1
 
+[ -f ~/.fehbg ] && sh ~/.fehbg
+
 exec ${2:-i3}
