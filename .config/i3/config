@@ -107,6 +107,8 @@ bar {
     font pango:Noto Sans 9
     tray_padding 6
     status_command ~/.local/bin/status.sh
+    bindsym button4 nop
+    bindsym button5 nop
     colors {
         statusline $fg
         focused_workspace  $c1      $c1      $fg
